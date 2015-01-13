@@ -1,0 +1,142 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation Tru64 Netscape on AlphaLinux</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+    <TR> 
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD>
+        <CENTER>
+		 <!--#exec cgi="/cgi-bin/banmat1.cgi"-->    
+        </CENTER>
+      </TD>
+    </TR>
+    <TR> 
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+    </TR>
+    <TR> 
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+    </TR>
+    <TR VALIGN="top"> 
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33"> &nbsp;<BR>
+        <IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"> 
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+          <TR> 
+            <TD WIDTH=10></TD>
+            <TD WIDTH="552"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B> 
+              <!-- Document title goes here. If this is the top-level --> <!-- document in the hierarchy, i.e. /docs/index.html,  --> 
+              <!-- the document title is omitted. --> Running Tru64 (DU) Netscape Under AlphaLinux </B></FONT>
+              <P> <!-- Actual document --> The Document describes how to setup 
+                <A HREF="http://www.netscape.com">Netscape</A> for <A HREF="http://www.compaq.com">Compaq</A> 
+                <A HREF="http://www.unix.digital.com">Tru64Unix</A> under AlphaLinux. 
+                Note that of late many distributions are shipping these libs in a Tru64-compat package and that
+		it no longer requires a legal license of Tru64 to use these. 
+              <P> <!-- Subtitle --> <FONT SIZE="+1"><B> You will need: </B></FONT>
+              <P> <B>1</B>. The following libraries from /usr/shlib and other 
+			  places (watch out, some are symlinks):<BR><BR>
+                libXm.so at 0x242f2000<BR>
+                libXmu.so at 0x244a6000<BR>
+                libXt.so at 0x244c8000<BR>
+                libX11.so at 0x24536000<BR>
+                libXext.so at 0x2463a000<BR>
+                libdnet_stub.so at 0x244be000<BR>
+                libm.so at 0x24652000 (symlink to /usr/shlib/generic/libm.so)<BR>
+                libots.so at 0x246ba000 (symlink to /usr/ccs/.../libots.so)<BR>
+                libc_r.so at 0x246c4000 (hardlink to libc.so in /shlib)<BR>
+                libcxx.so at 0x247e4000<BR>
+                libSM.so at 0x24812000<BR>
+                libICE.so at 0x24824000<BR>
+                libexc.so at 0x2481e000
+              </FONT>
+<p><font face="Arial, Helvetica, sans-serif"><b>2</b>. /sbin/loader, 
+                /etc/svc.conf, /etc/sia/matrix.conf</font></p>
+              <FONT FACE="Helvetica, sans-serif"> 
+              <P> <b>3</b>. navigator-v408-export.alpha-dec-osf3.2.tar.gz or your 
+                <a href="ftp://ftp.netscape.com/pub/communicator/4.6/english/unix/supported/dec_unix40/">preferred 
+                version</a>
+              <P> <b>4</b>. Fortify-1.4.1-unix-alpha.tar.gz from <a href="ftp://ftp.fortify.net">ftp.fortify.net</a> 
+                if you want 128bit crypto are outside the US
+              </FONT> 
+              <p><font face="Arial, Helvetica, sans-serif">Before you begin the 
+                instalatlion of Nescape you'll need to perform the following:</font></p>
+              <p><font face="Helvetica, sans-serif"><font face="Helvetica, sans-serif">Place 
+                all of the above shlibs into /usr/shlib.</font></font></p>
+              <p><font face="Arial, Helvetica, sans-serif">ln -s /usr/shlib/libc.so 
+                /usr/shlib/libpthread.so<br>
+                ln -s /usr/shlib/libc.so /usr/shlib/libpthreads.so</font></p>
+              <p><font face="Arial, Helvetica, sans-serif">Copy loader into /sbin 
+                , svc.conf into /etc, and sia/ into /etc</font></p>
+              <p><font face="Helvetica, sans-serif">touch /etc/sia/siainitgood 
+                </font></p>
+              <p><FONT FACE="Helvetica, sans-serif"> </FONT><FONT FACE="Helvetica, sans-serif">loader 
+                must be in /sbin with mode 755, svc.conf needs to go into /etc 
+                with mode 644 as does everything in /etc/sia. </FONT></p>
+              <FONT FACE="Helvetica, sans-serif"></FONT> 
+              <p><FONT FACE="Helvetica, sans-serif">Install Netscape as usual using the provided 
+                installer into /usr/local/netscape. It will complain about not 
+                being able to run vreg, ignore it. </FONT></p>
+              <p><font face="Helvetica, sans-serif">To get DNS to work properly 
+                edit the /etc/svc.conf file and change the <b>hosts=</b> line 
+                to <b>hosts=local,bind</b>. If you're using NIS instead of BIND 
+                then <b>hosts=local,nis</b> should work.</font> <font face="Helvetica, sans-serif">Also make sure that
+		your /etc/resolv.conf looks similar to this:
+		<P>search <I>somedomain.com</I>
+		<BR>nameserver <I>1.2.3.4</I>
+		<BR>nameserver <I>5.6.7.8</I>
+
+		<P>Leaving out the search parameter seems to make the DNS resolution fail and you will
+		only be able to browse the web by IP address.
+		    After 
+                these changes DNS seems to work properly. </font>
+              <p><font face="Arial, Helvetica, sans-serif">You can then run netscape 
+                using the following shell script: </font></p>
+<PRE> 
+#!/bin/sh
+export LD_LIBRARY_PATH=/usr/shlib:/shlib
+#This used to be need but ASYNC DNS seems to work fine with NS 4.7 and Tru64 4.0F
+#export MOZILLA_NO_ASYNC_DNS=True
+export MOZILLA_HOME=/usr/local/netscape
+exec ${MOZILLA_HOME}/netscape $*</PRE>
+
+<UL>
+<LI> In order to install Fortify you need to run the fortify binary 
+     in .../alpha-dec-osf3.2/bin directly since the shell installer 
+     doesn't work.<br>
+     <br>
+</LI>
+<LI>You will get occasional messages from the kernel about unsupported 
+    syscalls, etc. These don't seem to harm the application in any 
+    way.<br>
+    <br>
+</LI>
+<LI>The shlibs tested here were from Digital UNIX 4.0D, 4.0E and 
+4.0F. Your mileage may vary.<BR>
+<BR> </LI>
+
+<LI>Java and Javascript may or may not work. Different users have reported different results. Chances
+are that Javascript should work without any trouble.</LI>
+</UL>
+          
+              </FONT>
+              <p><FONT FACE="Arial, Helvetica, sans-serif"><!-- End of actual document --></FONT></p>
+             
+            </TD>
+          </TR>
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

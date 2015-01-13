@@ -1,0 +1,240 @@
+<hTML>
+<HEAD>
+<TITLE>AlphaLinux - Hardware</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+   <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>  
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_hardware.gif" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Hardware">
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Vendors
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+	      Below is a list of vendors that sell Alpha based hardware. Please note that we do not endorse any
+	      of these vendors, we are just providing a list. Vendors market with "<B> - ALO Sponsor</B>" are those
+	      that either support The AlphaLinux Organization through banner ads or donations.
+
+
+<FONT SIZE="+1"><B>
+<UL>Austria
+</B></FONT><BR> 
+  <LI><A HREF="http://www.quant-x.com">www.quant-x.com</A> Quant-X Service and Consulting</LI>  
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Australia
+</B></FONT><BR> 
+ <LI><A HREF="http://www.cybersite.com.au">www.cybersite.com.au</A> Cybersite Consulting Pty Ltd</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Brazil
+</B></FONT><BR>
+ <LI><A HREF="http://www.skill-computer.com.br/">www.skill-computer.com.br</A> Skill Computer Services</LI>
+</UL>
+
+
+<FONT SIZE="+1"><B>
+<UL>Canada
+</B></FONT><BR>
+ <LI><A HREF="http://www.harddata.com">www.harddata.com</A> Hard Data Systems</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>China
+</B></FONT><BR>
+ <LI><A HREF="http://www.ebi.com.cn/">www.ebi.com.cn</A> Genesis systems int'l Ltd</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Finland
+</B></FONT><BR> 
+ <LI><A HREF="http://www.damicon.fi">www.damicon.fi</A> Damicon Kraa</LI>
+ <LI><A HREF="http://www.pss.fi">www.pss.fi</A></LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>France
+</B></FONT><BR> 
+ <LI><A HREF="http://www.adrenalium.com">www.adrenalium.com</A> Adrenalium</LI> 
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Germany
+</B></FONT><BR> 
+ <LI><A HREF="http://www.dcp.de">www.dcp.de</A> DCP GmbH </LI>
+ <LI><A HREF="http://www.fms-computer.com">www.fms-computer.com</A> FMS Computer</LI>
+ <LI><A HREF="http://www.llynchmeta.de"> www.llynchmeta.de</A> Llynchmeta</LI> 
+ <LI><A HREF="http://www.mikerohard.de/">www.mikerohard.de</A> MikeRoHard</LI>
+ <LI><A HREF="http://www.quant-x.com">www.quant-x.com</A> Quant-X Service and Consulting</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Hong Kong
+</B></FONT><BR> 
+ <LI><A HREF="http://www.genesis.com.hk">Genesis Systems International Ltd </A></LI>
+</UL> 
+
+<FONT SIZE="+1"><B>
+<UL>India
+</B></FONT><BR> 
+ <LI><A HREF="http://www.summnet.com"> Summation</A></LI>
+</UL> 
+
+<FONT SIZE="+1"><B>
+<UL>Italy
+</B></FONT><BR> 
+ <LI><A HREF="http://www.jollybg.it">www.jollybg.it</A></LI>
+</UL> 
+
+<FONT SIZE="+1"><B>
+<UL>Japan
+</B></FONT><BR> 
+ <LI><A HREF="http://www.hpc.co.jp/">HIT Inc.</A></LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Netherlands
+</B></FONT><BR> 
+ <LI><A HREF="http://www.jw-systems.nl">www.jw-systems.nl</A> JW Systems</LI>
+ <LI><A HREF="http://www.request.nl">www.request.nl</A> Request Automation Services</LI>
+ <LI><A HREF="http://www.pqr.com">www.pqr.com</A> PQR Computer Products</LI>
+ <LI><A HREF="htpp://www.benp.nl">www.benp.nl</A> Van den berg & Peters</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Norway
+</B></FONT><BR> 
+ <LI><A HREF="http://www.alphasystem.no">www.alphasystem.no</A> Alpha System</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Poland
+</B></FONT><BR> 
+ <LI><A HREF="http://www.aba.krakow.pl">www.aba.krakow.pl</A> ABA Ltd</LI>
+ <LI><A HREF="http://www.iota.pl">www.iota.pl</A> IOTA</LI>
+ <LI><A HREF="http://www.rgstudio.com.pl/infocenter/alpha/samsung-pl.html">www.rgstudio.com.pl</A> RG Studio</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Spain
+</B></FONT><BR> 
+ <LI><A HREF="http://www.caton-sisalt.es/">www.caton-sisalt.es</A> Catón Sistemas Alternativos</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Sweden
+</B></FONT><BR> 
+ <LI><A HREF="http://www.alphait.se">www.alphait.se</A> Alpha Information Teknik AB</LI>
+ <LI><A HREF="http://www.tricom.se">www.tricom.se</A> Tricom Data -No Linux</LI>
+ <LI><A HREF="http://www.ub-mm.nu">www.ub-mm.nu</A>  UB MediaMannen - available in Swedish and English</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>Switzerland
+</B></FONT><BR> 
+  <LI><A HREF="http://www.dalco.ch">www.dalco.ch</A> Dalco AG</LI> 
+  <LI><A HREF="http://www.quant-x.com">www.quant-x.com</A> Quant-X Service and Consulting</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL>United Kingdom
+</B></FONT><BR>
+ <LI><A HREF="http://www.alphadata.co.uk">www.alphadata.co.uk</A> Alpha Data Parallel Systems Ltd</LI>
+ <LI><A HREF="http://www.compusys.co.uk/">www.compusys.co.uk</A> Compusys Limited</LI>
+ <LI><A HREF="http://www.prolinx.co.uk/">www.prolinx.co.uk</A> ProLinx</LI>
+ <LI><A HREF="http://you.genie.co.uk/peterw/service/alpha.htm">you.genie.co.uk/peterw/service/alpha.htm</A> PW Navigate Ltd</LI>
+ <LI><A HREF="http://www.siamese.co.uk/">www.siamese.co.uk/alpha.html</A> Siamese Systems</LI>
+</UL>
+
+<FONT SIZE="+1"><B> 
+<UL>United States
+</B></FONT><BR>  
+ <LI><A HREF="http://www.abtinc.com">www.abtinc.com</A> Advanced Business Technology</LI>
+ <LI><A HREF="http://www.omnistep.com/~advantag/">www.omnistep.com/~advantag/</A> Advantage Consulting</LI>
+ <LI><A HREF="http://www.altatech.com">www.altatech.com</A> Alta Technology</LI>
+ <LI><A HREF="http://www.apache.com">www.apache.com</A> Apache Digital</LI>
+ <LI><A HREF="http://www.aspsys.com">www.aspsys.com</A> Aspen Systems</LI>
+ <LI><A HREF="http://www.crescentcomputer.com">www.crescentcomputer.com</A> Crescent Computer Systems Inc -No Linux</LI>
+ <LI><A HREF="http://www.compaq.com/alphaserver/linux/">www.compaq.com/alphaserver/linux</A> Compaq Linux-Ready AlphaServers</LI>
+ <LI><A HREF="http://www.eli.com/">www.eli.com</A> E.L.I. Incorporated</LI>
+ <LI><A HREF="http://www.computerclearinghouse.com/">www.computerclearinghouse.com</A> Computer Clearing House -No Linux</LI>
+ <LI><A HREF="http://www.compsyscon.com">www.compsyscon.com</A> Computer Systems Consultant -No Linux</LI>
+ <li><a href="http://www.global-itcorp.com">www.global-itcorp.com</a> Global IT Corporation</li>
+ <LI><A HREF="http://www.harddata.com">www.harddata.com</A> Hard Data Systems</LI>
+ <LI><A HREF="http://www.islandco.com">www.islandco.com</A> Island Computers</LI>
+ <LI><A HREF="http://www.linuxnetworx.com">www.linuxnetworx.com</A> Linux Networx</LI>
+ <LI><A HREF="http://www.matchcomputer.com/">www.matchcomputer.com/</A> Match Computer</LI>
+ <LI><A HREF="http://www.alphapower.com">www.alphapower.com</A> NekoTech Inc</LI>
+ <LI><A HREF="http://www.tdl.com/~netex">www.tdl.com/~netex</A> Net Express</LI>
+ <LI><A HREF="http://www.psds.com">www.psds.com</A> Puget Sound Data Systems</LI>
+ <LI><A HREF="http://www.glcomp.com/">www.glcomp.com</A> Great Lakes Computer -No Linux</LI>
+ <LI><A HREF="http://www.microway.com">www.microway.com</A> Microway Inc. </LI>
+ <LI><A HREF="http://WWW.northeastdigital.com">www.northeastdigital.com</A> Northeast Digital Systems, Inc.</LI>
+ <LI><A HREF="http://www.pios.com">www.pios.com</A> Pioneer-Standard Electronics</LI>
+ <LI><A HREF="http://www.smp-corp.com/">www.smp-corp.com</A> Systems Management/Planning</LI>
+ <LI><A HREF="http://www.starshipcorp.com">www.starshipcorp.com</A> Starship Computer Company</LI>
+ <LI><A HREF="http://www.swt.com/index.html">www.swt.com</A> SW Technologies</LI>
+</UL>
+
+<FONT SIZE="+1"><B>
+<UL><FONT SIZE=4>Component Vendors</FONT>
+</B></FONT><BR> 
+  <LI><A HREF="http://www.intraserver.com">www.intraserver.com</A> SCSI and Network adapters for Linux systems</LI>
+</UL>
+
+
+
+<P>If you know of other vendors, or if you are a vendor that sells Alpha based equipment please send me a 
+<A HREF="mailto:rdp@talisman.mv-nospam.com?subject=vendors"> message </A>and I'll add your link to the page. If you are a vendor that would like some 
+information about your company added to the list then please do the same.</P>
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

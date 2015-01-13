@@ -1,0 +1,162 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Press Release</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>     
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+       
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+<FONT SIZE="+1"><B>
+FOR IMMEDIATE RELEASE
+</FONT></B>
+<P><B>
+Stalker Announces an AlphaLinux version for the CommuniGate Pro Mail Server
+</B>
+<P>
+<UL>Key Features: 
+              <LI>Multi-platform Support </LI>
+              <LI>Industry-strength, highly scalable  </LI>     
+              <LI>Administration via the Web  </LI>
+               <LI>Extensive multi-domain support  </LI>
+               <LI>Unique IMAP multi-mailbox features  </LI>
+               <LI>HTTP access to E-mail, built-in Web Mailer  </LI>
+               <LI>Extensive Anti-Spam techniques  </LI>
+               <LI>Mailing Lists with Web Access and Interactive Archive Search </LI>
+               <LI>LDAP and ACAP Support </LI>
+               <LI>Personal Web Pages with automated publishing </LI>
+               <LI>Cluster Support </LI>
+</UL>
+<P>
+MILL VALLEY, CA - November 5, 1999 - Stalker Software, Inc. today announced
+the version 3.1 of their hi-end CommuniGate Pro messaging system. CommuniGate
+Pro is a Unified Messaging Server which supports most major operating systems.
+CommuniGate Pro is recognized for its many features, high speed and
+reliability.
+<P>
+Since its first commercial release in September 1998, Stalker has expanded the
+operating systems it supports to include HP/UX, Solaris, FreeBSD, Linux/
+LinuxPPC, WindowsNT, MacOS X, BSDi, AIX, D/Unix, IRIX and now AlphaLinux. On
+all platforms, CommuniGate Pro presents the same interface and uses the same
+file formats, allowing any organization to switch server platforms in less
+than an hour. 
+<P>
+<B>Scalability</B>
+<P>
+CommuniGate Pro can support 100,000-200,000 accounts from one server making it
+a viable solution for small to mid-size ISP's. For extra large ISP's handling
+millions of accounts, CommuniGate Pro offers clustering support. CommuniGate
+Pro clustering can be used to build frontend/backend multi-server
+configurations, as well as symmetric cluster sites. Based on inter-server
+synchronization methods, the CommuniGate Pro Cluster can employ shared file
+servers (such as NFS servers) without the overhead and reliability problems
+associated with the OS-level file locking.  
+<P>
+<B>Personal Web Pages</B>
+<P>
+In addition, the new 3.1 version of CommuniGate Pro supports Personal Web
+Sites with automated publishing. Users can create their own Web sites and
+upload web files to the CommuniGate Pro server using any composer application
+that supports the HTTP PUT method (like Netscape(r) Composer). Besides,
+Personal Web Sites can be updated using simple HTML forms. Support for
+uploading via the CommuniGate Pro FTP server should follow in the next
+release.
+<P>
+<B>Security</B>
+<P>
+CommuniGate Pro supports secure connections for all services it supports. Not
+only the HTTP services (Web Administration and WebUser interface to E-mail)
+can be used via secure internet connections, but all other communications,
+such as IMAP, POP, SMTP, LDAP, ACAP can be secured.
+<P> 
+<B>Anti-Spam Features </B>
+<P>
+Stalker Software is known for the sophisticated Anti-Spam features in their
+current mail servers, and CommuniGate Pro is no exception. These features
+include: restricted relaying, black-listing IP addresses, domains and
+individual accounts; return-path verification, and support for DNS-based
+black-list servers (RBLs). In addition, CommuniGate Pro now supports the
+highly effective Spam Trap feature created for the Stalker Internet Mail
+Server. By creating a fictitious, "spam-trap" account with CommuniGate Pro,
+the bulk mailing lists that use robots to scan and gather email addresses from
+web pages will pick up this fictitious account for their list. Any email
+coming into the server addressed to the "spam-trap" account will allow the
+Server to reject the entire messages, and they will not be delivered to any
+real recipient on your site either.
+<P>
+<B>Try Before You Buy</B>
+<P>
+CommuniGate Pro is marketed in the same manner as the CommuniGate System for
+the MacOS. There is a Free Trial Version available at <http://www.stalker.com/
+CommuniGatePro/>.  This version is the actual software for purchase, but it
+adds banners to the transferred messages. Stalker issues license "keys" that
+should be entered into the server settings to disable these banners.
+<P>
+<B>Updates and support</B>
+<P>
+The updated versions (both betas and finals) are posted on a regular basis.
+Update information and free technical support are available via Stalker's very
+active mailing list at <A HREF="http://mail.stalker.com/Lists/CGatePro/List.html">http://mail.stalker.com/Lists/CGatePro/List.html</A>.
+<P>
+      				###
+Stalker Software, Inc. develops and distributes networking and communication
+software. The company was founded in Europe in 1991 and opened its U.S.
+offices in 1993 at 655 Redwood Highway, Suite 275, Mill Valley, Calif. 94941.
+For more information about Stalker Software and its products, please contact
+Ali Liptrot, director of sales and marketing, at (800) 262-4722 or (415)
+383-7164. She can also be contacted by fax at (415) 383-7461 or E-mail at 
+<A HREF="mailto:ali@stalker.com">ali@stalker.com</A>. Visit the Stalker Software web site at 
+<A HREF="http://www.stalker.com">http://www.stalker.com</A>. 
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

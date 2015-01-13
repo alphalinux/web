@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<mirrors xmlns="http://www.alphalinux.org/mirror/dtd">
+	<site>
+		<sitename>AlphaLinux.Org</sitename>
+		<location>California USA</location>
+		<protocol>FTP</protocol>
+		<hostname>ftp.alphalinux.org</hostname>
+		<port>21</port>
+		<path>/pub/gnome/helix-gnome/</path>
+	</site>
+</mirrors>
+
+

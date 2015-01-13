@@ -1,0 +1,231 @@
+<HTML
+><HEAD
+><TITLE
+>Problem Solving.</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.57"><LINK
+REL="HOME"
+TITLE="Alpha Miniloader Howto"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Restrictions."
+HREF="x514.html"><LINK
+REL="NEXT"
+TITLE="Acknowledgements."
+HREF="x549.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Alpha Miniloader Howto</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x514.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x549.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN523"
+>9. Problem Solving.</A
+></H1
+><P
+>Here are some common problems that people have seen, together with the
+solutions.</P
+><P
+><I
+CLASS="EMPHASIS"
+>Reading MS-DOS floppies from the Evaluation Board Debug Monitor.</I
+>  </P
+><P
+> Some of the older versions of the Evaluation Board Debug Monitor (pre-version 2.0)
+have a problem with DOS format flopies generated from Linux.
+Usually, the Debug Monitor can load the first few sectors all right, but then goes
+into an endless loop complaining about "bad sectors."  Apparently,
+there is an incompatibility between the DOS file system as expected by
+the Debug Monitor and the Linux implementation of DOSFS.  To make the
+long story short: if you run into this problem, try using DOS to write
+the floppy disk.  For example, if loading the file <TT
+CLASS="LITERAL"
+>MILO.cab</TT
+>
+doesn't work, use a DOS machine, insert the floppy and then do:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     copy a:MILO.cab c:
+     copy c:MILO.cab a:
+     del c:MILO.cab</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+> Then try booting from that floppy again.  This normally solves the problem.</P
+><P
+><I
+CLASS="EMPHASIS"
+>MILO displays a long sequence of <TT
+CLASS="LITERAL"
+>O&#62;</TT
+> and does not accept input.</I
+></P
+><P
+>This usually happens when MILO was built to use COM1 as a secondary console
+device.   In such a case, MILO echo output to COM1 and accepts input from
+there also.   This is great for debugging but not so great if you have
+a device other than a terminal connected.
+If this happens, disconnect the device or power it down until the Linux
+kernel has booted.
+Once Linux is up and running, everything will work as expected.</P
+><P
+><I
+CLASS="EMPHASIS"
+>MILO complains that the kernel image has the wrong magic number</I
+></P
+><P
+> Older versions of MILO did not support the ELF object file format and so
+could not recognise an ELF image and this might be your problem.
+If this is reported, upgrade to the latest MILO that you can find.  All
+2.0.20 and beyond MILOs support ELF.
+On the other hand it could be that the image is indeed damaged.  You should
+also note that MILO does not yet automatically distinquish between GZIP'd
+and non-GZIP'd images; you need to add the ".gz" suffix to the file name.</P
+><P
+><I
+CLASS="EMPHASIS"
+>MILO prints "...turning on virtual addressing and jumping to the Linux Kernel" and
+nothing else happens</I
+></P
+><P
+>One obvious problem is that the kernel image is wrongly built or is built for another
+Alpha system altogether.
+Another is that the video board is a TGA (Zlxp) device and the kernel has been built
+for a VGA device (or vice versa).
+It is worth building the kernel to echo to COM1 and then connecting a terminal to
+that serial port or retrying the kernel that came with the Linux distribution that you
+installed.</P
+><P
+><I
+CLASS="EMPHASIS"
+>MILO does not recognise the SCSI device</I
+></P
+><P
+>The standard MILO images include as many device drivers as are known to be stable
+for Alpha (as of now that includes the NCR 810, QLOGIC ISP, Buslogic and Adaptec 2940s
+and 3940 cards).  If your card is not included, it may be that the driver is not stable
+enough on an Alpha system yet.  Again, the latest MILO images are worth trying.  You
+can tell which SCSI devices a MILO image has built into it by using the "show" command.</P
+><P
+><I
+CLASS="EMPHASIS"
+>MILO is unable to read your ext2 filesystem</I
+></P
+><P
+>Early versions of MILO are unable to read ext2 filesystems that have been created with
+the newer versions of mke2fs due to sparse superblocks. Upgrade to a newer MILO and this
+should fix the problem.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x514.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x549.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Restrictions.</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Acknowledgements.</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

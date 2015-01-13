@@ -1,0 +1,27 @@
+<?xml version="1.0"?><rdf:RDF
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns="http://my.netscape.com/rdf/simple/0.9/">
+
+	<channel>
+		<title>AlphaNews.NET: Your Source For News on the Alpha</title>
+		<link>http://www.alphanews.net/</link>
+		<description>Your Source For News on the Alpha</description>
+	</channel>
+	
+	<image>
+		<title>AlphaNews.NET</title>
+		<url>http://www.alphanews.net/images/logo.gif</url>
+		<link>http://www.alphanews.net/</link>
+  	</image>
+
+	<item>
+		<title>PWS 500au: VMS 7.3 sees CDROMs on EIDE, but not hard disks</title>
+		<link>http://www.alphanews.net/?op=displaystory;sid=2004/7/21/124036/250</link>
+	</item>
+
+	<item>
+		<title>Big problem with an AlphaServer 400 4/233</title>
+		<link>http://www.alphanews.net/?op=displaystory;sid=2004/7/14/6542/76679</link>
+	</item>
+
+</rdf:RDF>

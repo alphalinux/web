@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Jensen
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+	      The Jensens were some of the first Alpha machines produced by Digital and were based around a 
+	      150MHz Alpha chip. They are nothing like the PCs of today and they were also some of the first to have
+	      Linux ported to them. WARNING - the Jensens can be a bit of a challenge for installing Linux....Good Luck. 
+	      Below are some links related to setting up Linux on the Jensen. The Digital site also
+	      contains other files for the Jensen (firmware etc..). 
+
+	      <UL>
+	      <LI> <A HREF="http://www.alphalinux.org/docs/jensen-install-0.7.shtml
+">Jensen install using aboot-0.7</A> <B>updated 9/24/00</B></LI>	
+	      <LI><A HREF="http://www.alphalinux.org/docs/jensen-install.shtml 
+">Jensen install using aboot</A></LI>	
+              <LI><A HREF="http://www.khubla.com/jensen.html">Jensen Installation </A>Instructions</LI>
+	      <LI><A HREF="ftp://ftp.digital.com/pub/DEC/Linux-Alpha/JENSEN_INSTALL/Jensen-HOWTO">Howto </A>From Digital</LI>
+	      <LI><A HREF="http://www.unix-ag.org/Linux-Alpha/Architectures/Jensen.html">Some info and Links</A> from Nils Faerber's Site</LI>
+	      <LI><A HREF="http://www.comnets.rwth-aachen.de/~ost/alpha/jensen.html">Lots of useful info on the Jensen</A> by Martin Ostermann</LI>
+	      <LI><A HREF="jensen_manual.pdf.gz">Original Jensen</A> Manual (gziped version)</LI>
+	      </UL>
+
+	      <P><B>Hints and Tips</B>
+	      <P>When formating the disk with minlabel leave the last block unformatted (use totalblocks - 1).</P>
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+   
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

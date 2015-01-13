@@ -1,0 +1,352 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Software</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>  
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+	     <B>Warning</B> links in here may no longer be valid and they will not be updated.
+	     <P>	
+	    
+<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 31st 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	Here's an <A HREF="http://www.zdnet.com/pcweek/stories/news/0,4153,1013790,00.html">interesting article from ZDNET</A> in which they talk about Gateway
+	using AMD's chip instead of Intel's. The interesting part is about half way down the page where they talk about
+	Gateway using the up and coming AMD K7 chip, which as we all know will be socket compatible with the Alpha. So, does
+	this mean you'll be able to call up Gateway and order an Alpha machine, with Linux? 
+	<P>
+	We now have a JDK 1.2 (Java 2) port to AlphaLinux, available from <A HREF="http://www.voicenet.com/~gatgul/JDK/1.2/">http://www.voicenet.com/~gatgul/JDK/1.2</A>.
+	<P>
+	For people interested in the Icon programming language, Tim Patti has provided us with some directions and tips for
+	using the language under AlphaLinux. <A href="../software/icon/index.shtml">His directions</A> can be found in the
+	<A href="../software/index.shtml">software</A> section.
+</TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 30th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	Computer Reseller News has <A HREF="http://www.techweb.com/se/directlink.cgi?CRN19990201S0017">
+	an article</A> on Monday's Alpha announcements. Don't forget <A HREF="http://webevents.broadcast.com/compaq/home.html">
+	to register</A> for the live webcast.
+
+	<P>
+	RedHat and Freshmeat are back on line.
+	<P>
+	<A HREF="http://www.msnbc.com/news/235575.asp">msnbc.com</A> has a story on the release of
+	the 2.2 kernel with a link to alphalinux.org. Not quite sure what the connection is though!
+</TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 29th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	We are proud to announce the availability of the AlphaLinux Frame Buffer FAQ. This has just been started so
+	all comments and additions are welcome. You can find it in the <A HREF="../docs/">docs</A> section.
+	<P>
+	Compaq is getting ready for the release of the new XP1000 Alpha workstations on Monday. More information can be found at
+	the <A HREF="http://www.compaq.com/products/workstations/">Compaq Workstation</A> home page.
+</TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 28th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	Linus has released kernel version 2.2.1, the "brown paper bag release". 
+	<P>
+	Here's some recent press coverage of the Alpha:
+	<BR>
+	<A HREF="http://www.theregister.co.uk/990128-000013.html"> Intel's Merced undercut by Compaq's Alpha</A> and 
+ 	<A HREF="http://www.news.com/News/Item/0%2C4%2C31511%2C00.html?dd.ne.tx.ts3.0127">Computing heavyweights warm to Linux</A>
+ 	<P>
+ 	<A HREF="http://www.opensound.com">4Front Technologies</A> has announced a new release of Open Sound System (OSS)
+	for AlphaLinux (thanks to Oliver Soell).
+
+	<P>On the hardware front the DP264 (that's the new dual 21264 motherboard) comes out on Monday with a single processor 
+	version on the way, and the LX board is going back into limited production run. 
+	<P>
+	Got a news item for the AlphaLinux community? Send it along to <A HREF="mailto:news@alphalinux.org">news@alphalinux.org</A>. </TD>
+</TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 26th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	    Well it's finally arrived. Kernel 2.2 has appeared on kernel.org and it's mirrors.
+	<P>
+	The downtime has been rescheduled for today at 8:00am (PST). Hopefully we should
+	only be down for about 10 minutes.
+	       </TD></TR>
+
+
+
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 24th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	    We've started to archive the Debian-Alpha mailing list. Available from the <A HREF="../archives/">archives</A> section.
+	    <P>
+	    On the cluster project I just heard that the telephone company has installed the equipment so we should
+	    soon have a mailing list address for everybody. As soon as I know it I'll be sure to pass it on.
+         </TD></TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 21st 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	There here! Banners that is. For good or bad we've setup them up.
+	<P>
+	RedHat has released XFree86 3.3.3.1 RPMs for Alpha. Available from <A HREF="ftp://updates.redhat.com/5.2/alpha">
+	ftp://updates.redhat.com/5.2/alpha</A>.
+         </TD></TR>
+
+<TR>
+
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 19th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	  Here's a page with some info on the up and coming <A HREF="http://www.aceshardware.com/articles/alpha/21364.html">
+	21364</A> Alpha processor.
+	   <P>
+	    I have finally had a chance to download the image files for the <A HREF="../docs/ruffian/">Ruffian</A> 
+	    install information and 
+	    I've fixed the archiving of the axp-list. Hypermail was choking on one message that seemed to stop it from
+	    moving on.
+	    <P>
+	   From the rumors department: There has been talk on axp-list (and the alphant list I gather) that Compaq/Dec is going 
+	   to produce C/C++ compilers for alphalinux.
+         </TD></TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 17th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	    For those of you interested in the cluster project. We are still moving along. The mailing list
+	    has been setup, however we are waiting for the telephone company to install a T1 line, once
+	    this is done we will post the address for subscribing to the list.
+	  
+         </TD></TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 16th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	    
+            <A HREF="http://www.zdnet.com">ZDNET</A> is running an interesting article on Compaq   
+	    <A HREF="http://www.zdnet.com/zdnn/stories/news/0,4586,385256,00.html">providing
+	    Linux pre-installed on servers</A> (workstations to follow ?) with 24x7 support coverage.  
+	  
+         </TD></TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 15th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+            It seems like <a href=http://www.bsdi.com>BSDI</a> is creating a new platform that will run Linux.  It is called 
+            <a href="http://www.bsdi.com/press/19981214">Linux Application Platform</a> (LAP).  It will be included with the BSD
+            derived releases of the BSD/OS operating system. 
+            <br><br>
+
+            <i>"LAP addresses the biggest barrier to widespread industry adoption of Linux applications -- the lack of a
+                reliable, commercially supported operating system to run them on. BSDI's LAP also expands the market
+                opportunity for Linux application software vendors at thousands of corporations, Internet Service Providers
+                and network appliance developers worldwide where BSDI is used".
+            </i>
+
+            <br><br>
+            BSDI will be releasing LAP during the first quarter 1999.  There is no mention if they will make a BSD like
+            release of Linux, but this looks very encouraging with all the current distributions geared to the desktop
+            machine.
+            <br><br>
+            There is no mention of what architecture LAP will run on, but because bsd/os is x86 I would guess x86.  Feel free
+to <a href="mailto:info@bsdi.com">email
+            BSDI<a/> to find out more.
+            <br>-Barrett</br>
+         </TD></TR>
+
+
+          <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 13th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+	    <TD><FONT FACE="Helvetica, sans-serif">
+	    Well I'm back from my holiday. A big thanks to Barrett for providing updates while I was gone. I'm slowly
+	    plowing my way through my inbox so if you haven't heard back from me yet please don't be offended. News
+	    items so far:
+	    <P>
+	    Compaq has announced the availability of the Iprobe tool. There's a <A HREF="iprobefaq.txt">quick FAQ</A> available
+	    to tell you what it is and what it does. 
+	    <P>
+	    The <A HREF="../faq/FAQ.html">FAQ</A> has been updated. Thanks to Geerten Kuiper for the updates.
+	 </TR>
+
+
+
+	 <TR>
+          <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            January 12th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+	    <TD><FONT FACE="Helvetica, sans-serif">
+<b>Linux  v2.2.0 Pre-release Information </b>
+<p>
+Current Release: <a href="http://www.us.kernel.org/pub/linux/kernel/v2.2/">pre7</a>
+<p>
+I have condensed down the news section on the pre-release kernels to this one news item. 
+<p>
+There has been chatter on the linux-kernel list about pushing v2.2.0 into current Linux distros.
+
+A few interesting comments about small compatibility issues between the v2.2.0 kernel and a few major distributions caught my
+eye: <br><br>
+<table>
+<tr><td width=100><li><b><small>all</small></b></td><td> dmesg & klogd are not using larger kernel log size in new kernels (8192 bytes vs. 4096 bytes in v2.0).</td></tr>
+<tr><td><li><b><small>Debian slink</small></b></td><td> acct package is incorrectly compiled on (with sys/acct.h instead of linux/acct.h, IIRC).</td></tr>
+<tr><td><li><b><small>Debian slink</small></b></td><td> procinfo segfaults.</td></tr>
+<tr><td><li><b><small>Debian slink</small></b></td><td>lsdev has problems.</td></tr></table>
+If you know of more feel free to email me at: <a href="mailto:doxx@doxx.net">doxx@doxx.net</a> (Barrett Lyon).
+	 </TR>
+
+	  
+
+
+	
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

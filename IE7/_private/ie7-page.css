@@ -1,0 +1,37 @@
+body, td {font-family: Verdana, Arial, Helvetica, sans-serif; color: #000;}
+body {margin-top: 8px; background: #333; font-size: smaller;}
+h1 {margin: 0;}
+:link, a:active {color: #0a6cce; background: transparent;}
+:visited {color: #529; background: transparent;}
+code, .code {background: #f2f3f8;}
+code {font-family: monospace; font-size: 100%; font-style: normal; white-space: nowrap; padding: 0 1px; border: #d6d9e9 1px solid;}
+code.box {display: block; padding: 10px; background: #f2f3f8; border: #d6d9e9 1px solid;}
+hr {height: 1px; color: #000; border-style: solid;}
+hr.short {height: 2px; width: 100px;}
+.document {background: #eee; padding: 20px 20px 5px 20px; width: 600px;}
+.header hr, .footer hr {border-bottom-width: 0px;}
+.header hr {color: #0a6cce; background-color: #0a6cce;}
+.content {min-height: 100px;}
+.footer hr {color: #898e79; background-color: #898e79; }
+:link {color: #0a6cce;}
+:visited {color: #529;}
+.header, .header :link, .header :visited, h3 :link, h3 :visited {color: #0a6cce; text-decoration: none;}
+:visited:hover, #license :visited:hover {color: #fff; background-color: #529; text-decoration: none;}
+:link:hover, .header :visited:hover, h1 :visited:hover, h3 :visited:hover, a:hover code, #license :link:hover {
+	color: #fff; background-color: #0a6cce; text-decoration: none;
+}
+.footer :link:hover, .footer :visited:hover {background-color: transparent; text-decoration: none;}
+.header .menu {text-align: right;}
+.footer {font-size: smaller; margin-top: 8px;}
+.footer .modified {margin-top: 20px;}
+.disabled, .disabled * {color: #898e79;}
+.footnote {font-family: "times new roman", times; font-style: italic; margin-top: 10px;}
+#license {margin-top: 5px; font-size: xx-small;}
+table {border-top: 1px #000 solid; border-left: 1px #000 solid;}
+th {background-color: #eee; text-align: left;}
+th, td {border-right: 1px #000 solid; border-bottom: 1px #000 solid;}
+th.small {width: 100px;}
+th.medium {width: 150px;}
+th.large {width: 200px;}
+th.x-large {width: 408px;}
+.disabled {color: #898e79;}

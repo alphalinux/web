@@ -1,0 +1,35 @@
+
+Thought that I would update you with what I have as of today in the
+testdrive program: http://www.testdrive.compaq.com
+SuSE 6.3 on a DS20.................. 2 gigs
+Redhat 6.1 on a DS20................ 2 gigs
+RedHat 6.1 on an ES40............. 4 gigs 
+RedHat 6.0 on an AS1200......... 1 gig
+RedHat 6.0 configured as an 8 node Beowulf cluster.......XP1000s each with a
+half gig, the management node is also an XP1000
+Redhat 6.1 on a Proliant 5500................ 2 gigs
+SuSE 6.3 on a Proliant 5500.................. 2 gigs
+
+Turbo Cluster Server 4.0 on a Proliant 5500 with 2 gigs
+
+FreeBSD on a DPW500a.........................................768 megs  soon
+to be an XP1000 EV6.7 with 2 gigs as soon as it gets here from manufacturing
+FreeBSD on a Proliant 5500 ................................... 2 gigs
+
+Tru64 UNIX 5.0 on a DS20........................................2 gigs
+Tru64 UNIX 5.0 on a DS20........................................2 gigs
+
+
+Oracle 8i on a quad ES40 Tru64 UNIX ..................... 8 gigs
+Oracle WebDB on a quad ES40 Tru64 UNIX............. 8 gigs
+Oracle 8i on Intel Proliant 7000 quad Xeon P111........4 gigs
+
+Coming next week will be NetBSD on an XP1000 EV6.7 provided that the system
+gets here from manufacturing , same  situation as above
+
+Also I would like to add that I have just finished upgrading the network
+with full Duplex 100meg switches. With all the nfs traffic that is generated
+the hubs were just causing too many collisions.
+
+Also I added two more T-1s this morning so we now have three dedicated T-1
+muxed together for bandwidth in excess of 4.5 megs inbound.

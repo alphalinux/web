@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Alpha-Linux Howto
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+	      This document is a brief overview of existing Alpha CPUs,
+	      chipsets and systems. It has something of a hardware bias,
+	      reflecting my own area of expertese. Although I am an employee of
+	      Digital Equipment Corporation, this is not an official statement
+	      by Digital and any opinions expressed are mine and not Digital's.
+
+	      <P>
+
+              <!-- Subtitle --> 
+	      <FONT SIZE="+1"><B>
+	      What is Alpha? 
+              </B></FONT><BR> 
+
+	      "Alpha" is the name given to Digital's 64-bit RISC
+              architecture. The Alpha project in Digital began in mid-1989,
+              with the goal of providing a high-performance migration path for
+              VAX customers. This was not the first RISC architecture to be
+              produced by Digital, but it was the first to reach the
+              market. When Digital announced Alpha, in March 1992, it made the
+              decision to enter the merchant semicondutor market by selling
+              Alpha microprocessors. Alpha is also sometimes referred to as
+              Alpha AXP, for obscure and arcane reasons that aren't worth
+              persuing. Suffice it to say that they are one and the same.
+
+	      <P>
+
+	      <FONT SIZE="+1"><B>
+	      What is Digital Semiconductor?
+              </B></FONT><BR> 
+	      
+	      Digital Semiconductor (DS) is the business unit within Digital
+	      Equipment Corporation (Digital - we don't like the name DEC) that
+	      sells semiconductors on the merchant market. Digital's products
+	      include CPUs, support chipsets, PCI-PCI bridges and PCI
+	      peripheral chips for comms and multimedia.
+
+	      <P>
+
+	      <FONT SIZE="+1"><B>
+	      Alpha CPUs.
+              </B></FONT><BR> 
+
+	      There are currently 2 generations of CPU core that implement the
+	      Alpha architecture:
+
+	      <UL>
+	      <LI>EV4 
+	      <LI>EV5 
+	      </UL>
+
+	      Opinions differ as to what "EV" stands for (Editor's note: the
+	      true answer is of course "Electro Vlassic" ``[1]''), but the
+	      number represents the first generation of Digital's CMOS
+	      technology that the core was implemented in. So, the EV4 was
+	      originally implemented in CMOS4. As time goes by, a CPU tends to
+	      get a mid-life performance kick by being optically shrunk into
+	      the next generation of CMOS process. EV45, then, is the EV4 core
+	      implemented in CMOS5 process. There is a big difference between
+	      shrinking a design into a particular technology and implementing
+	      it from scratch in that technology (but I don't want to go into
+	      that now). There are a few other wildcards in here: there is also
+	      a CMOS4S (optical shrink in CMOS4) and a CMOS5L.
+	      <P>
+	      True technophiles will be interested to know that CMOS4 is a 0.75
+	      micron process, CMOS5 is a 0.5 micron process and CMOS6 is a 0.35
+	      micron process.
+
+	      <P>
+	      ...and so on. Note that to create a top-level document like this,
+              all you do is drop the "document title" thing above, and just go
+              straight into a list of links, optionally with an introduction
+              first, and explanations to each link.
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+          <FONT COLOR="#DC9D33" FACE="helvetica,sans-serif" SIZE="-1">
+
+	  Maintained by
+	  <A HREF="mailto:rdp@cheshire.net">Rich Payne</A>.
+          Designed by
+          <A HREF="mailto:joakim@styx.net">Joakim</A> and
+          <A HREF="mailto:leo@styx.net">Leo</A> of
+          <A HREF="http://styx.net/">Styx</A>/
+          <A HREF="http://freehive.org/">Freehive</A>.
+
+           </FONT>
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

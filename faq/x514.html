@@ -1,0 +1,158 @@
+<HTML
+><HEAD
+><TITLE
+>Restrictions.</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.57"><LINK
+REL="HOME"
+TITLE="Alpha Miniloader Howto"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Running the Flash Management Utility "
+HREF="milo-fmu-section.html"><LINK
+REL="NEXT"
+TITLE="Problem Solving."
+HREF="x523.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Alpha Miniloader Howto</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="milo-fmu-section.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x523.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN514"
+>8. Restrictions.</A
+></H1
+><P
+>Unfortunately this is not a perfect world and there, as always, some
+restrictions that you should be aware of.</P
+><P
+>MILO is not meant to load operating systems other than Linux, 
+although it can load images linked to run at the same place in memory as Linux
+(which is 0xFFFFFC0000310000).
+This is how the flash management utilities can be run.</P
+><P
+> The PALcode sources included in <TT
+CLASS="LITERAL"
+>miniboot/palcode/</TT
+><I
+CLASS="EMPHASIS"
+>blah</I
+> are
+correct, however there are problems when they are built using the
+latest <TT
+CLASS="LITERAL"
+>gas</TT
+>.  They <I
+CLASS="EMPHASIS"
+>do</I
+> build if you use the ancient a.out gas
+that's supplied in the Alpha Evaluation Board toolset (and that's how
+they were built).  I'm trying to get someone to fix the new gas.
+Meanwhile, as a workaround, I have provided pre-built PALcode for the
+supported boards and David Mosberger-Tang has a fixed gas on
+his ftp site.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="milo-fmu-section.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x523.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Running the Flash Management Utility</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Problem Solving.</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

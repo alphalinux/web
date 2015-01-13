@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Software</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+	     <B>Warning</B> links in here may no longer be valid and they will not be updated.
+	     <P>	
+	    
+	  
+	  
+
+	<FONT SIZE="+1"><B>
+	September 30th, 1998
+	</B></FONT><BR> 
+	If you have purchased a conner CFP1060x hard drive and have install problems or corruption read <A HREF="../docs/conner.html">this info from 
+	Conner</A></P>
+	<FONT SIZE=3><P>It seems that a lot of the UDB/Multias coming from Onsale have flat batteries. I've got some info on 
+	<A HREF="../docs/udb-multia.html">replacements available</A>.
+	<P>
+
+	<FONT SIZE="+1"><B>
+	September 23rd, 1998
+	</B></FONT><BR>
+	I'm putting this site together to help those who are just starting out in the world of Alpha Linux, people
+	like myself. I recently purchased a UDB/Multia for myself (though I've been using Intel Linux for about five years) and when I started looking 
+	around the Internet I was surprised that there was no central site for Linux Alpha information. So, that's why I started putting this together.</P>
+
+	I have just started work on this, so things aren't perfect yet. I'm looking for suggestions  and information
+	as to how to improve the site. Please feel free to send me an <A HREF="mailto:rdp@cheshire.net">e-mail </A> with your ideas, comments
+	and suggestions. I'm also looking for a smallish penguin logo for these pages. If anybody knows of a good one or would like to create an
+	Alpha-Linux specific penguin then please let me know. I promise to give you credit.</P></FONT></TD>
+	<P>
+
+	
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

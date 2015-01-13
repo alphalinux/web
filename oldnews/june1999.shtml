@@ -1,0 +1,501 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Oldnews June 1999</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+	     <B>Warning</B> links in here may no longer be valid and they will not be updated.
+	     <P>
+   
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 25th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	   Updates have been released for potential security problems with the NFS package of RedHat 5.2 and the
+	   net-tools package up 6.0. Updates are available from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/">
+	   ftp.alphalinux.org</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 24th 19999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	    <A HREF="http://www.alpha-processor.com"> Alpha Processor Inc.</A> has updated their website 
+	    with product information for the <A HREF="http://www.alpha-processor.com/up2000-internal/up2000-internal.asp">UP2000</A> 
+	    and <A HREF="http://www.alpha-processor.com/up1000-internal/up1000-internal.asp">UP1000</A> motherboards. Also posted
+	    are the press releases for the<A HREF="http://www.alpha-processor.com/news/pr062299-1.asp">1GHz demo</A>, the 
+	    <A HREF="http://www.alpha-processor.com/news/pr062299-2.asp">UP2000 and UP1000</A> motherboards and 
+	    <A HREF="http://www.alpha-processor.com/news/pr062299-3.asp">Slot B</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 24th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	     For those of you looking for more info on the new <A HREF="http://www.alpha-processor.com">Alpha Processor Inc.</A> motherboards, 
+	     <A HREF="http://www.quant-x.com">Quant-X</A> has posted data sheets and pictures of both the 
+	     <A HREF="http://www.quant-x.com/Products/Alpha/UP2000.htm">UP2000</A> and the <A HREF="http://www.quant-x.com/Products/Alpha/UP1000.htm">
+	     UP1000</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 23th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+AMD has <A HREF="http://www.amd.com/news/prodpr/9980.html">announced</A> that it has begun shipping it's next generation processor the K7 now renamed "Athlon".
+Utilizing the Alpha EV6 bus technoligy these processors are being shipped at speeds of 500, 550, and 600 MHz.
+More information about these processors can be found <A HREF="http://www.amd.com/products/cpg/athlon/index.html">here</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 23th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.redhat.com">RedHat</A> has released even more updates to RedHat 6.0. Included this time
+	are update to <A HREF="http://lwn.net/daily/rh-kde.html">KDE</A> and <A HREF="http://lwn.net/daily/rh-php3.html">
+	PHP3</A>. As always updates are available from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0">ftp.alphalinux.org</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 23th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.compaq.com">Compaq</A> has released the Compiler Writer's Guide for the Alpha 21264. The guide
+	is available from <A HREF="ftp://ftp.digital.com/pub/Digital/info/semiconductor/literature/dsc-library.html">ftp.digital.com</A>
+	and <A HREF="ftp://ftp.alphalinux.org/alpha_doc_lib/cmpwrgd.pdf">ftp.alphalinux.org</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 22th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.cnet.com">CNET</A> is also running <A HREF="http://www.news.com/News/Item/0,4,38218,00.html?st.ne.fd.gif.e">
+	a story</A> on the Alpha demos at PCExpo. They concentrate mostly on the 1GHz demo but also touch upon the new Slot B
+	design.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 22th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.alpha-processor.com">Alpha Processor Inc.</A> had released a new <A HREF="http://www.alpha-processor.com/news/AlUp3.pdf">
+	Alpha.Update</A> that contains
+	information on the "Slot B" processor module and the UP2000 and upcoming UP1000 motherboards.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 22th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.theregister.co.uk">The Register</A> is also running <A HREF="http://www.theregister.co.uk/990620-000001.html"> a story</A>
+	about the upcoming API products. Included are estimated SPEC numbers for the 21264-750, 833, 933 and 1GHz processor. The Register also
+	has two more articles about Alpha and API. <A HREF="http://www.theregister.co.uk/990618-000016.html">The first</A> about the collaboration
+	between API and AMD and <A HREF="http://www.theregister.co.uk/990619-000001.html"> the second</A> about the upcoming "Slot B" technology
+	and UP2000 motherboard.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	  <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 22th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	According to <A HREF="http://www.zdnet.com/sr/stories/news/0,4538,2277825,00.html">this press release</A> over at ZDNET, <A HREF="http://www.alpha-processor.com">
+	Alpha Processor Inc.</A> is going to launch several new products at PCExpo this week. Included are a new "Slot B" processor module with processors running
+	at 750MHz, a new motherboard (the UP2000)
+	and a public demo of Alpha running at 1GHz, without any special cooling. Seeing as PCExpo opens today we'll have more info as it becomes available.
+	
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 18th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.redhat.com">RedHat</A> has released updated RPMS for XFree86 for RedHat 6.0. This addresses 
+	"problems related to those originally shipped with Red Hat Linux 6.0.". Also available are updates for rxvt, dev and
+	screen that fix several security problems. Updates are on <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0">
+	ftp.alphalinux.org</A>.
+	
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 17th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	According to <A HREF="http://www.theregister.co.uk/990617-000015.html ">this article</A> at The Register Samsung and 
+	Compaq will be selling Alphas at 1GHz and over by next summer.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    June 17th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	"<I>Compaq's Alpha-based Professional Workstations and AlphaServers won awards in the UNIX
+	performance and price/performance categories, for both Tru64 UNIX and Linux environments.</I>"
+	 More info can be found in 
+	<A HREF="http://www.newsalert.com/bin/story?StoryId=Cn2HYWbKbyteXnZK&FQ=Linux&SymHdl=1&Nav=na-search-&StoryTitle=Linux#Hilite ">this press release</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+  <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 14th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	This includes the fix for the DoS attack discovered a few
+	weeks ago. As always the new version is available from <A HREF="ftp://ftp.alphalinux.org/kernel/v2.2">
+	ftp.alphalinux.org</A>. 
+	    <P>
+	    </TD>
+	   </TR>	
+ 
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	      <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    June 13th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.redhat.com">RedHat</A> has released two more updates to RH6.0. They are wu-ftpd (file name globbing problem 
+	and all known exploits fixed) and utemper (support package that caused some programs to not exit properly when the user
+	logged out). As always updates are available from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0">ftp.alphalinux.org</A> 
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 12th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	 <A HREF="mailto:niles@fan745.gsfc.nasa.gov">Rick Niles</A> asks: <P>
+	  Does anyone else get this result with RH6.0? Try this program:<BR>
+<PRE>
+-----------------
+#include < stdio.h>
+#include < math.h>
+
+int
+main()
+{
+  printf("%f\n",floor(0.1));
+  return 0;
+}
+------------------
+</PRE>
+
+It returns with 36028797018963968.000000 on my AlphaStation 200
+(21064).  But only under the new RedHat 6.0. It seems the floor
+function is really broken.  I think it may be a problem in
+< bits/inlinemath.h>.
+<P>
+Does anyone get this result?  Does anyone else NOT get this result
+with Alpha RH6.0?  Does anyone know of a work around?
+<P>
+     Thanks,<BR>
+     Rick Niles.
+	    <P>
+<STRONG>Update</STRONG> <I>June 13th 1999</I> This floor()/ceil() problem is unique to the 21064 (EV4).
+
+
+<P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 9th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.compaq.com">Compaq</A> has released some info on a new Alpha workstation, the XP900. 
+	The <A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?99067.pidecus.htm"> press release</A> describing the workstation
+	pitches it as a VMS workstation though it sounds very similar to the DS10 released a few weeks ago.
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 8th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	According to <A HREF="http://www.news.com/News/Item/0,4,37492,00.html"> this press release</A> Compaq and RedHat are
+	working together for more compatibility between Linux and Tru64Unix. It also mentions that Compaq has certified the
+	XP1000 as Linux ready.
+	    <P>
+	    </TD>
+	   </TR>	
+ 
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 7th 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	According to <A HREF="http://www.theregister.co.uk/990607-000001.html"> this article</A> at <A HREF="http://www.theregister.co.uk">
+	The Register</A> Samsung and Compaq are talking about offloading all of Alpha onto Samsung, thereby getting Compaq <I>"out of the hole it has
+	dug itself into with Intel</A>". </A>
+	    <P>
+	    </TD>
+	   </TR>	
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 7nd 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	Welcome to the big Linux - Swiss Super Cluster Happening<P>
+
+On June 11, 1999, the "Swiss Super Cluster Happening" will demonstrate
+with an attempt on the world record, how standard computers and
+operating systems can reach the performance of traditional
+supercomputers. Where does the trend go and how is Linux influencing the
+IT market? <P>
+      
+- You will probably see the fastest Linux Cluster with the performance
+of a supercomputer when we try to break the world record and set a new
+mark for Linux based clusters! 
+- Find out about the newest trends in the field of supercomputers - with
+Prof. Jack Dongarra, a worldwide accepted expert on supercomputers. 
+- Look at the development of Dr. Ralf Gruber and his team from the EPFL
+in Lausanne  - the new Swiss Super Cluster which opens up high
+performance computing capabilities to companies and research institutes
+for a reasonable prize. <P>
+      
+Take the opportunity and get the newest information on Linux from well
+known experts. And be our guest on this record party. 
+<P>      
+We are looking forward to your participation. 
+<P>
+Look at    <A HREF="http://www.supercomputer.ch">www.supercomputer.ch</A>  and enroll there
+<P>
+Where:		Compaq Computer AG<BR>
+		Ueberlandstrasse 1<BR>
+		8600 Duebendorf<BR>
+		Switzerland<BR>
+<P>
+		++41 1 801 23 34 (Ms. Martina Vesti to enroll via phone)<BR>
+		++41 1 801 47 15 (or send a fax)  
+	    <P>
+	    </TD>
+	   </TR>	
+
+            <TR>
+             <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 7th 1999</B></FONT></TD></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+       According to <A HREF="rh6-pty-prob.txt"> this message</A> to the RedHat security mailing list there is a 
+       small problem with the pty setup of 6.0. User who have upgraded from previous version should not be at risk.
+            <P>
+            </TD>
+           </TR>        
+
+            <TR>
+             <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     June 2nd 1999</B></FONT></TD></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+        <A HREF="http://www.redhat.com">RedHat</A> has released new kernel RPMs for RedHat 6.0. These includes the small fix for
+        the denial of service attack discovered yesterday. As always the new files are available from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0       ">ftp.alphalinux.org</A>.
+            <P>
+            </TD>
+           </TR>        
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	   <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	  June 2nd 1999</B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.redhat.com">RedHat</A> has released a new ramdisk image for RedHat 6.0. This is to fix several problems
+	with the original. Details can be found at the <A HREF="http://www.redhat.com/corp/support/errata/rh60-errata-general.html">RedHat 6.0
+	errata page</A> and the updated image can be obtained from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/images/">ftp.alphalinux.org</A>.
+	    <P>
+	    </TD>
+	    </TR>
+
+   <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    June 2nd 1999 </B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.redhat.com">RedHat</A> has released new kernel RPMs for RedHat 6.0. These includes the small fix for
+	the denial of service attack discovered yesterday. As always the new files are available from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0       ">ftp.alphalinux.org</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+    
+    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	       <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    June 2nd 1999 </B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.redhat.com">RedHat</A> has released a new ramdisk image for RedHat 6.0. This is to fix several problems
+	with the original. Details can be found at the <A HREF="http://www.redhat.com/corp/support/errata/rh60-errata-general.html">RedHat 6.0
+	errata page</A> and the updated image can be obtained from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/images/">ftp.alphalinux.org</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+	
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

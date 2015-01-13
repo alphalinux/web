@@ -1,0 +1,515 @@
+<HTML>
+<HEAD>
+<TITLE>The AlphaLinux Homepage News for August 1999</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="description" content="Information on the Alpha port of Linux">
+<meta name="keywords" content="alpha linux axp multia as200 jensen ruffian alphastation alphaserver 21064 21164 21264 064 64-bit 164 264 sx lx">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+
+
+<TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->  
+  
+	</CENTER>
+	</TD>
+
+</TR>  
+<TR>
+
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD WIDTH=700 BGCOLOR="#B70000" ALIGN="CENTER">
+	<A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A>
+	<A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A>
+	<A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A>
+	<A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A>
+	<A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A>
+	<A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A>
+	</TD>
+	<TD WIDTH=16>&nbsp;</TD>
+
+</TR>
+<TR>
+
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+</TR>
+<TR VALIGN="top">
+	<TD><IMG SRC="../img/penguinedge.gif" WIDTH="16" HEIGHT="77" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD BGCOLOR="#DC9D33">
+	<P>
+	<IMG SRC="../img/penguincircle.gif" WIDTH="92" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="">
+	<IMG SRC="../img/logo.gif" WIDTH="498" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="AlphaLinux">
+	</P>
+<TABLE BORDER=0 HSPACE=8>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+	<TD WIDTH=500 VALIGN=TOP>
+	<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+SuSE Update to ypserv
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 25th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.suse.com">SuSE</A> has released an update to ypserv for SuSE 6.1 AXP. There are several
+vulnerabilities in the current package so updating is recommended. The new RPM can be downloaded from 
+<A HREF=" ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/ypserv-1.3.9-0.alpha.rpm">ftp.suse.com</A>.
+
+            <P>
+            </TD>
+           </TR>
+        </TABLE>
+        <P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+Compaq Donates AS800 to LI Counter Page
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 23rd 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.compaq.com">Compaq</A> has <A HREF="http://counter.li.org/new-machine.html">donated an AlphaServer 800</A>
+ to the <A HREF="http://counter.li.org">Linux Counter</A>
+project. Seems that registrations on the counter have gone over 120,000.
+            <P>
+            </TD>
+           </TR>
+        </TABLE>
+        <P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+Jason? Your email address?
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 23rd 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Whoever wrote to news@alphalinux.org with the return address of jason@mail.global.mail.net.mt please write back
+with an email we can reply to, this one just bounces.
+            <P>
+            </TD>
+           </TR>
+        </TABLE>
+        <P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+RedHat and SuSE Security Updates
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 22th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.redhat.com">RedHat</A> has released an updated wu-ftpd package due to a buffer overflow exploit in the
+current version. Updates can be found at ftp.alphalinux.org for <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-5.2/wu-ftpd-2.6.0-0.5.x.alpha.rpm">RedHat 5.2</A>
+and <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/wu-ftpd-2.6.0-1.alpha.rpm">RedHat 6.0</A> <A HREF="http://www.suse.com">SuSE</A> has released an
+update for cdwtools due to several buffer overflows and /tmp vulnerabilities. The new package is available from <A HREF="ftp://ftp.suse.com/pub/suse/axp/update/6.1/ap1/cdwtools-0.93-101.alpha.rpm">
+ftp.suse.com</A>.
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+RedHat Releases Updated lpr/lpd Package (Again)
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 20th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.redhat.com">RedHat</A> has released another security update for lpr/lpd. Updates are available
+for RedHat 4.x, 5.x and 6.x. Update for 5.2 and 6.0 are available from <A HREF="ftp://ftp.alphalinux.org">ftp.alphalinux.org</A>.
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+Compaq Releases Updated C Compiler for AlphaLinux
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 19th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+The public beta of the Compaq C Compiler for Linux Alpha has
+been updated (due to technical problems the update happened
+approximately 21:00 GMT on 18 October, even though the text
+of the page says it happened on 15 October).
+<P>
+The new kit fixes a number of problems from the first beta,
+and installs properly on SuSE 6.1 as well as Red Hat 6.0
+and 5.2 distributions.  Installation on Debian 2.1 systems
+should also be easier, although this is currently untested.
+<P>
+Comments from the first beta were very positive about
+the run-time performance improvement produced by the
+compiler, with few problems other than the installation's
+being too specific to Red Hat 5.2, which should now
+be resolved.
+
+<P>
+Go to:
+<P>
+  <A HREF="http://www.compaq.com/linux">http://www.compaq.com/linux</A>
+<P>
+and click on "Software" under "Products" on the menu at
+the left side of the page for more information and
+immediate access to the download files after accepting
+the beta license terms and filling out a brief registration
+form.
+<P>
+ -The Compaq C/C++ Team
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+Alpha: the chip that time forgot?
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 19th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.theregister.co.uk">The Register</A> is running <A HREF="http://www.theregister.co.uk/991017-000003.html">a story</A> on the
+Alpha and it's future. Included are a few details about the EV8 architecture.
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+RedHat Releases Updated lpr/lpd Package
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 18th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.redhat.com">RedHat</A> has released a security update for lpr/lpd. Updates are available
+for RedHat 4.x, 5.x and 6.x. Update for 5.2 and 6.0 are available from <A HREF="ftp://ftp.alphalinux.org">ftp.alphalinux.org</A>.
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+API Unveils New Website
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 18th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.alpha-processor.com">Alpha Processor Inc.(API)</A> has unveiled a new website complete
+with a new API logo and "RUN WITH IT" slogan.
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+Compaq Offers Access to AlphaLinux Systems (update)
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+October 5th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Last month, we reported that <A HREF="http://www.compaq.com/">Compaq</A> is offering <A HREF="http://www.testdrive.compaq.com/">public access</A> to Alpha
+systems running Linux, Tru64, and other operating systems.  We have a 
+<A HREF="http://www.alphalinux.org/testdrive_boxes.txt"> summary list</A> of  
+systems available.  If you're a newbie or just an oldtimer who wants to 
+spin around some sleek hardware, we encourage you to sign up. 
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	    <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+	     <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B>SuSE Security Updates
+	<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+	    </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+
+October 4th 1999
+	</B></td>
+	    </tr>
+	   <TR>
+	    <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.suse.com">SuSE</A> has released updated mutt and mirror packages for Alpha. The updates are available from <A
+HREF="ftp://ftp.suse.com">ftp.suse.com</A> as
+<A HREF=" ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/mutt-1.0pre3i-1.alpha.rpm">mutt-1.0pre3i-1.alpha.rpm</A> and <A HREF=" ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/mirror-2.8.f4-89.alpha.rpm">
+mirror-2.8.f4-89.alpha.rpm</A>.
+
+
+	    <P>
+	    </TD>
+	   </TR>
+
+	</TABLE>
+	<P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	    <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+	     <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B>Fast GEMM routines for EV5 and EV6
+	<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+	    </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+
+October 1st 1999
+	</B></td>
+	    </tr>
+	   <TR>
+	    <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Kazushige Goto has released optimized Matrix-Matrix Multiply routines(GEMM) for EV5,
+EV6. They can be downloaded from <A HREF=" ftp://www.netstat.ne.jp/pub/Linux/Linux-Alpha-JP/BLAS"> ftp://www.netstat.ne.jp/pub/Linux/Linux-Alpha-JP/BLAS</A>
+as libgemm_ev5-991001.tar.gz for EV5 and libgemm_ev6-991001.tar.gz for EV6.
+
+	    <P>
+	    </TD>
+	   </TR>
+
+	</TABLE>
+	<P>
+
+        
+
+
+        </TABLE>
+        
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+          <FONT COLOR="#DC9D33" FACE="helvetica,sans-serif" SIZE="-1">
+
+	<CENTER>Powered  by Alpha / Linux® is a registered trademark of Linus Torvalds<br>Hosted by <a href="http://www.theshell.com">TheShell.com</a></CENTER>
+
+           </FONT>
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>
+ 

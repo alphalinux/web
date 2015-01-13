@@ -1,0 +1,2153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>The aboot Loader</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="The Raw Loader"
+HREF="srm-rawloader.html"><LINK
+REL="NEXT"
+TITLE="Sharing a Disk With HP Tru64"
+HREF="srm-sharingwithdec.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="srm-rawloader.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="srm-sharingwithdec.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="SRM-ABOOT"
+>The aboot Loader</A
+></H1
+><P
+>When using the SRM firmware, <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> is the preferred way of
+booting Linux.  It supports:</P
+><P
+>&#13;<P
+></P
+><UL
+><LI
+><P
+> direct booting from various filesystems (<VAR
+CLASS="LITERAL"
+>ext2</VAR
+>, <VAR
+CLASS="LITERAL"
+>ISO9660</VAR
+>, and
+<VAR
+CLASS="LITERAL"
+>UFS</VAR
+>, the <SPAN
+CLASS="PRODUCTNAME"
+>HP Tru64</SPAN
+> filesystem)</P
+></LI
+><LI
+><P
+> listing directories and following symbolic links on ext2 (version 0.6 and later)</P
+></LI
+><LI
+><P
+> booting of executable object files (both ELF and ECOFF)</P
+></LI
+><LI
+><P
+> booting compressed kernels</P
+></LI
+><LI
+><P
+> network booting (using bootp)</P
+></LI
+><LI
+><P
+> partition tables in <SPAN
+CLASS="PRODUCTNAME"
+>HP Tru64</SPAN
+> format (which is
+compatible with BSD Unix partition tables)</P
+></LI
+><LI
+><P
+> interactive booting and default configurations for
+SRM consoles that cannot pass long option strings</P
+></LI
+><LI
+><P
+> load initrd images to load modules at boot time (0.7 and later)</P
+></LI
+></UL
+>&#13;</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN261"
+>Getting and Building aboot</A
+></H2
+><P
+>The latest sources for <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> are available from <A
+HREF="http://www.sf.net/projects/aboot"
+TARGET="_top"
+>Sourceforge</A
+>. They can
+also be obtained via anonymous CVS from www.sf.net, to get the latest version from CVS use these commands:
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>bash# cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/aboot login 
+bash# cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/aboot co aboot</PRE
+></TD
+></TR
+></TABLE
+>
+(Note there is no password for the CVS login, just press enter)</P
+><P
+>The description in this manual applies to <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> version 0.6
+or newer. Please note that many distributions ship aboot with them so
+downloading aboot from this directory is probably not neccesary.</P
+><P
+> Once you downloaded and extracted the latest tar file, take a
+look at the <TT
+CLASS="FILENAME"
+>README</TT
+> and <TT
+CLASS="FILENAME"
+>INSTALL</TT
+> files
+for installation hints.  In particular, be sure to adjust the variables in
+<TT
+CLASS="FILENAME"
+>Makefile</TT
+> and in <TT
+CLASS="FILENAME"
+>include/config.h</TT
+>
+to match your
+environment.  Normally, you won't need to change anything when
+building under Linux, but it is always a good idea to double check.
+If you're satisfied with the configuration, simply type <B
+CLASS="COMMAND"
+>make</B
+>
+to build it (if you're not building under Linux, be advised that
+<VAR
+CLASS="LITERAL"
+>aboot</VAR
+> requires GNU <VAR
+CLASS="LITERAL"
+>make</VAR
+>).</P
+><P
+>After running <VAR
+CLASS="LITERAL"
+>make</VAR
+>, the <TT
+CLASS="FILENAME"
+>aboot</TT
+>
+directory should contain the following files:</P
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><TT
+CLASS="FILENAME"
+>aboot</TT
+></DT
+><DD
+><P
+>This is the actual <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> executable (either an
+ECOFF or ELF object file).</P
+></DD
+><DT
+><TT
+CLASS="FILENAME"
+>bootlx</TT
+></DT
+><DD
+><P
+>Same as above, but it contains only the text, data
+and bss segments &dash; that is, this file is not an object file.</P
+></DD
+><DT
+><TT
+CLASS="FILENAME"
+>sdisklabel/swriteboot</TT
+></DT
+><DD
+><P
+>Utility to install <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> on a
+hard disk.</P
+></DD
+><DT
+><TT
+CLASS="FILENAME"
+>tools/e2writeboot</TT
+></DT
+><DD
+><P
+>Utility to install <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> on an ext2
+filesystem (usually used for floppies only).</P
+></DD
+><DT
+><TT
+CLASS="FILENAME"
+>tools/isomarkboot</TT
+></DT
+><DD
+><P
+>Utility to install <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> on a iso9660
+filesystem (used by CD-ROM distributors).</P
+></DD
+><DT
+><TT
+CLASS="FILENAME"
+>tools/abootconf</TT
+></DT
+><DD
+><P
+>Utility to configure an installed <VAR
+CLASS="LITERAL"
+>aboot</VAR
+>.</P
+></DD
+></DL
+></DIV
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN317"
+>Floppy Installation</A
+></H2
+><P
+> The bootloader can be installed on a floppy using the
+<B
+CLASS="COMMAND"
+>e2writeboot</B
+> command (note: this can't be done on a Jensen 
+since
+its firmware does <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>not</I
+></SPAN
+> support booting from floppy).  This command
+requires that the disk is not overly fragmented as it needs to find
+enough contiguous file blocks to store the entire <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> image
+(currently about 90KB).  If <B
+CLASS="COMMAND"
+>e2writeboot</B
+> fails because of this,
+reformat the floppy and try again (e.g., with <B
+CLASS="COMMAND"
+>fdformat</B
+>(1)).
+For
+example, the following steps install <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> on floppy disk
+assuming the floppy is in drive <TT
+CLASS="FILENAME"
+>/dev/fd0</TT
+>:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># fdformat /dev/fd0
+# mke2fs /dev/fd0
+# e2writeboot /dev/fd0 bootlx</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN328"
+>Harddisk Installation</A
+></H2
+><P
+>Since the <B
+CLASS="COMMAND"
+>e2writeboot</B
+> command may fail on highly fragmented
+disks and since reformatting a harddisk is not without pain, it is
+generally safer to install <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> on a harddisk using the
+<B
+CLASS="COMMAND"
+>swriteboot</B
+> command.
+<VAR
+CLASS="LITERAL"
+>swriteboot</VAR
+> requires that the first few
+sectors are reserved for booting purposes.  We suggest that the disk
+be partitioned such that the first partition starts at an offset of
+2048 sectors.  This leaves 1MB of space for storing <VAR
+CLASS="LITERAL"
+>aboot</VAR
+>.  On
+a properly partitioned disk, it is then possible to install <VAR
+CLASS="LITERAL"
+>aboot</VAR
+>
+as follows (assuming the disk is <TT
+CLASS="FILENAME"
+>/dev/sda</TT
+>):
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># swriteboot /dev/sda bootlx</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>On systems where partition <VAR
+CLASS="LITERAL"
+>c</VAR
+> in the entire disk it will be
+necessary to 'force' the write of aboot. In this case use the <VAR
+CLASS="LITERAL"
+>-f</VAR
+>
+flag followed by the partition number (in the case of partition <VAR
+CLASS="LITERAL"
+>c</VAR
+>
+this is 3):
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># swriteboot /dev/sda bootlx -f3</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>On a Jensen, you will want to leave some more space, since you need to
+write a kernel to this place, too---2MB should be sufficient when
+using compressed kernels.  Use <VAR
+CLASS="LITERAL"
+>swriteboot</VAR
+> as described in Section
+<A
+HREF="srm-aboot.html#BOOTING"
+>the Section called <I
+>Booting Linux</I
+></A
+> to write <TT
+CLASS="FILENAME"
+>bootlx</TT
+> together with
+the Linux kernel.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN348"
+>CD-ROM Installation</A
+></H2
+><P
+> To make a CD-ROM bootable by SRM, simply build <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> as
+described above.  Then, make sure that the <TT
+CLASS="FILENAME"
+>bootlx</TT
+> file is
+present on the iso9660 filesystem (e.g., copy <TT
+CLASS="FILENAME"
+>bootlx</TT
+> to
+the directory that is the filesystem master, then run <B
+CLASS="COMMAND"
+>mkisofs</B
+>
+on that directory).  After that, all that remains to be done is to mark the
+filesystem as SRM bootable.  This is achieved with a command of the
+form:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># isomarkboot filesystem bootlx</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>The command above assumes that <TT
+CLASS="FILENAME"
+>filesystem</TT
+> is a file
+containing the iso9660 filesystem and that <TT
+CLASS="FILENAME"
+>bootlx</TT
+> has been
+copied into the
+root directory of that filesystem.  That's it!</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="BUILDING-LINUX"
+>Building the Linux Kernel</A
+></H2
+><P
+>A bootable Linux kernel can be built with the following steps.
+During the <B
+CLASS="COMMAND"
+>make config</B
+>, be sure to answer "yes" to the
+question
+whether you want to boot the kernel via SRM (for certain platforms
+this is automatically selected).  Note that if you build a generic
+kernel (by selecting "Generic" as the alpha system type), the kernel
+is able to guess whether it is running under SRM or not.
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># cd /usr/src/linux
+# make config
+# make dep
+# make boot
+# make modules (if applicable)
+# make modules_install (if applicable)</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>The last command will build the file
+<TT
+CLASS="FILENAME"
+>arch/alpha/boot/vmlinux.gz</TT
+> which can then be copied to the
+disk from which you want to boot from.  In our floppy disk example
+above, this would entail:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># mount /dev/fd0 /mnt
+# cp arch/alpha/boot/vmlinux.gz /mnt
+# umount /mnt</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="BOOTING"
+>Booting Linux</A
+></H2
+><P
+> With the SRM firmware and <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> installed, Linux is generally
+booted with a command of the form:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+><VAR
+CLASS="LITERAL"
+>boot</VAR
+> <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>devicename</I
+></SPAN
+> <VAR
+CLASS="LITERAL"
+>-fi</VAR
+> <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>filename</I
+></SPAN
+>
+<VAR
+CLASS="LITERAL"
+>-fl</VAR
+> <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>flags</I
+></SPAN
+></PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>The <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>filename</I
+></SPAN
+> and <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>flags</I
+></SPAN
+> arguments are optional.  If
+they are not specified, SRM uses the default values stored in
+environment variables <VAR
+CLASS="VARNAME"
+>BOOTDEF&lowbar;DEV</VAR
+>,
+<VAR
+CLASS="VARNAME"
+>BOOT&lowbar;OSFILE</VAR
+> and 
+<VAR
+CLASS="VARNAME"
+>BOOT&lowbar;OSFLAGS</VAR
+>.  The
+syntax and meaning of these two arguments is described in more detail
+below. To list the current values of these variables type 
+<B
+CLASS="COMMAND"
+>show boot*</B
+> at the SRM command prompt. This will also show a
+<VAR
+CLASS="VARNAME"
+>boot&lowbar;dev</VAR
+> variable (among others), this variable is
+read only
+and needs to be changed via the <VAR
+CLASS="VARNAME"
+>bootdef&lowbar;dev</VAR
+> variable.</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="DEVICE-NAMING"
+>Device Naming</A
+></H3
+><P
+>This corresponds to the device from which SRM will attempt to boot. Examples include:</P
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>dva0</DT
+><DD
+><P
+>- First floppy drive, <TT
+CLASS="FILENAME"
+>/dev/fd0</TT
+> under Linux</P
+></DD
+><DT
+>dqa0</DT
+><DD
+><P
+>- Primary IDE CD-ROM or hard disk as Master, <TT
+CLASS="FILENAME"
+>/dev/hda</TT
+>
+  under Linux</P
+></DD
+><DT
+>dqa1</DT
+><DD
+><P
+>- Primary IDE CD-ROM or hard disk as Slave, <TT
+CLASS="FILENAME"
+>/dev/hdb</TT
+>
+  under Linux</P
+></DD
+><DT
+>dka0</DT
+><DD
+><P
+>- SCSI disk on first bus, Device 0, <TT
+CLASS="FILENAME"
+>/dev/sda</TT
+> under Linux</P
+></DD
+><DT
+>ewa0</DT
+><DD
+><P
+>- First Ethernet Device, <TT
+CLASS="FILENAME"
+>/dev/eth0</TT
+> under Linux</P
+></DD
+></DL
+></DIV
+></P
+><P
+>For example to boot from the disk at SCSI id 6, you would enter:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#62;&#62;&#62; boot dka600</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>To list the devices currently installed in the system type
+<B
+CLASS="COMMAND"
+>show dev</B
+> at the SRM command line.  In contrast to Linux
+device naming, the
+partition number on a disk device is <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>not</I
+></SPAN
+> given as part of the
+device name (you may see extra numbers after the device names when
+running <B
+CLASS="COMMAND"
+>show dev</B
+> - these correspond to things like PCI bus and
+device numbers and are not useful to the user).  Remember, as
+mentioned in <A
+HREF="srm-whatis.html#HOW-SRM-BOOTS"
+>the Section called <I
+>How Does SRM Boot an OS?</I
+></A
+>, that SRM knows <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>nothing</I
+></SPAN
+>
+about partitions or disklabels - it merely reads a boot block and
+secondary bootstrap from sectors on a disk.  Therefore, the partition
+number is given as part of the boot filename.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN425"
+>Boot Filename</A
+></H3
+><P
+>The filename argument takes the form:
+<SPAN
+CLASS="QUOTE"
+>"&lsqb;<SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>n</I
+></SPAN
+>/&rsqb;<SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>filename</I
+></SPAN
+>"</SPAN
+></P
+><P
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>n</I
+></SPAN
+> is a single digit in the range 1..8 that gives the partition
+number from which to boot from.  <TT
+CLASS="FILENAME"
+>filename</TT
+> is the path of the file 
+you want boot.  For example to boot a kernel named
+<TT
+CLASS="FILENAME"
+>vmlinux.gz</TT
+> from the second partition of SCSI
+device 6, you would enter:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#62;&#62;&#62; boot dka600 -file 2/vmlinux.gz</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>Or to boot from floppy drive 0, you'd enter:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#62;&#62;&#62; boot dva0 -file vmlinux.gz</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>If a disk has no partition table, <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> pretends the disk
+contains one <VAR
+CLASS="LITERAL"
+>ext2</VAR
+> partition starting at the first diskblock.
+This allows booting from floppy disks.</P
+><P
+>As a special case, partition number 0 is used to request booting
+from a disk that does not (yet) contain a file system.  When
+specifying "partition" number 0, <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> assumes that the Linux
+kernel is stored right behind the <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> image.  Such a layout
+can be achieved with the <B
+CLASS="COMMAND"
+>swriteboot</B
+> command.  For example, to
+setup a filesystem-less boot from <TT
+CLASS="FILENAME"
+>/dev/sda</TT
+>, one could use
+the command:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># swriteboot /dev/sda bootlx vmlinux.gz</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>Booting a system in this way is not normally necessary.  The
+reason this feature exists is to make it possible to get Linux
+installed on a systems that can't boot from a floppy disk (e.g., the
+Jensen).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN448"
+>Boot Flags</A
+></H3
+><P
+>A number of bootflags can be specified.  The syntax is:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>-flags "options..."</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>Where "options..." is any combination the following options (separated
+by blanks).  There are many more bootoptions, depending on what
+drivers your kernel has installed.  The options listed below are
+therefore just examples to illustrate the general idea:</P
+><P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>load&lowbar;ramdisk=1</DT
+><DD
+><P
+>Copy root file system from a (floppy) disk to the RAM disk
+before starting the system.  The RAM disk will be used in
+lieu of the root device.  This is useful to bootstrap Linux
+on a system with only one floppy drive.</P
+></DD
+><DT
+>floppy=<SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>str</I
+></SPAN
+></DT
+><DD
+><P
+>Sets floppy configuration to <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>str</I
+></SPAN
+>.</P
+></DD
+><DT
+>root=<SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>dev</I
+></SPAN
+></DT
+><DD
+><P
+>Select device <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>dev</I
+></SPAN
+> as the root-file
+system. The device can be specified as a major/minor hex number (e.g.,
+0x802 for <TT
+CLASS="FILENAME"
+>/dev/sda2</TT
+>) or one of a few canonical names (e.g.,
+<TT
+CLASS="FILENAME"
+>/dev/fd0</TT
+>, <TT
+CLASS="FILENAME"
+>/dev/sda2</TT
+>).</P
+></DD
+><DT
+>single</DT
+><DD
+><P
+>Boot system in single user mode.</P
+></DD
+><DT
+>kgdb</DT
+><DD
+><P
+>Enable kernel-gdb (works only if <VAR
+CLASS="VARNAME"
+>CONFIG&lowbar;KGDB</VAR
+> is
+enabled; a second Alpha system needs to be connected over the serial
+port in order to make this work)</P
+></DD
+></DL
+></DIV
+></P
+><P
+>Some SRM implementations (e.g., the one for the Jensen) are
+handicapped and allow only short option strings (e.g., at most 8
+characters).  In such a case, <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> can be booted with the
+single-character boot flag "i".  With this flag, <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> will
+enter interactive mode</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN486"
+>Using aboot interactively</A
+></H3
+><P
+>As of version 0.6, <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> supports a simple command-oriented
+interactive mode.  Note that this is <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>different</I
+></SPAN
+> from the prompt
+which previous versions issued when booted with the "i" flag, or after
+failing to load a kernel.  You can get a summary of the available
+commands by typing "h" or "?" at the prompt:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#62;&#62;&#62; boot dka0 -fl i
+aboot&#62; ?
+ h, ?                   Display this message
+ q                      Halt the system and return to SRM
+ p 1-8                  Look in partition &#60;num&#62; for configuration/kernel
+ l                      List pre-configured kernels
+ d &#60;dir&#62;                List directory &#60;dir&#62; in current filesystem
+ b &#60;file&#62; &#60;args&#62;        Boot kernel in &#60;file&#62; (- for raw boot)
+                        with arguments &#60;args&#62;
+ 0-9                    Boot pre-configuration 0-9 (list with 'l')
+aboot&#62; b 3/vmlinux.gz root=/dev/sda3 single</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN492"
+>The <TT
+CLASS="FILENAME"
+>aboot.conf</TT
+> configuration file</A
+></H3
+><P
+>Since booting in that manner quickly becomes tedious, <VAR
+CLASS="LITERAL"
+>aboot</VAR
+>
+allows to define short-hands for frequently used command lines.  In
+particular, a single digit option (0-9) requests that <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> uses
+the corresponding option string stored in file
+<TT
+CLASS="FILENAME"
+>etc/aboot.conf</TT
+>.  A sample <TT
+CLASS="FILENAME"
+>aboot.conf</TT
+> is shown below:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>#
+# aboot default configurations
+#
+0:3/vmlinux.gz root=/dev/sda3
+1:3/vmlinux.gz root=/dev/sda3 single
+2:3/vmlinux.new.gz root=/dev/sda3
+3:3/vmlinux root=/dev/sda3
+8:- root=/dev/sda3            # fs-less boot of raw kernel
+9:0/vmlinux.gz root=/dev/sda3 # fs-less boot of (compressed) ECOFF kernel
+-</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>With this configuration file, the command
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#62;&#62;&#62; boot dka0 -fl 1</PRE
+></TD
+></TR
+></TABLE
+>
+
+corresponds exactly to the boot command shown above.</P
+><P
+>Finally, at the <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> prompt, it is possible to enter one of the
+single character flags ("0"-"9") to get the same effect as if that
+flag had been specified in the boot command line.  As noted in the
+help text cited above, you can also list the available default
+configurations with the "l" command.</P
+><DIV
+CLASS="SECT4"
+><H4
+CLASS="SECT4"
+><A
+NAME="AEN505"
+>Selecting the Partition of <TT
+CLASS="FILENAME"
+>etc/aboot.conf</TT
+></A
+></H4
+><P
+>When installed on a harddisk, <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> needs to know what
+partition to search for the <TT
+CLASS="FILENAME"
+>/etc/aboot.conf</TT
+> file.  A newly
+compiled <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> will search the <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>second</I
+></SPAN
+> partition (e.g.,
+<TT
+CLASS="FILENAME"
+>/dev/sda2</TT
+>).  Since it would be inconvenient to have to
+recompile <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> just to change the partition number,
+<VAR
+CLASS="LITERAL"
+>abootconf</VAR
+> allows to directly modify an installed <VAR
+CLASS="LITERAL"
+>aboot</VAR
+>.
+Specifically, if you want to change <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> to use the <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>third</I
+></SPAN
+>
+partition on disk <TT
+CLASS="FILENAME"
+>/dev/sda</TT
+>, you'd use the command:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># abootconf /dev/sda 3</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>You can verify the current setting by simply omitting the partition
+number.  That is: <B
+CLASS="COMMAND"
+>abootconf /dev/sda</B
+> will print the currently
+selected partition number.  Note that <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> does have to be
+installed already for this command to succeed.  As of version 0.6,
+<VAR
+CLASS="LITERAL"
+>swriteboot</VAR
+> it will preserve the existing configuration when
+installing a new <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> on a hard disk.</P
+><P
+>Since <VAR
+CLASS="LITERAL"
+>aboot</VAR
+> version 0.5, it is also possible to select the
+<TT
+CLASS="FILENAME"
+>aboot.conf</TT
+> partition via the boot command line. This can
+be
+done with a command line of the form <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>a</I
+></SPAN
+><VAR
+CLASS="LITERAL"
+>:</VAR
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>b</I
+></SPAN
+>
+where <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>a</I
+></SPAN
+>
+is the partition that holds <TT
+CLASS="FILENAME"
+>etc/aboot.conf</TT
+> and <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>b</I
+></SPAN
+> is a
+single-letter option as described above (<VAR
+CLASS="LITERAL"
+>0</VAR
+>-<VAR
+CLASS="LITERAL"
+>9</VAR
+>, <VAR
+CLASS="LITERAL"
+>i</VAR
+>, or
+<VAR
+CLASS="LITERAL"
+>h</VAR
+>). For example, if you type 
+<B
+CLASS="COMMAND"
+>boot -fl "3:h" dka100</B
+> the
+system boots from SCSI ID 1, loads <TT
+CLASS="FILENAME"
+>etc/aboot.conf</TT
+> from the
+third partition, prints its contents on the screen and waits for you
+to enter the boot options.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DHCP-AND-BOOTPD-SERVER-SETUP"
+>Setting up a BOOTP capable server using DHCP</A
+></H2
+><P
+>The following configuration assumes that the server is running RH-6.2. 
+Prerequisites packages are,
+<P
+></P
+><UL
+><LI
+><P
+>dhcp-2.0.5 </P
+></LI
+><LI
+><P
+>tftp-server-0.16.5</P
+></LI
+></UL
+>&#13;</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN549"
+>DHCP &#38; BOOTP configuation</A
+></H3
+><P
+>Once those packages are installed there are a few setup issues to take care of.</P
+><P
+>Create the default directory to which files will be pulled from using tftp.</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># mkdir /tftpboot</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create the <TT
+CLASS="FILENAME"
+>dhcp.leases</TT
+> file which is not create per default
+(though it should be) when
+you install the dhcp package so the dhcp server may start. </P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># mkdir -p /var/state/dhcp
+# touch /var/state/dhcp/dhcpd.leases</PRE
+></TD
+></TR
+></TABLE
+><P
+>Configure the inetd to accept the tftp service. Edit your 
+<TT
+CLASS="FILENAME"
+>/etc/inetd.conf</TT
+> file and locate
+the following line. Then uncomment it and save the file.</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>#tftp	dgram	udp	wait	root	/usr/sbin/tcpd	in.tftpd</PRE
+></TD
+></TR
+></TABLE
+><P
+>Create the <TT
+CLASS="FILENAME"
+>/etc/dhcp.conf</TT
+> configuation file. An example
+config is provided below with the directives which allow BOOTP. </P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>subnet 192.168.1.0 netmask 255.255.255.0 {
+       option routers                        192.168.1.1;
+       option subnet-mask                  255.255.255.0;
+       option nis-domain                "alphalinux.org";
+       option domain-name	        "alphalinux.org";
+       option domain-name-servers            192.168.1.2;
+       range                 192.168.1.3   192.168.1.254;
+       range dynamic-bootp   192.168.1.3   192.168.1.254;
+       default-lease-time                          21600;
+       max-lease-time                              43200;
+       allow bootp;
+       allow booting;
+       filename "/tftpboot/vmlinux.bootp";	
+}                                 </PRE
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="SECT4"
+><H4
+CLASS="SECT4"
+><A
+NAME="AEN563"
+>Examination of <TT
+CLASS="FILENAME"
+>/etc/dhcp.conf</TT
+></A
+></H4
+><P
+>There are four directives that you should be concerned with.</P
+><P
+></P
+><UL
+><LI
+><P
+><VAR
+CLASS="LITERAL"
+>range dynamic-bootp 192.168.1.3 192.168.1.254;</VAR
+>
+which defines the range of ip's available for bootp.</P
+></LI
+><LI
+><P
+> 
+<VAR
+CLASS="LITERAL"
+>allow bootp;</VAR
+>
+which tells the dhcp server to allow the bootp protocol..</P
+></LI
+><LI
+><P
+> 
+<VAR
+CLASS="LITERAL"
+>allow booting;</VAR
+>
+which tells the dhcp server to allow the transfer of the file specified 
+either in the the "filename" directive or passed in the "-file" flag in SRM. </P
+></LI
+><LI
+><P
+> 
+<VAR
+CLASS="LITERAL"
+>filename "<TT
+CLASS="FILENAME"
+>/tftpboot/vmlinux.bootp</TT
+>";</VAR
+>
+ which is the default file which is transferred and executed when no filename 
+specified in SRM as an argument. </P
+></LI
+></UL
+><P
+>Lastly, Restart the inetd daemon so that the changes we made can take effect</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># service inet restart</PRE
+></TD
+></TR
+></TABLE
+><P
+>You should now have a DHCP server that is capable of BOOTP.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN584"
+>bootpd configuration</A
+></H3
+><P
+>The bootpd is the older way of making a bootp server and for the most part is not used anymore
+in lieu of more modern DHCP servers that are capable of handling the protocol with minimal configuration
+and more flexibility. This style of setup does not allow just any client to be granted a BOOTP request. 
+Instead you must specify the ip address and MAC address of the allowed clients. Naturally this could get
+quite tedious if you where say administrating more than a few machines. </P
+><P
+>bootpd rpms can be found on older versions of RedHat's distributions like version 5.2 and below. Note:
+the rpm itself is named bootp though the package does contain the bootpd filename. It is available
+for download at your favorite RedHat <A
+HREF="ftp://ftp.freesoftware.com/.1/linux/redhat/old-releases/redhat-5.2/alpha/RedHat/RPMS/"
+TARGET="_top"
+>mirror</A
+>.
+The bootp package requires the tftp-server just as before and the location to where the files are grabbed from is the same.  </P
+><P
+>Once installed you must configure your inetd service to talk to the bootpd daemon. Uncomment the following line in your <TT
+CLASS="FILENAME"
+>/etc/inetd.conf</TT
+>.</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>#bootps dgram   udp     wait    root    /usr/sbin/tcpd  bootpd</PRE
+></TD
+></TR
+></TABLE
+><P
+>Then restart the inetd.</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+># service inet restart</PRE
+></TD
+></TR
+></TABLE
+><P
+>Configuring the <TT
+CLASS="FILENAME"
+>/etc/bootptab</TT
+> file.  The 
+<TT
+CLASS="FILENAME"
+>bootptab</TT
+> file
+has one entry describing each client that is allowed to boot from
+the server.  For example, if you want to boot the machine
+<VAR
+CLASS="LITERAL"
+>voodoo.alphalinux.org</VAR
+>, then an entry of the following form would
+be needed:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>voodoo.alphalinux.org:\
+	:hd=/tftpboot/:bf=vmlinux.bootp:\
+	:ht=ethernet:ha=08012B1C51F8:hn:vm=rfc1048:\
+	:ip=192.12.69.254:bs=auto:</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>This entry assumes that the machine's Ethernet address is
+<VAR
+CLASS="LITERAL"
+>08012B1C51F8</VAR
+> and that its IP address is 192.12.69.254.  The
+Ethernet address can be found with the <B
+CLASS="COMMAND"
+>show device</B
+> command
+of the SRM console or, if Linux is running, with the <B
+CLASS="COMMAND"
+>ifconfig</B
+>
+command.
+The entry also defines that if the client does not specify otherwise,
+the file that will be booted is <TT
+CLASS="FILENAME"
+>vmlinux.bootp</TT
+> in directory
+<TT
+CLASS="FILENAME"
+>/tftpboot</TT
+>.  For more information on configuring <VAR
+CLASS="LITERAL"
+>bootpd</VAR
+>,
+please refer to its man page.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="NETWORK-BOOTING"
+>Booting Over the Network</A
+></H2
+><P
+>Three steps are necessary before Linux can be booted via
+a network.  First you need an Ethernet adapter that is supported by SRM.
+Most version of SRM support the DE500 series of cards, with newer
+versions (5.6 and later) also supporting the Intel EtherExpress/Pro series
+of cards.
+Second, you need to set the SRM environment variables to
+enable booting via the bootp protocol and third you need to setup
+another machine as the your boot server.  Enabling bootp in SRM is
+usually done by setting the ewa0&lowbar;protocol (DE500 cards) or eia0&lowbar;protocol (Intel cards) variable to bootp.
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#62;&#62;&#62; set ewa0_protocol bootp</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>Also check to see that your ethernet device has a link light to whatever hub or switch it is connected to. If you
+do not see a link light try forcing the negotiation of the ethernet device. For example:</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#62;&#62;&#62; set ewa0_mode FastFD</PRE
+></TD
+></TR
+></TABLE
+><P
+> Would set the DE500 ethernet card to fast full duplex operation. To see a list of the available modes</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#62;&#62;&#62; set ewa0_mode </PRE
+></TD
+></TR
+></TABLE
+><P
+>Netboot using the aboot sources is currently broken though for the curious the steps needed are further below. Instead use the directions for netbooting using the kernel sources. </P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN615"
+>Netboot using the kernel sources</A
+></H3
+><P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Make sure the kernel you want to boot has already been built </P
+></LI
+><LI
+><P
+>Execute the following while in the linux source dir: 
+  <P
+></P
+><UL
+><LI
+><P
+>    <VAR
+CLASS="LITERAL"
+><B
+CLASS="COMMAND"
+>make bootimage</B
+></VAR
+> 
+  </P
+></LI
+><LI
+><P
+>    <VAR
+CLASS="LITERAL"
+><B
+CLASS="COMMAND"
+>make bootpfile</B
+></VAR
+>
+  </P
+></LI
+></UL
+></P
+><P
+>This creates a uncompressed kernel named <TT
+CLASS="FILENAME"
+>bootpfile</TT
+> located
+in <TT
+CLASS="FILENAME"
+>arch/alpha/boot/</TT
+>. Note that this kernel is 
+significantly larger than that produced by the aboot sources. </P
+></LI
+><LI
+><P
+>Copy bootpfile to the bootp server's directory. With a default setup the tftp server would look in 
+<TT
+CLASS="FILENAME"
+>/tftpboot</TT
+> so copy <TT
+CLASS="FILENAME"
+>bootpfile</TT
+> into
+<TT
+CLASS="FILENAME"
+>/tftpboot</TT
+>. 
+  </P
+></LI
+></OL
+></P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN640"
+>Netboot using the aboot sources</A
+></H3
+><P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Build aboot with with the command <B
+CLASS="COMMAND"
+>make netboot</B
+>. </P
+></LI
+><LI
+><P
+>Make sure the kernel that you want to boot has been built already. 
+
+By default, the aboot Makefile uses the kernel in 
+<TT
+CLASS="FILENAME"
+>/usr/src/linux/arch/alpha/boot/vmlinux.gz</TT
+> (edit the 
+Makefile if you want to use a different path). The result of 
+<B
+CLASS="COMMAND"
+>make netboot</B
+> is a file called 
+<TT
+CLASS="FILENAME"
+>vmlinux.bootp</TT
+> 
+    which contains aboot and the Linux kernel, ready for network booting. </P
+></LI
+><LI
+><P
+>&#13;Copy <TT
+CLASS="FILENAME"
+>vmlinux.bootp</TT
+> to the bootp server's directory. In the
+example above, you'd copy it into <TT
+CLASS="FILENAME"
+>/tftpboot/vmlinux.bootp</TT
+>.</P
+></LI
+></OL
+></P
+><P
+>Next, power up the client machine and boot it, specifying the Ethernet adapter as the boot device. Typically, SRM calls the DEC based Ethernet adapter ewa0 and the Intel based adapter
+eia0, so to boot from that device, you'd use the command: 
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>      &#62;&#62;&#62; boot ewa0 </PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>The -fi and -fl options can be used as usual. For example, </P
+><P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>      &#62;&#62;&#62; boot ewa0 -fi  bootpfile -fl "root=/dev/hda2" </PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>In particular, you can ask aboot to prompt for Linux kernel arguments by specifying the option 
+-fl i .  </P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN662"
+>Updating the SRM console through BOOTP</A
+></H3
+><P
+>Updating your SRM console over the network through BOOTP is just as easy as booting the Linux kernel
+in the same manner. The hardware prerequisites are the same as netbooting Linux.</P
+><P
+>First you have to obtain an SRM image that is able to BOOTP over the network. These images normally
+have a .exe extension. For DEC/Compaq/HP Alpha products these images can be found at 
+<A
+HREF="ftp://ftp.digital.com/pub/Digital/Alpha/firmware/"
+TARGET="_top"
+>ftp://ftp.digital.com/pub/Digital/Alpha/firmware/</A
+>; you will need version 5.8 or later. For access you might need to use an proper ftp client. You can also find these files on the Alpha Systems Firmware Update CD-ROM. <A
+HREF="http://www.api-networks.com"
+TARGET="_top"
+>API NetWorks</A
+> did not offer any net bootable SRM image.</P
+><P
+>For example say you had a DS20 and wanted to update it's firmware over the network using BOOTP. You would have to,
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Get the correct firmware image for the DS20 that supported BOOTP execution which in this case the filename is 
+<TT
+CLASS="FILENAME"
+>ds20_v5_8.exe</TT
+> from  <A
+HREF="ftp://gatekeeper.dec.com/pub/DEC/Alpha/firmware/v5.8/"
+TARGET="_top"
+>ftp://gatekeeper.dec.com/pub/DEC/Alpha/firmware/v5.8/</A
+>.</P
+></LI
+><LI
+><P
+>Copy the file to the <TT
+CLASS="FILENAME"
+>/tftpboot</TT
+> folder located on the
+BOOTP server.</P
+></LI
+></OL
+></P
+><P
+>To execute the update from SRM you would do the following:</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#62;&#62;&#62; b ewa0 -fi ds20_v5_8.exe</PRE
+></TD
+></TR
+></TABLE
+><P
+>SRM would then proceed to upgrade the firmware in the same fashion as if you had done the firmware update from a CD.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN680"
+>Partitioning Disks</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN682"
+>What is a disklabel?</A
+></H3
+><P
+>A disk label is a partition table. Unfortunately, there are several
+formats the partition table can take, depending on the operating
+system.</P
+><P
+>DOS partition tables are the standard used by Linux and
+Windows. AlphaBIOS systems and every Linux kernel can read DOS
+partition tables. Unfortunately, the SRM console's boot sector format
+overlaps with parts of the DOS partition table on disk, and therefore
+DOS partition tables cannot be used with SRM.</P
+><P
+>BSD disklabels are used by several variants of Unix, including
+<SPAN
+CLASS="PRODUCTNAME"
+>Tru64</SPAN
+>.  SRM's boot block does not conflict with
+the BSD disklabel (in
+fact, the BSD disklabel resides entirely within "reserved" areas of
+the first sector), and Linux can use a BSD disklabel, provided that
+support for BSD disklabels has been compiled into the kernel.</P
+><P
+>To boot from a disk using SRM, a BSD disklabel is required. If the
+disk is not a boot disk, the BSD disklabel is not required. A BSD
+disklabel can be created using fdisk, the standard Linux disk
+partitioning tool.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN689"
+>Partitioning the Easy Way: a DOS Disklabel</A
+></H3
+><P
+>The simplest way to partition your disk is to let your Linux installer
+do it for you, for example by using Red Hat's disk druid or fdisk.  On
+Red Hat 6.1, this will produce a valid BSD disklabel, but
+<SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>only</I
+></SPAN
+> if the disk in question previously contained one.  In
+most cases, this will produce a DOS disklabel.  It will be readable by
+Linux, but you will not be able to boot from it via SRM.  For this
+reason, you will probably want to create a BSD disklabel manually in
+order to boot Linux</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN693"
+>Partitioning with a BSD Disklabel</A
+></H3
+><P
+>&#13;<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Start fdisk on the disk you're configuring</P
+></LI
+><LI
+><P
+>Choose to make a BSD disklabel - option 'b' (newer versions of
+fdisk will detect existing BSD disklabels and automatically enter
+disklabel mode)</P
+></LI
+><LI
+><P
+>You'll notice some things: Partitions are letters instead of
+numbers, from a-h Partition 'c' covers the whole of the disk. This is
+the convention, don't touch it.  While you can see it, note down the
+disk parameters as you'll use them more often than with the
+DOS-disklabel approach</P
+></LI
+><LI
+><P
+>Creating a new partition uses the same procedure as the
+DOS-disklabel approach, except that the partitions are referred to by
+letter instead of number. That is, 'n' to make a new partition
+followed by the partition letter followed by the starting block
+followed by the end block</P
+></LI
+><LI
+><P
+>Setting partition type is slightly different, because the
+numbering scheme is different (1 is swap, 8 is ext2).</P
+></LI
+><LI
+><P
+>When you are finished, write ('w') and quit ('q') as normal.</P
+></LI
+></OL
+>&#13;</P
+><P
+>There are some important catches that you must be aware of when
+partitioning using a BSD disklabel:
+
+<P
+></P
+><UL
+><LI
+><P
+>Partition 'a' should start about 1M into the disk: don't start
+it at sector 1, try starting at sector 10 (for example). This leaves
+plenty of space for writing the boot block (see below)</P
+></LI
+><LI
+><P
+>There is a bug in some versions of fdisk which makes the disk
+look one sector bigger than it actually is.  The listing when you
+create the BSD disklabel is correct.  The last sector of partition 'c'
+is correct.  The default last sector when creating a new partition is
+1 sector too big</P
+></LI
+><LI
+><P
+>Always adjust for this extra sector. This bug exists in the
+version of fdisk shipped with Red Hat 6.0. Not making an adjustment
+for this problem almost always leads to "Access beyond end of device"
+errors from the Linux kernel.</P
+></LI
+></UL
+>&#13;</P
+><P
+>Once you have made a BSD disklabel, continue the installation. After
+installation, you can write a boot block to your disk to make it
+bootable from SRM.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="srm-rawloader.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="srm-sharingwithdec.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The Raw Loader</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Sharing a Disk With <SPAN
+CLASS="PRODUCTNAME"
+>HP Tru64</SPAN
+></TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>Circa RH4.2 Linux Alpha Patches and Bug Fixes - Kernels, GCC, and Profiling: Kernel patching.</TITLE>
+</HEAD>
+<BODY>
+<A HREF="alpha-patches-n-bugfixes-1.html">Previous</A>
+<A HREF="alpha-patches-n-bugfixes-3.html">Next</A>
+<A HREF="alpha-patches-n-bugfixes.html#toc2">Table of Contents</A>
+<HR>
+<H2><A NAME="s2">2. Kernel patching.</A></H2>
+
+
+
+<H2><A NAME="ss2.1">2.1 Facts.</A></H2>
+
+
+<P>
+<UL>
+<LI>Stock kernel headers are *not* compatible with the glibc headers that
+comes with Redhat alpha 4.2 (which is glibc 1.9).</LI>
+<LI>Stock kernel headers are compatible with the glibc2 headers.</LI>
+<LI>glibc2 is not compatible with the binaries that come with Redhat
+alpha 4.2.</LI>
+<LI>The kernel RPM from Redhat 4.2 patches the kernel headers to make it
+compatible with glibc 1.9.</LI>
+<LI>The other available kernel patches (except as noted below) also
+make the kernel compatible with glibc 1.9.</LI>
+</UL>
+</P>
+
+
+<H2><A NAME="ss2.2">2.2 Patch descriptions.</A></H2>
+
+
+<P>Note - All patches are to be applied to a pristine 2.0.30, except as
+noted. </P>
+
+<P>
+<A HREF="ftp://ftp.azstarnet.com/pub/linux/axp/sys/axp-diffs-2.0.30.gz">axp-diffs-2.0.30.gz</A>
+-Various fixes for 2.0.30.
+-Modifies the kernel headers to make them compatible with glibc
+1.9.</P>
+<P>
+<A HREF="ftp://ftp.digital.com/pub/DEC/Linux-Alpha/em86/v0.2/kernel-patches/alpha-patches-2.0.30-0.2a.gz">alpha-patches-2.0.30-0.2a.gz</A>
+-Includes the above, plus additional bug fixes.
+-In particular, includes enhancements needed for em86, and has
+SYSV IPC bugfixes.  These are needed for the X server MIT SHM
+extention.  Without it you can't run xquake, so this is a very
+important bugfix.
+-Breaks trap handling - running programs with lots of unaligned
+access could crash the machine.</P>
+<P>Kernel which comes with Redhat 4.2:
+-A patched version of 2.0.30.  Kernel headers are patched to be
+compatible with glibc 1.9 headers.  Includes some, but not all
+of alpha-patches-2.0.30-0.2a.gz, but *does* include the trap
+handling bug.
+-I believe it also is missing the SYSV IPC bugfixes, without
+which the X server MIT SHM extention will fail, so you can't
+run xquake.</P>
+<P>
+<A HREF="ftp://genie.ucd.ie/pub/alpha/kernel/alpha-patchset.tar.gz">alpha-patchset.tar.gz</A>
+-Includes several patches:
+alpha-patches-0.2-glibc2.diff
+-This is alpha-patches-2.0.30-0.2 (*not* 0.2a), but
+modified to apply to 2.0.30-pre.10, except that it
+*doesn't* modify kernel headers for glibc 1.9.
+ap-0.2-fixes-1.diff
+-Fixes to alpha-patches-0.2-glibc2.diff.  In particular,
+fixes the trap handling.</P>
+
+
+
+<H2><A NAME="ss2.3">2.3 Kernel compilation possibilities.</A></H2>
+
+
+<P>
+<UL>
+<LI>Using stock kernels on RH 4.2 systems:
+
+The stock kernel headers are incompatible with the
+supplied glibc.  However, you can work around this by leaving
+the symlink in /usr/src/linux pointing to the kernel source tree
+that comes with RH 4.2.
+</LI>
+<LI>Using patches from ftp.azatartnet.com or ftp.digital.com:
+
+Apply one or the other, but *not* both to a pristine 2.0.30,
+*not* the 2.0.30 that comes with Redhat 4.2.
+</LI>
+<LI>Using patches from genie.ucd.ie:
+
+Get the original 2.0.30 and apply 2.0.30-pre.10 first.  Then you
+can apply alpha-patches-0.2-glibc2.diff, and if you desire, you
+can also apply ap-0.2-fixes-1.diff, or components of it which
+are available on the ftp server.  See the ftp server for details.
+If you do this, you either need to be using glibc2 or you need
+to leave the /usr/src/linux symlink pointing at the old kernel
+source tree.
+</LI>
+<LI>2+3 combo:
+
+You can apply alpha-patches-2.0.30-0.2a.gz from ftp.digital.com
+to a pristine 2.0.30, and then apply ap-0.2-fixes-1.diff.  This
+seems to work fine, and the kernel header files should be
+compatible with redhat 4.2 (although I've left /usr/src/linux
+pointing to the old tree anyway).  If you do this, then you'll
+get one reject from the ap-0.2-fixes-1.diff patch.  I think
+applying it by hand should be ok.  Just added result = -EIO; to
+the NOT_READY and ILLEGAL_REQUEST cases in drivers/scsi/sr_ioctl.c.</LI>
+</UL>
+</P>
+<P>WARNING - Remember that kernel sources unpack into /usr/src/linux, so
+if you have a /usr/src/linux symlink, you'll need to remove it, unpack
+the kernel, and put back the symlink.</P>
+
+
+
+<H2><A NAME="ss2.4">2.4 Kernel compilation details.</A></H2>
+
+
+<P>It seems that with the Redhat glibc one can use both unpatched and
+patched kernels, as long as one keeps a /usr/src/linux symlink to
+the Redhat kernel source tree.  So, we get the following procedure
+for those using Redhat's glibc (glibc 1.9).  Those brave enough to
+use glibc2 can probably figure out what they need to do on their
+own or via the glibc2 HowTos.</P>
+<P>Step by step notes:</P>
+<P>
+<UL>
+<LI>cd to the /usr/src directory.</LI>
+<LI>If you have a linux symlink, remove it.  If you have a linux
+subdirectory, rename it to something like linux-redhat.  If you
+have something else there, I'll call it linux-redhat for the
+rest of these instructions.</LI>
+<LI>Untar linux-2.0.30.tar.gz.</LI>
+<LI>Rename linux to linux-2.0.30.</LI>
+<LI>Make a symlink from linux back to linux-redhat.</LI>
+<LI>cd /usr/src/linux-2.0.30 (for the rest of these instructions).</LI>
+<LI>If you're *not* going to patch the kernel, then edit the
+Makefile, changing ARCH=i386 to ARCH=alpha.</LI>
+<LI>Apply patches as noted above.</LI>
+<LI>make mrproper</LI>
+<LI>make config
+Use make config even though it's extremely painful.  People
+have reported problems with make xconfig and make menuconfig,
+and I've experienced them myself.  On the other hand, I have
+used make xconfig and it sometimes seemed to work.  tkparse
+complained about not recognizing the "unset" commands in
+arch/alpha/config.in.  I don't know how serious this is.  If
+you try using xconfig or menuconfig and things don't work, try
+again with just config.</LI>
+<LI>(if you use make xconfig or make menuconfig) Save to a file if
+you so desire.</LI>
+<LI>Save and exit.</LI>
+<LI>make dep clean</LI>
+<LI>make boot</LI>
+<LI>cp arch/alpha/boot vmlinux.gz /vmlinux-2.0.30-my-very-own.gz</LI>
+<LI>reboot with /vmlinux-2.0.30-my-very-own.gz.</LI>
+</UL>
+</P>
+
+
+<HR>
+<A HREF="alpha-patches-n-bugfixes-1.html">Previous</A>
+<A HREF="alpha-patches-n-bugfixes-3.html">Next</A>
+<A HREF="alpha-patches-n-bugfixes.html#toc2">Table of Contents</A>
+</BODY>
+</HTML>

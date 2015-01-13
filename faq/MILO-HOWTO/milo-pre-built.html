@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Pre-Built Standard MILO Images.</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+HREF="t1.html"><LINK
+REL="PREVIOUS"
+TITLE="What is MILO? "
+HREF="milo-whatis.html"><LINK
+REL="NEXT"
+TITLE="How To Build MILO "
+HREF="milo-self-build.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="milo-whatis.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="milo-self-build.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MILO-PRE-BUILT"
+>Pre-Built Standard MILO Images.</A
+></H1
+><P
+>If you are planning to run Linux on a standard Alpha based system, then
+there are pre-built "standard" MILO images that you might use.
+The original images (along with the sources and other interesting stuff)
+can be found in 
+<A
+HREF="ftp://gatekeeper.dec.com/pub/Digital/Linux-Alpha/Miniloader"
+TARGET="_top"
+>gatekeeper.dec.com/pub/Digital/Linux-Alpha/Miniloader</A
+>.</P
+><P
+>Newer MILO images are available from 
+<A
+HREF="http://www.suse.de/~stepan/"
+TARGET="_top"
+>Stefan Reinauer (from SuSE)</A
+> and
+from <A
+HREF="http://dev.gentoo.org/~taviso/milo/"
+TARGET="_top"
+>Gentoo</A
+>.</P
+><P
+>The <TT
+CLASS="FILENAME"
+>images</TT
+> subdirectory contains a directory per standard system
+(eg AlphaPC64) with MILO images having the following naming convention:</P
+><P
+>&#13;<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+> <TT
+CLASS="FILENAME"
+>MILO</TT
+> - Miniloader executable image, this image can be
+ loaded in a variety of ways,</P
+></LI
+><LI
+><P
+> <TT
+CLASS="FILENAME"
+>fmu.gz</TT
+> - Flash management utility,</P
+></LI
+><LI
+><P
+> <TT
+CLASS="FILENAME"
+>MILO.dd</TT
+> - Boot block floppy disk image.  
+These should be written using rawrite.exe or <VAR
+CLASS="LITERAL"
+>dd</VAR
+> on Linux.</P
+></LI
+></OL
+>&#13;</P
+><P
+>The <TT
+CLASS="FILENAME"
+>test-images</TT
+>, like the <TT
+CLASS="FILENAME"
+>images</TT
+> 
+subdirectory 
+contains a directory per standard system.   These images are somewhat
+experimental but tend to contain all the latest features.</P
+><P
+>Digital/Compaq is no longer doing any work on MILO itself. However several people have picked up
+where Compaq left off.</P
+><P
+></P
+><UL
+><LI
+><P
+> Stefan Reinauer has done the work to get MILO to build against the 2.2 series of kernels. His
+          work is available from 
+	  <A
+HREF="http://www.suse.de/~stepan/"
+TARGET="_top"
+>http://www.suse.de/~stepan/</A
+>.
+  </P
+></LI
+><LI
+><P
+> Nikita Schmidt has updated the existing MILO source to provide support for the changes in the ext2
+         filesystem, as well as adding in many other bug fixes and patches. His version are available from
+	 <A
+HREF="ftp://genie.ucd.ie/pub/alpha/milo/"
+TARGET="_top"
+>ftp://genie.ucd.ie/pub/alpha/milo</A
+>.
+  </P
+></LI
+><LI
+><P
+>The Gentoo-Folks have recently done some work on MILO which you can get from
+       <A
+HREF="http://dev.gentoo.org/~taviso/milo/"
+TARGET="_top"
+>http://dev.gentoo.org/~taviso/milo/</A
+>.
+  </P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="milo-whatis.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="t1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="milo-self-build.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>What is MILO?</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How To Build MILO</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

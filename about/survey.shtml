@@ -1,0 +1,222 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux ***Win a 600MHz Alpha from API***</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+	<B><FONT SIZE="+6">Win a 600 MHz Alpha!</FONT></B>
+	<P>
+	Alpha Processor Inc is giving away a brand new 600MHz Alpha workstation. All you have to do
+	to be entered into the giveaway is to fill out the survey (you can also fill this survery out at LinuxWorld
+	Expo at the API booth #1915). The information gathered here will only be used by API and will not be 
+	sold to anybody else.
+
+	<P>
+	<FORM ACTION=/cgi-bin/afm.cgi METHOD=POST>
+	<INPUT type="hidden" name="to" value="api">
+	<TABLE BORDER=0>
+	<TR>
+	<TD>Name:</TD><TD COLSPAN=3> <INPUT TYPE=TEXT NAME=name SIZE=40></TD>
+	</TR>
+	<TR>
+	<TD>Company:</TD><TD COLSPAN=3> <INPUT TYPE=TEXT NAME=company SIZE=40></TD>
+	</TR>
+	<TR>
+	<TD>Title:</TD><TD COLSPAN=3><INPUT type=text name=tite size=40></TD>
+	</TR>
+	<TR>
+	<TD>Address:</TD><TD COLSPAN=3><INPUT type=text name=address size=40></TD>
+	</TR>
+	<TR>
+	<TD>City/State/Zip:</TD><TD COLSPAN=3> <INPUT type=text name=city_state_zip size=40></TD>
+	</TR>
+	<TR>
+	<TD>Phone:</TD><TD><INPUT type=test name=phone size=15></TD>
+	<TD>Fax:</TD><TD><INPUT type=test name=fax size=15></TD>
+	</TR>
+	<TR>
+	<TD>Email:</TD><TD COLSPAN=3><INPUT type=text name=email size=30></TD>
+	</TR>
+	<HR>
+	<TR>
+	<TD COLSPAN=3>What is the installed base on Linux at your organization?</TD>
+	<TD><INPUT TYPE=TEXT name=num_installed size=2"></TD>
+	<TR>
+	<TD>Where do you use Linux?</TD>
+	<TD COLSPAN=3><INPUT type=radio name=where_used value=home>Home
+	<INPUT type=radio name=where_used value=work>Work
+	<INPUT type=radio name=where_used value=both>Both</TD>
+	</TR>
+
+	<TR>
+	<TD>How do you use Linux?</TD>
+	<TD COLSPAN =3><INPUT type=radio name=how_used value=devep_work>Development Workstation
+			    <INPUT type=radio name=how_used value=file_print>File and Print Server</TD>
+	</TR>
+
+	<TR>
+	<TD></TD>
+	<TD COLSPAN=3><INPUT type=radio name=how_used value=internet_server>Internet Server
+			    <INPUT type=radio name=how_used value=db_server>Database Server</TD>
+	</TR>
+
+	<TR>
+	<TD></TD>
+	<TD COLSPAN=3><INPUT type=radio name=how_used value=beowulf_cluster>Beowulf Cluster
+			    <INPUT type=radio name=how_used value=tech_workstation>Technical Workstation</TD>
+	</TR>
+	
+	<TR>
+	<TD></TD>
+	<TD COLSPAN=3><INPUT type=radio name=how_used value=other>Other
+			    <INPUT type=text name=other_how_used></TD>
+	</TR>
+
+	<TR>
+	<TD COLSPAN=4>Which apps do you use the most? <INPUT type=text name=which_apps size=60></TD>
+	</TR>
+
+	<TR>
+	<TD COLSPAN=4>Where do you look for Linux info (Web sites)? <INPUT type=text name=web_sites size=60></TD>
+	</TR>
+
+	<TR>
+	<TD COLSPAN=4>Which hardware devices do you use in you Linux box?</TD>
+	</TR>
+	
+	<TR>
+	<TD>Video Card: </TD>
+	<TD><INPUT type=text name=video_card size=15></TD>
+	<TD>SCSI Controller: </TD>
+	<TD><INPUT type=text name=scsi_card size=15></TD>
+	</TR>
+	
+	<TR>
+	<TD>Sound Card:</TD>
+	<TD> <INPUT type=text name=sound_card size=15></TD>
+	<TD>Network Card: </TD>
+	<TD><INPUT type=text name=net_card size=15></TD>
+	</TR>
+
+	<TR>
+	<TD>Other Cards: </TD>
+	<TD><INPUT type=text name=other_card size=15></TD>
+	<TD></TD>
+	<TD></TD>
+	</TR>
+
+	<TR>
+	<TD COLSPAN=4>Where do you purchase hardware?
+	<INPUT type=radio name=where_buy value=internet_auctions>Internet Auctions 
+	<INPUT type=radio name=where_buy value=web_component_resellers>Web Component Resellers</TD>
+	</TR>
+
+	<TR>
+	<TD></TD>
+	<TD COLSPAN=3><INPUT type=radio name=where_buy value=direct_reseller>Direct Reseller (Web)
+	<INPUT type=radio name=where_buy value=local_store>Local Store
+	<INPUT type=radio name=where_buy value=SuperStore>SuperStore</TD>
+	</TR>
+
+	<TR>
+	<TD COLSPAN=4>How do you purchase hardware?
+	<INPUT type=radio name=where_buy value=MotherBoard&CPU>Motherboard & CPU
+	<INPUT type=radio name=where_buy value=Complete_System>Complete System
+	<INPUT type=radio name=where_buy value=peripherals>Hardware Peripherals</TD>
+	</TR>
+
+	<TR>
+	<TD COLSPAN=2>What are AlphaLinux's biggest strengths?</TD>
+	<TD COLSPAN=2> <INPUT type=text name=ALStrenghts size=30></TD>
+	</TR>
+	<TR>
+	<TD COLSPAN=2>What are AlphaLinux's biggest weaknesses?</TD>
+	<TD COLSPAN=2> <INPUT type=text name=ALweaknesses size=30></TD>
+	</TR>
+
+	<TR>
+	<TD COLSPAN=2>Which Linux publications do you read?</TD>
+	<TD COLSPAN=2> <INPUT type=text name=publications size=30></TD>
+	</TR>
+	<TR>
+	<TD COLSPAN=2>Which development tools to you use?</TD>
+	<TD COLSPAN=2> <INPUT type=text name=develop_tools size=30></TD>
+	</TR>
+
+	<TR>
+	<TD COLSPAN=2>Which product would you like ported to AlphaLinux?</TD>
+	<TD COLSPAN=2> <INPUT type=text name=product_ported size=30></TD>
+	</TR>
+	<TR>
+	<TD COLSPAN=2>Which hardware would you like supported?</TD>
+	<TD COLSPAN=2> <INPUT type=text name=hardware_supported size=30></TD>
+	</TR>
+
+	<TR>
+	<TD COLSPAN=2>When do you plan on purchasing an Alpha system?</TD>
+	<TD COLSPAN=2> <INPUT type=text name=when_purchase size=30></TD>
+	</TR>
+	<TR>
+	<TD COLSPAN=2>How much do you plan on spending?</TD>
+	<TD COLSPAN=2> <INPUT type=text name=$$_to_spend size=30></TD>
+	</TR>
+	
+	<TR>
+	<TD COLSPAN=2><INPUT type=submit value="Submit Entry"></TD>
+	<TD COLSPAN=2><INPUT type=reset value="Clear Form"></TD>
+	</TR>
+	</TABLE>
+	
+	</FORM>
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

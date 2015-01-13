@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+   <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Netscape Under em86
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+	      This document describes how to run the i386 version of Netscape under Alpha-Linux.
+	      <P>
+	     
+	      Here's the recipe I have promised a long time ago.
+	      <P>
+	      <B>Disclaimer: USE IT AT YOUR OWN RISK.</B>
+	      <P>
+	      1. Get one of the Alpha kernels from gatekeeper.dec.com and compile it
+	      with support for em86 (CONFIG_BINFMT_EM86=y). I have used both
+	      alpha-sources-2.0.35-0.[12].tar.gz.
+	      <P>
+	      2. Get em86 from gatekeeper.dec.com. Install the following--I am
+	      actually copying verbatim from a different window:
+	      <P>
+	      [root@brain em86]# rpm -ihv em86-0.4-1.alpha.rpm<BR>
+	      em86                        ##################################################<BR>
+	      [root@brain em86]# rpm -ihv --ignorearch em86-x86-0.2-1.i386.rpm<BR>
+	      em86-x86                    ##################################################<BR>
+	      [root@brain em86]# rpm -ihv em86-baselibs-0.2-1.alpha.rpm<BR>
+	      em86-baselibs               ##################################################<BR>
+	      [root@brain em86]# rpm -ihv em86-X11libs-0.2-1.alpha.rpm<BR>
+	      em86-X11libs                ##################################################<P>
+
+	      3. Get netscape 4.5 from any netscape mirror. I have not been able to
+	      use a glibc version. Therefore, make sure you use a libc version. I
+	      got navigator-v45-export.x86-unknown-linux2.0.tar.gz.
+	      <P>
+	      4. Install this in a suitable location (/usr/local/netscape is fine).
+	      <P>
+	      5. Put the following script in /usr/local/bin
+	      <P>
+	      #!/bin/sh<BR>
+	      export MOZILLA_HOME=/usr/local/netscape<BR>
+	      export MOZILLA_NO_ASYNC_DNS=True<BR>
+	      exec ${MOZILLA_HOME}/netscape -no-about-splash $* &
+	      <P>
+	      6. Start it up by calling this script. The kernel will automatically
+	      detect the x86 binary and run it through em86.
+	      <P>
+	      7. Go get a beer; it takes a while for the netscape window to open up.
+	      <P>
+
+	      This worked for me on RH5.1/2.0.35 (alpha-sources-2.0.35-0.1.tar.gz)
+	      on an AS200 4/233.
+	      <P>
+	      Problems that I have noticed:
+	      <P>
+	      i. netscape starts spawning one process after another. I don't know
+	      what happens, but disabling the asynchronous DNS solved it
+	      (MOZILLA_NO_ASYNC_DNS).
+	      <P>
+	      ii. The netscape window doesn't draw properly. Use -no-about-splash.
+	      <P>
+	      iii. netscape complains about libBrokenLocale. You have a glibc
+	      version. Get a binary for libc.
+	      <P>
+
+	      Email suggestions to dragos.manolescu@acm.org.
+	      <P>
+	      -Dragos
+	      
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+   
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

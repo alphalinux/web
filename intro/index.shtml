@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Introduction</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>     
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_intro.gif" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Introduction">
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+
+              <!-- Subtitle --> 
+	      <FONT SIZE="+1"><B>
+	      What is AlphaLinux?
+              </B></FONT><BR> 
+
+	      AlphaLinux is a port of the Linux operating system to Compaq (was Digital)'s Alpha CPU.
+	      The Alpha is a true 64-bit CPU that holds the title as the fastest chip currently available, with speeds
+	      up to 833MHz. Most of the other components in an Alpha system are the same as an Intel based PC, and most
+	      of the x86 Linux software available today can be recompiled on the Alpha.
+
+
+	      <P>
+
+	      <FONT SIZE="+1"><B>
+	      Where can I get an Alpha system?
+              </B></FONT><BR> 
+	      We currently have a list of <A HREF="../hardware/vendors.shtml">vendors</A>, both in the U.S. and internationally that sell Alpha hardware
+	   
+
+	      <P>
+
+	      <FONT SIZE="+1"><B>
+	      How do I get AlphaLinux?
+              </B></FONT><BR> 
+	      You can buy a distribution from one of the vendors. Currently <A HREF="http://www.redhat.com">RedHat</A>, <A HREF="http://www.debian.org">
+	      Debian</A>, <A HREF="http://www.suse.com">SuSE</A>,  <A HREF="http://www.rocklinux.com">RockLinux</A> and <A HREF="http://www.linux-mandrake.com">Mandrake</A> have AlphaLinux distributions. Just like its x86 counterpart all of this
+	      software is available for download from the Internet. Though it's always a good idea to buy a distribution to help fund continued development.
+	     
+	      <P>
+	      <FONT SIZE="+1"><B>
+	      Are they more difficult to setup than x86 machines?
+	      </B></FONT><BR>
+	      The Alphas do tend to be a little more difficult to setup than x86 machines. They have much more complicated  firmware than
+	      x86 machines and were designed to run Digital Unix (OSF/1), VMS and of course Windows NT. However, don't let this discourage you. There are
+	      lots of these machines around and the support from the AlphaLinux community is excellent.
+	    
+	      <P>
+	      <FONT SIZE="+1"><B>
+	      How much do they cost?
+	      </B></FONT><BR>
+	      New Alphas are usually a little more expensive then x86 machines. However there is a plentiful supply of
+	      older and used machines out there. I picked up my Multia (a 166MHz version) for only fifty U.S. dollars. Not bad....
+	      
+	      <P>
+	      <FONT SIZE="+1"><B>
+	      Where do I get help?
+	      </B></FONT><BR>
+	      There are several places to turn. One is the<A HREF="news:comp.os.linux.alpha"> comp.os.linux.alpha</A> newsgroup. Both Debian and
+	      RedHat have email lists, you can find more about those on our <A HREF="../otherpages/index.shtml">otherpages</A> section.  Also we
+		have <A HREF="../archives/">archives</A> of the major Alpha mailing lists.
+	      <P>
+	      <FONT SIZE="+1"><B>
+	      Which system should I buy?
+	      </B></FONT><BR>
+	      Most of the systems are well supported at this point. However do not buy any of the TURBO channel based
+	      DEC 3000 series as these are not supported.
+	      
+	      <P>
+	      <FONT SIZE="+1"><B>
+	      What's performance like?
+	      </B></FONT><BR>
+	      Well my Multia (a 166MHz) pretty much keeps pace with my Pentium 100. Obviously the newer machines are much faster. Things
+	      are getting better as the compilers become more mature. If you're looking to get the highest performance from your Alpha
+	      then it's worth checking out our <A HREF="../docs/high_perf.shtml">High Performance Page</A>.
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

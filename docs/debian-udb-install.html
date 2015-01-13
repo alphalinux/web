@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>Installing Debian GNU/Linux on a UDB</title>
+    <meta name="keywords" content="Debian, GNU, Linux, GNU/Linux, Alpha, Universal Desktop Box, UDB, Multia, install, installing, installation, HOWTO, MILO, ARC, SRM">
+    <link rel="made" title="author" href="mailto:robin.stephenson@blackwell.co.uk">
+<style type="text/css">
+    <!--
+a {text-decoration: none}
+.command {font-family: courier, fixed, sans-serif;
+          margin-left: 1.5in}
+.program {font-family: courier, fixed, sans-serif}
+.changeable {font-style: italic}
+-->
+</style>
+  </head>
+
+  <body bgcolor="white">
+    <h1>Installing Debian GNU/Linux on a UDB</h1>
+
+    <p><img align="right" src="udb.gif" alt="picture of a UDB" width="166" height="98">This
+    document is a step-by-step guide to doing an installation of the
+    Debian GNU/Linux system onto a Digital UDB (aka the Multia).
+    There's a lot of documentation floating about, and the aim of this
+    document is to provide a central list of pointers for people
+    wanting UDB installation information.  There seem to be rather a
+    lot of UDBs out there, and a significant fraction are running
+    Linux -- maybe there'll be a few more 'cos I wrote this.</p>
+
+    <p>There is more information about the Alpha processor somewhere
+    on <a href="http://www.digital.com/"><strike>Digital</strike>
+    Compaq</a>'s web site, and useful intros to the UDB <a
+    href="http://www.brouhaha.com/~eric/computers/udb.html">here</a>
+    and <a href="http://www.annex.co.uk/systems/udb.html">here</a>
+    (the latter is currently down).  You'll also want the Service
+    Information document (2,216k <a
+    href="http://www.brouhaha.com/~eric/computers/udb-man.pdf">PDF</a>,
+    4,949k <a
+    href="ftp://gatekeeper.dec.com/pub/BSD/NetBSD/misc/dec-docs/ek-mults-in.ps.gz">PostScript</a>),
+    a free &amp; very useful 100-odd page document (also available on
+    dead trees from Digital for $85 as part number <a
+    href="http://www.digital.com/info/DAHOME/das07qhm.htm">EK-MULTS-IN.C01</a>).</p>
+
+    <p>The prerequisites for following this installation procedure are
+    as follows:</p>
+
+    <ul>
+      <li>A UDB, a monitor and a keyboard (incidentally, don't ever
+      use your UDB without a keyboard -- it'll blow the motherboard).
+
+      <li>Two blank floppies for making into boot disks.
+
+      <li>Another networked machine with an NFS mountable directory
+      containing the installation <a
+      href="http://lhpca.univ-lyon1.fr/axp/bf980705/base2_0.tgz">base</a>
+      (7,351k) or, alternatively, half a dozen blank floppies.  CDs
+      aren't an option I'm afraid, because no-one's made any yet.
+    </ul>
+
+        
+    <h2>Make some boot disks</h2>
+
+    <p>Download the following from the <a
+    href="http://lhpca.univ-lyon1.fr/axp/debian.html">installation
+    disks page</a> (this <a
+    href="http://master.debian.org/~lprylli/axp/debian.html">mirror</a>
+    is faster for me):</p>
+
+    <ul>
+      <li>The <a
+      href="http://lhpca.univ-lyon1.fr/axp/bf980705/noname/resc1440.bin">rescue</a>
+      disk image, which is bootable.
+
+      <li>The <a
+      href="http://lhpca.univ-lyon1.fr/axp/bf980705/root1440.bin">root</a>
+      disk image, which is loaded into the machine after booting from
+      the rescue disk.
+    </ul>
+
+    <p>To put the disk images on to floppies, run this command on
+    another UNIX box:</p>
+
+    <div class="command">dd if=<span class="changeable">image</span>
+    of=/dev/<span class="changeable">fd0</span> obs=18k</div>
+
+    <p>Substitute the <span class="changeable">filenames</span> as
+    appropriate -- see the <span class="program">dd(1)</span> man page
+    for more details.  If you only have a DOS box handy, you can use
+    the <span class="program">RAWRITE.EXE</span> command (download
+    either <a href="ftp://ftp.debian.org/debian/tools/">rawrite1.zip
+    or rawrite2.zip</a>).  See the <!-- 6.2 Creating the boot and root
+    floppies --><a
+    href="http://sunsite.unc.edu/LDP/HOWTO/Installation-HOWTO-6.html#ss6.2">Installation
+    HOWTO</a> if you're confused.</p>
+
+    <p>If you're using floppies for the base install rather than NFS,
+    download these disk images onto your six floppies as described
+    above: <a
+    href="http://lhpca.univ-lyon1.fr/axp/bf980705/base14-1.bin">base14-1.bin</a>,
+    <a
+    href="http://lhpca.univ-lyon1.fr/axp/bf980705/base14-2.bin">base14-2.bin</a>,
+    <a
+    href="http://lhpca.univ-lyon1.fr/axp/bf980705/base14-3.bin">base14-3.bin</a>,
+    <a
+    href="http://lhpca.univ-lyon1.fr/axp/bf980705/base14-4.bin">base14-4.bin</a>,
+    <a
+    href="http://lhpca.univ-lyon1.fr/axp/bf980705/base14-5.bin">base14-5.bin</a>
+    and <a
+    href="http://lhpca.univ-lyon1.fr/axp/bf980705/base14-6.bin">base14-6.bin</a>.</p>
+
+    <h2>Decide which console you want to boot from</h2>
+
+    <p>The UDB firmware includes an ARC console, designed for booting
+    Windows NT, and an SRM console, which is capable of booting
+    Digital UNIX and seems to be more of a diagnostic mode.  They're
+    easy to tell apart: the ARC console is white-on-blue, and the SRM
+    is white-on-black.</p>
+
+    <p>Once you've got your floppies written, you need to decide which
+    console you want to boot from.  I'm not too sure of the pros and
+    cons of the two ways of doing this, but I've had success with the
+    ARC console, so that's the one I use.  I believe it may be
+    possible to reflash the machine so that it will load the Linux
+    kernel directly off the disk, but I haven't tried that.</p>
+
+    <h3>How to switch between ARC and SRM console modes</h3>
+
+    <dl>
+      <dt>To switch from SRM to ARC:</dt>
+      <dd>At the SRM prompt, enter the following command:
+        <div align="center"><code>&gt;&gt;&gt;arc</code></div>
+      </dd>
+      <dt>To switch from ARC to SRM</dt>
+      <dd>
+        <ul>
+          <li>Select the <code>Supplementary menu...</code> menu
+          <li>Select the <code>Set up the system...</code>menu
+          <li>Select <code>Switch to OpenVMS or OSF console</code>
+          <li>Select <code>Switch to Digital UNIX</code>
+          <li>Select <code>Setup menu...</code>
+          <li>Power-cycle the machine.  You should see the
+            <code>&gt;&gt;&gt;</code> SRM console prompt.
+        </ul>
+      </dd>
+    </dl>
+
+    <p>If you've decided to go with the SRM console please <a
+    href="#SRM">skip to that section</a>.</p>
+
+    <h2><a name="ARC">Installation using the ARC console</a></h2>
+
+    <p>First of all, you might like to check that you're running a
+    recent version of the firmware.  Digital releases <a
+    href="ftp://ftp.digital.com/pub/DEC/Alpha/firmware/readmes/interim/multia/">updates</a>
+    from time to time, together with <a
+    href="http://ftp.digital.com/pub/DEC/Alpha/firmware/readmes/interim/multia/readme.txt">instructions</a>
+    on performing the upgrade.  My machine started off with version
+    3.5-7 and is now running 4.33.  Note that your machine may become
+    unbootable if it all goes horribly wrong.</p>
+
+    <p>Secondly, reset the boot configuration, as described on page 41
+    of the Service Information book (see above for where to get this).
+    I had to do this when I replaced the motherboard battery on my
+    box, but it won't do any harm to know that we're starting from
+    exactly the same position.  I'd set the hardware clock to GMT if I
+    were you -- you know where you are with GMT.</p>
+
+    <p>Boot from the boot disk as described in the Debian <a
+    href="http://lhpca.univ-lyon1.fr/axp/README">README</a> file,
+    section 2b and onwards.  There are a couple of things you might
+    like to do as well: when changing the OSLOADFILENAME setting
+    change the OSLOADOPTIONS setting to be blank.</p>
+
+
+    <h2><a name="SRM">Installation using the SRM console</a></h2>
+
+    <p>I haven't explored this option in any depth.  If you want to
+    find out more, a good place to start is the <a
+    href="http://www.azstarnet.com/~axplinux/srm.html">SRM Firmware
+    Howto</a>.</p>
+
+    <h2>Continuing the installation</h2>
+
+    <h3>Disk partitioning</h3>
+
+    <p>Here's how I laid out my partitions (yeah, the disk really is
+    that size, it's not my main machine):</p>
+
+    <pre>
+/dev/sda1    Boot, NC    Primary   Linux ext2                   281.50
+/dev/sda2                Primary   Linux Swap                    46.50
+/dev/sda3                Primary   DOS FAT 12                     1.50
+    </pre>
+
+    <h3>Installing over the network</h3>
+
+    <p>In order to get an NFS install option you'll need to configure
+    the network before installing anything.  You'll have to scroll the
+    choice box down in order to see the option -- this briefly had me
+    perplexed.</p>
+
+    <p>Configure the server to share the directory with the base file
+    in it.  Something like this line in /etc/exports might do the trick:</p>
+
+    <div class="command">/tmp/debian (ro)</div>
+
+    <p>See the <span class="program">exports(5)</span> man page for
+    further information -- setting up NFS is a bit outside the scope
+    of this document.</p>
+
+    <p>You can try installing from the appropriate menu item now.  If
+    you get an error mentioning the nfs module try this short
+    workaround:</p>
+
+    <p>Switch to the installation program's shell (using ctrl-alt-F2)
+    and mount the NFS export by hand:</p>
+
+    <div class="command">mount -t nfs <span
+    class="changeable">192.0.0.1</span>:<span
+    class="changeable">/dir</span> /mnt</div>
+
+    <p>Change the <span class="changeable">IP address</span> and <span
+    class="changeable">directory</span> as appropriate -- see the
+    mount(1) man page for more information.  Watch your typing: the
+    delete keys don't work in this shell for some reason.</p>
+
+    <p>Return to the installation program with ctrl-alt-F1 and install
+    the operating system `from a mounted disk', giving /mnt as the
+    directory.</p>
+
+    <p>I'm not sure whether it was necessary, but I happened to have
+    the rescue and root floppy images in the same directory as the
+    base file, and the install program seemed to be interested in
+    them.  YMMV.</p>
+
+    <h3>Installing from floppies</h3>
+
+    <p>I didn't bother trying this, but I assume that the installation
+    program prompts for the floppies in sequence.</p>
+
+    <h2>The base install</h2>
+
+    <p>Install the OS and kernel and the base system.
+    <strong>Don't</strong> `make boot floppy', `make linux bootable
+    directly from the hard disk' or `configure PCMCIA support' -- I
+    gather that none of these work at the moment.  Reboot the system
+    with the menu item, which should dump you back into MILO.  You'll
+    have 30 seconds to press <kbd>space</kbd> to interrupt the reboot,
+    and boot with:</p>
+
+    <div class="command">MILO&gt; boot <span
+    class="changeable">sda1</span>:vmlinuz root=/dev/<span
+    class="changeable">sda1</span></div>
+
+    <p>Replace with your <span class="changeable">root
+    partition</span> as appropriate.</p>
+
+    <h2>The complete install</h2>
+
+    <p>Once your machine comes back up you should be on the same track
+    as the bog-standard Intel install, so follow those instructions.
+    Choose a root password and start adding packages like crazy (well,
+    to tell the truth I couldn't go completely crazy, given those
+    200-odd rather cramped megs...).  The <a
+    href="ftp://ftp.debian.org/debian/dists/stable/main/disks-i386/current/dselect.beginner.html">dselect
+    tutorial</a> is tedious but obligatory reading at this point.</p>
+
+    <p>By the way, a nice fast UK mirror of the Debian distribution
+    can be found at <a
+    href="ftp://sunsite.doc.ic.ac.uk/Mirrors/ftp.debian.org/">Sunsite
+    Northern Europe</a>.</p>
+
+    <h2>Making your hard disk bootable (ARC)</h2>
+
+    <p>At this stage you've hopefully got a fully working installation
+    on your computer, with one exception: it won't be able to boot off
+    the hard disk.  To fix this you need to install <span
+    class="program">MILO</span> and tell the ARC console where to find
+    it.  Download <a
+    href="ftp://gatekeeper.dec.com/pub/Digital/Linux-Alpha/Miniloader/latest-Images/UDB/milo">
+    <span class="program">MILO</span></a> and <a
+    href="ftp://gatekeeper.dec.com/pub/Digital/Linux-Alpha/Miniloader/arc/linload.exe"><span
+    class="program">linload.exe</span></a> from Digital's ftp site
+    (see the <a
+    href="http://www.azstarnet.com/~axplinux/milo.html">Alpha
+    MIniloader HOWTO</a> for locations).  Hopefully you've left a
+    small FAT partition on your disk -- mount this and copy <span
+    class="program">linload.exe</span> and <span
+    class="program">MILO</span> into it:</p>
+
+    <div class="command">mount -t msdos /dev/sda3 /mnt</div>
+    <div class="command">cp /tmp/milo /tmp/linload.exe /mnt</div>
+    <div class="command">umount /mnt</div>
+
+    <p>You now need to reboot and set up ARC to bootstrap first <span
+    class="program">linload.exe</span> then <span
+    class="program">MILO</span>, and finally the kernel.  It's not as
+    bad as it sounds, honest.  Power-cycle the machine and follow the
+    steps below in the ARC menu system:<p>
+
+    <dl>
+      <dt>Setting up ARC to boot via linload.exe and MILO
+      <dd>
+        <ul>
+          <li>Select the <code>Supplementary menu...</code>
+          <li><code>Set up the system...</code>
+          <li><code>Manage boot selection menu...</code>
+          <li><code>Add a boot selection...</code>
+          <li><code>New system partition</code>
+        </ul>
+      </dd>
+    </dl>
+
+
+   <p>You'll now be given several options and asked to complete a few
+   fields.  The screen should look something like this by the time
+   you've finished:</p>
+
+<pre>
+      Select media:
+    SCSI Hard Disk
+
+    Enter SCSI bus number: 0
+    Enter SCSI ID: 0
+    Enter partition (must be FAT or NTFS):  3
+
+Enter the osloader directory and name: linload.exe
+
+Is the operating system in the same partition as the osloader:
+   Yes
+
+Enter the operating system root directory:
+
+Enter a name for this boot selection: Debian GNU/Linux
+
+Do you want to initialize the debugger at boot time:
+   No
+</pre>
+
+    <p>Continue through the menu system as detailed below:</p>
+
+    <dl>
+      <dd>
+        <ul>
+          <li><code>Change a boot selection...</code>
+          <li><code>Selection to edit:</code> -- choose the selection
+          you've just made, ie `Debian GNU/Linux'.
+
+          <li>Change <code>OSLOADOPTIONS</code> to be a <span
+          class="program">MILO</span> boot command, the same as the
+          one you used earlier:
+
+            <div class="command">boot sda1:vmlinuz root=/dev/sda1</div>
+
+          <li><code>Setup menu...</code>
+          <li><code>Supplementary menu, and save changes...</code>
+          <li><code>Boot menu...</code>
+          <li>The <code>Boot Debian GNU/Linux</code> menu item will
+          hopefully boot your system off the hard disk.
+          Congratulations, you're finished.
+          <li>You might want to delete the boot selection which boots
+          from the floppy.
+        </ul>
+      </dd>
+    </dl>
+
+
+    <h2>Kernel/X config and UDB hardware</h2>
+
+    <p>When you build your first kernel you'll need the following
+    information: the network card in the UDB is a 21040 Tulip.  The
+    sound card is a Microsoft Sound System compatible, which needs to
+    be set up on IRQ 9, IOBASE 530 and DMA 3 (choose only /dev/dsp and
+    /dev/audio support).  The on-board video is a 21030 TGA, so use
+    the TGA X server.  The SCSI controller is an NCR 53c810.  As
+    previously mentioned, PCMCIA doesn't work at the moment.  To use
+    both serial ports you'll need to buy or build a y-shaped cable,
+    because they share a socket.  That should be enough for you to be
+    getting on with for the moment.</p>
+
+    <h1>Further reading</h1>
+
+    <ul>
+      <li><a href="http://www.debian.org/ports/alpha/">Debian-Alpha
+      home page</a> and the associated <a
+      href="http://www.debian.org/ports/alpha/links">links</a>
+
+      <li><a
+      href="http://www.bard.org.il/~marc/html/nano-HOWTO.html/index.html">Debian
+      ALPHA nano-HOWTO</a>
+
+      <li>Of course you can always <!-- -thread is so that we don't
+      get a bazillion hits from mailing list archives --><a
+      href="http://altavista.com/search?pg=q&kl=en&q=%2Blinux+%2Balpha+-thread">search
+      AltaVista</a> for information on Linux/Alpha.
+
+    </ul>
+
+    <hr>
+    <address><a href="mailto:robin.stephenson@blackwell.co.uk">Robin Stephenson</a></address>
+<!-- Created: Thu Oct  8 18:15:59 BST 1998 -->
+<!-- hhmts start -->
+Last modified: Mon Oct 19 13:59:43 BST 1998
+<!-- hhmts end -->
+  </body>
+</html>

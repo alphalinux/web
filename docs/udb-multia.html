@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            UDB-Multia
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+<P>The UDB/Multias are the low end of the Alpha line. They have been around for many years and are now available fairly cheap (I got mine for $50).
+They are based around a 166MHz or 233MHz Alpha chip, require TRUE parity memory and most seem to have a TGA based graphics card. This card is unfortunately
+limited to 256 colours in all resolutions, but I have read that it will happily drive a monitor at 1280x1024. You can install other cards though
+space inside the UDB us usually tight, and watch out for heat, evidently ventilation isn't that good. </P>
+
+<P>For more specific information you can download the <A HREF="udb-manual.pdf.gz"> PDF version </A>of the Multia system manual (This has been gziped).
+
+
+<P><FONT SIZE="+1"><B>
+UDBs and Flat Batteries
+</B></FONT><BR> 
+It seems that Cpumicromart is shipping the UDB/Multias from Onsale.com with flat batteries. You can ask Cpu for a replacement which
+could take some time, (and possibly a credit card number). Another solution is that you can get this battery from Radio Shack. They may not
+have it in stock but the part number is 10048726, cost should be around $14.99.
+
+After initializing the video, you might get a blinking white cursor in the lower left
+corner of the screen. If you're dying to play with it, you can remove the battery and it will boot. The only
+catch is that you'll need to set the data/time/boot menu every time you reboot.
+
+<P><FONT SIZE="+1"><B>
+Install Help
+</B></FONT><BR> 
+It seems that many install directions for Alpha's fail to mention that the first floppy (the one for MILO and linload.exe)
+should be a FAT floppy. In other words DO NOT use rawrite to write these files to the floppy, just copy them.</P>
+
+<P><FONT SIZE="+1"><B>
+External SCSI
+</B></FONT><BR> 
+If you, like me, purchased the UDB without the external SCSI port you can order an adapter from <A HREF="http://www.cablemakers.com">CableMakers</A>. 
+The part number is SCSA2040.
+<P>
+
+<P><FONT SIZE="+1"><B>
+Volume
+</B></FONT><BR>
+I you find the volume level of the Multia's beeping a little to loud you can enter this command to quite it down:<BR>
+<PRE>setterm -bfreq 100 -blen 50</PRE>
+<P>
+
+<FONT SIZE="+2"><B>
+Installation Instructions
+</FONT></B><BR>
+
+<P><FONT SIZE="+1"><B>
+RedHat
+</B></FONT><BR> 
+  <LI><A HREF="http://www.cpumicromart.com/">UDB/Multia</A> from Cpumicromart</LI>
+</UL>
+<P><FONT SIZE="+1"><B>
+Debian
+</B></FONT><BR> 
+ <LI><A HREF="http://www.bard.org.il/~marc/html/linux.phtml">Debian</A> install instructions for various machines</LI>
+ <LI><A HREF="debian-udb-install.html">Debian UDB</A> install docs for 'slink' release</LI>
+</UL>
+
+<UL><P>I've also got a list new list of sites with UDB info contributed by Rich Martin: 
+<LI><A HREF="http://box1.staller.sunysb.edu/linux/alpha/udb-sound.html">UDB-Sound Info</A></LI>
+<LI><A HREF="http://llsgg.rug.ac.be/udb/udbinsid.html">The inside story</A> on the UDBs</LI>
+<LI><A HREF="http://www.elric.com/UDB/udbinsid.html">Another inside story</A> on the UDBs</LI>
+<LI><A HREF="http://www.starshipcorp.com/multiapackages.htm">Multia hardware</A> supplier</LI>
+</UL>
+
+<UL>
+ <LI><A HREF="http://www.brouhaha.com/~eric/computers/udb.html#doc">Lots of useful UDB Documentation</A> from Eric Smith</LI>
+ <LI><A HREF="http://www.multimania.com/multia">Multia</A> Information Center</LI>
+</LI>
+
+	     
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+          <FONT COLOR="#DC9D33" FACE="helvetica,sans-serif" SIZE="-1">
+
+	  Maintained by
+	  <A HREF="mailto:rdp@cheshire.net">Rich Payne</A>.
+          Designed by
+          <A HREF="mailto:joakim@styx.net">Joakim</A> and
+          <A HREF="mailto:leo@styx.net">Leo</A> of
+          <A HREF="http://styx.net/">Styx</A>/
+          <A HREF="http://freehive.org/">Freehive</A>.
+
+           </FONT>
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

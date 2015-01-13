@@ -1,0 +1,110 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+   <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+	    Reseting the Clock on an XL-266            
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+	       Ok, here is the story. It concerns a real DEC XL-266<P>
+
+I played around with the dates under Red Hat 5.1 and after a cold boot 
+I got a NVRAM error, set system time. When entering the menu for the 
+time settings you ended up in a kind of endless loop, saying invalid 
+date/time settings, still no boot. <P>
+
+Replacing the clock chip did not help. <P>
+
+Thus here is what we did after talking to the Dallas support: <P>
+
+The answer from Dallas was the following: <P>
+===== cut ===== 
+<P>
+The DS1225 contains a DS1210 controller: <P>
+
+To erase the contents of the NVRAM module, turn off the power and turn on 
+the freshness seal for the battery to prevent the battery from suppling 
+power to the SRAM. This will wipe out the contents of the SRAM. To turn on 
+freshness seal on the NVRAM controllers, do the following for the different 
+controllers. The customer turning on the Freshness seal is generally not 
+recommended since over-voltage stresses can potentially cause damage to the 
+devices and also once turned on, memory loss will occur with any data stored 
+in the module being lost. <P>
+
+DS1210 - Connect the GND pin to ground and apply -3.5V to the Vcc pin. 
+DS1610 - Connect the GND pin to ground and apply +8V to the Vcc pin. 
+DS1312/14 - Uses a test mode of the chip. From power-up, put 15 pulses (5V 
+for 1312) into the /CEI pin followed by an 8V super pulse, then drop Vcci 
+below Vcctp to turn on the freshness seal. The pulses should be high for 
+0.8-1.0mS in duration and low for greater than 5nS. <P>
+
+===== cut ===== 
+<P>
+As we don't have something providing us with 3,5 V we did the 
+following: 
+<P>
+We took 3 Mignon Batteries with 1,5 volts an connected them. 
+Plus 1 to Minus 2 Plus 2 to Minus 3 this makes 3,5 V. Don't use 
+Accus, this won't work. 
+<P>
+Then we connected Plus to PIN 12 and minus to PIN 24. 
+<P>
+Hold this for 5 seconds and the NVRAM is empty. 
+<P>
+To figure out the Pin, you look on the chip, there is a white or black 
+little circle on it this is Pin 1. 
+<P>
+
+	    
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+     
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

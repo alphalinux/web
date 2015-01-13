@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Oldnews May 1999</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+	     <B>Warning</B> links in here may no longer be valid and they will not be updated.
+	     <P>
+	 <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	       <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     May 28th 1999  </B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.redhat.com">RedHat</A> has released more updates for RedHat 6.0 and 5.2 on Alpha. There are some problems
+	with the PHP3 module shipped with 6.0 and the mod_perl package from 5.2 will not function properly with the latest errata
+	version of Perl(perl-5.004m7-1). Updates are available from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/">ftp.alphalinux.org</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+	   <P>
+
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    May 27th 1999  </B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	Blender version 1.63 is now available for AlphaLinux from the <A HREF="http://www.blender.nl/download/download.html">Blender Download</A> page.
+	    <P>
+	    </TD>
+	   </TR>	
+	<P>
+
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	 <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	May 25th 1999 </B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	  <A HREF="http://www.redhat.com">RedHat</A> has released a new INN package due to security problems with the original package
+	  shipped with 6.0. The updated RPMs can be picked up from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/">ftp.alphalinux.org</A>.
+	   
+	    <P>
+	    </TD>
+	   </TR>	
+ 
+      
+	<P>
+
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	   <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	   May 24th 1999</B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	    <A HREF="http://www.metrolink.com">MetroLink</A> has ported their hardware accelerated OPENGL product to
+	    AlphaLinux. 
+	    <P>
+	    <A HREF="http://www.turbolinux.com">TurboLinux</A> is in the process of producing an Alpha distribution. The now
+	    brings the total number of Alpha distributions to four (<A HREF="http://www.redhat.com">RedHat</A> <A HREF="http://www.debian.org">Debian</A>
+	     <A HREF="http://www.suse.com">SuSE</A> <A HREF="http://www.turbolinux.com">TurboLinux</A>).
+	    <P>
+	    </TD>
+	   </TR>	
+ 
+	<P>
+
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    May 24th 1999 </B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	     AlphaLinux binaries for the <A HREF="http://setiathome.ssl.berkeley.edu/"> SETI@home</A> project are
+	     available from the <A HREF="http://setiathome.ssl.berkeley.edu/unix.html">SETI@home Download</A> Page.<P>
+	     "<I>SETI@home is a scientific experiment that will harness the power of hundreds of
+    thousands of Internet-connected computers in the Search for Extraterrestrial Intelligence
+    (SETI). You can participate by running a program that downloads and analyzes radio
+    telescope data. There's a small but captivating possibility that your computer will detect
+    the faint murmur of a civilization beyond Earth.</I>" 
+	    </TD>
+	   </TR>	
+	<P>
+
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	       <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	         May 19th 1999 </B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	     <A HREF="mailto:donaldlf@cs.rose-hulman.edu">Leslie Donaldson</A> has begun to port and extend the EM86 emulator to work with the 2.2.x kernels. See his post on <A HREF="http://x42.deja.com/getdoc.xp?AN=480697080&CONTEXT=927433479.1831272530&hitnum=1">comp.os.linux.alpha</A> and his <A HREF="http://www.cs.rose-hulman.edu/~donaldlf/">homepage</A> for more information about the project. 
+	    </TD>
+	   </TR>	
+
+      
+	<P>
+
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	   May 19th 1999 </B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	     <A HREF="http://www.alpha-processor.com">Alpha Processor Inc. </A>announced today that it has joined
+	     <A HREF="http://www.li.org">Linux International</A>. The official press release can be at <A HREF="http://linuxtoday.com/stories/6062.html">
+	       LinuxToday</A>.
+	    </TD>
+	   </TR>	
+	<P>
+
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    May 18th 1999 </B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	Blender version 1.62a is now available for AlphaLinux from the <A HREF="http://www.blender.nl">Blender Home Page</A>.
+	    </TD>
+	   </TR>	
+ 
+	<P>
+
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	<TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	     May 17th 1999 </B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.cygnus.com">Cygnus</A> has cut a deal with <A HREF="http://www.alpha-processor.com">Alpha Processor Inc.</A> to port
+	the GNUPro Toolkit to AlphaLinux. The original press release can be found at <A HREF="http://linuxtoday.com/stories/5993.html">LinuxToday
+	</A>. Availability is set for 3rd quarter 1999.
+	    </TD>
+	   </TR>	
+ 
+     
+	<P>
+
+  
+
+	
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

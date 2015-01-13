@@ -1,0 +1,68 @@
+From ???@??? 00:00:00 1997 +0000
+Received: from mail2.redhat.com (mail2.redhat.com [199.183.24.247])
+	by adam.cheshire.net (8.9.1/8.9.1) with SMTP id KAA26663
+	for <rdp@cheshire.net>; Thu, 15 Oct 1998 10:01:50 -0400 (EDT)
+Received: (qmail 2806 invoked by uid 501); 15 Oct 1998 14:07:59 -0000
+Resent-Date: 15 Oct 1998 14:07:58 -0000
+Resent-Cc: recipient list not shown: ;
+MBOX-Line: From axp-list-request@redhat.com  Thu Oct 15 10:07:58 1998
+From: Nils Faerber <Nils.Faerber@unix-ag.org>
+Message-Id: <199810151400.QAA56958@vmax.unix-ag.uni-siegen.de>
+Subject: Mozilla Linux-Alpha porting effort
+To: axp-list@redhat.com
+Date: Thu, 15 Oct 1998 16:00:56 +0200 (DFT)
+X-Mailer: ELM [version 2.4ME+ PL32 (25)]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Resent-Message-ID: <"v6AhD2.0.Gh.-6W9s"@mail2.redhat.com>
+Resent-From: axp-list@redhat.com
+Reply-To: axp-list@redhat.com
+X-Mailing-List: <axp-list@redhat.com> archive/latest/195
+X-Loop: axp-list@redhat.com
+Precedence: list
+Resent-Sender: axp-list-request@redhat.com
+X-URL: http://www.redhat.com
+X-UIDL: 669fd52963763c9ac787fcc69b0adafc
+X-Status: N
+Status: R 
+Return-Receipt-To: 
+
+Hello!
+As promised I have set up several things for coordinating the Alpha-Linux
+Mozilla porting effort.
+First of all we now have a kind of homepage at
+  http://www.unix-ag.org/Linux-Alpha/Mozilla/
+
+A FTP archive for possible future releases, patches and other information is
+located at
+  ftp://ftp.unix-ag.org/pub/os/linux/alpha/Mozilla/
+Currently this directory just contains the latest plain mozilla sources. Any
+additions are welcome and can be put into the /incoming directory (please send
+me an email so that I can add your new files ASAP).
+
+For discussions and information exchange I have created a mailing-list. To
+subscribe send a mail containing the text 'subscribe' (without the quotes)
+in the message body to
+  ml-axpmozilla-request@unix-ag.org
+After subscription postings can be sent to
+  ml-axpmozilla@unix-ag.org
+
+Happy hackin'!
+CU
+  nils
+
+-- 
+Nils Faerber (Linux Nils)        eMail: nils@unix-ag.org
+Student of computer science      http://www.si.unix-ag.org/~nils/
+Unix user group, University of Siegen, Germany
+
+Siegen ... the arctic rain forest!
+--
+
+-- 
+To unsubscribe: send e-mail to axp-list-request@redhat.com with
+'unsubscribe' as the subject.  Do not send it to axp-list@redhat.com
+
+
+

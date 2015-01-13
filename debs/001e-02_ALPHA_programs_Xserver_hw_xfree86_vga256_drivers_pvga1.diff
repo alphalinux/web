@@ -1,0 +1,666 @@
+diff -ruN xc/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/Imakefile xc.active/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/Imakefile
+--- xc/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/Imakefile	Mon Dec 23 01:58:02 1996
++++ xc.active/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/Imakefile	Sun Apr  7 20:50:18 2002
+@@ -7,11 +7,18 @@
+ XCOMM $XFree86: xc/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/Imakefile,v 3.9 1996/02/04 09:13:58 dawes Exp $
+ #include <Server.tmpl>
+ 
++#ifdef i386Architecture
+ SRCS = pvg_driver.c pvg_bank.s pvgablt.c pvgasolid.c pvgaBitBlt.c \
+        pvgapntwin.c
+ 
+ OBJS = pvg_driver.o pvg_bank.o pvgablt.o pvgasolid.o pvgaBitBlt.o \
+        pvgapntwin.o
++#else
++SRCS = pvg_driver.c pvg_bankc.c pvgablt.c pvgasolid.c pvgaBitBlt.c \
++	pvgapntwin.c
++OBJS = pvg_driver.o pvg_bankc.o pvgablt.o pvgasolid.o pvgaBitBlt.o \
++	pvgapntwin.o
++#endif
+ 
+ DEFINES = -DPSZ=8
+ 
+@@ -32,11 +39,17 @@
+ 
+ NormalRelocatableTarget(pvga1_drv,$(OBJS))
+ 
++#ifdef i386Architecture
+ ObjectFromSpecialAsmSource(pvg_bank,bank,NullParameter)
++#endif
+ 
+ InstallLinkKitNonExecFile(paradise.h,$(LINKKITDIR)/drivers/vga256/pvga1)
+ InstallLinkKitNonExecFile(pvg_driver.c,$(LINKKITDIR)/drivers/vga256/pvga1)
++#ifdef i386Architecture
+ InstallLinkKitNonExecFile(bank.s,$(LINKKITDIR)/drivers/vga256/pvga1)
++#else
++InstallLinkKitNonExecFile(pvg_bankc.c,$(LINKITDIR)/drivers/vga256/pvga1)
++#endif
+ InstallLinkKitNonExecFile(pvgablt.c,$(LINKKITDIR)/drivers/vga256/pvga1)
+ InstallLinkKitNonExecFile(pvgasolid.c,$(LINKKITDIR)/drivers/vga256/pvga1)
+ InstallLinkKitNonExecFile(pvgaBitBlt.c,$(LINKKITDIR)/drivers/vga256/pvga1)
+--- xc/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/pvg_bankc.c	Wed Dec 31 19:00:00 1969
++++ xc.active/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/pvg_bankc.c	Sun Apr  7 20:54:39 2002
+@@ -0,0 +1,30 @@
++/* Platform independant implimentation of bank.s
++ */
++
++#define PSZ 8
++#include "vga256.h"
++
++void PVGA1SetRead(int bank) {
++  outw(0x3ce, (((bank-1) & 0xff)<<11)|0x09);
++}
++
++void PVGA1SetWrite(int bank) {
++  outw(0x3ce, ((bank & 0xff)<<11)|0x0a);
++}
++
++void PVGA1SetReadWrite(int bank) {
++  outw(0x3ce, ((bank & 0xff)<<11)|0x0a);
++}
++
++/*
++ * dummies for the below, not needed for WD90C24xx
++ */
++
++void WD90C33SetRead(int bank) {
++}
++
++void WD90C33SetWrite(int bank) {
++}
++
++void WD90C33SetReadWrite(int bank) {
++}
+diff -ruN xc/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/pvg_driver.c xc.active/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/pvg_driver.c
+--- xc/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/pvg_driver.c	Tue May 27 01:22:26 1997
++++ xc.active/programs/Xserver/hw/xfree86/vga256/drivers/pvga1/pvg_driver.c	Sun Apr  7 21:02:36 2002
+@@ -207,151 +207,8 @@
+             / sizeof(PVGA1_ExtPorts_WD90C33[0]) );
+ 
+ /*
+- * PVGA1lcd24power(int)
+- * 
+- * Sets VESA Display Power Management Signaling (DPMS) Mode for monitor.
+- * Also Enable or disable LCD power for WD90c24 controlled LCD.
+- */
+-#ifdef DPMSExtension
+-static void
+-PVGA1lcd24power(int PowerManagementMode)
+-{
+-  static unsigned char lcd_off = 0;
+-  unsigned char lock_val, reg_val, seq1, sync2;
+-  int crt_on; /* allow sync to turn off? */
+-
+-  if (!xf86VTSema) return;
+-
+-  /* Turn LCD on or off and blank/unblank screen */
+-  switch (PowerManagementMode)
+-    {
+-    case DPMSModeOn:
+-      /* Turn LCD on */
+-      if (lcd_off) {
+-	/* this is a wd90c24 LCD which we have turned off */
+-	lcd_off = 0; /* Don't allow nested calls */
+-
+-	/* Unlock extended PR registers */
+-	wrinx(0x3C4, 0x06, 0x48);
+-
+-	reg_val = rdinx(0x3C4, 0x19); /* PR57 */
+-	/* PNLOFF low */
+-	wrinx(0x3C4, 0x19, reg_val | 0x04); /* set bit 2 */
+-
+-	usleep(100000);
+-	lock_val = rdinx(0x3CE, 0x0F);
+-	/* Unlock PR0-PR4 */
+-	wrinx(0x3CE, 0x0F, (0xF8 & lock_val) | 0x05);
+-	reg_val = rdinx(0x3CE, 0x0E); /* PR4 */
+-	/* Drive FP interface pins active */
+-	wrinx(0x3CE, 0x0E, 0xDF & reg_val); /* clear bit 5 */
+-	wrinx(0x3CE, 0x0F, lock_val); /* restore lock */
+-      
+-	usleep(100000);
+-	lock_val = rdinx(vgaIOBase+0x04, 0x34);
+-	/* Unlock FP Reg */
+-	wrinx(vgaIOBase+0x04, 0x34, (0x0F & lock_val) | 0xA0);
+-	reg_val = rdinx(vgaIOBase+0x04, 0x032);
+-	/* Turn on LCD */
+-	wrinx(vgaIOBase+0x04, 0x32, 0x10 | reg_val); /* set PR19, bit 4 */
+-	wrinx(vgaIOBase+0x04, 0x34, lock_val); /* restore locks*/
+-      }
+-
+-      /* Unblank Screen */
+-      outw(0x3C4, 0x0100);	/* Synchronous Reset */
+-      outb(0x3C4, 0x01);	/* Select SEQ1 */
+-      seq1 = inb(0x3C5) & ~0x20;
+-      outb(0x3C5, seq1);
+-      outw(0x3C4, 0x0300);	/* End Reset */
+-
+-      usleep(10000);
+-      break;
++ * PVGA1lcd24power(int
+ 
+-    case DPMSModeStandby:
+-    case DPMSModeSuspend:
+-    case DPMSModeOff:
+-      /* Turn LCD off */
+-      lock_val = rdinx(vgaIOBase+0x04, 0x34);
+-      /* Unlock FP Reg */
+-      wrinx(vgaIOBase+0x04, 0x34, (0x0F & lock_val) | 0xA0);
+-      reg_val = rdinx(vgaIOBase+0x04, 0x032); /* PR19 */
+-      crt_on = ((reg_val & 0x20) == 0x20); /* CRT on? */
+-      if (reg_val & 0x10) {
+-
+-	/* this is a wd90c24 with LCD on */
+-	lcd_off ++;
+-	/* Turn off LCD */
+-	wrinx(vgaIOBase+0x04, 0x32, 0xEF & reg_val); /* clear PR19, bit 4 */
+-	wrinx(vgaIOBase+0x04, 0x34, lock_val); /* restore locks*/
+-
+-	lock_val = rdinx(0x3CE, 0x0F);
+-	/* Unlock PR0-PR4 */
+-	wrinx(0x3CE, 0x0F, (0xF8 & lock_val) | 0x05);
+-	reg_val = rdinx(0x3CE, 0x0E); /* PR4 */
+-	/* Tri-state FP interfacee pins */
+-	wrinx(0x3CE, 0x0E, reg_val | 0x20); /* set bit 5 */
+-	wrinx(0x3CE, 0x0F, lock_val); /* restore lock */
+-
+-	lock_val = rdinx(0x3C4, 0x06);
+-	/* Unlock extended PR registers */
+-	wrinx(0x3C4, 0x06, 0x48);
+-	reg_val = rdinx(0x3C4, 0x19); /* PR57 */
+-	/* PNLOFF high */
+-	wrinx(0x3C4, 0x19, 0xFB & reg_val); /* clear bit 2 */
+-      }
+-      else {
+-	wrinx(vgaIOBase+0x04, 0x34, lock_val); /* restore locks*/
+-      }
+-
+-      /* Blank screen */
+-      if (crt_on) {	/* blank only if monitor in use */
+-	outw(0x3C4, 0x0100);	/* Synchronous Reset */
+-	outb(0x3C4, 0x01);	/* Select SEQ1 */
+-	seq1 = inb(0x3C5) | 0x20;
+-	outb(0x3C5, seq1);
+-	outw(0x3C4, 0x0300);	/* End Reset */
+-
+-	usleep(10000);
+-      }
+-
+-      break;
+-    }
+-
+-  /* Manipulate HSync and VSync */
+-  switch (PowerManagementMode)
+-    {
+-    case DPMSModeOn:
+-      /* Screen: On; HSync: On, VSync: On */
+-      outb(vgaIOBase + 4, 0x17);
+-      sync2 = inb(vgaIOBase + 5);
+-      sync2 |= 0x80;			/* enable sync   */
+-      usleep(10000);
+-      outb(vgaIOBase + 5, sync2);
+-      break;
+-
+-    case DPMSModeStandby:
+-      /* Screen: Off; HSync: Off, VSync: On */
+-      /* This may be supported later */
+-      break;
+-    case DPMSModeSuspend:
+-      /* Screen: Off; HSync: On, VSync: Off */
+-      /* This may be supported later */
+-      break;
+-    case DPMSModeOff:
+-      /* Screen: Off; HSync: Off, VSync: Off */
+-      if (crt_on) {	/* disable sync only if monitor in use */
+-	outb(vgaIOBase + 4, 0x17);
+-	sync2 = inb(vgaIOBase + 5);
+-	sync2 &= ~0x80;			/* disable sync */
+-	usleep(10000);
+-	outb(vgaIOBase + 5, sync2);
+-      }
+-      break;
+-    }
+-}
+-#endif
+-
+-/*
+  * PVGA1Ident
+  */
+ 
+@@ -639,6 +496,10 @@
+       unsigned char config, temp;
+ 
+       outb(0x3CE, 0x0B); config = inb(0x3CF);
++      ErrorF("%s %s: WD: PR1 contents = 0x%0x:\n",
++	     XCONFIG_PROBED, vga256InfoRec.name, config);
++      outb(0x3CE, 0x0B); outb(0x3CF, 0xc4); config = 0xc4;
++
+ 
+       switch(config & 0xC0) {
+       case 0x00:
+@@ -670,9 +531,6 @@
+ 		    vga256InfoRec.virtualX = 640;
+ 		    vga256InfoRec.virtualY = 480;
+ 		}
+-#ifdef DPMSExtension
+-		vga256InfoRec.DPMSSet = PVGA1lcd24power;
+-#endif
+ 	    }
+ 	}
+ 	break;
+@@ -920,7 +778,6 @@
+ {
+   unsigned char temp;
+ 
+-  vgaProtect(TRUE);
+ 
+   /*
+    * First unlock all these special registers ...
+@@ -1071,8 +928,6 @@
+      outw (EXT_REG_ACCESS_PORT, CURSOR_BLOCK);
+      outw (EXT_REG_IO_PORT, restore->CursorCntl);
+   }
+-
+-  vgaProtect(FALSE);
+ }
+ 
+ 
+diff -ruN xc/programs/Xserver/hw/xfree86/vga256/enhanced/vgaLinec.c xc.active/programs/Xserver/hw/xfree86/vga256/enhanced/vgaLinec.c
+--- xc/programs/Xserver/hw/xfree86/vga256/enhanced/vgaLinec.c	Mon Dec  9 06:54:31 1996
++++ xc.active/programs/Xserver/hw/xfree86/vga256/enhanced/vgaLinec.c	Sun Apr  7 21:27:52 2002
+@@ -13,56 +10,356 @@
+ #include "xf86_OSlib.h"
+ #include "xf86_HWlib.h"
+ 
++#include "gc.h"
++#include "window.h"
++#include "pixmap.h"
++#include "region.h"
++
+ #include "vga.h"
+ #include "cfb.h"
+ 
+-/* vgabres.s */
+-void fastvga256BresS(
+-    int            alu,
+-    unsigned long  and,
+-    unsigned long  xor,
+-    unsigned long *addrl,
+-    int            nlwidth,
+-    register int   signdx,
+-    int            signdy,
+-    int            axis,
+-    int            x,
+-    int            y,
+-    register int   e,
+-    register int   e1,
+-    int            e2,
+-    int            len
+-)
+-{
+-    cfbBresS(alu,and,xor,addrl,nlwidth,signdx,signdy,axis,x,y,e,e1,e2,len);
+-}
++#include "cfbmskbits.h"
++#include "miline.h"
++
+ 
+ /* vgalineH.s */
++/* horizontal solid line
++   abs(len) > 1
++*/
++
+ int fastvga256HorzS(
+-    int                     alu,
+-    unsigned long           and,
+-    register unsigned long  xor,
+-    register unsigned long *addrl,
+-    int                     nlwidth,
+-    int                     x,
+-    int                     y,
+-    int                     len
+-)
++     	    register int rop,
++       	    register unsigned long and,
++       	    register unsigned long xor,
++	    register unsigned long *addrl,	/* pointer to base of bitmap */
++	    int nlwidth,       	/* width in longwords of bitmap */
++	    int x1,	       	/* initial point */ 
++	    int y1,
++	    int len		/* length of line */
++	    )
+ {
+-    cfbHorzS(alu,and,xor,addrl,nlwidth,x,y,len);
++    register int nlmiddle;
++    register unsigned long startmask;
++    register unsigned long endmask;
++
++
++    addrl = addrl + (y1 * nlwidth) + (x1 >> PWSH);
++    SETRW(addrl);
++
++    /* all bits inside same longword */
++    if ( ((x1 & PIM) + len) < PPW)
++    {
++	maskpartialbits(x1, len, startmask);
++	*addrl = DoMaskRRop (*addrl, and, xor, startmask);
++    }
++    else
++    {
++	maskbits(x1, len, startmask, endmask, nlmiddle);
++	if (rop == GXcopy)
++	{
++	    if (startmask)
++	    {
++		*addrl = (*addrl & ~startmask) | (xor & startmask);
++		addrl++; CHECKRWO(addrl);
++	    }
++	    while (nlmiddle--) {
++	    	*addrl++ = xor;
++		CHECKRWO(addrl);
++	    }
++	    if (endmask)
++		*addrl = (*addrl & ~endmask) | (xor & endmask);
++	}
++	else
++	{
++	    if (startmask)
++	    {
++		*addrl = DoMaskRRop (*addrl, and, xor, startmask);
++		addrl++; CHECKRWO(addrl);
++	    }
++	    if (rop == GXxor)
++	    {
++		while (nlmiddle--) {
++		    *addrl++ ^= xor;
++		    CHECKRWO(addrl);
++		}
++	    }
++	    else
++	    {
++		while (nlmiddle--)
++		{
++		    *addrl = DoRRop (*addrl, and, xor);
++		    addrl++; CHECKRWO(addrl);
++		}
++	    }
++	    if (endmask)
++		*addrl = DoMaskRRop (*addrl, and, xor, endmask);
++	}
++    }
+ }
+ 
+ /* vgalineV.s */
+ int fastvga256VertS(
+-    int            alu,
+-    unsigned long  and,
+-    unsigned long  xor,
+-    unsigned long *addrl,
+-    int            nlwidth,
+-    int            x,
+-    int            y,
+-    register int   len
++       	    int rop,
++	    register unsigned long and,
++	    register unsigned long xor,
++	    register unsigned long *addrl,	/* pointer to base of bitmap */
++	    register int nlwidth,	/* width in longwords of bitmap */
++	    int x1, int y1,    	        /* initial point */
++	    register int len	        /* length of line */
+ )
++
+ {
+-    cfbVertS(alu,and,xor,addrl,nlwidth,x,y,len);
++#ifdef PIXEL_ADDR
++    register PixelType    *bits = (PixelType *) addrl;
++
++    nlwidth <<= PWSH;
++    bits = bits + (y1 * nlwidth) + x1;
++    SETRW(bits);
++
++    /*
++     * special case copy and xor to avoid a test per pixel
++     */
++    if (rop == GXcopy)
++    {
++	while (len--)
++	{
++	    *bits = xor;
++	    bits += nlwidth;
++	    CHECKRWO(bits);
++	}
++    }
++    else if (rop == GXxor)
++    {
++	while (len--)
++	{
++	    *bits ^= xor;
++	    bits += nlwidth;
++	    CHECKRWO(bits);
++	}
++    }
++    else
++    {
++	while (len--)
++	{
++	    *bits = DoRRop(*bits, and, xor);
++	    bits += nlwidth;
++	    CHECKRWO(bits);
++	}
++    }
++#else /* !PIXEL_ADDR */
++    addrl = addrl + (y1 * nlwidth) + (x1 >> PWSH);
++    SETRW(addrl);
++
++    and |= ~cfbmask[x1 & PIM];
++    xor &= cfbmask[x1 & PIM];
++
++    while (len--)
++    {
++	*addrl = DoRRop (*addrl, and, xor);
++	addrl += nlwidth;
++	CHECKRWO(addrl);
++    }
++#endif
++}
++
++/* Solid bresenham line */
++/* NOTES
++   e2 is used less often than e1, so it's not in a register
++*/
++/* vgabres.s */
++void fastvga256BresS(
++    int		    rop,
++    unsigned long   and,
++    unsigned long   xor,
++    unsigned long   *addrl,		/* pointer to base of bitmap */
++    int		    nlwidth,		/* width in longwords of bitmap */
++    register int    signdx,
++    int		    signdy,		/* signs of directions */
++    int		    axis,		/* major axis (Y_AXIS or X_AXIS) */
++    int		    x1,			/* initial point */
++    int		    y1,			/* initial point */
++    register int    e,			/* error accumulator */
++    register int    e1,			/* bresenham increments */
++    int		    e2,
++    int		    len			/* length of line */
++ )
++
++{
++    register int	e3 = e2-e1;
++#ifdef PIXEL_ADDR
++    register PixelType	*addrp, *addrb;		/* Pixel pointers */
++
++    if (len == 0)
++    	return;
++    /* point to first point */
++    nlwidth <<= PWSH;
++    addrp = (PixelType *)(addrl) + (y1 * nlwidth) + x1;
++
++    if (signdy < 0)
++    	nlwidth = -nlwidth;
++    e = e-e1;			/* to make looping easier */
++    
++    if (axis == Y_AXIS)
++    {
++	int	t;
++
++	t = nlwidth;
++	nlwidth = signdx;
++	signdx = t;
++    }
++#if 1
++    if (rop == GXcopy)
++    {
++	--len;
++
++#define body {\
++	    addrb = addrp; \
++	    SETRW(addrb); \
++	    *addrb = xor; \
++	    addrp += signdx; \
++	    e += e1; \
++	    if (e >= 0) \
++	    { \
++		addrp += nlwidth; \
++		e += e3; \
++	    } \
++	}
++
++	while (len >= 4)
++	{
++	    body body body body
++	    len -= 4;
++	}
++	switch (len)
++	{
++	case  3: body case  2: body case  1: body
++	}
++#undef body
++	addrb = addrp;
++	SETRW(addrb);
++	*addrb = xor;
++	}
++    else /* not GXcopy */
++#endif
++    {
++	while(len--)
++	{ 
++	    addrb = addrp;
++	    SETRW(addrb);
++	    *addrb = DoRRop (*addrb, and, xor);
++	    e += e1;
++	    if (e >= 0)
++	    {
++		addrp += nlwidth;
++		e += e3;
++	    }
++	    addrp += signdx;
++	}
++    }
++#else /* !PIXEL_ADDR */
++    register unsigned long tmp, bit, *addrb;
++    unsigned long leftbit, rightbit;
++
++    /* point to longword containing first point */
++    addrl = (addrl + (y1 * nlwidth) + (x1 >> PWSH));
++
++    if (signdy < 0)
++	    nlwidth = -nlwidth;
++    e = e-e1;			/* to make looping easier */
++
++    leftbit = cfbmask[0];
++    rightbit = cfbmask[PPW-1];
++    bit = cfbmask[x1 & PIM];
++
++    if (axis == X_AXIS)
++    {
++	if (signdx > 0)
++	{
++	    while (len--)
++	    { 
++	        addrb = addrl;
++		SETRW(addrb);
++		*addrb = DoMaskRRop (*addrb, and, xor, bit);
++		bit = SCRRIGHT(bit,1);
++		e += e1;
++		if (e >= 0)
++		{
++		    addrl += nlwidth;
++		    e += e3;
++		}
++		if (!bit)
++		{
++		    bit = leftbit;
++		    addrl++;
++		}
++	    }
++	}
++	else
++	{
++	    while (len--)
++	    { 
++	        addrb = addrl;
++		SETRW(addrb);
++		*addrb = DoMaskRRop (*addrb, and, xor, bit);
++		e += e1;
++		bit = SCRLEFT(bit,1);
++		if (e >= 0)
++		{
++		    addrl += nlwidth;
++		    e += e3;
++		}
++		if (!bit)
++		{
++		    bit = rightbit;
++		    addrl--;
++		}
++	    }
++	}
++    } /* if X_AXIS */
++    else
++    {
++	if (signdx > 0)
++	{
++	    while(len--)
++	    {
++	        addrb = addrl;
++		SETRW(addrb);
++		*addrb = DoMaskRRop (*addrb, and, xor, bit);
++		e += e1;
++		if (e >= 0)
++		{
++		    bit = SCRRIGHT(bit,1);
++		    if (!bit)
++		    {
++			bit = leftbit;
++			addrl++;
++		    }
++		    e += e3;
++		}
++		addrl += nlwidth;
++	    }
++	}
++	else
++	{
++	    while(len--)
++	    {
++	        addrb = addrl;
++		SETRW(addrb);
++		*addrb = DoMaskRRop (*addrb, and, xor, bit);
++		e += e1;
++		if (e >= 0)
++		{
++		    bit = SCRLEFT(bit,1);
++		    if (!bit)
++		    {
++			bit = rightbit;
++			addrl--;
++		    }
++		    e += e3;
++		}
++		addrl += nlwidth;
++	    }
++	}
++    } /* else Y_AXIS */
++#endif
+ }

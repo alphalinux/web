@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- dean.edwards/2004 -->
+<!-- keeping code tidy! -->
+<html xmlns:html="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<?php require $_SERVER["DOCUMENT_ROOT"]."/../php/head.html"?>
+</head>
+
+<body>
+<div class="document">
+<div class="header">
+<?php require $_SERVER["DOCUMENT_ROOT"]."/../php/header.html"?>
+<div class="bread-crumbs">
+	<a href="/download/" style="float:right">download</a>
+	<a href="/IE7/">start</a>
+	&gt;&nbsp;<a href="/IE7/intro/">intro</a>
+	&gt;&nbsp;<a href="/IE7/overview/">overview</a>
+	&gt;&nbsp;<a href="/IE7/usage/">usage</a>
+	&gt;&nbsp;<a href="/IE7/compatibility/">compatibility</a>
+	&gt;&nbsp;<a href="/IE7/src/">src</a>
+	&gt;&nbsp;<a href="/IE7/notes/">notes</a>
+	&gt;&nbsp;<a href="/IE7/history/">history</a>
+	&gt;&nbsp;<a href="/IE7/caveats/">caveats</a>
+</div>
+</div>
+
+<div class="content">
+<h2>Installation (simplest)</h2>
+<p>Follow these simple instructions to get IE7 working immediately on your server:</p>
+<ul>
+	<li><p><a href="https://sourceforge.net/project/showfiles.php?group_id=109983&package_id=119707">download</a>
+	  either <code>ie7.zip</code> or <code>ie7-full.zip</code></p></li>
+	<li><p>unzip the entire contents to the <em>root</em> of your server (keep the
+	 folder names used in the zip file)</p></li>
+	<li><p>you will now have an IE7 directory in the root of your server</p></li>
+	<li><p>include the IE7 style sheet in the page you wish to test</p>
+	<code class="box">
+	<span class="comment"><b>&lt;!-- compliance patch for microsoft browsers --&gt;</b></span><br />
+	&lt;!--[if lt IE 7]&gt;<br />
+	&lt;link rel="stylesheet" href="/IE7/ie7-html.css" type="text/css"/&gt;<br />
+	&lt;![endif]--&gt;
+	</code></li>
+	<li><p>make sure this also points to the same "IE7" directory</p></li>
+	<li><p>open the page in your web browser</p></li>
+	<li><p>the page should now be IE7 enabled.</p></li>
+</ul>
+<p>You may also extract the contents of the zip file to the root of your
+hard disk if you do not have access to a web server.</p>
+<p>If you downloaded the full installation you can use the IE7
+<a href="compatibility">compatibility suite</a> on your own server.</p>
+
+<hr class="short"/>
+
+<h2>Troubleshooting (basic)</h2>
+<p>If things are not as expected try doing the following:</p>
+<ul>
+	<li><p>in a text editor, open the file <code>ie7-html.htc</code></p></li>
+	<li><p>locate the reference to the module <code>ie7-debug.js</code></p></li>
+	<li><p>remove the comments surrounding this reference</p></li>
+	<li><p>reload the test page</p></li>
+</ul>
+<p>You should get an alert for every module as it loads. You will also
+get a message if an error occurs. If problems persit you can visit the
+<a href="https://sourceforge.net/forum/forum.php?forum_id=379297">IE7 forum</a>.</p>
+</div>
+
+<div class="footer">
+<?php require $_SERVER["DOCUMENT_ROOT"]."/../php/footer.html"?>
+</div>
+</div>
+</body>
+</html>

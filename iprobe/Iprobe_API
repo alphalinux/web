@@ -1,0 +1,954 @@
+					Functions
+
+IPR_STATUS IprAllocate (void) 
+
+	Allocates (declares ownership of) the counters. Only 
+	the process that "owns" the counters is allowed to
+	perform certain operations, such as allocation and 
+	deallocation of buffers, starting the counters, and 
+	changing the data collection characteristics. 
+
+IPR_STATUS IprDeallocate (void)
+
+	Relinquishes ownership of the counters. 
+
+IPR_STATUS IprSetActiveCounters ( 
+  IN IPR_CPUMASK cpus, // CPUs affected 
+  IN IPR_CTRMASK validmask, //Mask of valid counters
+  IN IPR_CTRMASK *retmask) //Returned mask for starting counters 
+
+	Specifies which counters are to be considered active. Data 
+	is collected only for active counters; interrupts from 
+	other counters are ignored. The "retmask" argument 
+	will contain a counter mask for use in subsequent calls to 
+	IprStart. 
+
+	Some counter implementations require that all counters be 
+	started or stopped at the same time, while other 
+	implementations do not. In the latter case, preventing the 
+	interrupts in the first place will reduce overhead. 
+	IprSetActiveCounters will check whether the counters 
+	must be started at the same time and return the 
+	appropriate counter mask. 
+
+IPR_STATUS IprSetSampleSkip (
+  IPR_CPUMASK cpus, // CPUs affected
+  IPR_COUNT *skip values, // Array of skip values, one/counter
+  IPR_SIZE arrsize) //Number of elements in the array
+
+	Sets the number of interrupts to be skipped between 
+	samples (either for sampling or histogramming). By 
+	default, zero interrupts are skipped between samples, 
+	resulting in data being collected every interrupt. 
+
+	Skip values are passed in an array, where element N is the 
+	number of interrupts to be skipped for counter N. 
+
+IPR_STATUS IprCreateSampleBuffers ( 
+  IPR_CPUMASK cpus, // Mask of desired CPUs 
+  IPR_COUNT bufcnt, // Number of buffers 
+  IPR_SIZE bufsiz, // Size of buffer in bytes 
+  IPR_DMASK datcol, // Data to be collected 
+  IPR_DMASK qdatcol, // Data to be collected 
+  int sampleaction, // Action to perform in lieu of sampling 
+  int fullaction, // Action to perform when buffer is full 
+  int (*pRoutine) (void), // Routine to be called 
+  IPR_COUNT rangecnt, // Number of valid PC ranges 
+  uint64 *ranges) // Valid PC ranges (start-end pairs) 
+
+	Creates sample buffers as requested. Specify data to be 
+	collected in the "datcol" mask, regardless of size. Items 
+	specified in the "qdatcol" mask will have 64 bits 
+	collected, otherwise they will have 32 bits collected. The 
+	"qdatcol" mask must be a subset of "datcol" mask. 
+
+	The "sampleaction" argument is not currently implemented. 
+
+	The "fullaction" argument indicates what to do when a	sample buffer is full. The value is one of the following:
+ 
+		IPR_FULL_NONE = do nothing
+		IPR_FULL_WAKE = wake up the calling process
+		IPR_FULL_AST = call the routine pointed to 
+				    by "pRoutine"
+		IPR_FULL_WRITE = automatically write the 
+				 	 buffers (may not be available on all 
+					 platforms) 
+
+	You may restrict sampling by requiring that the 
+	interrupted PC be within one of a group of PC ranges. The 
+	ranges are passed as an array of addresses, with the 
+	starting addresses occupying the even elements and the end 
+	addresses occupying the odd elements. The "rangecnt" 
+	argument is the number of RANGES, not the number of 
+	elements in the array (the number of elements is
+	rangecnt * 2). 
+
+IPR_STATUS IprAddAddressHistogramBuffers ( 
+  IN IPR_CPUMASK cpus, // CPUs affected 
+  IN IPR_HISTVALUE BeginAddr, // Histogram Start address 
+  IN IPR_HISTVALUE EndAddr, // Histogram end address 
+  unsigned int gran, // Granularity (shift value) 
+  unsigned int index) // Index number 
+
+	Creates additional address histogram buffers. Requires 
+	that histogram buffers be set up in the first place. Use 
+	IprCreateHistogramBuffers to create the first address (or 
+	other type) histogram buffer. 
+
+	Because address ranges may overlap, the "index" argument 
+	is provided. When address histograms are read, the caller 
+	specifies an address range, and it is legal to specify a 
+	subset or superset of the address range of an existing 
+	histogram. Therefore, there is a possibility that a given 
+	read range may fall into more than one histogram range. To 
+	provide a way of resolving this ambiguity, use a different 
+	index number for each address range, or at least for each 
+	overlapping one. (Callers specify an index value when 
+	reading histograms.) 
+
+IPR_STATUS IprCreateHistogramBuffers ( 
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_HMASK histos, // Histograms to be created 
+  IN IPR_HISTVALUE BeginAddr, // Start pt. for addr. histogram 
+IN IPR_HISTVALUE EndAddr, // End pt. for addr. histogram
+IN unsigned int gran, // Granularity of addr. histogram
+IN unsigned int index) // Index value for these histograms
+
+	Creates histogram buffers as specified. Specify the types 
+	of the histograms in the "histos" argument. The address 
+	range and granularity are used only for the address 
+	histogram, if one is reguested. The index value is used 
+	for all histograms, but should be zero in most cases. See 
+	the description of the "index" argument under 
+	IprAddAddressHistogramBuffers. 
+
+IPR_STATUS IprDeleteBuffers (IN IPR_CPUMASK cpus) 
+
+	Deletes all buffers (sampling and histogramming) for the 
+	specified CPUs. 
+
+IPR_STATUS IprSelectEvents (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_EVENTSET *events, // Set of events to be counted
+  IN IPR_FREQ freq, // Interrupt freguency
+  IN uint64 *MUXvalue) // Returned encoded value (optional)
+
+**** Please note: this function is being made obsolete **** 
+
+	Validates and saves selection information for the 
+	specified events. A subsequent call to IprSetEvents will 
+	cause the event selections to be transmitted to the 	counter.See further discussion under 	IprSelectEventsFromArray. 
+
+IPR_STATUS IprSelectEventsFromArray (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN const IPR_EVENT *events, // Array of event numbers
+  IN const IPR_FREQ *fregs, // Array of interrupt frequencies
+  IN IPR_SIZE asize, // Number of elements in the arrays
+  IN uint64 *MUXvalue) // Returned encoded value (optional)
+
+	Attempts to make counter assignments for the specified 
+	events at the specified interrupt frequencies. The event 
+	at element N goes with the frequency at element N. The 
+	selections are not actually transmitted to the counters by 
+	this function; that is done by IprSetEvents. 
+
+	Frequencies are zero, a power of two,
+	IPR_FREQUENCY_LOWEST, or IPR_FREQUENCY_HIGHEST. Note that 
+	specifying one of the latter two options may not get the 
+	lowest or highest possible frequency for the event, but 
+	rather the lowest or highest frequency available on 
+	whatever counter gets assigned the event. 
+
+	The returned encoded value may be used in a subsequent 
+	call to IprSetEvents, if you want to make several sets of 
+	selections and switch among them freguently. 
+IPR_STATUS IprSetEvents (
+  IPR_CPUMASK cpus, // CPUs affected
+  IN uint64 *MUXvalue) // Encoded value (optional)
+
+	Transmits event and freguency selections to the counters. 
+	If the "MUXvalue" argument is passed, it is decoded and 
+	used as appropriate. Otherwise, the stored information 
+	from previous IprSelectEvents or IprSelectEventsFromArray 
+	calls is used. 
+
+IPR_STATUS IprSetModes (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_MMASK modes) // Operation modes
+
+Sets counter state so that counting is restricted to the 
+	specified modes. The modes include processor modes 
+	(kernel, PAL, and user, plus exec and super on VMS) and 
+	"selected processes" mode. 
+
+IPR_STATUS IprEventCounterMap (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_EVENT *event arr, // Returned array of events
+  IN IPR_SIZE asize) // Number of elements in return array
+
+	Returns the list of events to which the counters have been 
+	assigned. The index into the array is the counter number; 
+	for example, element 3 contains the event assigned to 
+	counter 3. 
+
+The "cpus" argument should be a single CPU mask or
+IPR_CURRENT_CPU. 
+
+IPR_STATUS IprFreqCounterMap (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_FREQ *freq arr, // Returned array of frequencies
+  IN IPR_SIZE asize) // Nurnber of elements in return array
+
+	Returns the list of interrupt frequencies to which the 
+	counters have been assigned. The index into the array is 
+	the counter number; for example, element 3 contains the 
+	interrupt frequency assigned to counter 3. The frequency 
+	value will be the actual frequency, not
+	IPR_FREQUENCY_HIGHEST or IPR_FREQUENCY_LOWEST. 
+
+	The "cpus" argument should be a single CPU mask or
+	IPR_CURRENT_CPU. 
+
+IPR_STATUS IprCounterNumber (
+  IN IPR_CPUMASK cpus, // CPUs effected
+  IN IPR_EVENT event, // Desired event number
+  IN IPR_CTRNUMBER *cnum) // Returned counter number
+
+	Returns the number of the counter that is counting the 
+	specified event. The counter number is returned via the 
+	"cnum" argument. 
+
+	The "cpus" argument should be a single CPU mask or
+	IPR_CURRENT_CPU. 
+
+IPR_STATUS IprStart (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_CTRMASK ctrs) // Counters to be started
+
+	Starts the specified counters on the specified CPUs. If 
+	the "ctrs" argument is zero, all counters are started. If 
+	possible, counters are started from zero. 
+
+IPR_STATUS IprStop (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_CTRMASK ctrs) // Counters to be stopped
+
+	Stops the specified counters on the specified CPUs. If the 
+	"ctrs" argument is zero, all counters are stopped. 
+
+IPR_STATUS IprPause (
+  IN IPR_CPUMASK cpus, // CPUS effected
+  IN IPR_CTRMASK ctrs) // Counters to be paused
+
+	Pauses the specified counters on the specified CPUs. If 
+	the "ctrs" argument is zero, all counters are paused. If 
+	the current process has process monitoring enabled, 
+	monitoring is disabled. The counters are not reset to 
+	zero. 
+
+This function may be called by processes other than the owner of the counters. 
+
+IPR_STATUS IprResume (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_CTRMASK ctrs) // Counters to be resumed
+
+	Resumes the argument is had process is enabled. and are 
+	not specified counters on the specified CPUs. If the 
+	"ctrs" zero, all counters are resumed. If the current 
+	process monitoring enabled prior to a call to IprPause, 
+	monitoring The counters continue counting from where they 
+	left off, forced to start from zero. 
+
+	This function may be called by processes other than the 
+	owner of the counters. 
+
+
+					NOTE: CPU context
+
+	Functions that take a CPU context number may be called 
+	multiple times, returning data for a different CPU each 
+	time. To use this feature, create an int variable to 
+	hold the CPU context and initialize it to -1. Pass a 
+	pointer to this variable to the function. After each call, 
+	this variable will contain the CPU number corresponding to 
+	the data just returned. Stop making calls when the context 
+	variable contains a value greater than or equal to 	IPR_MAX_CPUS. If no CPU context variable is passed, the 
+	functions will combine data for the various CPUs; exact 
+	behavior depends on the function. 
+
+	The example below collects data for CPUs 2 and 3, if the 
+	exist on the system: 
+
+	int cpuctx;
+	IPR_CPUMASK cmask = (1 << 2) + (1 << 3);
+	for (cpuctx = -1, IprFunc (cmask, &cpuctx, &data);
+	  cpuctx < IPR_MAX_CPUS;
+	  IprFunc (cmask, &cpuctx, &data)) 
+	  { 
+		printf ("CPU %d data %s\n", cpuctx, data); 
+	  } 
+
+	If the value of "cmask" is changed to IPR_ALL_CPUS, data 
+	will be returned for all CPUs on the system.
+
+
+					NOTE: Action flags 
+
+	Some functions take an "action flags" argument. These 
+	functions all have an array of returned data. The "action 
+	flags" argument specifies how to return the data. The 
+	argument can have one of the following values: 
+
+	IPR_ACTION_COPY = Replace the data in the array with the 
+				  new data. 
+
+	IPR_ACTION_SUM = Add all data for all CPUs together, and 
+				 return that. This flag is useful if the 
+				 caller does not pass a CPU context value. 
+
+	IPR_ACTION_ADD = Add the new data to the current contents 
+				 of the array.
+
+IPR_STATUS IprRead (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN int *cpuctxptr, // CPU context number (optional)
+  IN IPR_CTRMASK cmask, // Desired counter mask
+  OUT int *retdata, // Returned array of counter values
+  IN IPR_SIZE rsize, // Number of elements in return data array
+  IN int action flags) // Data handling flag
+
+	Reads the current values for the specified counters on the 
+	specified CPUs. See notes on CPU context and action flags 
+	earlier. The index into the returned array is the counter 
+	number; for example, element 3 will contain the value for 
+	counter 3. 
+
+IPR_STATUS IprReadAll (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN int *cpuctxptr, // CPU context number (optional)
+  OUT int *retdata, // Returned array of counter values
+  IN IPR_SIZE rsize, // Number of elements in return array
+  IN int action flags) // Data handling flag
+
+	Reads the current values for all counters on the specified 
+	CPUs. See notes on CPU context and action flags earlier. 
+	The index into the returned array is the counter number; 
+	for example, element 3 will contain the value for counter 
+	3. 
+
+IPR_STATUS IprWrite (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN int *cpuctxptr, // CPU context number (optional)
+  IN IPR_CTRMASK cmask, // Counters to write
+  IN int *srcdata, // Array of counter values
+  IN IPR_SIZE srcsize) // Number of elements in value array
+
+	Writes values into the specified counters on the specified 
+	CPUs. See notes on CPU context and action flags earlier. 
+	The index into the returned array is the counter number; 
+	for example, element 3 will contain the value to be 
+	written to counter 3.
+
+IPR_STATUS IprClear (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_CTRMASK ctrs) // Counters to be cleared
+
+	Clears the specified counters on the specified CPUs. If 
+	the "ctrs" argument is zero, all counters will be cleared. 
+
+IPR_STATUS IprReadHistogram (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN int *cpuctxptr, // CPU context number (optional)
+  OUT IPR_HISTELEM *retdata, // Returned histogram data
+  IN IPR_SIZE retsize, // Number of elements in return array
+  IN IPR_HISTVALUE retmin, // Minimum value to be returned
+  IN IPR_HMASK htype, // Type of histogram to be returned
+  IN unsigned int index, // Matching histogram index value
+  IN int action flags) // Data return flag 
+
+	Reads the data for a single histogram and returns it in 
+	the passed array. See the notes on CPU context and action 
+	flags earlier. 
+
+	The histograms on the appropriate CPUs are scanned, and 
+	data returned for any matching histogram. A histogram 
+	matches if:
+		- The type is the same as the "htype" argument.
+		- The index is the same as the "index" argument.
+		- The data in the histogram would lie somewhere in 
+		  the return array, based on the minimum value of the 
+		  histogram, the "retmin" argument, the size of the 
+		  return array, and the histogram granularity. 
+
+	Note that the IPROBE API prevents there being more than 
+	one histogram for types other than addresses. However, 
+	inconsistent use of the histogram index could cause 
+	strange results when address histograms are to be read. 
+
+IPR_STATUS IprClearHistograms (
+  IN IPR_CPUMASK cpus,  // CPUs affected
+  IN IPR_HMASK hmask, // Histogram types to be cleared
+  IN unsigned int index) // Matching index value
+
+	Clears all histograms that match the input criteria. Must 
+	match one of the CPU numbers and one of the the histogram 
+	types, and must match exactly the index number. 
+
+IPR_STATUS IprMarkEmptySampleBuffer (OUT IPR_SBUFFER *Sptr) 
+
+	Marks the passed sample buffer as empty. 
+
+IPR_STATUS IprNextFullSampleBuffer (
+  IN IPR_CPUMASK cpus, // CPUs to be checked
+  OUT IPR_SBUFFER **bctx, // Returned ptr and previous context
+  OUT IPR_SIZE *bsize, // Returned size of buffer in bytes
+  IN IPR_BOOLEAN part flag) // Shows whether to check for 
+					 // partial buffers
+
+	Finds the next full sample buffer according to the input 
+	criteria. The "bctx" argument is a pointer to the found 
+	sample buffer, and is also used by the function to 
+	indicate where it left off. The "part flag" argument 
+	indicates whether partially full buffers are to be 
+	returned, in addition to buffers actually marked full; 
+	partially full buffers are expected to be returned only 
+	when the counters have been disabled. 
+
+	All sample buffer lists for matching CPUs are searched, 
+	and one CPU list is finished before moving on to the next 
+	CPU list. 
+
+	To use the function, initialize the context pointer to 
+	NULL and call repeatedly until it returns
+	IPR__NOMOREBUFF. If partial buffers were requested and one 	was found, it will return IPR__PARTBUFF, otherwise it will 	return IPR__SUCCESS or an error.
+
+IPR_STATUS IprClearContext (IN IPR_CPUMASK cpus)
+
+Clears the internal counter context for the specified CPUs.
+
+IPR_STATUS IprWriteToSampleFile ( 
+  IN void *bptr, // Pointer to data area 
+  IN IPR SIZE bsize) // Size of data area in bytes 
+
+	Writes the specified data into the sample file. Used for 
+	writing of header information or additional information. 
+	The file information for the sample file is hidden from 
+	the caller, requiring that all manipulation of the sample 
+	file be done through IPROBE API functions. 
+
+IPR_STATUS IprWriteOneSampleBuffer ( 
+  IN IPR_SBUFFER *bptr, // Sample buffer to be written out 
+  IN IPR_SIZE bsize) // Size of the sample buffer in bytes 
+
+	Writes the passed sample buffer to the sample file. Writes 
+	the number of bytes specified in the "bsize" argument. 
+
+IPR_STATUS IprWriteSampleBuffers (
+  IN IPR_CPUMASK cpus, // Valid CPU mask 
+  IN int write flag, // Indicates whether to write partial 
+			     // buffers 
+  OUT int *rbufwrites, // Returned number of buffers written   
+				 // (optional) 
+  OUT int *rpartwrites) // Returned number of partial writes 
+				  // (optional) 
+
+	Writes all valid sample buffers, according to the 
+	specified criteria, to the sample file. A sample file 
+	matches if it is for one of the specified CPUs, if it is 
+	full, or if it is partially full and the "write flag" 
+	argument is TRUE (non-zero3. The "write flag" argument 
+	should be passed as TRUE only when the counters are 
+	disabled. 
+	
+	If specified, the variables pointed to by the "rbufwrites" 
+	and "rpartwrites" arguments will be modified to show the 
+	number of buffer writes and the number of partial buffer 
+	writes done in this call. "Partial buffer writes" is a 
+	subset of "buffer writes." Partial buffer writes typically 
+	returns one or zero per CPU. 
+
+IPR_STATUS IprTerminateSampling ( 
+  OUT int *rbufwrites, // Returned number of buffers written 
+				 // (optional) 
+  OUT int *rpartwrites) // Returned number of partial writes 
+				  // (optional) 
+
+	Performs all operations necessary to terminate sampling, 
+	in the correct order. Provided as a convenience. Stops the 
+	counters, writes out all remaining full sample buffers, 
+	and deletes the buffers. 
+
+	
+The "rbufwrites" and "rpartwrites" arguments are passed through 	
+to IprWriteSampleBuffers; see description there. 
+
+IPR_STATUS IprSpecifyOperations (
+  IN IPR_CPUMASK cpus, // CPUs affected
+  IN IPR_EVENT *selected_event, // Desired events
+  IN IPR_FREQ *selected_freguency, // Desired interrupt freq.
+  IN IPR_COUNT ecount, // No. of elements in event/freq arrays
+  IN IPR_MMASK selected_modes, // Desired modes
+  OUT uint64 *MUXvalue, // Returned encoded value (optional)
+  OUT IPR_CTRMASK *ctrmask) // Returned valid counter mask
+
+	Perform all necessary functions to specify how the 
+	counters should operate. Selects events for the counters, 
+	fills in events for uncovered counters if necessary, sets 
+	the events and interrupt frequencies for the counters, 
+	sets the counting modes, and returns (if requested) the 
+	encoded value and the counter mask. 
+
+	Note that this function may NOT be called incrementally; 
+	everything must be specified in a single call. 
+
+	The "ctrmask" argument, if passed, will have returned in 
+	it the mask of counters assigned. This mask may be 
+	subsequently passed to IprSetActiveCounters. 
+
+IPR_STATUS IprReadMultipleHistograms ( 
+  IN IPR_CPUMASK cpus, // CPU mask 
+  IN int *cpuctxptr, // CPU context number (optional) 
+  OUT IPR_HISTELEM **retdata, // Array of array pointers for  
+					   // return data
+  OUT IPR_SIZE *retsize, // Array of array sizes (numbers of 
+				   // elements)
+  OUT IPR_HISTVALUE *retmin, // Array of minimum values
+  OUT IPR_HMASK *htype, // Array of histogram types 
+  OUT unsigned int *index, // Array of buffer index values 
+  IN int action flags, Indicates how to store data 
+  IN IPR_COUNT itemcnt) // Number of arrays 
+
+	Reads multiple histograms in one call. Provides a way to 
+	retrieve multiple histograms for a single CPU without 
+	having to save and restore CPU context. 
+	
+	This function essentially turns into multiple calls to 
+	IprReadHistogram. An example is the easiest way to show 
+	how to call it. The example below is a bit impractical, 
+	but should illustrate the use of IprReadMultipleHistograms 
+	clearly. Note that element N of the "retdata", "retsize", 
+	"retmin", "htype", and "index" arrays all correspond to 
+	each other. 
+
+	IPR_HISTELEM hdata0 [20], hdatal [30], hdata2 [40], 	  
+	  *pRData [3];
+	IPR_SIZE hsize [3];
+	IPR_HISTVALUE hmin [3];
+	IPR_HMASK hmask [3];
+	unsigned int hidx [3]; 
+
+	pRData [0] = hdata0; /* Pt to appropriate return array */
+	pRData [1] = hdata1;
+	pRData [2] = hdata2; 
+	hsize [0] = 20; /* Save return array sizes */ 
+	hsize [1] = 30;
+	hsize [2] = 40;
+	hmin [0] = MY_MIN_0; /* Corresponding minimum values */
+	hmin [1] = MY_MIN_1;
+	hmin [2] = MY_MIN_2; 
+	hmask [0] = MY_MASK_0; /* Histogram types */
+	hmask [1] = MY_MASK_1;
+	hmask [2] = MY_MASK_2; 
+
+	for (cpuctx = -1,
+	  status = IprReadMultipleHistograms (IPR_ALL_CPUS, 	  	
+	  &cpuctx,
+	  pRData,
+	  hsize,
+	  hmin,
+	  hmask,
+	  hidx,
+	  IPR_ACTION_COPY,
+	  3); 
+	  cpuctx < IPR_MAX_CPUS;
+	  status = IprReadMultipleHistograms ( IPR_ALL_CPUS, 
+	  &cpuctx,  
+	  pRData,
+	  hsize,
+	  hmin,
+	  hmask.
+	  hidx,
+	  IPR_ACTION_COPY,
+	  3)) 
+	  {
+		printf ("Data for CPU %d\n", cpuctx); 
+		/* do something with the returned data */
+	  }
+
+IPR_STATUS IprCloseSampleFile (
+  OUT int *buffwrites, // Number of buffers written
+  OUT int *partwrites) // Number of partial buffers written
+
+	Closes the sample file. If automatic writing out of sample 
+	buffers has been selected, this function will return the 
+	number of buffers written out automatically (both the 
+	total value and the subset that were partially full). 
+	Otherwise, the "buffwrites" and "partwrites" arguments 
+	will be returned as zero. 
+
+IPR_STATUS IprOpenSampleFile (
+  IN char *fname, // File name to be opened
+  IN char *defname) // Default file name information
+
+	Opens a sample file. All accesses to this file must be 
+	done through the IPROBE API. The "fname" argument contains 
+	the name of the file to be opened. On systems that support 
+	partial file name defaulting, the "defname" argument 
+	contains the default name information. 
+
+IPR_STATUS IprPrintMessage ( 
+  IN char *tag, // Additional printed string 
+  IN IPR_STATUS errcode, // API error code
+  IN void (*callback) (char *)) // Printing routine 
+
+	Prints an error message based on the error code. If it is 
+	an IPROBE API error, it will be decoded, otherwise the 
+	number will be printed. The string specified in the "tag" 
+	argument will be part of the message, allowing the caller 
+	to provide some context for the message. 
+
+	If a printing routine is specified, it is called. 
+	Otherwise, a function is used that writes to stderr. 
+
+const char *IprEventNumberToName (IPR EVENT evt) 
+
+	Returns a pointer to a string that is the full name of the 
+	specified event. If the event number is not valid, the 
+	string "<Unknown>" is returned. 
+IPR_COUNT IprNumberOfEvents (void) 
+
+	Returns the total number of events known to the IPROBE 
+	API. 
+
+IPR_STATUS IprEventNameToNumber ( 
+  IN char *ename, // Name to be translated 
+  OUT IPR_EVENT *evtnum, // Returned event number 
+  OUT const char **matches) // List of possible matches 
+					 // (optional) 
+
+	Searches for the specified name in the event list. If it 
+	is found and is an unambiguous match, the full name will 
+	be returned in the "matches" argument, the found event 
+	code will be returned in the "evtnum" argument, and the 
+	return code will be IPR SUCCESS. If the match is 
+	ambiguous, IPR__AMBIGUOUS will be the return code and the 
+	"matches" argument will contain a space-separated list of 
+	all possible matches. If no matches are found, the return 
+	code will be IPR__INVEVENTNAME. 
+
+IPR_STATUS IprHbIndex (
+  IN IPR_HISTVALUE value, // Candidate value
+  IN IPR_CTRNUMBER ctr, // Candidate counter number
+  IN IPR_COUNT numctrs, // Number of counters
+  IN IPR_HISTVALUE minval, // Minimum value in the histogram
+  IN int gran, // Granularity of the histogram
+  OUT int *index) // Returned histogram array index 
+
+	Calculates the array index that corresponds to the 
+	specified value-counter combination, given the histogram 
+	description. Example:
+
+	/* Read histogram data */
+
+	numctrs = IprNumCounters (); 
+
+	status = IprReadHistogram (IPR_CURRENT_CPU,
+	  NULL,
+	  mydata,
+	  mydatasiz,
+	  hist_min,
+	  hist_type,
+	  0,
+	  IPR_ACTION_COPY); 
+
+	/* Display data for one value, all counters */
+
+	for (ctr = 0; ctr < numctrs; ctr++)
+	  {
+		status = IprHbIndex (display_value,
+		  display_counter,
+		  ctr,
+		  numctrs,
+		  hist_min,
+		  hist_gran,
+		  &idx);
+		printf ("Number of hits for value %LX counter %d: "
+		  "%Ld\n", 
+		  display_value,
+		  ctr,
+		  mydata [idx]); 
+	  }
+
+IPR_STATUS IprHbValue (
+  IN int index, // Candidate array index
+  IN IPR_COUNT numctrs, // Number of counters
+  IN IPR_HISTVALUE minval, // Histogram minimum value
+  IN int gran, // Histogram granularity
+  OUT IPR_HISTVALUE *value) // Returned element value 
+
+	Returns the smallest value that would be placed in the 
+	specified array index, given the histogram description. 
+	Example:
+
+			*** to be decided ***
+
+IPR_STATUS IprHbElements (
+  IN IPR_COUNT numctrs, // Number of counters
+  IN IPR_COUNT numval, // No. of values covered by the histogram
+  IN int gran, // Histogram granularity
+  OUT IPR_COUNT *numelem) // Returned number of array elements
+
+	Determines the number of array elements needed to hold a 
+	histogram of the specified description. 
+
+IPR_COUNT IprNumCounters (void) 
+
+	Returns the number of counters on the system. 
+
+IPR_STATUS IprAvailableEvents (
+  const IPR_EVENTSET *reqevents, // Requested events
+  IPR_EVENTSET *additional events) // Additional events that may 
+						  // be added
+	Returns the set of events that may be specified in 
+	addition to the events in the "reqevents" argument. If 
+	further events may be assigned, IPR__FURTHER_EVENTS is 
+	returned. If no further events may be assigned,
+	IPR__NO_FURTHER EVENTS is returned. If there is an error 	
+	in the specified event set, an error code is returned. 
+
+IPR_STATUS IprAvailableFreqs ( 
+  const IPR_EVENT evt, // Candidate event 
+  IPR_FREQ *freq) // Returned interrupt frequency mask 
+
+	Returns the interrupt frequencies available for the 
+	specified event. 
+
+IPR_STATUS IprAvailableModes (IPR_MMASK *modes) 
+
+	Returns the counting modes available on the current 
+	machine. These include the processor modes, PALcode mode, 
+	and "selected processes" mode. Note that not all subsets 
+	of the mode list may be legal. 
+
+IPR_STATUS IprAvailableFuncs (IPR_FMASK *funcs) 
+
+	Returns the functions available on the current machine. 
+
+IPR_STATUS IprCounterEvents ( 
+  IPR_CTRNUMBER ctr, // Counter number
+  IPR_EVENTSET *eset) // Returned event set
+
+	Returns the events that may be counted by the specified 
+	counter.
+
+IPR_STATUS IprAvailableCounters ( 
+IPR_EVENT evt, // Event number 
+IPR_CTRMASK *ctrs) // Returned counter mask
+
+	Returns the list of counters that can count the specified 
+	event. 
+
+			Event Set manipulation functions 
+
+	The implementation of an "event set" is hidden from the 
+	user. These event set manipulation functions provide 
+	access to all necessary operations on event sets. 
+
+IPR_SIZE IprEventSetSize (void) 
+
+	Returns the number of bytes in an event set. To create an 
+	event set, call malloc with this number of bytes. 
+
+IPR_EVENT IprEventToNumber (const IPR_EVENTSET *eset) 
+
+	Returns the event number of the lowest numbered event in 	
+	the passed event set. If the event set is empty, zero is 
+	returned. 
+
+IPR_COUNT IprNumberEventsInSet (const IPR_EVENTSET *eset) 
+
+	Returns the number of events in the event set. 
+
+IPR_BOOLEAN ZprVerifyEventInSet ( 
+  const IPR_EVENTSET *eset, // Source event set 
+  const IPR_EVENT evt) // Candidate event 
+
+	Returns TRUE if the specified event is in the specified 
+	set, FALSE otherwise. 
+
+IPR_STATUS IprClearEventSet (IPR_EVENTSET *eset) 
+
+	Clears all the events in the passed event set, creating an 
+	empty set. 
+
+IPR_STATUS IprInsertEvent (
+  IPR_EVENTSET *eset, // Destination event set
+  const IPR_EVENT evt) // Event to be inserted 
+
+	Adds the specified event to the passed event set. 
+
+IPR_STATUS IprDeleteEvent (
+  IPR_EVENTSET *eset, // Destination event set
+  const IPR_EVENT evt) // Event to be deleted
+
+	Deletes the specified event from the passed event set.
+
+IPR_STATUS ZprMaskEventSet ( 
+  IPR_EVENTSET *dst, // Destination event set 
+  const IPR_EVENTSET *src) // Source event set 
+
+	Removes all events from the destination set that are NOT 
+	present in the source set. 
+
+IPR_STATUS IprRemoveEventSet ( 
+IPR_EVENTSET *dst, // Destination event set 
+const IPR_EVENTSET *src) // Source event set 
+
+	Remove all events from the destination set that are 
+	PRESENT in the source set. 
+
+IPR_STATUS IprExpandEventSet (
+  const IPR_EVENTSET *eset, // Source event set
+  IPR_EVENT *retdata, // Returned event array
+  IPR_SIZE retsize) // Number of elements in the return array
+
+	Converts the passed event set into an array of events. 
+
+IPR_STATUS IprMergeEventSet (
+  IPR_EVENTSET *dst, // Destination event set
+  const IPR EVENTSET *src) // Source event set
+
+	Adds all events in the source set to the destination set.
+					Macros 
+
+CPU numbers:
+	IPR_ALL_CPUS, IPR_CURRENT_CPU 
+
+Histogram copy actions:
+	IPR_HACTION_COPY, IPR_HACTION_ADD, IPR_HACTION_SUM 
+
+Sample buffer write actions:
+	IPR_WRITE_PARTIAL, IPR_NOWRITE_PARTIAL 
+
+Minimum address histogram granularity:
+	IPR_PCSHIFT 
+
+Sample buffer "buffer-is-full" actions:
+	IPR_FULL_NONE, IPR_FULL_WAKE, IPR_FULL_AST, IPR_FULL_WRITE 
+
+Number of IPLs:
+	IPR_IPL_COUNT
+
+Number of modes: 
+	IPR_MODE_COUNT 
+
+Index number for the various modes:
+	IPR_MODE_KERNEL
+	IPR_MODE_EXEC (VMS only)
+	IPR_MODE_SUPER (VMS only)
+	IPR_MODE_USER
+	IPR_MODE_INTERRUPT (may be missing on certain systems)
+	IPR_MODE_IDLE 
+
+Check for success:
+	IPR_SUCCESS (stsvalue) evaluates to TRUE (non-zero) if the 
+	argument is a success status, FALSE (zero) otherwise. 
+
+					Bit Manipulation 
+
+	As a convenience, because there are many bit masks used in 
+	the IPROBE API, a library of bit manipulation routines is 
+	provided. Most of them are macros; those that are not are 
+	functions exported by the IPROBE API. 
+
+Macros: 
+	BIprA111(m)	Returns a mask, the same size as m, with 
+				all bits set to 1
+
+	BIprIsSet(m,b)	Returns TRUE if bit number b is set in 
+				mask m
+
+	BIprSet(m,c)	Returns a mask with bits set that are set 
+				in either mask m or mask c 
+
+	BIprBoth(m,c)	Returns a mask with bits set that are set 
+				in BOTH mask m and mask c
+	BIprClr(m,c)	Returns a mask with bits set that are set 
+				only in mask m, and not set in mask c
+	BIprSetLo(b)	Returns a mask with all bits set from bit 
+				number b down to bit number zero
+	BIprSetHi(b)	Returns a mask with all bits set from bit 
+				number b up to the highest bit in the mask
+	BIprSet1(m,b)	Returns a mask the same as m, plus bit 
+				number b is set
+	BIprClr1(m,b)	Returns a mask the same as m, except bit 
+				number b is clear
+	BZprLowest(m)	Returns a mask consisting of only the 
+				lowest set bit in mask m
+	BIprZsl(m)		Returns TRUE if exactly one bit is set in 
+				mask m
+	BIprClrLo(m,b)	Clears all bits in mask m lower than bit 
+				number b
+	BIprClrHi(m,b)	Clears all bits in mask m higher than bit 
+				number b 
+
+	BIprAll1, BIprLowest and BIprIs1 use an argument more than 
+	once, so should not be invoked with arguments that have 
+	side effects. 
+
+Functions: 
+	BZprB2M(b)		Returns a mask with only bit number b set
+	BIprCnt(m)		Returns the number of set bits in mask m
+	BIprWhich(m)	Returns the bit number of the lowest set 
+				bit in mask m
+	BIprRelPos(m,b)	Returns the relative position of bit 
+				number b within the set bits of mask m 
+				(the first set bit is zero, the second set 
+				bit is one, etc.) 
+
+	Some examples where these might be useful:
+
+	// Get the number of counters in the mask
+
+	numctrs = BIprCnt (ctrmask); 
+
+	// Print out the counter numbers of all the counters in 
+	// the mask 
+
+	tmpctrmask = ctrmask; 
+	printf ("Active counters are: ");
+	while (tmpctrmask)
+	  {
+		printf ("%d ", BIprWhich (tmpctrmask));
+		tmpctrmask = BIprClr (tmpctrmask, 		
+		  BIprLowest(tmpctrmask)); 
+	  } 
+
+	printf( "\n");
+
+	// Use relative bit numbers to map a spare mask into a 
+	// dense one so we don't have to keep data for unused bit 
+	// values
+	tmpcpumask = cpumask;
+	while (tmpcpumask) 
+	  {
+		 // Get absolute bit 	number
+		cpunum = BIprXhich (tmpcpumask);
+		// Get relative bit number
+		cpuidx = BIprRelPos (cpumask, cpunum);
+		print_cpu_data(cpunum, sparse_cpu_array[cpuidx]); 
+		// Done, clear bit 
+		tmpcpumask = BIprClrl(tmpcpumask, cpunum);
+	  }
+
+	// Set all bits in a histogram mask
+
+	a.ipr_hmask_l_bits = BIprAll1(a.ipr_mask_l_bits);
+
+	// Pass a histogram mask with all bits set
+
+	IprSomeFunc (arg0,
+	  argl,
+	  BIprA111(a.ipr_hmask_l_bits),
+	  arg3); 
+

@@ -1,0 +1,299 @@
+--- xc/config/cf/xfree86.cf~	Mon Sep 17 10:40:11 2001
++++ xc/config/cf/xfree86.cf	Mon Sep 17 10:40:24 2001
+@@ -29,37 +29,37 @@
+  */
+ #ifdef i386Architecture
+ #ifndef XF86SVGAServer
+-#define XF86SVGAServer          YES
++#define XF86SVGAServer		YES
+ #endif
+ #ifndef XF86VGA16Server
+-#define XF86VGA16Server         YES
++#define XF86VGA16Server		YES
+ #endif
+ #ifndef XF86VGA16DualServer
+ #define XF86VGA16DualServer	YES
+ #endif
+ #ifndef XF86MonoServer
+-#define XF86MonoServer          YES
++#define XF86MonoServer		YES
+ #endif
+ #ifndef XF86MonoDualServer
+ #define XF86MonoDualServer	YES
+ #endif
+ #ifndef XF86S3Server
+-#define XF86S3Server            YES
++#define XF86S3Server		YES
+ #endif
+ #ifndef XF86S3VServer
+ #define XF86S3VServer		YES
+ #endif
+ #ifndef XF86I8514Server
+-#define XF86I8514Server         YES
++#define XF86I8514Server		YES
+ #endif
+ #ifndef XF86Mach8Server
+-#define XF86Mach8Server         YES
++#define XF86Mach8Server		YES
+ #endif
+ #ifndef XF86Mach32Server
+-#define XF86Mach32Server        YES
++#define XF86Mach32Server	YES
+ #endif
+ #ifndef XF86Mach64Server
+-#define XF86Mach64Server        YES
++#define XF86Mach64Server	YES
+ #endif
+ #ifndef XF86P9000Server
+ #define XF86P9000Server		YES
+@@ -109,6 +109,9 @@
+ #ifndef XF86SVGAServer
+ #define XF86SVGAServer		YES
+ #endif
++#ifndef XF86VGA16Server
++#define XF86VGA16Server		YES
++#endif
+ #ifndef XF86MonoServer
+ #define XF86MonoServer		YES
+ #endif
+@@ -117,11 +120,14 @@
+ #endif
+ #if defined(LinuxArchitecture)
+ #ifndef XF86FBDevServer
+-#define XF86FBDevServer                YES
++#define XF86FBDevServer		YES
+ #endif
+ #endif
+ #ifndef XF86SvgaDrivers
+-#define XF86SvgaDrivers		mga s3v
++#define XF86SvgaDrivers		mga tdfx s3v pvga1
++#endif
++#ifndef XF86Vga16Drivers
++#define XF86Vga16Drivers	generic
+ #endif
+ #ifndef XF86Vga2Drivers
+ #define XF86Vga2Drivers		generic
+@@ -133,35 +139,81 @@
+  * are supported on this platform.
+  */
+ #ifdef Mc68020Architecture
++#if defined(LinuxArchitecture)
+ #ifndef XF68FBDevServer
+ #define XF68FBDevServer		YES
++#define XF68FBDev77C32		YES
++#define XF68FBDevIMSTT		YES
++#define XF68FBDevMach64		YES
++#define XF68FBDevPermedia2	YES
++#endif
++#endif
++#ifndef BuildXF86Setup
++#define BuildXF86Setup		NO
+ #endif
+ #endif
+ 
+-/* 
++/*
++ * For ARM platforms, the default is to build all X servers which
++ * are supported on this platform.
++ */
++#ifdef ArmArchitecture
++#if defined(LinuxArchitecture)
++#ifndef XF68FBDevServer
++#define XF68FBDevServer		YES
++#define XF68FBDevCFB8		YES
++#define XF68FBDevCFB16		YES
++#define XF68FBDevCFB24		YES
++#define XF68FBDevCFB32		YES
++#define XF68FBDevIPLAN2p2	YES
++#define XF68FBDevIPLAN2p4	YES
++#define XF68FBDevIPLAN2p8	YES
++#define XF68FBDevILBM		YES
++#define XF68FBDevAFB		YES
++#define XF68FBDev77C32		YES
++#define XF68FBDevMach64		YES
++#define XF68FBDevIMSTT		YES
++#define XF68FBDevPermedia2	YES
++#endif
++#endif
++#ifndef BuildXF86Setup
++#define BuildXF86Setup		NO
++#endif
++#endif
++
++/*
+  * For Mips/Arc platforms, the default is to build all X servers which
+- * are supported on this platform. 
++ * are supported on this platform.
+  */
+ #ifdef ArcArchitecture
+ #ifndef XF86S3Server
+-#define XF86S3Server          YES
++#define XF86S3Server		YES
++#endif
++#if defined(LinuxArchitecture)
++#ifndef XF86FBDevServer
++#define XF86FBDevServer		YES
++#endif
++#endif
++#ifndef BuildXF86Setup
++#define BuildXF86Setup		NO
+ #endif
+ #endif
+ 
+-/* 
++/*
+  * For PowerPC platforms, the default is to build all X servers which
+- * are supported on this platform. 
++ * are supported on this platform.
+  */
+ #ifdef PowerPCArchitecture
+ #ifndef XF86SVGAServer
+-#define XF86SVGAServer        NO
++#define XF86SVGAServer		NO
+ #endif
+ #ifndef XF86VGA16Server
+-#define XF86VGA16Server       NO
++#define XF86VGA16Server		NO
+ #endif
+ #ifndef XF86S3Server
+-#define XF86S3Server          NO
++#define XF86S3Server		NO
+ #endif
++#if defined(LinuxArchitecture)
+ #ifndef XF68FBDevServer
+ #define XF68FBDevServer		YES
+ #define XF68FBDevCFB8		YES
+@@ -174,10 +226,55 @@
+ #define XF68FBDevILBM		NO
+ #define XF68FBDevAFB		YES
+ #define XF68FBDev77C32		YES
++#define XF68FBDevIMSTT		YES
+ #define XF68FBDevMach64		YES
++#define XF68FBDevPermedia2	YES
++#endif
++#endif
++#ifndef BuildXF86Setup
++#define BuildXF86Setup		NO
++#endif
++#endif
++
++/* For SPARC PCI platforms, the default is to build all X servers which are
++ * supported on this platform.
++ */
++#ifdef SparcArchitecture
++#ifndef XF86GLINTServer
++#define XF86GLINTServer		YES
++#endif
++#ifndef XF86Mach64Server
++#define XF86Mach64Server	YES
++#endif
++#ifndef XF86VGA16Server
++#define XF86VGA16Server		NO
++#endif
++#ifndef XF86Vga16Drivers
++#define XF86Vga16Drivers	generic
++#endif
++#if defined(LinuxArchitecture)
++#ifndef XF86FBDevServer
++#define XF86FBDevServer		YES
++#define XF68FBDevCFB8		YES
++#define XF68FBDevCFB16		YES
++#define XF68FBDevCFB24		YES
++#define XF68FBDevCFB32		YES
++#define XF68FBDevIPLAN2p2	YES
++#define XF68FBDevIPLAN2p4	YES
++#define XF68FBDevIPLAN2p8	YES
++#define XF68FBDevILBM		YES
++#define XF68FBDevAFB		YES
++#define XF68FBDev77C32		YES
+ #define XF68FBDevIMSTT		YES
++#define XF68FBDevMach64		YES
++#define XF68FBDevPermedia2	YES
++#endif
++#endif
++#ifndef BuildXF86Setup
++#define BuildXF86Setup		NO
+ #endif
+ #endif
++
+ /*
+  * The following disables all X servers not already enabled above
+  */
+@@ -430,7 +527,7 @@
+  */
+ #ifndef XF86SvgaDrivers
+ # ifdef AlphaArchitecture
+-#  define XF86SvgaDrivers	mga tvga8900 s3v
++#  define XF86SvgaDrivers	mga tvga8900 nv s3v pvga1
+ # else
+ #  if defined(LinuxArchitecture) || defined(FreeBSDArchitecture)
+ #   define XF86SvgaDrivers	nv et4000 et3000 pvga1 gvga r128 ati sis tvga8900 \
+@@ -518,7 +615,7 @@
+ #  define XF68FBDevCFB16	YES
+ # endif
+ # ifndef XF68FBDevCFB24
+-#  ifdef i386Architecture
++#  if defined(i386Architecture) || defined(AlphaArchitecture)
+ #   define XF68FBDevCFB24	YES
+ #  else
+ #   define XF68FBDevCFB24	NO
+@@ -531,11 +628,14 @@
+ # ifndef XF68FBDev77C32
+ #  define XF68FBDev77C32	YES
+ # endif
++# ifndef XF68FBDevIMSTT
++#  define XF68FBDevIMSTT	YES
++# endif
+ # ifndef XF68FBDevMach64
+ #  define XF68FBDevMach64	YES
+ # endif
+-# ifndef XF68FBDevIMSTT
+-#  define XF68FBDevIMSTT	YES
++# ifndef XF68FBDevPermedia2
++#  define XF68FBDevPermedia2	YES
+ # endif
+ #else
+ # ifndef XF68FBDevIPLAN2p2
+@@ -568,11 +668,14 @@
+ # ifndef XF68FBDev77C32
+ #  define XF68FBDev77C32	NO
+ # endif
++# ifndef XF68FBDevIMSTT
++#  define XF68FBDevIMSTT	NO
++# endif
+ # ifndef XF68FBDevMach64
+ #  define XF68FBDevMach64	NO
+ # endif
+-# ifndef XF68FBDevIMSTT
+-#  define XF68FBDevIMSTT	NO
++# ifndef XF68FBDevPermedia2
++#  define XF68FBDevPermedia2	NO
+ # endif
+ #endif
+ 
+@@ -686,13 +789,13 @@
+ #define WacomSupport		YES
+ #endif
+ #ifndef ElographicsSupport
+-#define ElographicsSupport	YES 
++#define ElographicsSupport	YES
+ #endif
+ #ifndef DynaproSupport
+-#define DynaproSupport		YES 
++#define DynaproSupport		YES
+ #endif
+ #ifndef MicroTouchSupport
+-#define MicroTouchSupport	YES 
++#define MicroTouchSupport	YES
+ #endif
+ #ifndef SummaSketchSupport
+ #define SummaSketchSupport	YES
+@@ -856,7 +959,7 @@
+  * Build scanpci?
+  */
+ #ifndef BuildScanpci
+-#if SystemV || SystemV4 || (defined(LinuxArchitecture) && !defined(Mc68020Architecture) && !defined(PowerPCArchitecture)) || defined(i386BsdArchitecture) || defined(LynxOSArchitecture) || defined(OS2Architecture)
++#if SystemV || SystemV4 || (defined(LinuxArchitecture) && !defined(Mc68020Architecture) && !defined(PowerPCArchitecture) && !defined(ArmArchitecture)) || defined(i386BsdArchitecture) || defined(LynxOSArchitecture) || defined(OS2Architecture)
+ #define BuildScanpci		YES
+ #else
+ #define BuildScanpci		NO

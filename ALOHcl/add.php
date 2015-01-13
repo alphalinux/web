@@ -1,0 +1,190 @@
+<!-- V0.2 Added some validity checking, should stop people from adding everything under the first catagory to show -rdp -->
+
+<!-- V0.1 Written Sept 5th 2000 -rdp -->
+
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Add To ALOHcl Database</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+
+
+<?php
+	if (($Platform == "Select Platform") || ($SRMRev == "Select Firmware Revision") || ($Card == "Select Card")) {
+		echo "<FONT COLOR=#00FF00>Errors were detected in your submission. Please go back, fix the errors are try again.</FONT>";
+		$action="NULL";
+	}
+	include ("../database.php");
+	if ($action == "add") {
+		$success=mysql_db_query("ALOHcl","INSERT INTO Configs (platform, srm_rev,user_name,email,worky_linux,worky_srm,notes,insdate,card_tested) values ($Platform,$SRMRev,'$Name','$Email','$WorkyLinux','$WorkySRM','$Notes',NOW(),$Card)",$alodb);
+		if ($success)
+			echo "<FONT COLOR=#FF0000>Config successfully added to the database</FONT>";
+		else
+			echo "<FONT COLOR=#00FF00>Something went wrong".mysql_error()."</FONT>";
+	}
+
+	elseif ($action=="addcard") {
+		$success=mysql_db_query("ALOHcl","INSERT INTO Cards (name, bus_type) values ('$Name','$Bus_type')",$alodb);
+		if ($success)
+			echo "<FONT COLOR=#FF0000>Card $Name successfully added to the card database</FONT>";
+		else
+			echo "<FONT COLOR=#00FF00>Something went wrong".mysql_error()."</FONT>";
+	}
+		
+	elseif ($action=="addsrm") {
+		$success=mysql_db_query("ALOHcl","INSERT INTO SRMRevs (revision) values ('$Revision')",$alodb);
+		if ($success)
+			echo "<FONT COLOR=#FF0000>Value of $Revision successfully added to the SRM database</FONT>";
+		else
+			echo "<FONT COLOR=#00FF00>Something went wrong".mysql_error()."</FONT>";
+	}
+		
+
+	
+	
+	$platforms=mysql_db_query("ALOHcl","SELECT * FROM Platforms ORDER BY name", $alodb)
+		or die ("<P>Can't query db".mysql_error());
+	$num_platforms=mysql_num_rows($platforms);
+	
+	
+	$srm=mysql_db_query("ALOHcl","SELECT * FROM SRMRevs ORDER BY revision", $alodb)
+		or die ("<P>Can't query db");
+	$num_srm=mysql_num_rows($srm);
+
+	$cards=mysql_db_query("ALOHcl","SELECT * FROM Cards ORDER by name", $alodb)
+		or die ("<P>Can't query db");
+	$num_cards=mysql_num_rows($cards);
+
+	function print_vals($rec) {
+		echo "<OPTION VALUE=$rec->indx>$rec->name";
+	}
+
+	function print_srms($rec) {
+		echo "<OPTION VALUE=$rec->indx>$rec->revision";
+	}
+
+?>
+
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+  
+   </TR>     
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B>Add To The	 ALO Hardware Database</B></FONT>
+		<P>Enter the required information below. Feel free to leave your name/email address blank
+		(or use a mangled address like "bob at home dot com"). This is only recorded so that
+		if other users have a problem they could contact you for help or we can contact you
+		for clarification. If your platform type is not listed below please send the information
+		to <A HREF="mailto:webmaster@alphalinux.org?subject=HCL New Platform Type">webmaster@alphalinux.org</A>.
+		<P>
+		<FORM ACTION=add.php?action=add METHOD=POST>
+		<P><CENTER><TABLE BORDER=0 CELLSPAING=5>
+			<TR><TD ALIGN=RIGHT>Select Platform Type</TD>
+			<TD><SELECT NAME=Platform>
+				<OPTION>Select Platform
+				<?php
+					for ($i=0;$i<$num_platforms;$i++)
+						print_vals(mysql_fetch_object($platforms));
+				?>
+			</SELECT></TD></TR>
+			<TR><TD ALIGN=RIGHT>Select SRM Revision:</TD>
+			<TD><SELECT NAME=SRMRev>
+				<OPTION>Select Firmware Revision
+				<?php
+					for ($i=0;$i<$num_srm;$i++)
+						print_srms(mysql_fetch_object($srm));
+				?>
+			</SELECT><A HREF=add_newsrm.php>Add New Srm Revision</A></TD></TR>
+			<TR><TD ALIGN=RIGHT>Select Card:</TD>
+			<TD><SELECT NAME=Card>
+				<OPTION>Select Card
+				<?php
+					for ($i=0;$i<$num_cards;$i++)
+						print_vals(mysql_fetch_object($cards));
+				?>
+			</SELECT><A HREF="add_card.php">Add New Card</A></TD></TR>
+
+			<TR><TD ALIGN=RIGHT>Your Name:</TD>
+			<TD><input type=text size=20 name=Name></TD></TR>
+
+			<TR><TD ALIGN=RIGHT>Your Email Address:</TD>
+			<TD><input type=text size=30 name=Email></TD></TR>
+
+			<TR><TD ALIGN=RIGHT>Does It Work In Linux:</TD>
+			<TD><SELECT name=WorkyLinux>
+				<OPTION>Yes
+				<OPTION>No
+				</SELECT></TD></TR>
+			<TR><TD ALIGN=RIGHT>Does It Work In SRM:</TD>
+			<TD><SELECT name=WorkySRM>
+				<OPTION>Yes
+				<OPTION>No
+				<OPTION>N/A
+				</SELECT></TD></TR>
+			
+
+			<TR><TD ALIGN=RIGHT>Notes:</TD>
+			<TD><textarea rows=5 cols=40 NAME=Notes></textarea></TD></TR>	
+			<TR><TD COLSPAN=2 ALIGN=CENTER><INPUT TYPE=SUBMIT VALUE="Add Card"></TD></TR>
+		</TABLE></CENTER>
+		</FORM>
+	      <!-- Actual document -->
+	     
+	
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+	<?php include("footer.php") ?>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+

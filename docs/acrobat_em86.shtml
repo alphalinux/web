@@ -1,0 +1,119 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+   <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Adobe Acrobat under em86
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+              
+Running Adobe Acrobat3 for Linux-x86 on Alpha-Linux.
+<P>
+
+<B>Disclaimer: USE IT AT YOUR OWN RISK.
+</B><P>
+
+0. If you already configured your system to run the Intel binaries,
+skip to step 3.
+<P>
+1. Compile the kernel with support for em86 (CONFIG_BINFMT_EM86=y).
+<P>
+2. Get em86 from gatekeeper.dec.com. Install the following:
+<P>
+[root@brain em86]# rpm -ihv em86-0.4-1.alpha.rpm<BR>
+em86                        ##################################################<BR>
+[root@brain em86]# rpm -ihv --ignorearch em86-x86-0.2-1.i386.rpm<BR>
+em86-x86                    ##################################################<BR>
+[root@brain em86]# rpm -ihv em86-baselibs-0.2-1.alpha.rpm<BR>
+em86-baselibs               ##################################################<BR>
+[root@brain em86]# rpm -ihv em86-X11libs-0.2-1.alpha.rpm<BR>
+em86-X11libs                ##################################################<BR>
+<P>
+3. Copy the whole directory tree of Adobe Acrobat3 for Linux x86 on
+   your Alpha. I got it from my notebook and I don't remember how I
+   installed it. If it has a binary installer, you'll probably have to
+   run it on an Intel box. In the following I assume that you
+   installed it in /usr/local/Acrobat3.
+<P>
+4. Edit /usr/em86/ld.so.conf and add the following line:
+<P>
+        /usr/local/Acrobat3/Reader/intellinux/lib
+<P>
+  This path contains the following Acrobat libraries:
+<P>
+[root@brain x86]# ls /usr/local/Acrobat3/Reader/intellinux/lib<BR>
+XKeysymDB<BR>           libagm.so.2.0<BR>       libpfs.so.2.5<BR>       libreadcore.so.3.0<BR>
+libagm.so<BR>           libpfs.so<BR>           libreadcore.so<BR>
+<P>
+
+5. Update the run-time bindings for the x86 libraries; execute:
+<P>
+/usr/bin/ldconfig86
+<P>
+6. Symlink /usr/local/Acrobat3/bin/acroread to
+   /usr/local/bin/acroread. When you start acroread, the kernel
+   detects the x86 binary and runs it through em86.
+<P>
+This procedure worked for me on RH5.2/2.0.36 (RedHat kernel) on an
+AS200 4/233. YMMV.
+<P>
+Enjoy,
+<P>
+-Dragos
+
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+    
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

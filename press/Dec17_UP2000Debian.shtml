@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Press Release</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>     
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+       
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+<FONT SIZE="+2"><B>API and TheLinuxStore Donate UP2000 to Debian</FONT></B>
+
+<P>Alpha Processor Inc. and The Linux Store have given a system on 'extended loan'
+to Debian.  Lully is a dual Alpha 21264 (EV6) 667Mhz. with 512M of RAM. 
+Currently it has about 29G of SCSI storage, and will get another 29G, so
+drive mirroring can be set up.  Its currently hosted by TheLinuxStore.com on
+a dual T1.
+
+<P>The system will be used to test Linux compatibility with the new UP2000
+boards, and as a development platform for the debian-alpha team. 
+Additionally, it will host a Tier 1 Debian Mirror, and serve as a testbed
+for experimental new archive structures and scripts.
+
+<P>"At 16 minutes per compile of the GNU C Library, lully is by far the fastest
+machine I've ever had the pleasure of using" said Joel Klecker, Debian GNU
+LibC Packager.  A bootstrap compile of the gcc-2.95.2.tar.gz source took
+just 30 minutes.
+
+<P>The website for the board used in the system is available at
+<A HREF="http://www.alpha-processor.com/products/up2000-board.shtml">http://www.alpha-processor.com/products/up2000-board.shtml</A>.
+
+<P>Debian would like to thank these organizations for helping Debian by loaning
+us this system, and welcome Lully into our community.
+
+<P> About Debian
+
+<P>The Debian project is an organization of many users who volunteer
+their time and effort.  Its tasks include maintaining and updating Debian
+GNU/Linux which is a free distribution of the GNU/Linux operating system,
+and the development of the Debian GNU/Hurd operating system.
+
+<P>Contact Information
+
+<P>For further information, please send email to the Debian Press Team
+<A HREF="mailto"press@debian.org">press@debian.org</A> or visit the Debian homepage at <A HREF=http://www.debian.org/>www.debian.org</A>
+
+<P>For more information about The Linux Store, please contact <A HREF="mailto:steve.hindle@thelinuxstore.com">Steve Hindle</A>
+or visit their web page at
+<A HREF="http://www.thelinuxstore.com/">www.thelinuxstore.com</A>
+
+<P>For more information about Alpha Processors, Inc. please visit their web
+page at <A HREF=http://www.alpha-processor.com/>www.alpha-processor.com</A>.
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

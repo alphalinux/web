@@ -1,0 +1,673 @@
+<HTML>
+<HEAD>
+<TITLE>The AlphaLinux Homepage</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="description" content="Information on the Alpha port of Linux">
+<meta name="keywords" content="alpha linux axp multia as200 jensen ruffian alphastation alphaserver 21064 21164 21264 064 64-bit 164 264 sx lx">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+
+
+<TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD><CENTER> <!--#exec cgi="/cgi-bin/banmat1.cgi"-->
+  
+	</CENTER>
+	</TD>
+
+</TR>  
+<TR>
+
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD WIDTH=700 BGCOLOR="#B70000" ALIGN="CENTER">
+	<A HREF="intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A>
+	<A HREF="docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A>
+	<A HREF="software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A>
+	<A HREF="hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A>
+	<A HREF="otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A>
+	<A HREF="about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A>
+	</TD>
+	<TD WIDTH=16>&nbsp;</TD>
+
+</TR>
+<TR>
+
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+</TR>
+<TR VALIGN="top">
+	<TD><IMG SRC="../img/penguinedge.gif" WIDTH="16" HEIGHT="77" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD BGCOLOR="#DC9D33">
+	<P>
+	<IMG SRC="../img/penguincircle.gif" WIDTH="92" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="">
+	<IMG SRC="../img/logo.gif" WIDTH="498" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="AlphaLinux">
+	</P>
+<TABLE BORDER=0 HSPACE=8>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+	<TD WIDTH=500 VALIGN=TOP>
+	<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+RedHat Security Update - Piranha
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Tue Apr 25 11:06:05 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.redhat.com">RedHat</A> has issued updated
+piranha packages due to a backdoor security hole in the originals. Updates
+can be obtained from <A HREF="ftp://ftp.redhat.com">ftp.redhat.com</A>
+or <A HREF="ftp://ftp.alphalinux.org/mirrors/redhat/updates/6.2/alpha/">ftp.alphalinux.org</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Netscape Article
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Tue Apr 25 09:06:52 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+In the first of what we hope to be many articles here at alphalinux.org, Ron
+Farrer takes a look at <A HREF="articles/netscape-arp-22.shtml">Netscape</A>.
+How to get and install the Tru64 version recently made available from Compaq
+and why we've been without a version for so long.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+RedHat Issues Updates, SuSE Not Vulnerable
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Sat Apr 22 08:13:35 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.redhat.com">RedHat</A> has issued updates
+for both imwheel and OpenLDAP. The first being a security update and
+the second being for functionality (specifically <A HREF="http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=10714">
+this bug</A>). SuSE has said that they are not vulnerable to the imwheel
+exploit. Updates are available from <A HREF="ftp://ftp.redhat.com">ftp.redhat.com</A>
+and <A HREF="http://www.redhat.com/mirrors.html">mirrors</A>.
+
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+AlphaLinux.org Archives Become Searchable
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Fri Apr 21 10:39:52 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+The mailing list <A HREF="archives/">archives</A> here at alphalinux.org
+are now <A HREF="archives/search.shtml">searchable</A>. This is currently
+in beta testing so please report any problems or strange results to 
+<A HREF="mailto:webmaster@alphalinux.org">the webmaster</A>
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+RedHat Update for GPM
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Fri Apr 21 10:36:42 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.redhat.com">RedHat</A> has released updates
+for GPM due to a root exploit. Update are available for version 4.2, 5.2,6.0,6.1
+and 6.2 from <A HREF="ftp://updates.redhat.com">updates.redhat.com</A>
+and <A HREF="ftp://ftp.alphalinux.org/mirrors/redhat/updates">ftp.alphalinux.org</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+AlphaPowered.com Updated
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Fri Apr 21 10:28:54 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+After what has seemed like years of neglect the <A HREF="http://www.alphapowered.com">
+AlphaPowered.com</A> website finally has a new look with some new information.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+RedHat 6.2 for Alpha Released
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Mon Apr 10 10:26:15 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Several people have written in to tell us that RedHat 6.2 for Alpha
+has shown up on <A HREF="ftp://ftp.redhat.com">ftp.redhat.com</A>
+and <A HREF="http://www.redhat.com/mirrors.html">mirrors</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+SuSE Update for kreatecd
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Wed Apr  5 16:21:34 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.suse.com">SuSE</A> has released an update
+for the kreatecd package due to an exploitable buffer overflow that
+could lead to local users getting root authority.  An <A HREF="
+ftp://ftp.suse.com/pub/suse/axp/update/6.4/kpa1/kreatecd-0.3.8b-0.alpha.rpm">
+update for SuSE 6.4</A> has been posted.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+SuSE Security Update for GPM
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Wed Apr  5 16:11:12 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.suse.com">SuSE</A> has issued a security update
+for gpm for the following reason: <I>"The gpm-root command, which is part of the gpm package, allows local users
+  to define menus and commands to be executed on mouse events. When a
+  command is executed via gpm, the group id 0 privilege is not dropped."</I>
+Updates are available from <A HREF="ftp://ftp.suse.com">ftp.suse.com</A>
+for <A HREF="ftp://ftp.suse.com/pub/suse/axp/update/6.1/ap1/gpm-1.18.1-44.alpha.rpm">
+SuSE AXP 6.1</A> and 
+<A HREF="ftp://ftp.suse.com/pub/suse/axp/update/6.3/ap1/gpm-1.18.1-44.alpha.rpm">
+SuSE AXP 6.3</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Samsung Prepares 1.6GHz Alpha?
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Wed Apr  5 10:02:17 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+According to <A HREF="http://www.eet.com/story/OEG20000404S0054">
+this article</A> in the EE Times, Samsung is preparing to launch
+Alpha CPUs in the 1.4 to 1.6GHz range this year.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Atipa Buys DCG Computers
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Wed Apr  5 09:57:37 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.atipa.com">Atipa</A> Linux Solutions has
+bought <A HREF="http://www.dcginc.com">DCG Computers</A>.
+More information can be found in the <A HREF="http://www.atipa.com/corporate/pressrelease.php3?id=10">
+official press release</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+AlphaLinux CVS Repository
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Tue Apr 4 15:23:40 2000
+        </I></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+Anonymous CVS access to the 3DFX Glide sources is now available. You
+may browse the source from the <A HREF="cgi-bin/cvsweb.cgi">web</A>. For
+instructions on how to use CVS see the <A HREF="cvs/">CVS page</A>.
+If you would like to join in the Glide porting effort please email <A
+HREF="mailto:ezolt@alphalinux.org">Phillip Ezolt</A>.
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Mandrake for Alpha
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Mon Apr  3 17:24:40 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Linux-Mandrake 7.0 for Alpha is finally available. Like the UltraSPARC
+version released last week, Mandrake 7.0 for Alpha is a complete port
+(graphical installation included) of Linux-Mandrake 7.0/x86-final, but
+could still have some bugs. It is not intended for production use yet.
+<P>
+Download on <A HREF="http://www.linux-mandrake.com/en/ftp.php3#alpha">
+http://www.linux-mandrake.com/en/ftp.php3#alpha</A>
+<P>
+Bugs reports should be sent to the Cooker list on
+<A HREF="http://www.linux-mandrake.com/en/fdevlists.php3">www.linux-mandrake.com/en/fdevlists.php3</A>
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+
+
+<!--Begin sidebar--> 
+
+	
+	</TD>
+	<TD WIDTH=2><FONT COLOR="#DC9D33" FACE="Arial, Helvetica, sans-serif"></FONT></TD>
+	<TD VALIGN=TOP BGCOLOR="#DC9D33" WIDTH=250 ALIGN=CENTER>
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220>
+			<FONT  FACE="Arial, Helvetica, sans-serif"><B>Alpha Related Sites</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TD></TR>
+
+		<TR><TD BGCOLOR="#DC9D33"><FONT  FACE="Arial, Helvetica, sans-serif">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="http://www.alphalinux.org/hardware/vendors.shtml">Vendor List</A><BR>
+		<A HREF="http://www.alpha-processor.com">Alpha Processor, Inc.</A> (API)<BR>
+		<A HREF="http://www.compaq.com">Compaq Computer Co.</a><BR>
+		<A HREF="http://www.digital.com">Compaq Digital Products</a> (DEC)<BR>
+		<A HREF="http://www.sec.samsung.com">Samsung Semiconductor</a><BR>
+	</TD></TR></FONT></TABLE>
+	<P>
+			
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220>
+			<FONT FACE="Arial, Helvetica, sans-serif"><B>AlphaLinux Docs</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TD></TR>
+		
+		<TR><TD BGCOLOR="#DC9D33"><FONT FACE="Arial, Helvetica, sans-serif">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="http://www.alphalinux.org/faq/FAQ.html">AlphaLinux FAQ</A><BR>
+		<A HREF="http://www.alphalinux.org/docs/alpha-howto.html">AlphaLinux Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/kernel">AlphaLinux Kernel Page</A><BR>
+                <A HREF="http://www.alphalinux.org/faq/milo.html">MILO Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/srm.html">SRM Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/alphabios-howto.html">AlphaBIOS Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/docs/fbcon_faq.shtml">Frame Buffer Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/docs/MVI-full.html">MVI Programming</A><BR>
+		<A HREF="http://www.alphalinux.org/archives">Mailing List Archives</A><BR>
+	</TD></TR></FONT></TABLE>
+	<P>
+
+
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220><FONT FACE="Arial, Helvetica, sans-serif">
+			<B>Software Releases</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33"><FONT FACE="Arial, Helvetica, sans-serif">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/patches">Kernel Patches</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/kernel">Latest Kernel</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/gnome">Gnome 1.0</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/kde">KDE 1.1.2</A><BR>
+		<A HREF="http://www.compaq.com/math/">Compaq Math Library</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/DIR_LISTING"> FTP Site Listing</A><BR>	
+	</TD></TR></FONT></TABLE>
+	<P>
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220><FONT FACE="Arial, Helvetica, sans-serif">
+			<B>AlphaLinux Distributions</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33"><FONT FACE="Arial, Helvetica, sans-serif">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="http://www.debian.org">Debian</A><BR>
+		<A HREF="http://www.linux-mandrake.com">Mandrake</A><BR>
+		<A HREF="http://www.redhat.com">RedHat</A><BR>
+		<A HREF="http://www.suse.com">SuSE</A><BR>
+
+	</TD></TR></FONT></TABLE>
+	<P>
+	
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220>
+			<FONT FACE="Arial, Helvetica, sans-serif"><B>Press Releases</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<FONT FACE="Arial, Helvetica, sans-serif">
+		<A HREF="press/Feb16_totalview.shtml">TotalView Debugger</A> February 16th</BR>
+		<A HREF="press/Feb1_CommunigatePro.shtml">Clustered CommuniGate Pro</A>February 1st</BR>
+		<A HREF="press/Dec17_UP2000Debian.shtml">UP2000 for Debian</A> December 17th</BR>
+		<A HREF="press/Dec10_AlphaData.shtml">AlphaNode</A> December 10th<BR>
+		<A HREF="http://www.alpha-processor.com/pressreleases/pr112299.asp">API PowerRAC Chassis</A> December 1st<BR>
+		<A HREF="press/Nov23_Microway.shtml">Microway Top Channel Partner</A> Nov 23rd<BR>
+		<A HREF="http://lwn.net/daily/alta/alta.html">Alta Linux Cluster Modules</A> Nov 8th<BR>
+		<A HREf="http://linuxpr.com/releases/629.html">Motif 2.1.20</A> Nov 8th<BR>
+		<A HREF="press/Nov04_CommuniGatePro.shtml">CommuniGate Pro</A> Nov 4th
+		
+	</TD></TR></FONT></TABLE>
+	<P>
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220>
+			<FONT FACE="Arial, Helvetica, sans-serif"><B>Contact Us</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<FONT FACE="Arial, Helvetica, sans-serif">
+		<A HREF="mailto:news@alphalinux.org">News Items</A><BR>
+		<A HREF="mailto:webmaster@alphalinux.org">Webmaster</A><BR>
+		<A HREF="mailto:ftpadmin@alphalinux.org">FTP Admin</A><BR>
+		<P>
+		<A HREF="oldnews/">Old News...</A><BR>
+	</TD></TR></FONT></TABLE>
+	<P>
+
+
+	    
+	</TD>
+	</TR>
+	</TABLE>
+	
+
+
+<!-- End of Sidebar. -->
+
+
+        </TABLE>
+        
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+          <FONT COLOR="#DC9D33" FACE="helvetica,sans-serif" SIZE="-1">
+
+	<CENTER><B>Powered  by Alpha / Linux® is a registered trademark of Linus Torvalds<br>Hosted by <a href="http://www.theshell.com">TheShell.com</A></B></CENTER>
+
+           </FONT>
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>
+ 

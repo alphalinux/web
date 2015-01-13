@@ -1,0 +1,83 @@
+Note: "AS" can equally stand for "AlphaStation" and "AlphaServer", though
+      both may not be available for a given platform.
+
+Family/Model		Aliases			MILO image	Kernel image
+=============		=======			==========	============
+
+JENSEN						N/A		jensen-s
+  DECpc 150		JENSEN
+  DEC 2000 Model 300	JENSEN
+  DEC 2000 Model 500	CULZEAN
+
+ALCOR						xlt-alcor	alcor, alcor-s
+  AS 600		ALCOR
+  AS 500 5/3xx		MAVERICK
+  AS 500 5/5xx		BRET
+  XL-300		XLT
+  XL-366		XLT
+  XL-433		XLT
+
+XL						xl		xl
+  XL-233		XL
+  XL-266		XL
+
+AVANTI						avanti		xl, avanti-s
+  AS 200 4/*		MUSTANG
+  AS 205 4/*		LX3
+  AS 250 4/*		M3
+  AS 255 4/*		LX3+
+  AS 300 4/*		MELMAC
+  AS 400 4/*		AVANTI
+
+Personal Workstation	MIATA			miata		miata, miata-s
+  PWS 433a or 433au
+  PWS 500a or 500au
+  PWS 600a or 600au
+
+SABLE
+  AS 2100 4/xxx		SABLE			N/A		sable-s
+  AS 2000 4/xxx		DEMI-SABLE		N/A		sable-s
+  AS 2100 5/xxx		GAMMA-SABLE		N/A		sable-s-5
+  AS 2000 5/xxx		DEMI-GAMMA-SABLE	N/A		sable-s-5
+
+MIKASA
+  AS 1000 4/xxx		MIKASA			N/A		mikasa-s
+  AS 1000 5/xxx		MIKASA-PRIMO		N/A		mikasa-s-5
+
+NORITAKE
+  AS 1000A 4/xxx	NORITAKE		N/A		noritake-s
+  AS 1000A 5/xxx	NORITAKE-PRIMO		N/A		noritake-s-5
+  AS 600A 5/xxx		ALCOR-PRIMO		N/A		noritake-s-5
+  AS 800 5/xxx		CORELLE			N/A		noritake-s-5
+
+RAWHIDE						N/A		rawhide-s
+  AS 4000		WRANGLER/DURANGO
+  AS 4100		DODGE
+  AS 1200		TINCUP
+
+AlphaBook1 (laptop)	ALPHABOOK1		N/A		alphabook1-s
+
+NONAME
+  AXPpci33		NONAME			udb-noname	noname
+  UDB			MULTIA
+
+EB64+			
+  EB64+			EB64+			eb64p		eb64p
+  AlphaPC64		CABRIOLET		cabrio		cab, cab-s
+  AlphaPCI-64
+
+PC164
+  AlphaPC164		PC164			pc164		pc164
+  AlphaPC164-LX		LX164			lx164		lx164
+  AlphaPC164-SX		SX164			sx164		sx164
+
+EB164			EB164			eb164		eb164
+
+EB66+			EB66+			eb66p		eb66p
+
+EB66			EB66			eb66		eb66
+
+TSUNAMI
+  DP264			GOLDRUSH		N/A		dp264-s
+
+TAKARA			TAKARA			takara		takara

@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Alpha Miniloader Howto</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="NEXT"
+TITLE="What is MILO? "
+HREF="milo-whatis.html"></HEAD
+><BODY
+CLASS="ARTICLE"
+><DIV
+CLASS="ARTICLE"
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>Alpha Miniloader Howto</A
+></H1
+><DIV
+CLASS="AUTHORGROUP"
+><A
+NAME="AEN4"
+></A
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN5"
+>Rich Payne</A
+></H3
+><DIV
+CLASS="AFFILIATION"
+><DIV
+CLASS="ADDRESS"
+><P
+CLASS="ADDRESS"
+><CODE
+CLASS="EMAIL"
+>&#60;<A
+HREF="mailto:rdp@alphalinux.org"
+>rdp@alphalinux.org</A
+>&#62;</CODE
+></P
+></DIV
+></DIV
+></DIV
+><P
+CLASS="PUBDATE"
+>v0.91, 1 March 2004<BR></P
+><DIV
+><DIV
+CLASS="ABSTRACT"
+><P
+></P
+><A
+NAME="AEN12"
+></A
+><P
+>This document describes the Miniloader, a program for Alpha based systems that can be used to initialize the machine and load Linux.  The Alpha Linux Miniloader (to give it it's full
+name) is also known as MILO.</P
+><P
+></P
+></DIV
+></DIV
+><HR></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MILO-INTRODUCTION"
+>Introduction</A
+></H1
+><P
+>This document describes the Miniloader for Linux on Alpha AXP (MILO).
+This firmware is used to initialize Alpha AXP based systems, load and
+start Linux and, finally, provide PALcode for Linux. Please note that
+the prefered way of booting Linux is via SRM console and MILO should
+only be used if either there is no SRM console for your hardware (XL series)
+or your current hardware isn't supported by SRM.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN17"
+>Copyright</A
+></H2
+><P
+>The Alpha Miniloader (MILO) HOWTO is copyright (C) 1995, 1996 David A Rusling, 2000 Richard Payne.</P
+><P
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>Copyright.</I
+></SPAN
+> Like all Linux HOWTO documents, it may be reproduced and distributed
+in whole or in part, in any medium, physical or electronic, so long as
+this copyright notice is retained on all copies.
+Commercial redistribution is allowed and encouraged; however the author
+would <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>like</I
+></SPAN
+> to be notified of such distributions.
+You may translate this HOWTO into any language whatsover provided that
+you leave this copyright statement and disclaimer intact, and that you append
+a notice stating who translated the document.</P
+><P
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>Disclaimer.</I
+></SPAN
+> While I have tried to include the most correct and
+up to date information available to me, I cannot guarantee that usage
+of information in this document does not result in loss of data or
+equipment.   I provide NO WARRENTY about the information in the HOWTO and
+I cannot be made liable for any consequences resulting from using the
+information in this HOWTO.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN25"
+>New Versions of this Document</A
+></H2
+><P
+> The latest version of this document can be found in
+<A
+HREF="http://www.alphalinux.org/"
+TARGET="_top"
+>www.alphalinux.org</A
+>.&#13;</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="milo-whatis.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>What is MILO?</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,441 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Oldnews April 1999</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+	     <B>Warning</B> links in here may no longer be valid and they will not be updated.
+	     <P>
+
+
+	    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	      <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    April 28th 1999  </B></FONT></TD> </td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	Kernel 2.2.7 has been released and is now available at <A HREF=" ftp://ftp.alphalinux.org/kernel/v2.2">ftp.alphalinux.org/kernel/v2.2</A> .
+	    </TD>
+	   </TR>	
+ 
+
+
+    <TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	      <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    April 28th 1999 </B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.alpha-processor.com">Alpha Processor Inc</A> has released the results
+	of their survey from LinuxWorld San Jose. Both the <A HREF="http://www.alpha-processor.com/news/pr042799.asp">
+	press release</A> and the <A HREF="http://www.alpha-processor.com/news/linuxworld.asp">survey results</A> are
+	available from the API website.
+
+	    </TD>
+	   </TR>	
+ 
+
+<TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	 <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    April 28th 1999 </B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.3dlinux.org">www.3dlinux.org</A> is reporting that Houdini will be
+	ported not only to Linux on the i386 but also AlphaLinux. The original release from
+	Side Effects Software is available at the <A HREF="http://www.sidefx.com">sidefx.com</A> webiste.
+	    </TD>
+	   </TR>	
+ 
+    
+
+
+
+<TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	      <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	   April 26th 1999 </B></FONT></TD></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	<A HREF="http://www.redhat.com">RedHat </A>has released version 6.0 of its RedHat Linux operating system
+	 (although it has yet to appear on the ftp sites). More information can be found in 
+	 <A HREF="http://linuxtoday.com/stories/5359_flat.html"> this press release</A>.
+	    </TD>
+	   </TR>	
+
+<TR>
+	     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+	    April 26th 1999 </B></FONT></TD></TD>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	Blender version 1.61 has been released and is now available for AlphaLinux from <A HREF="http://www.blender.nl">www.blender.nl</A>.
+	    </TD>
+	   </TR>	
+ 
+   
+
+<TR>
+     <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+     <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+		April 26th 1999
+	    </B></FONT></TD>
+	    </TR>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">  
+	There are improved sin/cos/tan/cotan routine.
+	It's about 10% faster than libffm-0.28's version and good for random
+	values(such as +-+-...).  But I've not made sure enough whether it
+	works.
+	<P>
+	And dgemm runs about 10MFlops faster than yesterday's version(about
+	855 to 865MFlops, 21164A, 600MHz, size is 1000x1000 to 3000x3000).
+	I'll put at:<BR>
+	<A HREF="ftp://www.netstat.ne.jp/pub/Linux/Linux-Alpha-JP/BLAS">ftp://www.netstat.ne.jp/pub/Linux/Linux-Alpha-JP/BLAS</A>
+	    </TD>
+</TR>	
+ 
+  
+
+<TR>
+       <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32"HEIGHT="32"
+       ALT="*"></TD>
+ 
+       <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 19th 1999
+            
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	Craig P. Prescott is looking to provide support in AlphaLinux
+	for the older TurboChannel based machines. His original request for information is available from <A HREF="
+	http://www.alphalinux.org/archives/axp-list/April1999/0488.html"> the axp-list archives</A>. If you have
+	information or are willing to help him out please drop <A HREF="mailto:prescott@phys.ufl.edu"> Craig an email</A>.
+ </TR>
+
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 18th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+      Compaq president and CEO Eckhard Pfeiffer has resigned one day after the board told him they wanted
+	new leadership. More information can be found in the <A HREF="http://www.nytimes.com/aponline/f/AP-TX-Compaq-Resignations.html">
+	New York Times</A> (registered site) and Compaq's own <A HREF="http://www.compaq.com/newsroom/pr/1999/pr180499a.html">press area</A>.
+ </TR>
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 16th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+         Gnome 1.0.8 is now available at <A HREF="ftp://ftp.alphalinux.org/gnome/gnome-1.0.8">ftp.alphalinux.org</A>.
+	More information can be found at the <A HREF="http://www.gnome.org">Gnome</A> homepage. 
+ </TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 16th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	Version 1.60 of Blender for AlphaLinux is to be released Saturday April 17th. More information
+	can be found at the <A HREF="http://www.blender.nl">Blender</A> homepage.
+
+	
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 16th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	<A HREF="http://www.redhat.com">RedHat</A> has released new RPMs for procmail and
+	rsync due to security problems. Updates are available from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-5.2">
+	ftp.alphalinux.org</A>. 
+
+	
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 14th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	 New variants of the blas-alpha and lapack rpms compiled against
+	 the cpml have been released. They are
+	 available from <A HREF="ftp://ftp.neuro.uni-oldenburg.de/pub/alpha/lapack.html">
+	 ftp://ftp.neuro.uni-oldenburg.de/pub/alpha/lapack.html</A>.
+
+	
+ </TR>
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 6th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	From <A HREF="mailto:niles@axp745.gsfc.nasa.gov">Rick Niles:</A>
+ 	<P>
+	    Here at NASA as well as in most the engineering world we use Matlab
+extensively for analysis work.  <a
+href=http://www.mathworks.com>MathWorks</a> the company that makes
+Matlab was one of the very first commerical vendors to add support for
+Linux/i386.  Now they they say they'd probably add support for
+Linux/Alpha if enough people indicate that they want it.  They already
+have support for Tru64 Unix on Alpha so it shouldn't be a difficult
+port.  Let's get Matlab running on both the best OS AND the fastest
+processor at once.  Please <a
+href=http://www.mathworks.com/support/forms/feedback.cgi?support>
+write to them</a>. Refer to <a
+href=http://www.mathworks.com/support/solutions/v5/4804.shtml>
+techinical solution #4804</a>, support for Linux on Alpha.  Please
+make sure to be nice and thank them for supporting Linux/i386.  If you
+really want to make a point you might even try calling them
+508-647-7000.
+	
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 6th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	A new ftp site for downloading the SuSE beta is now available. The address is <A HREF="ftp://ftp.space4u.com/pub/SuSE/">
+		ftp.space4u.com/pub/SuSE/</A>.
+
+	
+ </TR>
+
+	<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 6th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	 <A HREF="http://www.news.com">news.com</A> is running <A HREF="http://www.news.com/News/Item/0,4,34672,00.html">
+		an article</A> on the release of the new high-end ES40 Alpha servers. The article also goes to say "<I>
+		Later this year, the company will release in-house compiler technology that will mean software for Linux-Alpha will run twice as fast on average</I>",
+		and that the cost of these compilers will be "<I>between zero and very little</I>". 
+
+
+	
+ </TR>
+	<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 5th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	   If you're interested in the K7 and EV6 bus architecture, check out these two articles from Ace's Hardware. The 
+	     <A HREF="http://www.aceshardware.com/articles/x86/K7understood.shtml"> first article</A> is about the bus architecture
+	     behind the EV6, and <A HREF="http://www.aceshardware.com/articles/x86/K7understood2.shtml">the second</A> focuses
+	     on the K7 chip itself. 
+	
+ </TR>    
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 5th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	 The SuSE AXP beta is now available via ftp from <A HREF="ftp://ftp.cs.virginia.edu/pub/lindahl/SuSE">
+	ftp.cs.virginia.edu/pub/lindahl/SuSE</A>. Note: the install directions are currently in German only.
+	
+ </TR>    
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 2nd 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	Blender version 1.59 has been released for AlphaLinux. For more information
+	go to the <A HREF="http://www.blender.nl/download/download.html">Blender Download</A> page.
+   
+	
+ </TR> 
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 1st 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	 After several weeks of work here at AlphaLinux.org we've finally come up with a new style
+	 for the front page. As always we're looking for feedback, if you've got anything to say
+	 feel free to send it along to our <A HREF="mailto:webmaster@alphalinux.org?subject=Feedback">
+	 webmaster</A>.
+   
+	
+ </TR> 
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 1st 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	 AlphaLinux.org to be powered by an AS1200.<P>
+ 
+             With much thanks to <A HREF="http://www.compaq.com">Compaq</A> the AlphaLinux.org website will soon be powered by an
+	     AlphaServer 1200.  This is the second large hardware donation Compaq has made to the Linux
+	     community, since the merger of Digital. 
+	     <P> 
+	     The ALO will be utilizing this new system to it's fullest potential.  We
+	     will be introducing an online real-time web interface for ray tracing  and
+	     fractal generation to demonstrate the speed of the system and compare
+	     render times to other architectures and systems.
+   
+	
+ </TR>
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 1st 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	  <A HREF="http://www.microway.com">Microway</A> has joined several other vendors as
+	     sponsors of alphalinux.org. We at ALO would like to thank Microway for their support
+	     of alphalinux.org.
+	
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            April 1st 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	   In case you haven't noticed <A HREF="http://www.digital.com">Digital</A> (or rather Compaq Digital Products) has a new and
+	  redesigned web page.
+	
+ </TR>
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

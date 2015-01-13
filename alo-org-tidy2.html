@@ -1,0 +1,793 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+<META name="generator" content=
+"HTML Tidy for Mac OS, see www.w3.org">
+<TITLE>The AlphaLinux Homepage</TITLE>
+<META http-equiv="Content-Type" content=
+"text/html; charset=iso-8859-1">
+<META name="description" content=
+"Information on the Alpha port of Linux">
+<META name="keywords" content=
+"alpha linux axp multia as200 jensen ruffian alphastation alphaserver 21064 21164 21264 064 64-bit 164 264 sx lx">
+
+ <STYLE type="text/css">
+ BODY {
+		font-family: Arial, helvetica, sans-serif;
+		font-size: 80%;
+		}
+ </STYLE> 
+ <!-- this page in 4.01 compliant except for the use of valign. without it the page breaks. -->
+</HEAD>
+ 
+ <?php
+	$debug=0;
+
+	include ("database.php");
+
+	// This get the main titles
+	$result=mysql_db_query("ALOPage", "SELECT * FROM FrontPage where shown=1 AND Catagory='News' ORDER BY insdate DESC LIMIT 0,7",$alodb)
+		or die ("<P>Can't query db");
+	$num_rows=mysql_num_rows($result);
+	if ($num_rows == 0)
+		die ("<P>DB is empty, exiting");
+
+	// Get the Press items for the page
+	$press_result=mysql_db_query("ALOPage","SELECT indx, hdline FROM FrontPage WHERE shown=1 AND Catagory='Press' ORDER BY insdate DESC LIMIT 0,5",$alodb);
+	$press_rows=mysql_num_rows($press_result);
+	
+
+	// Get the Article items for the page
+	$article_result=mysql_db_query("ALOPage","SELECT indx, hdline FROM FrontPage WHERE shown=1 AND Catagory='Articles' ORDER BY insdate DESC LIMIT 0,5",$alodb);
+	$article_rows=mysql_num_rows($article_result);
+
+	news_container_start=" 
+	<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+	<TABLE summary=\"\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">
+	<TR>
+	";
+	
+	news_header_begin="
+	<TD width=\"32\"><IMG src=\"img/icon_beak.gif\" width=\"32\" height=\"32\"
+	alt=\"*\"></TD>
+	<TD bgcolor=\"#B70000\" valign=\"TOP\" align=\"LEFT\"><IMG src=
+	\"img/sl.gif\" alt=\"\"></TD>
+	<TD bgcolor=\"#B70000\"><FONT color=\"#000000\" size=\"+1\"><B>
+	";
+	
+	
+	news_header_end="
+	</B></FONT> </TD>
+	<TD bgcolor=\"#B70000\" valign=\"top\" align=\"right\"><IMG src=
+	\"img/sr.gif\" alt=\"\"></TD>
+	</TR>
+	";
+	
+	
+	news_date_begin="
+	<TR>
+	<TD></TD>
+	<TD colspan=\"3\"><IMG src=\"img/sp.gif\" valign=\"TOP\" width=\"100%\"
+	height=\"2\" alt=\"\"></TD>
+	</TR>
+	
+	<TR>
+	<TD></TD>
+	<TD colspan=\"3\" bgcolor=\"#DC9D33\">
+	";
+	
+	news_date_end="
+	</TD>
+	</TR>
+	";
+	
+	news_body_begin="
+	<TR>
+	<TD>&nbsp;</TD>
+	<TD colspan=\"3\"><FONT face=\"Arial, Helvetica, sans-serif\">
+	<P>
+	";
+	
+	news_body_end="
+	</P>
+	</FONT> </TD>
+	";
+	
+	news_container_end=" 
+	</TR>
+	</TABLE>
+	<!-- end news item -->
+	";
+
+	function print_sections($rec) {
+		echo "$news_container_start";
+
+		echo "$news_header_begin";
+			echo "$rec->hdline";
+		echo "$news_header_end";
+	//print (date("l F jS Y g:i:s a",$rec->insdate));
+		echo "$news_date_begin";
+			echo "$rec->insdate";
+		echo "$news_date_end";
+	
+		echo "$news_body_begin";
+			echo "$rec->newstxt";
+		echo "$news_body_end";
+	
+		echo "$news_container_end";
+	}
+	
+	function fix_penguin() { 
+	//browser detection mojo.
+	ÊÊÊÊrequire_once($_SERVER['DOCUMENT_ROOT'].'browser.php');
+	ÊÊÊÊÊÊÊÊ$br = new Browser;
+
+	  if ($br->Name == "msie" && $br->Version >= 6 )
+  		echo "<IMG src=\"img/penguinedge.gif\" width=\"16\" height=\"77\" hspace=\"0\"  vspace=\"0\" alt=\"\"> ";	  
+  	  else if ($br->Name == "netscape" && $br->Version >= 4  && $br->Version < 5)
+  	  	echo "<IMG src=\"img/penguinedge.gif\" width=\"16\" height=\"77\" hspace=\"0\"  vspace=\"0\" alt=\"\"> ";
+  	  else
+		echo "<IMG src=\"img/penguinedge.gif\" width=\"16\" height=\"77\" hspace=\"0\"  vspace=\"12\" alt=\"\"> ";
+	}
+?>
+
+<BODY bgcolor="#000000" text="#000000" link="#DD0000" alink=
+"#CC0000" vlink="#CC0000">
+
+<TABLE summary="" border="0" width="0" cellpadding="0" cellspacing=
+"0">
+<TR>
+<TD width="16">&nbsp;</TD>
+<TD width="700" bgcolor="#B70000" align="CENTER"><A href=
+"intro/"><IMG src="img/butt_intro.gif" width="45" height="28"
+vspace="0" hspace="8" alt="Intro" border="0"></A> <A href=
+"docs/"><IMG src="img/butt_docs.gif" width="48" height="28" vspace=
+"0" hspace="8" alt="Docs" border="0"></A> <A href="software/"><IMG
+src="img/butt_software.gif" width="87" height="28" vspace="0"
+hspace="8" alt="Software" border="0"></A> <A href="hardware/"><IMG
+src="img/butt_hardware.gif" width="94" height="28" vspace="0"
+hspace="8" alt="Hardware" border="0"></A> <A href=
+"otherpages/"><IMG src="img/butt_otherpages.gif" width="119"
+height="28" vspace="0" hspace="8" alt="Other pages" border="0"></A>
+<A href="about/"><IMG src="img/butt_about.gif" width="57" height=
+"28" vspace="0" hspace="8" alt="About" border="0"></A> </TD>
+<TD width="16">&nbsp;</TD>
+</TR>
+
+<TR>
+<TD height="4"><IMG src="img/dot.gif" width="1" height="1" hspace=
+"0" vspace="0" alt=""></TD>
+<TD height="4"><IMG src="img/dot.gif" width="1" height="1" hspace=
+"0" vspace="0" alt=""></TD>
+<TD height="4"><IMG src="img/dot.gif" width="1" height="1" hspace=
+"0" vspace="0" alt=""></TD>
+</TR>
+
+<TR valign="top">
+<TD>
+<!-- positions the edge of the penguin circle properly. looks fine in
+NS4 and IE6 however all of the complient browsers get it wrong. For the
+later we adjust the vheight attribute accordingly -->
+	<?php	fix_penguin();	 ?>
+</TD>
+<TD bgcolor="#DC9D33">
+<P><IMG src="img/penguincircle.gif" width="92" height="112" hspace=
+"0" vspace="0" alt=""> <IMG src="img/logo.gif" width="498" height=
+"112" hspace="0" vspace="0" alt="AlphaLinux"> 
+<!-- <B>August 3rd, 2004 </B> -->
+</P>
+
+<TABLE summary="" border="0" width="584" hspace="8">
+<TR>
+<TD>
+<TABLE summary="" border="0" cellpadding="0" cellspacing="0">
+<TR>
+<TD width="500" valign="TOP">
+
+
+<?php for ($i=0; $i<$num_rows; $i++)
+		print_sections(mysql_fetch_object($result)); ?>
+<!--
+
+<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+<TABLE summary="" border="0" cellpadding="0" cellspacing="0">
+<TR>
+<TD width="32"><IMG src="img/icon_beak.gif" width="32" height="32"
+alt="*"></TD>
+<TD bgcolor="#B70000" valign="TOP" align="LEFT"><IMG src=
+"img/sl.gif" alt=""></TD>
+<TD bgcolor="B70000"><FONT color="#000000" size="+1"><B>Please test
+debian-installer on your alpha</B></FONT> </TD>
+<TD bgcolor="#B70000" valign="top" align="right"><IMG src=
+"img/sr.gif" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3"><IMG src="img/sp.gif" valign="TOP" width="100%"
+height="2" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3" bgcolor="#DC9D33">2004-06-08 09:52:50</TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+<TD colspan="3"><FONT face="Helvetica, sans-serif">If you are the
+proud owner of an alpha, and you'd like to have a brand new
+GNU/Linux installation in it, you could help the Debian
+distribution by testing the new debian-installer. You can download
+the images from: http://www.debian.org/devel/debian-installer/
+Please report the results of the installation to
+debian-boot@lists.debian.org once you've finished.<BR>
+<BR>
+</FONT> </TD>
+</TR>
+</TABLE>
+<!-- end news item -->
+
+
+<TABLE summary="" border="0" cellpadding="0" cellspacing="0">
+<TR>
+<TD width="32"><IMG src="img/icon_beak.gif" width="32" height="32"
+alt="*"></TD>
+<TD bgcolor="#B70000" valign="TOP" align="LEFT"><IMG src=
+"img/sl.gif" alt=""></TD>
+<TD bgcolor="#B70000"><FONT color="#000000" size="+1"><B>Fedora
+Alpha port</B></FONT> </TD>
+<TD bgcolor="#B70000" valign="top" align="right"><IMG src=
+"img/sr.gif" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3"><IMG src="img/sp.gif" valign="TOP" width="100%"
+height="2" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3" bgcolor="#DC9D33">2003-10-06 11:05:04</TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+<TD colspan="3"><FONT face="Helvetica, sans-serif">- A Fedora Alpha
+port is near ?</FONT> 
+
+<P><A href=
+"http://www.redhat.com/archives/fedora-devel-list/2003-October/msg00159.html">
+<FONT face=
+"Helvetica, sans-serif">http://www.redhat.com/archives/fedora-devel-list/2003-October/msg00159.html</FONT></A></P>
+
+<P><FONT face="Helvetica, sans-serif">Mike A. Harris wrote:<BR>
+ Myself, Jeff Garzik, Richard Henderson, Phil "Bryce" Copeland and
+various people from DEC/COMPAQ/HP have been slowly making evil
+plans to work on an alpha port of the current distribution sometime
+soon. We have no details as of yet, but once we are ready to start
+building and pushing packages we'll let people know here. The
+intent is to make a Fedora/Alpha distribution. That is all the
+detail I have for now. When there is more information, we will
+announce it here.<BR>
+<BR>
+</FONT></P>
+</TD>
+</TR>
+</TABLE>
+
+<TABLE summary="" border="0" cellpadding="0" cellspacing="0">
+<TR>
+<TD width="32"><IMG src="img/icon_beak.gif" width="32" height="32"
+alt="*"></TD>
+<TD bgcolor="#B70000" valign="TOP" align="LEFT"><IMG src=
+"img/sl.gif" alt=""></TD>
+<TD bgcolor="#B70000"><FONT color="#000000" size="+1"><B>Updates for
+RedHat 7.2 Alpha</B></FONT> </TD>
+<TD bgcolor="#B70000" valign="top" align="right"><IMG src=
+"img/sr.gif" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3"><IMG src="img/sp.gif" valign="TOP" width="100%"
+height="2" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3" bgcolor="#DC9D33">2003-07-09 19:03:42</TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+<TD colspan="3"><FONT face="Helvetica, sans-serif">On
+ftp://ftp2.compaq.com/pub/linux/RedHat/7.2-alpha/updates/
+are:</FONT> 
+
+<P><FONT face="Helvetica, sans-serif">Updated Xpdf package fixes a
+vulnerability where a malicious PDF document could run arbitrary
+code.<BR>
+ https://rhn.redhat.com/errata/RHSA-2003-196.html</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">The new package is:<BR>
+ xpdf-0.92-9.alpha.rpm</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">Updated ypserv packages
+fixing a denial of service vulnerability.<BR>
+ https://rhn.redhat.com/errata/RHSA-2003-173.html</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">The new package is:<BR>
+ ypserv-2.8-0.72E.alpha.rpm</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">Updated unzip packages
+resolving a vulnerability allowing arbitrary files to be
+overwritten.<BR>
+ https://rhn.redhat.com/errata/RHSA-2003-199.html</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">The new package is:<BR>
+ unzip-5.50-11.alpha.rpm<BR>
+<BR>
+</FONT></P>
+</TD>
+</TR>
+</TABLE>
+
+<TABLE summary="" border="0" cellpadding="0" cellspacing="0">
+<TR>
+<TD width="32"><IMG src="img/icon_beak.gif" width="32" height="32"
+alt="*"></TD>
+<TD bgcolor="#B70000" valign="TOP" align="LEFT"><IMG src=
+"img/sl.gif" alt=""></TD>
+<TD bgcolor="B70000"><FONT color="#000000" size="+1"><B>documented
+samba bug and fix on Linux/Alpha machines</B></FONT> </TD>
+<TD bgcolor="#B70000" valign="top" align="right"><IMG src=
+"img/sr.gif" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3"><IMG src="img/sp.gif" valign="TOP" width="100%"
+height="2" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3" bgcolor="#DC9D33">2003-06-03 07:13:54</TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+<TD colspan="3"><FONT face="Helvetica, sans-serif">The following
+web page documents a bug and patch to Samba that corrupts the time
+stamp on files accessed by Windows machines stored on the samba
+host. The bug is unique to Alpha machines and is present in all
+versions of samba. The simple patch has corrected this problem for
+my Debian/Alpha/STABLE SUMMARY="" machines and should fix all
+versions of samba on the Alpha.<BR>
+ <A href=
+"http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=194075">http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=194075</A><BR>
+
+<BR>
+</FONT> </TD>
+</TR>
+</TABLE>
+
+<TABLE summary="" border="0" cellpadding="0" cellspacing="0">
+<TR>
+<TD width="32"><IMG src="img/icon_beak.gif" width="32" height="32"
+alt="*"></TD>
+<TD bgcolor="#B70000" valign="TOP" align="LEFT"><IMG src=
+"img/sl.gif" alt=""></TD>
+<TD bgcolor="B70000"><FONT color="#000000" size="+1"><B>[suse-axp]
+[announce] SuSE Linux 8.1 Alpha Edition available.</B></FONT> </TD>
+<TD bgcolor="#B70000" valign="top" align="right"><IMG src=
+"img/sr.gif" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3"><IMG src="img/sp.gif" valign="TOP" width="100%"
+height="2" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3" bgcolor="#DC9D33">2003-05-14 09:13:48</TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+<TD colspan="3"><FONT face="Helvetica, sans-serif">Dear Alpha
+community,</FONT> 
+
+<P><FONT face="Helvetica, sans-serif">it's been quite some spare
+time nights that the old SuSE Alpha Team spent to present you a new
+version of SuSE Linux for Alpha machines.</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">To safe more greasy words:
+It's available for download from
+ftp://ftp.suse.com/pub/suse/axp/supplementary/8.1/</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">There are quite a couple of
+reasons to update now, among them are:</FONT></P>
+
+<UL>
+<LI><FONT face="Helvetica, sans-serif">kernel 2.4.19</FONT></LI>
+
+<LI><FONT face="Helvetica, sans-serif">gcc 3.2.2, glibc 2.2.5,
+binutils 2.12.90.0.15</FONT></LI>
+
+<LI><FONT face="Helvetica, sans-serif">apache2, bind8/9,
+..</FONT></LI>
+
+<LI><FONT face="Helvetica, sans-serif">kde 3.0.4</FONT></LI>
+</UL>
+
+<P><FONT face="Helvetica, sans-serif">SuSE Linux 8.1 Alpha Edition
+has been tested on several EV56/EV6/EV67 machines, but it might
+also work on newer/older Alpha systems.</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">To install SuSE Linux 8.1
+Alpha Edition on SRM systems, you need to download the installation
+iso, and burn it to a CD. Find the ISO at
+ftp://ftp.suse.com/pub/suse/axp/supplementary/8.1/boot/boot.iso
+Then you can start installation with "boot dkb0 -fl 0". Please make
+sure to insert your cdrom device instead of dkb0. For interactive
+startup you can use the "-fl i" instead of "-fl 0" Installation on
+Milo systems is a little bit more work. Find a short description
+and the milo images at
+ftp://ftp.suse.com/pub/suse/axp/supplementary/8.1/milo/</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">Please note: SuSE Linux 8.1
+Alpha Edition comes with absolutely no warranty and support
+whatsoever. We can not provide iso images of the complete
+distribution at the moment, but ftp installation works fine here
+and should be viable once the distribution arrived on all
+mirrors.</FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">Feel free to send bug
+reports, or hints to the SuSE AXP mailing list
+suse-axp@suse.com.<BR>
+<BR>
+</FONT></P>
+</TD>
+</TR>
+</TABLE>
+
+<TABLE summary="" border="0" cellpadding="0" cellspacing="0">
+<TR>
+<TD width="32"><IMG src="img/icon_beak.gif" width="32" height="32"
+alt="*"></TD>
+<TD bgcolor="#B70000" valign="TOP" align="LEFT"><IMG src=
+"img/sl.gif" alt=""></TD>
+<TD bgcolor="B70000"><FONT color="#000000" size="+1"><B>Itanium-2
+is far behind Alpha when it comes to SAPS (SAP benchmak)</B></FONT>
+</TD>
+<TD bgcolor="#B70000" valign="top" align="right"><IMG src=
+"img/sr.gif" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3"><IMG src="img/sp.gif" valign="TOP" width="100%"
+height="2" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3" bgcolor="#DC9D33">2003-02-27 11:47:10</TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+<TD colspan="3"><FONT face=
+"Helvetica, sans-serif">http://heise.de/newsticker/data/as-25.02.03-000/
+(German)<BR>
+<BR>
+</FONT> </TD>
+</TR>
+</TABLE>
+
+<TABLE summary="" border="0" cellpadding="0" cellspacing="0">
+<TR>
+<TD width="32"><IMG src="img/icon_beak.gif" width="32" height="32"
+alt="*"></TD>
+<TD bgcolor="#B70000" valign="TOP" align="LEFT"><IMG src=
+"img/sl.gif" alt=""></TD>
+<TD bgcolor="B70000"><FONT color="#000000" size="+1"><B>EV7
+AlphaServers unleashed as chip line heads into sunset</B></FONT>
+</TD>
+<TD bgcolor="#B70000" valign="top" align="right"><IMG src=
+"img/sr.gif" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3"><IMG src="img/sp.gif" valign="TOP" width="100%"
+height="2" alt=""></TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD colspan="3" bgcolor="#DC9D33">2003-01-22 09:55:25</TD>
+</TR>
+
+<TR>
+<TD>&nbsp;</TD>
+<TD colspan="3">
+<P><FONT face="Helvetica, sans-serif"><I>Customers of
+Hewlett-Packard Co's AlphaServer RISC machines got a look at the
+probable future machines they will use over the next few years as
+HP rolled out the "Marvel" line of servers, writes Timothy
+Prickett-Morgan. The Marvels, which are based on the Alpha EV7
+processor, are kickers to the current "Wildfire" series of
+AlphaServer machines, which are based on the Alpha EV68
+processors.</I></FONT></P>
+
+<P><FONT face="Helvetica, sans-serif">Taken from: <A href=
+"http://www.theregister.co.uk/content/3/28947.html">http://www.theregister.co.uk/content/3/28947.html</A><BR>
+
+<BR>
+</FONT></P>
+</TD>
+</TR>
+</TABLE>
+
+--> 
+
+<!--Begin sidebar--></TD>
+<TD width="2"></TD>
+
+<TD  valign="TOP" bgcolor="#DC9D33" width="190" style="float:right; padding-left:32px;">
+<TABLE summary="" cellspacing="0" cellpadding="0" border="0" width="100%">
+<TR>
+<TD id="sidebar" align="LEFT">
+
+
+<TABLE bgcolor="#B70000" summary="" cellpadding="0" cellspacing="0" border="0" width=
+"100%">
+<TR>
+<TD  valign="TOP" align="LEFT"><IMG src="img/sl.gif" alt=""></TD>
+<TD width="190"><center><B>Latest From AlphaNews.NET</B></center></TD>
+<TD valign="TOP" align="RIGHT"><IMG src="img/sr.gif" alt=""></TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+
+<TR>
+<TD  bgcolor="#DC9D33"><IMG src="img/sp.gif" width="100%" valign=
+"TOP" alt=""><BR>
+
+ <?php
+	 $file = fopen("http://www.alphalinux.org/backend.rdf", "r");
+	 $rf = fread($file, 32000); // read 32K  
+	 $grab = eregi("<item>(.*)</ITEM>", $rf, $printing);
+	 $pieces = explode("<ITEM>", $printing[0]);
+	 $count=count($pieces);
+	
+	 for($x=1; $x<=$count-1; $x++)	{
+	 	ereg("<TITLE>(.*)</TITLE>",$pieces[$x],$title );
+	 	ereg("<LINK>(.*)</LINK>",$pieces[$x],$links );
+	 	ereg("<DESCRIPTION>(.*)</DESCRIPTION>",$pieces[$x],$desc );
+		
+	 	echo "<A HREF=\"$links[1]\">$title[1]</A><BR>";
+	}
+ ?>
+<!--
+ <A href=
+"http://www.alphanews.net/?op=displaystory;sid=2004/7/21/124036/250">
+PWS 500au: VMS 7.3 sees CDROMs on EIDE, but not hard disks</A><BR>
+<A href=
+"http://www.alphanews.net/?op=displaystory;sid=2004/7/14/6542/76679">
+Big problem with an AlphaServer 400 4/233</A><BR>
+-->
+ <BR><BR>
+ </TD>
+</TR>
+</TABLE>
+
+<TABLE summary="" cellspacing="0" cellpadding="0" border="0">
+<TR>
+<TD bgcolor="#B70000" align="LEFT">
+<TABLE summary="" cellpadding="0" cellspacing="0" border="0" width=
+"100%">
+<TR>
+<TD valign="TOP" align="LEFT"><IMG src="img/sl.gif" alt=""></TD>
+<TD width="190"><Center><B>Alpha Related Sites</B></center></TD>
+<TD valign="TOP" align="RIGHT"><IMG src="img/sr.gif" alt=""></TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+
+<TR>
+<TD bgcolor="#DC9D33"><IMG src="img/sp.gif" valign="TOP" width=
+"100%" alt=""><BR>
+ <A href="search.shtml">Search All Of AlphaLinux.Org</A> - New!<BR>
+ <A href="http://www.alphanews.net">Alpha News Network</A><BR>
+ <A href="hardware/vendors.shtml">Vendor List</A><BR>
+ <A href="http://www.api-networks.com">API Networks, Inc.</A>
+(API)<BR>
+ <A href="http://www.compaq.com/linux">Compaq Computer Co.</A><BR>
+ <A href="http://www.digital.com">Compaq Digital Products</A>
+(DEC)<BR>
+ <A href=
+"http://samsungelectronics.com/semiconductors/Alpha_CPU/alpha_cpu_index.htm">
+Samsung Semiconductor</A><BR>
+ <BR>
+  <BR><BR>
+ </TD>
+</TR>
+</TABLE>
+
+<TABLE summary="" cellspacing="0" cellpadding="0" border="0">
+<TR>
+<TD bgcolor="#B70000" align="LEFT">
+<TABLE summary="" cellpadding="0" cellspacing="0" border="0" width=
+"100%">
+<TR>
+<TD valign="TOP" align="LEFT"><IMG src="img/sl.gif" alt=""></TD>
+<TD width="190"><center><B>AlphaLinux Docs</B> </center></TD>
+<TD valign="TOP" align="RIGHT"><IMG src="img/sr.gif" alt=""></TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+
+<TR>
+<TD bgcolor="#DC9D33"><IMG src="img/sp.gif" width="100%" valign=
+"TOP" alt=""><BR>
+ <A href="faq/FAQ.html">AlphaLinux FAQ</A><BR>
+ <A href="docs/alpha-howto.html">AlphaLinux Howto</A><BR>
+ <A href="kernel">AlphaLinux kernel page</A><BR>
+ <A href="faq/MILO-HOWTO/t1.html">MILO Howto</A><BR>
+ <A href="faq/SRM-HOWTO/index.html">SRM Howto</A><BR>
+ <A href="faq/alphabios-howto.html">AlphaBIOS Howto</A><BR>
+ <A href="docs/fbcon_faq.shtml">Frame Buffer Howto</A><BR>
+ <A href="archives/">Mailing List Archives</A><BR>
+ <A href="http://www.alphalinux.org/ALOHcl">ALO Hardware
+Database</A><BR>
+ <BR><BR>
+ </TD>
+</TR>
+</TABLE>
+
+<TABLE summary="" cellspacing="0" cellpadding="0" border="0">
+<TR>
+<TD bgcolor="#B70000" align="LEFT">
+<TABLE summary="" cellpadding="0" cellspacing="0" border="0" width=
+"100%">
+<TR>
+<TD valign="TOP" align="LEFT"><IMG src="img/sl.gif" alt=""></TD>
+<TD width="190"><center><B>AlphaLinux Distributions</B></center></TD>
+<TD valign="TOP" align="RIGHT"><IMG src="img/sr.gif" alt=""></TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+
+<TR>
+<TD bgcolor="#DC9D33"><IMG src="img/sp.gif" valign="TOP" width=
+"100%" alt=""><BR>
+ <A href="http://www.debian.org">Debian</A><BR>
+ <A href="http://www.gentoo.org">Gentoo</A><BR>
+ <A href="http://www.kondara.org">Kondara</A><BR>
+ <A href="mandrake/">Mandrake</A><BR>
+ <A href="http://www.pld.org.pl">Polish Linux Distribution</A><BR>
+ <A href="http://www.support.compaq.com/alpha-tools/redhat/">RedHat
+7.2 (From HP)</A><BR>
+ <A href="http://www.redhat.com">RedHat</A><BR>
+ <A href="http://www.rocklinux.org/">RockLinux</A><BR>
+ <A href="http://www.slackware.com">Slackware</A><BR>
+ <A href="http://www.suse.com">SuSE</A><BR>
+ <A href="http://talinux.tal.org">TA-Linux</A><BR>
+ <BR><BR>
+ </TD>
+</TR>
+</TABLE>
+
+<P><!-- Create the articles box -->
+</P>
+
+<TABLE summary="" cellspacing="0" cellpadding="0" border="0">
+<TR>
+<TD bgcolor="#B70000" align="LEFT">
+<TABLE summary="" cellpadding="0" cellspacing="0" border="0" width=
+"100%">
+<TR>
+<TD valign="TOP" align="LEFT"><IMG src="img/sl.gif" alt=""></TD>
+<TD width="190"><center><B>Articles</B></center></TD>
+<TD valign="TOP" align="RIGHT"><IMG src="img/sr.gif" alt=""></TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+
+<TR>
+<TD bgcolor="#DC9D33"><IMG src="img/sp.gif" valign="TOP" width=
+"100%" alt=""><BR>
+ <FONT face="Arial, Helvetica, sans-serif">
+<?php
+	for ($i=0;$i<$article_rows;$i++) {
+		$article_obj=(mysql_fetch_object($article_result));
+		echo "<A HREF=\"http://www.alphalinux.org/press-articles/index.php?indx=$article_obj->indx&type=Articles\">$article_obj->hdline $article_obj->insdate</A><BR>";
+	}
+
+?>		
+				
+ <!--
+ <A href=
+"http://www.alphalinux.org/press-articles/index.php?indx=12&amp;type=Articles">
+Netscape on AlphaLinux Part 2</A><BR>
+ <A href=
+"http://www.alphalinux.org/press-articles/index.php?indx=11&amp;type=Articles">
+Netscape on AlphaLinux Part 1</A><BR>
+-->
+
+
+</FONT>
+ <BR><BR>
+ </TD>
+</TR>
+</TABLE>
+
+<TABLE summary="" cellspacing="0" cellpadding="0" border="0">
+<TR>
+<TD bgcolor="#B70000" align="LEFT">
+<TABLE summary="" cellpadding="0" cellspacing="0" border="0" width=
+"100%">
+<TR>
+<TD valign="TOP" align="LEFT"><IMG src="img/sl.gif" alt=""></TD>
+<TD width="190"><center><B>Contact Us</B></center></TD>
+<TD valign="TOP" align="RIGHT"><IMG src="img/sr.gif" alt=""></TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+
+<TR>
+<TD bgcolor="#DC9D33"><IMG src="img/sp.gif" valign="TOP" width=
+"100%" alt=""><BR>
+ <A href="http://www.alphalinux.org/user/">Submit News</A><BR>
+ <A href="mailto:webmaster@alphalinux.org">Webmaster</A><BR>
+ <A href="mailto:ftpadmin@alphalinux.org">FTP Admin</A><BR>
+ 
+
+<P><A href="http://www.alphalinux.org/oldnews/">Old News...</A><BR>
+</P>
+ <BR><BR>
+
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+
+<!-- End of Sidebar. -->
+</TABLE>
+</TD>
+</TR>
+
+<TR>
+<TD></TD>
+<TD>
+<CENTER><FONT color="#DC9D33" face="helvetica,sans-serif" size=
+"-1">Powered by Alpha / Linux&reg; is a registered trademark of
+Linus Torvalds</FONT></CENTER>
+
+</TD>
+<TD></TD>
+</TR>
+</TABLE>
+
+
+*</BODY>
+</HTML>
+

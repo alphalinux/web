@@ -1,0 +1,1227 @@
+<HTML
+><HEAD
+><TITLE
+>How To Load MILO</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.57"><LINK
+REL="HOME"
+TITLE="Alpha Miniloader Howto"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="How To Build MILO "
+HREF="build-section.html"><LINK
+REL="NEXT"
+TITLE="MILO's User Interface"
+HREF="milo-if-section.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Alpha Miniloader Howto</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="build-section.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="milo-if-section.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LOAD-SECTION"
+>5. How To Load MILO</A
+></H1
+><P
+>The most commonly supported method of loading MILO is from the Windows NT
+ARC firmware as most shipping systems support this.  However, there are
+a wide variety of  loading MILO.   It may be loaded from:
+
+<P
+></P
+><UL
+><LI
+><P
+> a failsafe boot block floppy,</P
+></LI
+><LI
+><P
+> the Windows NT ARC firmware, </P
+></LI
+><LI
+><P
+> Digital's SRM console, </P
+></LI
+><LI
+><P
+> an Alpha Evaluation Board Debug Monitor,</P
+></LI
+><LI
+><P
+> flash/ROM.</P
+></LI
+></UL
+>&#13;</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="ARC-SECTION"
+>5.1. Loading MILO from the Windows NT ARC firmware</A
+></H2
+><P
+>Most, if not all, Alpha AXP based systems include the Windows NT
+ARC firmware and this is the prefered method of booting MILO and thus
+Linux.  Once the Windows NT firmware is running and you have the correct
+MILO image for your system, this method is completely generic.</P
+><P
+>The Windows NT ARC firmware is an environment in which programs can run
+and make callbacks into the firmware to perform actions.  The Windows NT
+OSLoader is a program that does exactly this.   Linload.exe is a 
+much simpler program which does just enough to load and execute MILO.
+It loads the appropriate image
+file into memory at 0x00000000 and then makes a swap-PAL PALcall to
+it.  
+MILO, like Linux, uses a different PALcode to Windows NT which is why the
+swap has to happen.
+MILO relocates itself to 0x200000 and continues on through the
+PALcode reset entry point as before.</P
+><P
+>Before you add a Linux boot option, 
+you will need to copy linload.exe and the appropriate MILO that you
+wish to load to someplace that the Windows NT ARC firmware can read from.  
+In the following example, I assume that you are booting from a DOS format floppy
+disk:</P
+><P
+>&#13;<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+> At the boot menu, select <TT
+CLASS="LITERAL"
+>"Supplementary menu..."</TT
+></P
+></LI
+><LI
+><P
+> At the <TT
+CLASS="LITERAL"
+>"Supplementary menu"</TT
+>, select <TT
+CLASS="LITERAL"
+>"Set up the system..."</TT
+></P
+></LI
+><LI
+><P
+> At the <TT
+CLASS="LITERAL"
+>"Setup menu"</TT
+>, select <TT
+CLASS="LITERAL"
+>"Manage boot selection menu..."</TT
+></P
+></LI
+><LI
+><P
+> In the <TT
+CLASS="LITERAL"
+>"Boot selections menu"</TT
+>, choose <TT
+CLASS="LITERAL"
+>"Add a boot selection"</TT
+></P
+></LI
+><LI
+><P
+> Choose <TT
+CLASS="LITERAL"
+>"Floppy Disk 0"</TT
+></P
+></LI
+><LI
+><P
+> Enter <TT
+CLASS="LITERAL"
+>"linload.exe"</TT
+> as the osloader directory and name</P
+></LI
+><LI
+><P
+> Say "yes" to the operating system being on the same partition
+as the osloader</P
+></LI
+><LI
+><P
+> Enter "\" as the operating system root directory</P
+></LI
+><LI
+><P
+> I usually enter <TT
+CLASS="LITERAL"
+>"Linux"</TT
+> as the name for this boot selection</P
+></LI
+><LI
+><P
+> Say "No" you do not want to initialise the debugger at boot time</P
+></LI
+><LI
+><P
+> You should now be back in the <TT
+CLASS="LITERAL"
+>"Boot selections menu"</TT
+>, choose the
+<TT
+CLASS="LITERAL"
+>"Change a boot selection option"</TT
+> and pick the selection you just created
+as the one to edit</P
+></LI
+><LI
+><P
+> Use the down arrow to get <TT
+CLASS="LITERAL"
+>"OSLOADFILENAME"</TT
+> up and then type in the
+name of the MILO image that you wish to use, for example <TT
+CLASS="LITERAL"
+>"noname.arc"</TT
+>
+followed by return.</P
+></LI
+><LI
+><P
+> Press ESC to get back to the <TT
+CLASS="LITERAL"
+>"Boot Selections menu"</TT
+></P
+></LI
+><LI
+><P
+> Choose <TT
+CLASS="LITERAL"
+>"Setup Menu"</TT
+> (or hit ESC again) and choose <TT
+CLASS="LITERAL"
+>"Supplementary menu,
+and save changes"</TT
+> option</P
+></LI
+><LI
+><P
+> ESC will get you back to the <TT
+CLASS="LITERAL"
+>"Boot menu"</TT
+> and you can attempt to boot
+MILO.  If you do not want Linux as the first boot option, then you can
+alter the order of the boot options in the <TT
+CLASS="LITERAL"
+>"Boot selections menu"</TT
+>.</P
+></LI
+></OL
+>&#13;</P
+><P
+>At the end of all this, you should have a boot selection that looks something 
+like:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>LOADIDENTIFIER=Linux
+SYSTEMPARTITION=multi(0)disk(0)fdisk(0)
+OSLOADER=multi(0)disk(0)fdisk(0)\linload.exe
+OSLOADPARTITION=multi(0)disk(0)fdisk(0)
+OSLOADFILENAME=\noname.arc
+OSLOADOPTIONS=</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>You can now boot MILO (and then Linux).  You can load linload.exe
+and MILO directly from a file system that Windows NT understands such as 
+NTFS or DOS on a hard disk.</P
+><P
+>The contents <TT
+CLASS="LITERAL"
+>OSLOADOPTIONS</TT
+> are passed to MILO which interprets
+it as a command.   So, in order to
+boot Linux directly from Windows NT without pausing in MILO, you could
+pass the following in <TT
+CLASS="LITERAL"
+>OSLOADOPTIONS</TT
+>:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>boot sda2:vmlinux.gz root=/dev/sda2</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>See <A
+HREF="milo-if-section.html"
+>Section 6</A
+> for more
+information on the commands available.</P
+><P
+>Another (rather sneaky) way of loading of loading MILO via the WNT ARC firmware
+is to put MILO onto an MS-DOS floppy and call it <TT
+CLASS="LITERAL"
+>fwupdate.exe</TT
+> and then choose
+the "Upgrade Firmware" option.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DBM-SECTION"
+>5.2. Loading MILO from the Evaluation Board Debug Monitor</A
+></H2
+><P
+>Evaluation boards (and often designs cloned from them) include
+support for the Alpha Evaluation Board Debug Monitor.   Consult
+your system document before considering this method of booting
+MILO.   The following systems are <I
+CLASS="EMPHASIS"
+>known</I
+> to include Debug Monitor
+support:
+
+<P
+></P
+><UL
+><LI
+><P
+>AlphaPC64 (Section <A
+HREF="load-section.html#PC64-SECTION"
+>Section 5.6.2</A
+>)</P
+></LI
+><LI
+><P
+>EB64+ (Section <A
+HREF="load-section.html#EB64P-SECTION"
+>Section 5.6.4</A
+>)</P
+></LI
+><LI
+><P
+>EB66+ (Section <A
+HREF="load-section.html#EB66P-SECTION"
+>Section 5.6.3</A
+>)</P
+></LI
+><LI
+><P
+>EB164 (Section <A
+HREF="load-section.html#EB164-SECTION"
+>Section 5.6.6</A
+>)</P
+></LI
+><LI
+><P
+>PC164 (Section <A
+HREF="load-section.html#PC164-SECTION"
+>Section 5.6.7</A
+>)</P
+></LI
+></UL
+>&#13;</P
+><P
+>Before you consider this method, you should note that the early
+versions of the Evaluation Board Debug Monitor did not include video
+or keyboard drivers and so you must be prepared to connect another
+system via the serial port so that you can use the Debug Monitor.
+Its interface is very simple and typing help shows a whole heap
+of commands.  The ones that are most interesting include
+the word <TT
+CLASS="LITERAL"
+>boot</TT
+> or <TT
+CLASS="LITERAL"
+>load</TT
+> in them.</P
+><P
+>The Evaluation Board Debug Monitor can load an image either via the network
+(netboot) or via a floppy (flboot).  In either case, set the boot
+address to 0x200000 (<TT
+CLASS="LITERAL"
+>&#62; bootadr 200000</TT
+>) before booting the
+image.  </P
+><P
+>If the image is on floppy (and note that only DOS formatted floppies
+are supported), then you will need to type the following command:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     AlphaPC64&#62; flboot &#60;MILO-image-name&#62;</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="BOOTBLOCK-SECTION"
+>5.3. Loading MILO from a Failsafe Boot Block Floppy</A
+></H2
+><P
+>Only the AxpPCI33 is <I
+CLASS="EMPHASIS"
+>known</I
+> to include failsafe boot block
+floppy support (Section &#60; id="noname-section" name="Noname"&#62;).</P
+><P
+>If you do not have a standard pre-built MILO .dd image, 
+then you may need to
+build an SRM boot block floppy.  
+Once you have built MILO, you need to do the following on Digital Unix box:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     fddisk -fmt /dev/rfd0a
+     cat mboot bootm &#62; /dev/rfd0a
+     disklabel -rw rfd0a 'rx23' mboot bootm</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>Or on a Linux box:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     cat mboot bootm &#62; /dev/fd0 </PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+> If you have a standard MILO image available (say <TT
+CLASS="LITERAL"
+>MILO.dd</TT
+>)
+then you would build a boot block floppy using the following command:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     dd if=MILO.dd of=/dev/fd0 </PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="FLASH-SECTION"
+>5.4. Loading MILO from Flash</A
+></H2
+><P
+>There are a number of systems where MILO can be blown into flash
+and booted directly (instead of via the Windows NT ARC firmware):
+
+<P
+></P
+><UL
+><LI
+><P
+>AlphaPC64 (Section <A
+HREF="load-section.html#PC64-SECTION"
+>Section 5.6.2</A
+>)</P
+></LI
+><LI
+><P
+>Noname (Section <A
+HREF="load-section.html#NONAME-SECTION"
+>Section 5.6.1</A
+>)</P
+></LI
+><LI
+><P
+>EB66+ (Section <A
+HREF="load-section.html#EB66P-SECTION"
+>Section 5.6.3</A
+>)</P
+></LI
+><LI
+><P
+>EB164 (Section <A
+HREF="load-section.html#EB164-SECTION"
+>Section 5.6.6</A
+>)</P
+></LI
+><LI
+><P
+>PC164 (Section <A
+HREF="load-section.html#PC164-SECTION"
+>Section 5.6.7</A
+>)</P
+></LI
+></UL
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SRM-SECTION"
+>5.5. Loading MILO from the SRM Console</A
+></H2
+><P
+>The SRM (short for System Reference Manual) Console knows nothing about filesystems or disk-partitions, 
+it simply expects that the secondary bootstrap loader occupies a consecutive range of
+physical disk sectors starting from a given offset.   The information describing
+the secondary bootstrap loader (its size and offset) is given in the first 512 
+byte block.   To load MILO via the SRM you must generate that structure on a 
+device which the SRM can access (such as a floppy disk).
+This is what <TT
+CLASS="LITERAL"
+>mboot</TT
+> and <TT
+CLASS="LITERAL"
+>bootm</TT
+>, <TT
+CLASS="LITERAL"
+>mboot</TT
+> is the first block (or
+boot description) and <TT
+CLASS="LITERAL"
+>mboot</TT
+> is the <TT
+CLASS="LITERAL"
+>MILO</TT
+> image rounded up to a
+512 byte boundary.</P
+><P
+>  To load MILO from a boot block device, either build <TT
+CLASS="LITERAL"
+>mboot</TT
+>
+and <TT
+CLASS="LITERAL"
+>bootm</TT
+> and push them onto the boot device
+using the following command:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>	$ cat mboot bootm &#62; /dev/fd0</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>Or, grab the appropriate <TT
+CLASS="LITERAL"
+>MILO.dd</TT
+> from a web site and write it onto the
+boot device using either <TT
+CLASS="LITERAL"
+>RAWRITE.EXE</TT
+> or <TT
+CLASS="LITERAL"
+>dd</TT
+>.</P
+><P
+> Once you have done that you can boot the SRM console and use one of its
+many commands to boot MILO.   For example, to boot MILO from a boot block floppy
+you would use the following command:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>	&#62;&#62;&#62;boot dva0
+	(boot dva0.0.0.0.1 -flags 0)
+	block 0 of dva0.0.0.0.1 is a valid boot block
+	reading 621 blocks from dva0.0.0.0.1
+	bootstrap code read in
+	base = 112000, image_start = 0, image_bytes = 4da00
+	initializing HWRPB at 2000
+	initializing page table at 104000
+	initializing machine state
+	setting affinity to the primary CPU
+	jumping to bootstrap code
+	MILO Stub: V1.1
+	Unzipping MILO into position
+	Allocating memory for unzip
+	####...</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>The following systems are <I
+CLASS="EMPHASIS"
+>known</I
+> to have SRM Console support:
+
+<P
+></P
+><UL
+><LI
+><P
+>Noname (Section <A
+HREF="load-section.html#NONAME-SECTION"
+>Section 5.6.1</A
+>)</P
+></LI
+><LI
+><P
+>AlphaPC64 (Section <A
+HREF="load-section.html#PC64-SECTION"
+>Section 5.6.2</A
+>)</P
+></LI
+><LI
+><P
+>EB164 (Section <A
+HREF="load-section.html#EB164-SECTION"
+>Section 5.6.6</A
+>)</P
+></LI
+><LI
+><P
+>PC164 (Section <A
+HREF="load-section.html#PC164-SECTION"
+>Section 5.6.7</A
+>)</P
+></LI
+></UL
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SPECIFIC-SECTION"
+>5.6. System Specific Information</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="NONAME-SECTION"
+>5.6.1. AxpPCI33 (Noname)</A
+></H3
+><P
+>The Noname board can load MILO 
+from the Windows NT ARC firmware
+(Section <A
+HREF="load-section.html#ARC-SECTION"
+>Section 5.1</A
+>),
+from the SRM Console
+(Section <A
+HREF="load-section.html#SRM-SECTION"
+>Section 5.5</A
+>).
+and from a failsafe boot block floppy
+(Section <A
+HREF="load-section.html#BOOTBLOCK-SECTION"
+>Section 5.3</A
+>).
+A flash management utility, runnable from MILO is available so that
+once MILO is running, it can be blown into flash
+(Section <A
+HREF="milo-fmu-section.html"
+>Section 7</A
+>).
+However, be warned
+that once you have done this you will lose the previous image held there
+as there is only room for one image.</P
+><P
+>The way that Noname boots is controlled
+by a set of jumpers on the board, J29 and J28.  These look like:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>        	    4
+        J29	2 x x x 6
+        	1 x x x 5
+
+        J28	2 x x x 6
+        	1 x x x 5
+        	    3</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>The two options that we're interested in are J28, pins 1-3 which
+boots the console/loader from flash and J29, pins 1-3 which boots the
+console/loader from a boot block floppy.  The second option is the one
+that you need to first boot MILO on the Noname board.</P
+><P
+>Once you've selected the boot from floppy option via the jumpers,
+put the SRM boot block floppy containing MILO into the
+floppy and reboot.  In a few seconds (after the floppy light goes out)
+you should see the screen blank to white and MILO telling
+you what's going on.</P
+><P
+>If you are really interested in technical stuff, the Noname loads
+images off of the floppy into physical address 0x104000 and images
+from flash into 0x100000.  For this reason, MILO is built
+with it's PALcode starting at 0x200000.  When it is first loaded, it
+moves itself to the correct location (see relocate.S).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="PC64-SECTION"
+>5.6.2. AlphaPC64 (Cabriolet)</A
+></H3
+><P
+>The AlphaPC64 includes the Windows NT ARC firmware
+(Section <A
+HREF="load-section.html#ARC-SECTION"
+>Section 5.1</A
+>),
+the SRM Console (Section <A
+HREF="load-section.html#SRM-SECTION"
+>Section 5.5</A
+>)
+and the Evaluation Debug Monitor 
+(Section <A
+HREF="load-section.html#DBM-SECTION"
+>Section 5.2</A
+>).
+These images are in flash and there is room to add MILO so that
+you can boot MILO directly from flash.
+A flash management utility, runnable from MILO is available so that
+once MILO is running, it can be blown into flash
+(Section <A
+HREF="milo-fmu-section.html"
+>Section 7</A
+>).
+This system supports MILO environment variables.</P
+><P
+>You select between the boot options (and MILO when it is
+been put into flash) using a combination of jumpers and a boot option which
+is saved in the NVRAM of the TOY clock.</P
+><P
+>The jumper is J2, SP bits 6 and 7 have the following meanings:
+
+<P
+></P
+><UL
+><LI
+><P
+>SP bit 6 should always be out.  If this jumper is set then the
+SROM mini-debugger gets booted,</P
+></LI
+><LI
+><P
+>SP bit 7 in is boot image selected by the boot option byte in 
+the TOY clock,</P
+></LI
+><LI
+><P
+>SP bit 7 out is boot first image in flash.</P
+></LI
+></UL
+>&#13;</P
+><P
+>So, with bit 7 out, the Debug Monitor will be booted as it is <TT
+CLASS="LITERAL"
+>always</TT
+>
+the first image in flash.  With bit 7 in, the image selected by
+the boot option in the TOY clock will be selected.  
+The Debug Monitor, the Windows NT ARC firmware and MILO all support setting
+this boot option byte but you must be very careful using it.
+In particular, you cannot set the boot option so that next time the system
+boots MILO when you are running the Windows NT ARC firmware, it only
+allows you to set Debug Monitor or Windows NT ARC as boot options.</P
+><P
+> To get MILO into flash via the Evaluation Board Debug Monitor, 
+you will need a flashable image.
+The build proceedures make MILO.rom, 
+but you can also make a rom image using the makerom tool in the 
+Debug Monitor software that comes with the board:</P
+><P
+>    &#62; makerom -v -i7 -l200000 MILO -o mini.flash</P
+><P
+> (type makerom to find out what the arguments mean, but 7 is a
+flash image id used by the srom and -l200000 gives the load address
+for the image as 0x200000).</P
+><P
+>Load that image into memory (via the Debug Monitor commands flload,
+netload, and so on) at 0x200000 and then blow the image into flash:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     AlphaPC64&#62; flash 200000 8</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+> (200000 is where the image to be blown is in memory and 8 is the segment
+number where you put the image.   There are 16 1024*64 byte segments in the
+flash and the Debug Monitor is at seg 0 and the Windows NT ARC firmware is at seg 4).</P
+><P
+> Set up the image that the srom will boot by writing the number of
+the image into the TOY clock.</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     AlphaPC64&#62; bootopt 131</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>(131 means boot the 3rd image, 129 = 1st, 130 = 2nd and so on).</P
+><P
+> Power off, put jumper 7 on and power on and you should see the
+MILO burst into life.  If you don't then take jumper 7 back off
+and reboot the Debug Monitor.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="EB66P-SECTION"
+>5.6.3. EB66+</A
+></H3
+><P
+>The EB66+, like all of the Alpha Evaluation Boards built by Digital
+contains the Evaluation Board Debug Monitor and so this is available
+to load MILO
+(Section <A
+HREF="load-section.html#DBM-SECTION"
+>Section 5.2</A
+>).  
+Quite often (although not always) boards whose design is derived from
+these include the Debug Monitor also.
+Usually, these boards include the Windows NT ARC firmware
+(Section <A
+HREF="load-section.html#ARC-SECTION"
+>Section 5.1</A
+>).
+A flash management utility, runnable from MILO is available so that
+once MILO is running, it can be blown into flash
+(Section <A
+HREF="milo-fmu-section.html"
+>Section 7</A
+>).
+This system supports MILO environment variables.</P
+><P
+>These systems have several boot images in flash controlled by jumpers.  
+The two jumper banks are J18 and J16 and are located at the bottom
+of the board in the middle (if the Alpha chip is at the top).
+You select between the boot options (and MILO when it is
+been put into flash) using a combination of jumpers and a boot option which
+is saved in the NVRAM of the TOY clock.</P
+><P
+>Jumper 7-8 of J18 in means boot the image described by the
+boot option.   Jumper 7-8 of J18 out means boot the Evaluation Board
+Debug Monitor.</P
+><P
+>Blowing an image into flash via the Evaluation Board Debug Monitor
+is exactly the same proceedure as
+for the AlphaPC64 (Section <A
+HREF="load-section.html#PC64-SECTION"
+>Section 5.6.2</A
+>).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="EB64P-SECTION"
+>5.6.4. EB64+/Aspen Alpine</A
+></H3
+><P
+>This system is quite like the AlphaPC64 except that it does not
+contain flash which MILO can be loaded from.
+The EB64+ has two ROMs, one of which contains
+the Windows NT ARC firmware
+(Section <A
+HREF="load-section.html#ARC-SECTION"
+>Section 5.1</A
+>).  
+and the other contains the Evaluation Board Debug Monitor 
+(Section <A
+HREF="load-section.html#DBM-SECTION"
+>Section 5.2</A
+>).  </P
+><P
+>The Aspen Alpine is a little different in that it only has one
+ROM; this contains the Windows NT ARC firmware.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="MULTIA-SECTION"
+>5.6.5. Universal Desktop Box (Multia)</A
+></H3
+><P
+>This is a very compact pre-packaged 21066 based system that 
+includes a TGA (21030) graphics device.   Although you can <I
+CLASS="EMPHASIS"
+>just</I
+> fit
+a half height PCI graphics card in the box you are better off waiting
+for full TGA support in XFree86.   It includes the Windows NT ARC
+firmware and so booting from that is the prefered method
+(Section <A
+HREF="load-section.html#ARC-SECTION"
+>Section 5.1</A
+>).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="EB164-SECTION"
+>5.6.6. EB164</A
+></H3
+><P
+>The EB164, like all of the Alpha Evaluation Boards built by Digital
+contains the Evaluation Board Debug Monitor and so this is available
+to load MILO
+(Section <A
+HREF="load-section.html#DBM-SECTION"
+>Section 5.2</A
+>).  
+Quite often (although not always) boards whose design is derived from
+these include the Debug Monitor also.
+Usually, these boards include the Windows NT ARC firmware
+(Section <A
+HREF="load-section.html#ARC-SECTION"
+>Section 5.1</A
+>).
+The SRM console is also available
+(Section <A
+HREF="load-section.html#SRM-SECTION"
+>Section 5.5</A
+>).
+A flash management utility, runnable from MILO is available so that
+once MILO is running, it can be blown into flash
+(Section <A
+HREF="milo-fmu-section.html"
+>Section 7</A
+>).
+This system supports MILO environment variables.</P
+><P
+>These systems have several boot images in flash controlled by jumpers.  
+The two jumper bank is J1 and is located at the bottom
+of the board on the left (if the Alpha chip is at the top).
+You select between the boot options (and MILO when it is
+been put into flash) using a combination of jumpers and a boot option which
+is saved in the NVRAM of the TOY clock.</P
+><P
+>Jumper SP-11 of J1 in means boot the image described by the
+boot option.   Jumper SP-11 of J1 out means boot the Evaluation Board
+Debug Monitor.</P
+><P
+>Blowing an image into flash via the Evaluation Board Debug
+Monitor is exactly the same proceedure as
+for the AlphaPC64 (Section <A
+HREF="load-section.html#PC64-SECTION"
+>Section 5.6.2</A
+>).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="PC164-SECTION"
+>5.6.7. PC164</A
+></H3
+><P
+>The PC164, like all of the Alpha Evaluation Boards built by Digital
+contains the Evaluation Board Debug Monitor and so this is available
+to load MILO
+(Section <A
+HREF="load-section.html#DBM-SECTION"
+>Section 5.2</A
+>).  
+Quite often (although not always) boards whose design is derived from
+these include the Debug Monitor also.
+Usually, these boards include the Windows NT ARC firmware
+(Section <A
+HREF="load-section.html#ARC-SECTION"
+>Section 5.1</A
+>).
+The SRM console is also available
+(Section <A
+HREF="load-section.html#SRM-SECTION"
+>Section 5.5</A
+>).
+A flash management utility, runnable from MILO is available so that
+once MILO is running, it can be blown into flash
+(Section <A
+HREF="milo-fmu-section.html"
+>Section 7</A
+>).
+This system supports MILO environment variables.</P
+><P
+>These systems have several boot images in flash controlled by jumpers.  
+The main jumper block, J30, contains the system configuration jumpers and
+jumper CF6 in means that the system will boot the Debug Monitor, the default
+is out.</P
+><P
+>Blowing an image into flash via the Evaluation Board Debug
+Monitor is exactly the same proceedure as
+for the AlphaPC64 (Section <A
+HREF="load-section.html#PC64-SECTION"
+>Section 5.6.2</A
+>).</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="XL-SECTION"
+>5.6.8. XL266</A
+></H3
+><P
+>The XL266 is one of a family of systems that are known as Avanti.  
+It has a riser card containing the Alpha chip and cache which plugs into 
+the main board at right angles.   This board can replace the equivalent 
+Pentium board.</P
+><P
+>Some of these systems ship with the SRM console but others, notably
+the XL266 ship with only the Windows NT ARC firmware
+(Section <A
+HREF="load-section.html#ARC-SECTION"
+>Section 5.1</A
+>).</P
+><P
+>Here is my list of compatible systems:
+
+<P
+></P
+><UL
+><LI
+><P
+>AlphaStation 400 (Avanti),</P
+></LI
+><LI
+><P
+>AlphaStation 250,</P
+></LI
+><LI
+><P
+>AlphaStation 200 (Mustang),</P
+></LI
+><LI
+><P
+>XL.  There are two flavours, XL266 and XL233 with the only
+difference being in processor speed and cache size.</P
+></LI
+></UL
+>&#13;</P
+><P
+><I
+CLASS="EMPHASIS"
+>Note</I
+> The system that I use to develop and test MILO is
+an XL266 and so this is the only one that I can guarentee will work.
+However, technically, all of the above systems are equivalent; they
+have the same support chipsets and the same interrupt handling
+mechanisms.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="P2K-SECTION"
+>5.6.9. Platform2000</A
+></H3
+><P
+>This is a 233Mhz 21066 based system.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="build-section.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="milo-if-section.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How To Build MILO</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>MILO's User Interface</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

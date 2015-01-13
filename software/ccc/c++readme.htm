@@ -1,0 +1,926 @@
+<html>
+
+<head>
+<meta NAME="author" CONTENT="imc#mcs">
+<meta NAME="rev_author" CONTENT="imc#mcs">
+<meta NAME="new" CONTENT="20-10-1999">
+<meta NAME="updated" CONTENT="20-10-1999">
+<meta NAME="expires" CONTENT="29-03-2000">
+<meta HTTP-EQUIV="pragma" CONTENT="NO-CACHE">
+<meta HTTP-EQUIV="expires" CONTENT="-1">
+<meta NAME="description" CONTENT="Compaq C Documentation">
+<meta NAME="keywords" CONTENT="C, linux, linux alpha, alpha, vax, Tru64, unix, openvms, vms">
+<META NAME="alternate_title" CONTENT="C Documentation">
+<title>Compaq C++ for Linux Alpha User Documentation</title>
+<script language="JavaScript">
+<!--
+
+
+// rev03.29.1999 -- DO NOT MODIFY! -- Begin date display function with y2k compatibility
+
+var pong;
+
+function makeArray(n){
+  this.length = n;
+  for (i=1;i<=n;i++){
+    this[i]=0;
+  }
+  return this;
+}
+
+function displayDate() {
+	var this_month = new makeArray(12);
+    this_month[0]  = "January";
+    this_month[1]  = "February";
+    this_month[2]  = "March";
+    this_month[3]  = "April";
+    this_month[4]  = "May";
+    this_month[5]  = "June";
+    this_month[6]  = "July";
+    this_month[7]  = "August";
+    this_month[8]  = "September";
+    this_month[9]  = "October";
+    this_month[10] = "November";
+    this_month[11] = "December";
+	var today = new Date();
+	var day   = today.getDate();
+	var month = today.getMonth();
+	var year  = today.getYear();
+	if (year < 1900){
+		year += 1900;
+	}
+  return(this_month[month]+" "+day+", "+year);
+}
+// rev03.29.1999 -- DO NOT MODIFY! -- End date display function with y2k compatibility
+// -->
+</script>
+
+<TABLE WIDTH="100%" BGCOLOR="#FFFFFF" BORDER="4" CELLSPACING="2" 
+CELLPADDING="4">
+<TR><TD ALIGN=Center VALIGN=Middle ROWSPAN=3><IMG SRC="penguin.gif" WIDTH="147" 
+HEIGHT="173"></TD>
+<TD ALIGN=Center VALIGN=Middle><IMG SRC="compaqn2.gif" WIDTH="146" 
+HEIGHT="27"></TD></TR>
+<TR><TD ALIGN=Center VALIGN=Middle><STRONG>
+<FONT SIZE=6>Compaq C++ &#160;README</FONT>
+</STRONG></TD></TR>
+<TR><TD ALIGN=Center VALIGN=Middle>
+<strong>June 2000</strong>
+</TD></TR></TABLE>
+
+<html>
+<a name="first_page"></a>
+
+<!-- This file created using DECdocument  Version V3.3-1b on  2-JUN-2000 12:26:28.49 -->
+<!-- TAG definitions version: V3.3b -->
+<!-- The SDML doctype is: CUP_FAMILY -->
+<!-- The output destination was: HTML -->
+<!-- SDML file is: C4$:[GUISSO.LINUX.COMPAQ_CXX]README.SDML -->
+
+<body bgcolor=white>
+<p>
+This is the README for Version cxx-6.3.9.3-28 of the <em>Compaq C++</em> 
+compiler for Linux Alpha.
+<p align=center>
+<strong>Compaq Computer Corporation</strong>
+<br align=center>
+<strong>Houston, Texas</strong>
+
+<p>
+<hr size=5>
+
+<p>
+&copy; 2000 Compaq Computer Corporation
+
+<p>
+COMPAQ, the Compaq logo, and Alpha, DEC, Ladebug, OpenVMS, Tru64 UNIX, 
+and VMS are registered in the U.S. Patent and Trademark Office. All 
+other product names mentioned herein may be trademarks or registered 
+trademarks of their respective companies.
+
+<p>
+Compaq shall not be liable for technical or editorial errors or 
+omissions contained herein. The information in this document is subject 
+to change without notice.
+
+<p>
+Confidential computer software. Valid license from Compaq required for 
+possession, use or copying. Consistent with FAR 12.211 and 12.212, 
+Commercial Computer Software, Computer Software Documentation, and 
+Technical Data for Commercial Items are licensed to the U.S. Government 
+under vendor's standard commercial license.
+<p>
+<table border=5>
+  <tr>
+    <td bgcolor=cyan width=120 align=center>
+<a href="readme_contents.htm"><font size=+2>Contents</font></a>
+    </td>
+  </tr>
+</table>
+<a name="post_contents"></a>
+
+<a name="heading_1"><h1><font color=maroon>1 Introduction</font></h1></a>
+
+<p>
+<font size=+1><tt>cxx</tt></font>
+ is the <em>Compaq C++</em> compiler for Linux <em>Alpha</em>. It is a 
+ port of the same compiler that is available on the <em>Compaq 
+ Tru64<sup>tm</sup> UNIX&reg;</em> and <em>OpenVMS Alpha</em> platforms. 
+ The compiler produces excellent optimized code for the <em>Alpha</em> 
+ architecture, particularly for floating-point intensive applications.
+
+<p>
+There are some specific limitations and differences relative to the C++ 
+compiler for <em>Tru64 UNIX</em>, including:
+
+<ul>
+  <li>No support for feedback-based optimization.
+  <li>No support for precompiled headers.
+  <li>No support for Tru64-based performance tools like
+<font size=+1><tt>cord</tt></font>
+,
+<font size=+1><tt>atom</tt></font>
+ or
+<font size=+1><tt>om</tt></font>
+.
+  <li>No
+<font size=+1><tt>-[x]taso</tt></font>
+ features or
+<font size=+1><tt>pointer_size</tt></font>
+ pragmas.
+  <li>The
+<font size=+1><tt>wchar_t</tt></font>
+ type on Linux is
+<font size=+1><tt>unsigned int</tt></font>
+; on <em>Tru64 UNIX</em> it is
+<font size=+1><tt>signed</tt></font>
+.
+  <li>The
+<font size=+1><tt>long double</tt></font>
+ data type is the same as
+<font size=+1><tt>double</tt></font>
+ (<em>Tru64 UNIX</em> Version 5.0 makes
+<font size=+1><tt>long double</tt></font>
+ a 16-byte IEEE quad-precision type).
+  <li>The
+<font size=+1><tt>-ieee</tt></font>
+ command-line option on Linux Alpha has additional properties that are 
+ not present on <em>Tru64 UNIX</em> systems. See the <a 
+ href="cxx_ref.htm">
+<font size=+1><tt>cxx(1)</tt></font>
+</a> reference page for more information.
+  <li>Compiler-generated
+<font size=+1><tt>.s</tt></font>
+ files cannot be assembled by the assembler.
+  <li>The compiler and libraries are not multithread-safe.
+  <li>There is no task library.
+  <li>The order of static initialization is inverted. For more 
+  information, see <a href="uguimpl.htm#stat_obj_sec"> Order of Static 
+  Object Initialization</a> in <a href="ugu.htm"> <em>Using Compaq C++ for Tru64 UNIX and Linux Alpha</em></a>.
+</ul>
+
+<p>
+The C++ compiler accepts some
+<font size=+1><tt>gcc</tt></font>
+ extensions, but is primarily a ISO standard C++ compiler. The following 
+ enhancements have been made for compatibility with the GNU C++ compiler:
+
+<ul>
+  <li>
+<font size=+1><tt>#include_next</tt></font>
+  <li>The
+<font size=+1><tt>__inline</tt></font>
+ keyword is enabled and is equivalent to
+<font size=+1><tt>inline</tt></font>
+. On non-Linux platforms this keyword is available by specifing
+<font size=+1><tt>-std gnu</tt></font>
+.
+  <li>The <strong>-std gnu</strong> option can provide additional 
+  compatibility. For details, see the <a href="cxx_ref.htm">
+<font size=+1><tt>cxx(1)</tt></font>
+</a> reference page.
+</ul>
+
+<p>
+<center>
+<table bgcolor=lightskyblue border=0 width=75%>
+<tr>
+  <td><center><font size=+2 
+  color=black><strong>Caution</strong></font></center><hr size=1 noshade>
+<font color=black>
+The Compaq C++ compiler is not link-compatible with the GNU C++ 
+compiler. This means that object files or libraries produced with one 
+compiler cannot be linked with object files or libraries produced with 
+the other. The GCC documentation, &quot;info gcc trouble 
+Interoperation&quot; states:
+<dl>
+<dd> GNU C++ does not do name mangling in the same way as other C++ 
+compilers. This means that object files compiled with one compiler 
+cannot be used with another.
+<br>
+<br>
+    This effect is intentional, to protect you from more subtle problems. 
+    Compilers differ as to many internal details of C++ implementation, 
+    including: how class instances are laid out, how multiple inheritance 
+    is implemented, and how virtual function calls are handled. If the name 
+    encoding were made the same, your programs would link against libraries 
+    provided from other compilers--but the programs would then crash when 
+    run. Incompatible libraries are then detected at link time, rather than 
+    at run time.
+</dl>
+</font>
+    </td>
+  </tr>
+</table>
+</center>
+
+<a name="draft_diff_sec"><h1><font color=maroon>2 Differences between Compaq C++ and the C++ International Standard</font></h1></a>
+<a name="draft_diff_sec"></a>
+
+<p>
+The following items, specified in the C++ International Standard, are 
+not supported in Version 6.3 but will be supported in a future version:
+
+<ul>
+  <li>The
+<font size=+1><tt>export</tt></font>
+ keyword for templates (<em>Standard</em> &sect;14, paragraph 6; 
+ Stroustrup &sect;9.2.3)
+  <li>No
+<font size=+1><tt>cname</tt></font>
+ version of headers provided (<em>Standard</em> &sect;17.4.1.2; 
+ Stroustrup &sect;16.1.2) <br><em>Compaq C++</em> does not currently provide
+<font size=+1><tt>&lt;cname&gt;</tt></font>
+ versions of the 18 ISO C library headers because no standard-conforming 
+ mechanism has yet been devised that that can be implemented without 
+ changing all existing C headers. If and when such a mechanism becomes 
+ available, we plan to use it, rather than use the simple-to-implement 
+ but nonstandard-conforming mechanism used by other C++ vendors: have the
+<font size=+1><tt>&lt;cname&gt;</tt></font>
+ version include the non-
+<font size=+1><tt>&lt;cname&gt;</tt></font>
+ version. <br>The C++ header file inclusion policy for treating ISO C 
+ Library headers specifies that for each of the 18 ISO C headers, C++ 
+ should provide a
+<font size=+1><tt>&lt;cname&gt;</tt></font>
+ form and a
+<font size=+1><tt>&lt;name.h&gt;</tt></font>
+ form. The
+<font size=+1><tt>&lt;cname&gt;</tt></font>
+ version defines all the symbols defined by ISO C in the corresponding
+<font size=+1><tt>&lt;name.h&gt;</tt></font>
+ header in the
+<font size=+1><tt>std</tt></font>
+namespace. The
+<font size=+1><tt>&lt;name.h&gt;</tt></font>
+ header defines all the symbols defined by ISO C in the corresponding
+<font size=+1><tt>&lt;name.h&gt;</tt></font>
+header in both the
+<font size=+1><tt>std</tt></font>
+ and global namespace. <br>Some of the problems are are as follows:
+
+  <ul>
+    <li>Because C library headers contain many non-ISO C names, it is 
+    impossible to avoid polluting either the
+<font size=+1><tt>std</tt></font>
+namespace, the global namespace, or both. (Remember that the global 
+namespace is considered a real namespace that must not be polluted.) 
+Namespace pollution is not only incorrect, it can lead to unexpected 
+ambiguities. <br>Consider the following program, which includes
+<font size=+1><tt>&lt;cname&gt;</tt></font>
+ and
+<font size=+1><tt>&lt;types.h&gt;</tt></font>
+ directly.
+
+<p>
+<table border=0>
+  <tr>
+    <td bgcolor=blanchedalmond>
+      <br>
+      <font color=mediumblue><pre>
+// name.h includes types.h &amp; brings it into std:: 
+   #include &lt;cname&gt;   
+// types.h in global namespace 
+   #include &lt;types.h&gt; 
+ 
+using namespace std; 
+use something from types // ambiguity 
+</pre>
+</font>
+</table>
+
+    <li>Synchronizing the release of C and C++ headers.
+  </ul>
+    <br>Compaq continues to investigate methods for providing this 
+    functionality in a way that ensures long-term compatibility with 
+    various C and C++ implementations. <br>As a workaround, you can 
+    conditionalize your modules to use the
+<font size=+1><tt>&lt;cname&gt;</tt></font>
+ versions of the headers when they become available. For example:
+
+<p>
+<table border=0>
+  <tr>
+    <td bgcolor=blanchedalmond>
+      <br>
+      <font color=mediumblue><pre>
+#ifndef __NO_NEW_HEADER 
+#include &lt;cstddef&gt; 
+#include &lt;cstdlib&gt; 
+#include &lt;cstdio&gt; 
+#else 
+#include &lt;stddef.h&gt; 
+#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; 
+#endif //__NO_NEW_HEADER 
+</pre>
+</font>
+</table>
+
+</ul>
+
+<a name="heading_3"><h1><font color=maroon>3 Supported Linux Alpha Distributions</font></h1></a>
+
+<p>
+<em>Compaq C++</em> Version 6.3 has been tested primarily under the Red 
+Hat 5.2 Linux distribution for <em>Alpha</em>, which comes with GNU 
+libc 2.0.7 and egcs-1.0.3a. There has also been some limited testing 
+under Red Hat 6.0 and 6.1, and SuSE 6.1, which come with different 
+versions of GNU libc and the GCC compiler. It may work with other 
+distributions and other versions of GNU libc and GCC, but no other 
+configurations have been tested.
+
+<a name="heading_4"><h1><font color=maroon>4 Contents of the Compaq C++ CD-ROM</font></h1></a>
+
+<p>
+The <em>Compaq C++</em> CD-ROM contains the following software 
+components:
+
+<ul>
+  <li><em>Compaq C++</em> compiler (
+<font size=+1><tt>cxx</tt></font>
+) command and associated tools
+  <li><em>Compaq C</em> compiler (
+<font size=+1><tt>ccc</tt></font>
+) command and associated tools
+  <li><em>Compaq C++</em> Run-Time environment
+  <li><em>Compaq C++</em> libraries
+  <li><em>Compaq Ladebug</em> debugger
+  <li><em>Compaq</em> Portable Math Library (CPML) routines (called by 
+  <em>Compaq C++</em> intrinsic procedures)
+  <li>Common Compiler Support Libraries (libots)
+  <li>A version of GNU binutils that supports <em>Compaq C++</em>
+  <li>A version of gdb that minimally supports <em>Compaq C++</em>
+</ul>
+
+<p>
+Each of the components listed above is installed using the supplied Red 
+Hat Package Manager (RPM<sup>tm</sup>) files. Documentation files are 
+also provided on the CD-ROM.
+
+<a name="download_kits"><h1><font color=maroon>5 Downloading and Installing the Kits</font></h1></a>
+
+<p>
+The Compaq C++ installation kits are available on the CD-ROM 
+distribution and from the Compaq C++ download site after you have 
+completed the <a 
+href="http://www.unix.digital.com/linux/compaq_cxx/download_registration
+.htm">registration form </a>.
+
+<a name="inst_requir"><h2>5.1 Installation Requirements</h2></a>
+
+<p>
+<em>Compaq C++</em> requires the following components:
+
+<ul>
+  <li>The
+<font size=+1><tt>libots</tt></font>
+ Run-Time library
+  <li>The Compaq Portable Math Libraries (CPML)
+  <li>The <em>Compaq C</em> compiler
+  <li>The GNU compiler system
+  <li>The GNU development tools (binutils)
+</ul>
+
+<p>
+The following are optional:
+
+<ul>
+  <li>The Compaq Ladebug debugger
+  <li>The GNU debugger (gdb)
+</ul>
+
+<p>
+The versioning for libots, CPML, and Ladebug is consistent across 
+Compaq C, C++, and Fortran compiler products. If you have already 
+installed these packages and the packages on the download page or the 
+distribution compact disc are not newer, there is no need to install 
+them again. The Ladebug debugger shipped with the initial releases of 
+Compaq C and Fortran did not support C++.
+
+<p>
+At the time of this document, support for the <em>Compaq C++</em> 
+compiler was not included in the development tools provided by all 
+current Linux distributions. Compaq provides replacement development 
+tools for those distributions. If Compaq does not provide suitable 
+development tools for your distribution, you can obtain the latest 
+version of the
+<font size=+1><tt>binutils</tt></font>
+ sources that support <em>Compaq C++</em> from <a 
+ href="ftp://ftp.varesearch.com/pub/support/hjl/binutils/"> 
+ ftp://ftp.varesearch.com/pub/support/hjl/binutils/</a>. To install this 
+ version on your system, you must first build a source and binary RPM by 
+ entering a command in the following format:
+
+<p>
+<table border=0>
+  <tr>
+    <td bgcolor=blanchedalmond>
+      <br>
+      <font color=mediumblue><pre>
+rpm -ta binutils-<em>version</em>.tar.gz 
+</pre>
+</font>
+</table>
+
+<p>
+You can also download the latest version of gdb and build with the 
+libiberty provided by the latest binutils to obtain a debugger that 
+supports <em>Compaq C++</em>.
+
+<p>
+For better performance of math library routines, you should link 
+against the
+<font size=+1><tt>cpml</tt></font>
+ library instead of
+<font size=+1><tt>libm</tt></font>
+. Specifying
+<font size=+1><tt>-lm</tt></font>
+ on the command line causes the
+<font size=+1><tt>cxx</tt></font>
+ driver to pass
+<font size=+1><tt>-lcpml -lm</tt></font>
+ to the linker. The
+<font size=+1><tt>cpml</tt></font>
+ library comes in two different packages, only one of which can be 
+ installed on a given system:
+
+<ul>
+  <li>
+<font size=+1><tt>cpml_ev5-<em>version</em>.alpha.rpm</tt></font>
+    <br>This package has code that runs best on <em>Alpha</em> chips prior 
+    to the EV6 (21264) processor. The code also runs on EV6 machines, but 
+    the EV6 version of the package provides code that runs significantly 
+    faster on EV6 processors.
+  <li>
+<font size=+1><tt>cpml_ev6-<em>version</em>.alpha.rpm</tt></font>
+    <br>This package provides a library that is highly tuned for the EV6 
+    processor, but it will not run on earlier processors (it might produce 
+    "Illegal instruction" traps).
+</ul>
+
+<p>
+The <em>Tru64 UNIX</em> Ladebug debugger has been ported to Linux 
+<em>Alpha</em>. Ladebug is the recommended debugger for Compaq 
+compilers. The GNU debugger (gdb) does not support Compaq C++. Compaq 
+provides a replacement version that has minimal support for Compaq C++. 
+You need this version only if you plan to debug <em>Compaq C++</em> 
+programs from gdb.
+
+<p>
+<center>
+<table bgcolor=lightskyblue border=0 width=75%>
+<tr>
+  <td><center><font size=+2 
+  color=black><strong>Note</strong></font></center><hr size=1 noshade>
+<font color=black>
+If you encounter problems with the Ladebug debugger, try using the
+<font size=+1><tt>-gall</tt></font>
+ option. </font>
+    </td>
+  </tr>
+</table>
+</center>
+
+<a name="inst_instr"><h2>5.2 Installation Instructions</h2></a>
+
+<p>
+The installation is straightforward with
+<font size=+1><tt>rpm -i</tt></font>
+if this is the first time the package is being installed, or with
+<font size=+1><tt>rpm -U</tt></font>
+ if the package is being upgraded. The
+<font size=+1><tt>libots</tt></font>
+ package should be installed before either of the
+<font size=+1><tt>cpml</tt></font>
+ packages - the nature of the dependency between them is not handled by
+<font size=+1><tt>rpm</tt></font>
+'s installation-order dependency checks. You can install the other 
+packages in any order. If you have previously installed a pre-release 
+version of the compiler with a different package name, you should erase 
+that package (using
+<font size=+1><tt>rpm -e</tt></font>
+) before installing the
+<font size=+1><tt>cxx</tt></font>
+ package.
+
+<p>
+For example, to install on an EV6 system running RedHat 6.1, on which 
+you have not previously installed a Compaq compiler, you would enter 
+the following commands:
+
+<p>
+<table border=0>
+  <tr>
+    <td bgcolor=blanchedalmond>
+      <br>
+      <font color=mediumblue><pre>
+rpm -i libots-2.2.7-2.alpha.rpm 
+rpm -i cpml_ev6-5.1.0-2.alpha.rpm 
+rpm -U compaq_rh61_binutils-2.9.1.0.23-12.alpha.rpm 
+rpm -U compaq_rh61_gdb-4.18-6.alpha.rpm 
+rpm -i ladebug-4.0.62-12.alpha.rpm 
+rpm -i ccc-6.2.9.503-2.alpha.rpm 
+rpm -i cxx-6.3.9.3-28.alpha.rpm 
+</pre>
+</font>
+</table>
+
+<p>
+Packages other than libots contain documentation files that you can 
+list by entering a command in the following format after the package is 
+installed:
+
+<p>
+<table border=0>
+  <tr>
+    <td bgcolor=blanchedalmond>
+      <br>
+      <font color=mediumblue><pre>
+rpm -qd <em>package-name</em>
+</pre>
+</font>
+</table>
+
+<p>
+To list the files before the package is installed, enter a command in 
+the following format:
+
+<p>
+<table border=0>
+  <tr>
+    <td bgcolor=blanchedalmond>
+      <br>
+      <font color=mediumblue><pre>
+rpm -qdp <em>package-name</em>
+</pre>
+</font>
+</table>
+
+<a name="heading_6"><h1><font color=maroon>6 Invoking the Compiler</font></h1></a>
+
+<p>
+The command line for invoking the compiler and linker is mostly 
+compatible with both the
+<font size=+1><tt>gcc</tt></font>
+ compiler and the <em>Tru64 UNIX</em> compiler. Where possible, 
+ command-line options for
+<font size=+1><tt>gcc</tt></font>
+ are translated to near-equivalents for the compiler. Options that do 
+ not have <em>Tru64 UNIX</em> equivalents are silently ignored by 
+ default. Overall, there is a reasonable probability that a makefile 
+ that works on Linux <em>Alpha</em> using the
+<font size=+1><tt>g++</tt></font>
+ compiler can be used to build the same application with the
+<font size=+1><tt>cxx</tt></font>
+ compiler by changing only the compiler invocation command from
+<font size=+1><tt>g++</tt></font>
+to
+<font size=+1><tt>cxx</tt></font>
+. This change causes
+<font size=+1><tt>cxx</tt></font>
+ to compile
+<font size=+1><tt>.cxx</tt></font>
+ and
+<font size=+1><tt>.cpp</tt></font>
+ files and
+<font size=+1><tt>ccc</tt></font>
+to compile
+<font size=+1><tt>.c</tt></font>
+ files.
+
+<a name="heading_6.1"><h2>6.1 Simple Optimization</h2></a>
+
+<p>
+Having successfully built your application with
+<font size=+1><tt>cxx</tt></font>
+, you might want to try making it run faster.
+
+<p>
+Specifying the
+<font size=+1><tt>-fast</tt></font>
+ option at the end of your compiler options is a good first step. By 
+ default, the
+<font size=+1><tt>-fast</tt></font>
+ option tells the compiler to generate the fastest code for the machine 
+ on which the compiler is running. If you compile on an advanced 
+ processor like EV6 (for example, a DS10 machine), the code might 
+ produce "Illegal instruction" traps if you try to run it on an older 
+ machine. If you want to try some quick tuning but want to make sure the 
+ result will run on any <em>Alpha</em> machine, specify
+<font size=+1><tt>-fast -arch generic</tt></font>
+. You might also want to try adding
+<font size=+1><tt>-O4</tt></font>
+ to enable optimizations that could further improve performance. Be 
+ aware however, that under some conditions, these optimizations could 
+ degrade performance.
+
+<p>
+The <a href="cxx_ref.htm">
+<font size=+1><tt>cxx(1)</tt></font>
+</a> reference page and <a href="ugu.htm"><em>Using Compaq C++ for Tru64 UNIX and Linux Alpha</em></a> contain more 
+information about optimization controls and tuning. See the 
+documentation section for the location and status of the documentation 
+in this kit.
+
+<a name="heading_6.2"><h2>6.2 Using GNU Development Tools with Compaq C++</h2></a>
+
+<p>
+In binutils, some tools demangle by default; others require that you 
+specify the
+<font size=+1><tt>--demangle</tt></font>
+ option. To use the Compaq demangler, you must also specify the
+<font size=+1><tt>--style=compaq</tt></font>
+ option. The
+<font size=+1><tt>--style</tt></font>
+ option was added in binutils version 2.9.5 or later and has been ported 
+ to version 2.9.1 in the released kits.
+
+<p>
+Affected tools are:
+<font size=+1><tt>ld</tt></font>
+,
+<font size=+1><tt>objdump</tt></font>
+,
+<font size=+1><tt>gprof</tt></font>
+,
+<font size=+1><tt>nm</tt></font>
+, and
+<font size=+1><tt>addr2line</tt></font>
+.
+
+<p>
+To use the Compaq demangler in gdb, specify the command
+<font size=+1><tt>set demangle-style compaq</tt></font>
+.
+
+<a name="heading_7"><h1><font color=maroon>7 Documentation</font></h1></a>
+
+<p>
+The following documentation is provided in HTML format on the installed 
+system under the directory
+<font size=+1><tt>/usr/doc/cxx-6.3.9.3</tt></font>
+.
+
+<ul>
+  <li>This README document
+  <li><a href="ugu.htm"><em>Using Compaq C++ for Tru64 UNIX and Linux Alpha</em></a>
+  <li><a href="intzln.pdf">Standard Library Locales</a>
+  <li><a href="iostream.pdf">Standard Library I/O</a>
+  <li><a href="clu.htm">Class Library Reference Manual</a>
+  <li><a href="cxx_ref.htm">cxx(1)</a>
+  <li><a href="demangle_1.htm">demangle(1)</a>
+  <li><a href="cxxstdlib_intro_3c__std.htm">Standard Library</a>
+</ul>
+
+<p>
+The <a href="cxx_ref.htm">
+<font size=+1><tt>cxx(1)</tt></font>
+</a> reference page is derived from the
+<font size=+1><tt>cxx(1)</tt></font>
+reference page for <em>Tru64 UNIX</em>. It has been edited 
+significantly to reflect differences between <em>Tru64 UNIX</em> and 
+Linux Alpha behaviors.
+
+<a name="heading_8"><h1><font color=maroon>8 Redistributing Run-Time Libraries with Applications</font></h1></a>
+
+<p>
+Users with a valid license are permitted to redistribute the
+<font size=+1><tt>libots</tt></font>
+ and
+<font size=+1><tt>cpml</tt></font>
+ Run-Time library packages included in the product, as follows.
+
+<p>
+If the application is linked with the
+<font size=+1><tt>-non_shared</tt></font>
+ option (
+<font size=+1><tt>-static</tt></font>
+ in gcc terms), or is linked against the archive library (
+<font size=+1><tt>.a</tt></font>
+) form of these libraries, no redistribution is necessary (although it 
+is permitted).
+
+<p>
+If the application is linked
+<font size=+1><tt>-call_shared</tt></font>
+(
+<font size=+1><tt>-dynamic</tt></font>
+ in gcc terms) and depends on
+<font size=+1><tt>libots.so</tt></font>
+ and/or
+<font size=+1><tt>libcpml.so</tt></font>
+, then it is necessary for you to provide these libraries along with 
+your application. The libraries should be redistributed in the form of 
+the original RPMs (or updated versions of them) as provided by Compaq, 
+and the users of the application should be advised to install them on 
+the systems that will run the application.
+
+<p>
+If you redistribute
+<font size=+1><tt>cpml_ev6</tt></font>
+, you need to caution your users that it should only be installed on an 
+EV6 or newer version of the <em>Alpha</em> processor. The
+<font size=+1><tt>cpml_ev5</tt></font>
+ package can be installed on any version of the <em>Alpha</em> 
+ processor, but will not provide maximum performance on EV6 or newer 
+ processors.
+
+<p>
+Applications built by Compaq C++ on Linux <em>Alpha</em> systems 
+running the Red Hat 5.2 or 6.0 distributions can be distributed for use 
+on those systems. Distributing those applications on other versions or 
+other distributions of Linux <em>Alpha</em> has not been tested 
+(although there has been limited testing with the SuSE 6.1 
+distribution).
+
+<a name="linux_os"><h1><font color=maroon>9 Known Problems and Restrictions for the Linux Alpha Operating System</font></h1></a>
+
+<p>
+This section describes known problems and restrictions for the Linux 
+Alpha operating system.
+
+<a name="os_known"><h2>9.1 Known Problems</h2></a>
+
+<p>
+Known problems are as follows:
+
+<ul>
+  <li>Inputting a pointer to void argument using the standard iostreams
+<font size=+1><tt>insertion operator&gt;&gt;(void*&amp;)</tt></font>
+ does not work.
+</ul>
+
+<a name="os_rest"><h2>9.2 Restrictions</h2></a>
+
+<p>
+Restrictions are as follows;
+
+<ul>
+  <li>On some Linux releases, the header file
+<font size=+1><tt>/use/include/wctype.h</tt></font>
+incorrectly defines
+<font size=+1><tt>wctrans_t as</tt></font>
+<font size=+1><tt>__const unsigned int *</tt></font>
+, while the Compaq C++ implementation expects
+<font size=+1><tt>__const int *</tt></font>
+. As a result, you might see an &quot;incompatible parameter&quot; 
+error. <br>This error is discretionary and can be disabled by specifying
+<font size=+1><tt>-msg_disable incompatibleprm</tt></font>
+on the command line or by enclosing your code within a #pragma, as 
+shown in the following example:
+
+<p>
+<table border=0>
+  <tr>
+    <td bgcolor=blanchedalmond>
+      <br>
+      <font color=mediumblue><pre>
+#include &lt;wctype.h&gt; 
+ 
+int main() { 
+        wint_t w = L'a'; 
+#pragma message save 
+#pragma message disable incompatibleprm 
+        towupper(w);  // This statement causes the error 
+#pragma message restore 
+        return 0; 
+} 
+</pre>
+</font>
+</table>
+
+  <li>On Linux, the linker command
+<font size=+1><tt>ld</tt></font>
+ supports an option of the form
+<font size=+1><tt>-B&lt;static/dynamic/symbolic&gt;</tt></font>
+. This option conflicts with the Compaq C++ compiler
+<font size=+1><tt>-B</tt></font>
+option is not supported.
+  <li>The Class Library
+<font size=+1><tt>iomanipulators lock()</tt></font>
+and
+<font size=+1><tt>unlock()</tt></font>
+ are no-ops. In other words, you can use them, but they do nothing. 
+ <br>Some undocumented Class Library iostream functions provided on 
+ <em>Tru64 UNIX</em> for backward compatibility only are not available on Linux 
+ Alpha; for example:
+<font size=+1><tt>streambuf::xsputn()</tt></font>
+ and
+<font size=+1><tt>streambuf::xsgetn()</tt></font>
+. You should use the documented versions instead (
+<font size=+1><tt>streabuf::sputn()</tt></font>
+and
+<font size=+1><tt>streambuf::sgetn()</tt></font>
+). <br>You cannot use the GNU library headers with Compaq C++ library 
+executables, and you cannot use Compaq C++ headers with the GNU library 
+executables, even if the names of the classes are the same. <br>The 
+Class Library,
+<font size=+1><tt>libcxx</tt></font>
+, is not distributed in shared form. You must use the archive version. 
+<br>Some of the Red Hat 5.2 locale files are bad. For example, trying 
+to set locale to the
+<font size=+1><tt>ja_JP.EUC</tt></font>
+ locale does not work. Even on Red Hat 6.0, you may get inconsistent 
+ results from Tru64 Unix. For example, the Hungarian
+<font size=+1><tt>thousands_sep()</tt></font>
+is a space on Tru64 Unix but a null character on Linux Alpha. The 
+discrepancy is due to the differing locale information provided by the 
+two operating systems.
+</ul>
+
+<a name="cxx_library_sec"><h1><font color=maroon>10 Known Library Restrictions</font></h1></a>
+
+<p>
+The following are restrictions:
+
+<ul>
+  <li>The Class Library task package is not supported on the Linux Alpha 
+  platform.
+  <li>The Class and Standard Libraries are not multithread-safe.
+</ul>
+
+<a name="heading_11"><h1><font color=maroon>11 Downloading Updates and Learning about Related Products</font></h1></a>
+
+<p>
+For information about downloading updates to <em>Compaq C++</em>, 
+Compaq Ladebug, CPML, and related products for Linux <em>Alpha</em> 
+systems, please see the following Web page:
+
+ <p> <a 
+ href="http://www.compaq.com/linux/">http://www.compaq.com/linux/</a>
+
+<p>
+For information about other third-party products for the Linux 
+<em>Alpha</em> platform, please see the following Web page:
+
+ <p> <a href="http://www.alphalinux.org/">http://www.alphalinux.org/</a>
+
+<a name="heading_12"><h1><font color=maroon>12 Suggestion/Problem Reporting</font></h1></a>
+
+<p>
+The University of New Hampshire (UNH), in partnership with Compaq, is 
+developing an innovative support network for Alpha Linux developers. 
+UNH supports a web site and forums for Alpha Linux developers to 
+exchange information and ask questions. Please report any problems with 
+Compaq C++ for Alpha Linux and its components at the UNH website:
+
+<p>
+<a 
+href="http://www.iol.unh.edu/linux/alpha/development">http://www.iol.unh
+.edu/linux/alpha/development</a>
+
+<p>
+UNH has a direct connection to Compaq's compiler and tools development 
+organization for fast resolution of identified technical problems. You 
+may not receive a personal reply to your query, but we appreciate your 
+input on the product.
+<p>
+<table border=2>
+  <tr>
+    <td width=150 align=center><a href=""></a>
+    <td bgcolor=cyan width=150 align=center><a href="readme_contents.htm">Contents</a>
+</table>
+
+
+<table BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="600">
+  <tr>
+    <td BGCOLOR="#FFFFFF">&nbsp;&nbsp;</p>
+    <table BORDER="0" CELLSPACING="0" CELLPADDING="0">
+      <tr>
+        <td BGCOLOR="#000033"><img SRC="1_800_at_compaq.gif" ALT="1.800.AT.COMPAQ" WIDTH="167" HEIGHT="34"></td>
+        <td BGCOLOR="#000033"><img SRC="dot.gif" ALT WIDTH="218" HEIGHT="1"></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+
+<p><font face="Verdana, arial, helvetica" size="1">
+<a HREF="http://www.compaq.com/copyright.html">privacy and legal statement</a>
+</font> <!-- rev03.29.1999 -- DO NOT MODIFY! -- 
+End universal footer --> </p>
+
+</body>
+</html>
+

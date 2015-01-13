@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>Circa RH4.2 Linux Alpha Patches and Bug Fixes - Kernels, GCC, and Profiling: GCC Bugs and Bug Fixes.</TITLE>
+</HEAD>
+<BODY>
+<A HREF="alpha-patches-n-bugfixes-2.html">Previous</A>
+<A HREF="alpha-patches-n-bugfixes-4.html">Next</A>
+<A HREF="alpha-patches-n-bugfixes.html#toc3">Table of Contents</A>
+<HR>
+<H2><A NAME="s3">3. GCC Bugs and Bug Fixes.</A></H2>
+
+<P>As far as I know, there are two bugs in the gcc included in Redhat 4.2
+(gcc-2.7.2.1-2).  The first is that gcc might produce code which the
+assembler can't assemble.  This can be triggered by very large stack
+frames, and manifests itself by the messages such as:</P>
+<P>
+<PRE>
+   /tmp/cca01041.s: Assembler messages:
+   /tmp/cca01041.s:786: Error: macro requires $at register while noat in effect
+</PRE>
+</P>
+<P>when compiling programs.</P>
+<P>Richard Henderson fixed the problem and posted a patch to
+axp-list@redhat.com.</P>
+<P>The other bug is a profiling failure (which I'm not sure I've
+witnessed).  Toon Moene posted a patch for this.</P>
+<P>Here're the two patches as well as an RPM spec file for rebuilding
+gcc-2.7.2.1.  They've been tarred, gzipped uuencoded, named
+gcc-new-patches.tar.gz.uue and included in the Patches section.</P>
+<P>You should install the Redhat gcc-2.7.2.1-2.src.rpm (rpm -Uvh
+gcc-2.7.2.1-2.src.rpm), then untar this, put the gcc-2.7.2.1.spec
+included here into /usr/src/redhat/SPECS, put
+rth-gcc-2.7.2-970921.diff.gz and
+gcc-alpha-profiling-patch-2.7.2.1-toon-971001 into
+/usr/src/redhat/SOURCES, and build gcc (rpm -ba
+/usr/src/redhat/SPECS/gcc-2.7.2.1.spec).  This will create a binary
+rpm for gcc in /usr/src/redhat/RPMS/alpha named
+gcc-2.7.2.1-2c.alpha.rpm which you can then install.</P>
+
+
+<HR>
+<A HREF="alpha-patches-n-bugfixes-2.html">Previous</A>
+<A HREF="alpha-patches-n-bugfixes-4.html">Next</A>
+<A HREF="alpha-patches-n-bugfixes.html#toc3">Table of Contents</A>
+</BODY>
+</HTML>

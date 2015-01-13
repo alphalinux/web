@@ -1,0 +1,17 @@
+57205e1906d0a47ddbdaa9783e69055a  000b_xfree86.cf.diff
+1acff4e16e1aad75a48bb10eaa6b0503  001e-02_ALPHA_programs_Xserver_hw_xfree86_vga256_drivers_pvga1.diff
+c4a4157f67f611339537a4a4eb9e6892  index.html
+c6f088dacebab700722aa406d9fc73ed  index.html~
+950ab8648b56ff06008c0bab75fde95c  xext_3.3.6-45A_alpha.deb
+031e290a6ff02aed4feb67e842244927  xserver-3dlabs_3.3.6-45A_alpha.deb
+7d8576f4003fba55559c34277bf4e846  xserver-common-v3_3.3.6-45A_alpha.deb
+99e536a049d8f5a6c7332bcbd82e60ad  xserver-fbdev_3.3.6-45A_alpha.deb
+c660f3c7e0e1396089972c9f866c34a8  xserver-i128_3.3.6-45A_alpha.deb
+c7c7523bf7c1ce3f73c016e38834ccc9  xserver-mach64_3.3.6-45A_alpha.deb
+e6022bf4b2c4e281f9abff74b3f622ce  xserver-mono_3.3.6-45A_alpha.deb
+d157632db81825985d45ef47152c4b74  xserver-p9000_3.3.6-45A_alpha.deb
+04eaba96864b41dcdb87f5877201c40b  xserver-s3_3.3.6-45A_alpha.deb
+88f3776e61c5c2806520b1dee6add82f  xserver-s3v_3.3.6-45A_alpha.deb
+86a19fdfb0043863f351b3c37e37cceb  xserver-svga_3.3.6-45A_alpha.deb
+ef2c04547233ce413acaf6d7b61dbc4d  xserver-tga_3.3.6-45A_alpha.deb
+a0541ff613c56f8067c2984ad86757d1  xserver-vga16_3.3.6-45A_alpha.deb

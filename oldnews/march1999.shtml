@@ -1,0 +1,331 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Oldnews March 1999</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+	     <B>Warning</B> links in here may no longer be valid and they will not be updated.
+	     <P>
+
+<TR>
+       <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32"HEIGHT="32"
+       ALT="*"></TD>
+ 
+       <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 31st 1999
+            
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+      Alpha Processor Inc. has announced the winner of their
+	Alpha Workstation giveaway. More information can be found on the <A HREF="http://www.alpha-processor.com/news/pr033199.asp">
+	Alpha Processor</A> website.
+	<P>
+	<A HREF="www.cnet.com">Cnet</A> is running an article on the <A HREF="http://technews.netscape.com/computing/technews/newsitem/0,290,34458,00.html?pt.nc.ne.fdtop4">
+	upcoming Alpha</A> products from Compaq. The article includes some rather discouraging quotes from 
+	<A HREF="http://www.redhat.com">RedHat's</A> Bob Young.
+ </TR>
+
+<TR>
+       <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32"HEIGHT="32"
+       ALT="*"></TD>
+ 
+       <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 24rd 1999
+            
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+      egcs-1.1.2 has been packaged into rpms and is now available at <A
+HREF="ftp://ftp.alphalinux.org/egcs/">ftp.alphalinux.org</A>.
+Please read the <A 
+HREF="ftp://ftp.alphalinux.org/egcs/EGCS-1.1.2.README">README</A>
+file in that directory to install it correctly. If you have any questions
+you can <A HREF="mailto:ppetrakis@alphalinux.org">email me</A>. -Peter      
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 23rd 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+      Cnet is running a <A HREF="http://www.news.com/News/Item/0,4,34119,00.html?st.ne.fd.gif.d">
+	piece on Compaq</A> using Linux to increase Alpha sales. Included in the article
+	is a rumor of Pacific HiTech making an Alpha port.
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 20th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+       SuSE is evidently handing out copies of SuSE 6.1 beta for the Alpha at CeBit in Hannover, with the final product
+       having an intended ship date in May. 
+ </TR>
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 18th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+         <A HREF="mailto:gatgul@voicenet.com">Uncle George</A> has released version 4 of the Java 1.2 development kit for AlphaLinux. You can 
+         find it at <A HREF="ftp://ftp.alphalinux.org/java">ftp.alphalinux.org</A>.
+ </TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 17th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	We have it from a reliable source that <A HREF="http://www.metrolink.com">MetroLink</A> (MetroX) will not be porting their Metro Extreme 3D (OpenGL)
+	X servers over to the Alpha. They are citing a lack of market for selling the product. However the good news is that
+	<A HREF="http://www.xig.com">Xi Graphics </A>has started work on a hardware-accelerated AcceleratedX OpenGL server product for AlphaLinux. 
+	So if you are 
+	interested in the success of OpenGL on Alpha we encourage you to write to Xi Graphics about this and tell them 
+	that there is a market for their product. 
+	
+ </TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 13th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	From the rumor department we have a couple of interesting news items. 
+	<P>
+	First is that SuSE alpha distribution will be released next week. 
+	<P>
+	Second is that Compaq has sold it's TOEM division. In the words of one Compaq employee "OEM is not part of Compaq's business
+	model" The likely buyer at this point seems the be IBM. Rumor has it that they are interested in producing Alpha motherboards,
+	chipsets and possibly CPUs. 
+	
+ </TR>
+
+
+
+
+	 
+
+
+	     <TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 9th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	We'd like to welcome our newest member to our fast growing
+	organization. <A HREF="mailto:dfrasnel@alphalinux.org
+	">Daniel J. Frasnelli</A> joined us last week in our quest 
+	to increase the use of both Linux and the Alpha Processor. 
+	His interests include cryptography, security, and distributed systems.  
+	<P>
+	<A HREF="http://www.debian.org">Debian</A> 2.1 (slink) has <A HREF="http://www.debian.org/News/1999/19990309">been released</A>
+	 on schedule. <A HREF="http://www.debian.org/releases/slink/alpha/release-notes/index">
+	Release notes</A> and <A HREF="http://www.debian.org/releases/slink/alpha/install">install instructions</A> are available for Alpha. We'll pull down a copy
+	of this onto ftp.alphalinux.org as soon as possible.<B> Update
+	03-09-99</B> Debian-Slink is now available at <A HREF="
+	ftp://ftp.alphalinux.org/pub/AXP/debian-slink">ftp.alphalinux.org</A>. 
+ </TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 8th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	<A HREF="ftp://ftp.alphalinux.org/pub/AXP/kernel">Kernel version 2.2.3</A> has been released. 
+	This includes the fixes for Alpha that stopped 2.2.2 from compiling.
+	
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 5th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	Just a warning to everybody that on Saturday March 6th we are going to be performing some
+	hardware maintenance so www.alphalinux.org and ftp.alphalinux.org may be unavailable for
+	parts of the day.
+	
+ </TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 3rd 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	The Register has an <A HREF="http://www.theregister.co.uk/990303-000002.html 
+	">article</A> on the Alpha. Rumor has it that it'll be able to clock
+	speeds of 1.4GHz by the end of 2001 and reach speeds of 1100MHz
+	by the end of this year.
+	<P>
+	If you're interested in games, it seems the upcoming Civilization (Call to Power) game will be
+            ported to Alpha. Has anybody seen this game yet at LinuxWorld Expo? 
+	<P>
+	<A HREF="http://www.compaq.com">Compaq</A> has released a <A HREF="http://www.unix.digital.com/linux/cpml.htm">Portable Math Library
+	</A> (CPML) for AlphaLinux. Compaq claims the library is faster than the standard Linux libm and <I>"with a few exceptions"</I> is faster
+	than libffm. You must register before downloading the library.
+	<P>
+	<A HREF="http://www.compaq.com">Compaq</A> has put out <A HREF="http://www.newsalert.com/bin/story?StoryId=CnTTWubKbyte2otK"> this press
+	release</A> detailing additional support for Linux. It also mentions that Compaq has donated a AlphaServer DS20 system to Linus for Linux development. 
+	<P>
+	
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 2nd 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	<A HREF="http://www.siamese.co.uk">Siamese Systems</A> had released some <A HREF="http://www.siamese.co.uk/cluster.html">
+	8-pack cases</A> that holds up to 8 Alpha motherboard in one case.
+	<P>
+	
+ </TR>
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            March 1st 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	Debian 2.1 codename slink has been <A HREF="http://www.netgod.net">released</A> for Intel, Alpha, Amiga, Atari, and Sparc. That makes two
+	officially released Alpha distributions with more on the way. ftp.alphalinux.org will be mirroring slink for Alpha shortly. <B>Update 03-02-1999</B>
+	The release of slink has been delayed by a week due to problems with dkpg. The release is now scheduled for release on
+	March 9, 00:00 GMT.
+	
+	<P>
+	There's a patch courtesy of <A HREF="mailto:oliver@jeep.ops.neosoft.com">Oliver Soell</A> that allows UDMA patches for the 164sx
+	to compile on Alpha. You can either download <A HREF="ftp://ftp.alphalinux.org/pub/AXP/patches/2.2.2.uniform-ide-6.19.patch.gz">
+	 his patches</A> to the UDMA driver, or download <A HREF="ftp://ftp.alphalinux.org/pub/AXP/patches/2.2.2.uniform-ide-6.19.alpha.patch.bz2">
+	the UDMA driver with the patch</A> already applied.
+	<P>
+	The <A HREF="faq/FAQ.html">Alpha FAQ</A> has been updated to version 1.1.5.
+	<P>
+	We've added a page with information on <A HREF="docs/redhat-probs.shtml">known problems</A> in RedHat 5.2. This includes the
+	RedHat errata list as well as other problems that haven't been reported by RedHat yet. If you know of any other
+	RedHat 5.2 problems please <A HREF="mailto:rpayne@alphalinux.org?subject=RedHat 5.2 problems">send in a description</A>
+	and we'll see they get added to the list.
+	<P>
+	<A HREF="ftp://ftp.alphalinux.org">ftp.alphalinux.org</A> now has the necessary RPMs for you to update the kernel
+	2.2.x. You can find these in the <A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/kernel-2.2">/pub/AXP/redhat/updates/kernel</A>
+	directory.
+	
+ </TR>
+
+	
+	    
+
+	
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

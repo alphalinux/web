@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Software</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+   <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>   
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../../"><IMG SRC="../../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../../docs/"><IMG SRC="../../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../../intro/"><IMG SRC="../../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../../hardware/"><IMG SRC="../../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../../otherpages/"><IMG SRC="../../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../../about/"><IMG SRC="../../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../../img/head_software.gif" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Software">
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Digital Signal Processing and Electrical Engineering
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+
+	      
+	      
+This page is dedicated to providing programs, patches and information
+regarding digital signal processing, electrical engineering and Linux
+on the DEC Alpha platform.<p>
+
+The Alpha is a 64-bit RISC processor and  at times this is a double-edged
+sword. Having 64-bit longs can be great, but many programs assume that
+a long is 32-bits wide and such software can be very broken on an 
+Alpha.<p>
+
+ <FONT SIZE="+1"><B>   
+  <a href="new.shtml">New Material</a>
+ </B></FONT><BR>   
+ <P>
+
+
+ <FONT SIZE="+1"><B> 
+ Patches to Software</B></FONT>: 
+ all patches made by <A HREF="mailto:mgraffam@idsi.net">Michael Graffam</A>:<BR>
+
+         <ol>
+	  <li><a href="tichpatch.tgz">Patches to libaudio and libaudiofile</a>:
+	      Libaudio and libaudiofile are SGI-style audio libs that some programs
+	      requires. The <a href="ftp://mustec.bgsu.edu/pub/linux/tichstuff.tar.gz">stock
+	      distribution </a> is not 64-bit clean, but these patches take care of 
+	      that.
+	      <li><a href="mammut_patch.tgz">Patches for Mammut/Linux</a>: Mammut is a
+	      program which analyzes the frequency of signals supplied by an AIFF file.
+	      Frequencies can be filtered, shifted or otherwise modified and the file
+	      can be resynthesized and saved. The stock Linux version is not 64-bit
+	      clean. It requires libaudio.
+	      </ol>
+	      <P>	      
+
+ <FONT SIZE="+1"><B> 
+ General Resources for Digital Signal Processing:
+  </B></FONT><BR>   
+              <ol>
+	      <li><a href="http://sound.condorow.net/">Linux MIDI & Sound Applications</a>: This site has a variety of programs for sound processing 
+	      including spectrographic software and oscilloscope programs.
+	      <li><a href="http://reality.sgi.com/cook/audio.apps/public.html">Publicly
+	      Available Audio and Music Applications</a>: Focuses on Irix (SGI)
+	      machines but many of the programs compile on other machines if they are
+	      equiped with Motif (sometimes <a href="http://www.lesstif.org">Lesstif</a> works). 
+	      <li><a href="ftp://mustec.bgsu.edu/pub/linux/">Mustec FTP Directory</a>: 
+	      This site contains programs related to DSP, including the unpatched Mammut
+	      <li><a href="http://www.nitehawk.com/rasmit/dsp_w8mqw.html">Free DSP Software by W8MQW</a>
+	      </ol>
+	      <p>
+
+ <FONT SIZE="+1"><B> 
+ Toolkits, DSP Libraries, and DSP Chip stuff:
+ </B></FONT><BR>
+              <ol>
+	      <li><a href="http://www.igpp.ucla.edu/cesr/ssa_kit.html">Singular Spectral
+	      Analysis Toolkit</a>: from the document "The  Singular-Spectrum-Analysis(SSA) Toolkit is a collection of UNIX
+	      utilities which analyze short, noisy time series."
+	      <li><a href="http://mirriwinni.cse.rmit.edu.au/ftp/pub/dsp/ti/tms320c30/">TM32C30 Assembler for UNIX</a>: Compiles fine, 
+	      you can ignore the pointer warnings.</ol>
+	      <P>
+<FONT SIZE="+1"><B>
+Commercial DSP stuff for the Alpha:
+ </B></FONT><BR>
+              <ol>
+	      <li><a href="http://www.microway.com/dsp.html">Microway's DSP and Vector Library</a>: a Linux supporter!
+	      <li><a href="http://www.numerix.co.uk/siglib.html">The Numerix SigLib library</a>: No mention of Linux, but SigLib 
+	      is available for the DEC Alpha (Digital UNIX?)
+	      </ol>
+	      <p>
+
+ <FONT SIZE="+1"><B>
+ Electronics Related Software (known to work on the Alpha):
+ </B></FONT><BR>
+              <ol>
+	      <li><a href="ftp://sunsite.unc.edu/pub/Linux/apps/sound/editors/siggen-2.1.README">SigGen 2.1 README (from sunsite)</a>: Nice waveform generator, does sine, squares, sawtooth, etc. 
+	      </ol>
+	      <P>
+
+ <FONT SIZE="+1"><B>
+ Misc. Electronics Stuff:
+ </B></FONT><BR>
+            <ol>
+            <li><a href="circuit_template.fig">Template with component symbols</a>: for xFig
+            </ol>
+            <p>
+
+	    
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

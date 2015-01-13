@@ -1,0 +1,668 @@
+Iprobe Tutorial 12/7/1998
+-------------------------
+
+This document contains information about the Digital Alpha 
+Iprobe tool suite, especially as it applies to Alpha/Linux.
+
+It assumes that the suite and kernel driver has already been
+installed. 
+
+
+What is Iprobe?
+-----------------------
+
+Iprobe stands for "Instruction Probe", and is a very powerful tool that
+can find performance bottlenecks using the Digital Alpha on-chip 
+performance counters.  It is a multi-platform suite, running on VMS, NT, 
+Digital Unix, and now Linux. 
+
+Iprobe is a tool that grew out of the performance group (High Performance 
+Servers/Benchmark Performance Engineering) of Digital/Compaq. 
+It was built as a tool to help the people responsible for producing industry 
+leading benchmark numbers such as SPEC and TPCC.  Iprobe helped them find 
+where  code stumbled, and allowed them to fix it. As different functions were 
+needed by the group, they were added to the iprobe suite.  As a result, 
+iprobe is a very powerful but complex tool. 
+
+Traditionally, use of iprobe has been passed down by word of mouth.  If
+you want to figure out how to use iprobe, you ask the resident iprobe
+expert, or you call the current maintainer. 
+
+To be fair, a few user documents exist, but they seem to be geared to the
+user that already has had some Iprobe experience.  Hopefully, this document
+will change that. 
+
+
+What does Iprobe do? 
+-------------------
+The use of the name "iprobe" can be misleading, because it is both the
+name of the entire tool suite, and a single program within that tool suite.
+In the following documentation, when I refer to "iprobe", I mean the
+entire suite.  When I want to refer to the iprobe program, I will 
+explicitly state that. 
+
+In order to understand where Iprobe gets its performance information,
+you must understand a little about how the alpha performance counters work. 
+
+On the 21064-21164 alphas, there are either two or three counters that
+count hardware events.   These hardware events may be (depending on the
+chip version) cycles, issues, branch mispredicts, pipeline dry, floating
+point operations, etc.  The list of events is long, and varies depending the
+version of the alpha processor that is used.  (However it seems that the 
+"cycles" event is supported every alpha produced to date. ) 
+
+In order to track down performance problems, it is useful to look at 
+the different events.
+
+For example, we could use iprobe to find that 80% of the cycles of
+a certain program are spent in the "schedule" function, and then rerun the
+same test looking at the "bcache miss" event, in order to see if it is 
+spending those cycles waiting for memory reads/stores. 
+
+The performance counters work in a counter-intuitive way.  Instead of simply 
+keeping a running total of the events that have happened
+so far, they count down from a certain number, and every time an event
+occurs the number is decremented.  When the counter hits zero, a performance 
+counter interrupt is issued, and handled by a special performance counter 
+interrupt handler.  
+
+This interrupt handler then must pass the information that it has garnered
+back to the user in some way. 
+
+What are the pieces of iprobe?
+------------------------------
+
+Iprobe is composed of three layers: a kernel driver, a library, and user-space
+programs.
+
+The kernel driver make calls to the Alpha PAL code which manipulates
+the on-chip counters.  The driver also handles allocation of various kernel 
+buffers. 
+
+The iprobe library provides a generic interface to the kernel driver which 
+user mode programs can call. 
+
+The user programs, iprobe, ipreduce, and rep, are the user's interface
+to the tool suite.  Iprobe is the program that allows a user to interact
+with the counters.  The rep (Read Entry Points) program, figures out 
+the mapping between the virtual address space a program uses and the program's
+functions.  Ipreduce combines information from iprobe and rep, and produces
+a meaningful report for the user. 
+
+
+How do I use iprobe?  
+--------------------
+Now that you hopefully have a basic understanding of how the alpha 
+performance counters work, you are ready to begin using iprobe. 
+
+Iprobe can be run in three modes: counting, sampling, and histogram. 
+
+Counting
+--------
+
+Counting is the simplest mode to use and understand, so we'll start
+with an explanation and example of it. 
+
+The iprobe program defaults to counting when it is initially invoked,
+so to get it running in counting mode simply type:
+
+iprobe
+
+(or to be more explicit)
+
+iprobe -method count
+
+Your output should be like the following:
+
+Node name            : pulitzer.zko.dec.com
+OS                   : Linux 2.1.124-#2 Thu Oct 8 10:48:00 EDT 1998
+CPU count            : 1
+Model                : alpha
+Memory size          : 123 MB
+Counter count        : 2
+cycles               : Low frequency
+Current time         : Thu Dec  3 10:58:44 1998
+Start time:          : immediate
+Duration             : 0 (until user interrupts)
+Interval             : 1
+Method               : count
+Measured Modes       : all modes
+Measured Data        : pid ctr ps pc
+BufferCount          : 3
+Buffer_size          : 8192
+time        cpu freq event      # events  evts/sec
+10:58:45  0 2^16 cycles      267976704 267976704
+10:58:46  0 2^16 cycles      267976704 267976704
+10:58:47  0 2^16 cycles      267976704 267976704
+10:58:48  0 2^16 cycles      267976704 267976704
+10:58:49  0 2^16 cycles      267911168 267911168
+10:58:50  0 2^16 cycles      268042240 268042240
+10:58:51  0 2^16 cycles      267976704 267976704
+10:58:52  0 2^16 cycles      267976704 267976704
+10:58:53  0 2^16 cycles      268042240 268042240        
+
+
+This will continue until your press "cntrl-c" to stop the program.
+
+The output shows the number of events, in this case
+cycles, that occur every second. (If you want to change the interval between 
+the printing of the events, use the -interval flag on the iprobe command. )
+
+The values that iprobe has shown seem reasonable. This was run on 266MHz
+machine, and iprobe reports ~266 million events per second.  
+
+
+While this information does not seem particularly useful, 
+one can use it to understand how a system is being used.  For example, 
+let's see what happens when I start to play quake, a floating point
+intensive game, on the alpha.  
+
+This time, we are going to look at floating point ops
+instead of cycles.  (For a list of all events 
+available, and other general help for the iprobe program,
+type "iprobe -?" )
+
+In order to measure floating point ops using the iprobe program,
+simply type:
+
+iprobe -meth count float_ops
+
+(or simply)
+
+iprobe float_ops
+
+You should see output something like the following:
+
+event: float
+Node name            : pulitzer.zko.dec.com
+OS                   : Linux 2.1.124-#2 Thu Oct 8 10:48:00 EDT 1998
+CPU count            : 1
+Model                : alpha
+Memory size          : 123 MB
+Counter count        : 2
+float_ops            : Low frequency
+Current time         : Thu Dec  3 11:13:07 1998
+Start time:          : immediate
+Duration             : 0 (until user interrupts)
+Interval             : 1
+Method               : count
+Measured Modes       : all modes
+Measured Data        : pid ctr ps pc
+BufferCount          : 3
+Buffer_size          : 8192
+time        cpu freq event         # events  evts/sec
+11:13:07  0 2^12 float_ops           4096      4096
+11:13:08  0 2^12 float_ops           4096      4096
+11:13:09  0 2^12 float_ops           4096      4096
+11:13:10  0 2^12 float_ops              0         0
+11:13:11  0 2^12 float_ops           8192      8192
+11:13:12  0 2^12 float_ops         909312    909312
+11:13:13  0 2^12 float_ops         966656    966656
+11:13:14  0 2^12 float_ops        4820992   4820992
+11:13:15  0 2^12 float_ops        4276224   4276224
+11:13:16  0 2^12 float_ops        4182016   4182016
+11:13:17  0 2^12 float_ops        5529600   5529600
+11:13:18  0 2^12 float_ops        5279744   5279744
+11:13:19  0 2^12 float_ops        5414912   5414912
+11:13:20  0 2^12 float_ops        4612096   4612096
+11:13:21  0 2^12 float_ops        4452352   4452352
+11:13:22  0 2^12 float_ops        4026368   4026368
+11:13:23  0 2^12 float_ops        4165632   4165632
+11:13:24  0 2^12 float_ops         200704    200704
+11:13:25  0 2^12 float_ops           4096      4096
+11:13:26  0 2^12 float_ops              0         0
+11:13:27  0 2^12 float_ops           4096      4096
+Total event count:
+11:13:28  0 2^12 float_ops       48865280  
+
+As we can see, initially, there are very few floating point operations.
+When quake is started, the number of floating point ops rises dramatically.
+After quake is stopped, they back down to almost non-existent number. 
+
+As mentioned earlier, most alphas have more than one performance counter,
+and iprobe can measure with both counters simultaneously.  Unfortunately, 
+each counter can NOT handle any event.  Each counter can only handle certain
+events.  To find out which events iprobe can handle on your processor, type
+"iprobe -?".  Each column of events represents an event that can
+run on a particular counter.  For example, my iprobe help yields:
+
+...
+
+Events defined on the current system -- select up to one event from each column:
+
+   *issues                           dual_issue_cycles
+   *non_issues                       branch_mispr
+    pipe_dry                         integer_ops
+    pipe_frozen                      float_ops
+    branches                         stores
+    loads                            icache_miss
+    cycles                           dcache_miss
+    palcode_cycles                   bcache_miss
+    bcache_victim
+                                                              
+
+...
+ 
+
+This means that I can measure loads and stores concurrently, but NOT cycles 
+and loads.
+
+Let's look at quake again, but this time let's look at branches AND
+float_ops. 
+
+Simply invoke iprobe with:
+
+iprobe -meth count float_ops branches 
+
+event: float_ops
+event: branches
+Node name            : pulitzer.zko.dec.com
+OS                   : Linux 2.1.124-#2 Thu Oct 8 10:48:00 EDT 1998
+CPU count            : 1
+Model                : alpha
+Memory size          : 123 MB
+Counter count        : 2
+float_ops            : Low frequency
+branches             : Low frequency
+Current time         : Thu Dec  3 11:23:07 1998
+Start time:          : immediate
+Duration             : 0 (until user interrupts)
+Interval             : 1
+Method               : count
+Measured Modes       : all modes
+Measured Data        : pid ctr ps pc
+BufferCount          : 3
+Buffer_size          : 8192
+time        cpu freq event        # events  evts/sec freq event         # events  evts/sec
+11:23:07  0 2^16 branches        4718592   4718592 2^12 float_ops           4096      4096
+11:23:08  0 2^16 branches        1900544   1900544 2^12 float_ops           4096      4096
+11:23:09  0 2^16 branches        1245184   1245184 2^12 float_ops              0         0
+11:23:10  0 2^16 branches        3997696   3997696 2^12 float_ops          69632     69632
+11:23:11  0 2^16 branches        9371648   9371648 2^12 float_ops         847872    847872
+11:23:12  0 2^16 branches       10223616  10223616 2^12 float_ops        1683456   1683456
+11:23:13  0 2^16 branches       13762560  13762560 2^12 float_ops        4763648   4763648
+11:23:14  0 2^16 branches       13172736  13172736 2^12 float_ops        4280320   4280320
+11:23:15  0 2^16 branches       12320768  12320768 2^12 float_ops        4108288   4108288
+11:23:16  0 2^16 branches       13107200  13107200 2^12 float_ops        5738496   5738496
+11:23:17  0 2^16 branches       11206656  11206656 2^12 float_ops        4198400   4198400
+11:23:18  0 2^16 branches        8847360   8847360 2^12 float_ops        2879488   2879488
+11:23:19  0 2^16 branches        1376256   1376256 2^12 float_ops           4096      4096
+11:23:20  0 2^16 branches        1310720   1310720 2^12 float_ops              0         0
+11:23:21  0 2^16 branches        1703936   1703936 2^12 float_ops           4096      4096
+Total event count:
+11:23:22  0 2^16 branches      108265472 2^12 float_ops       28585984                 
+(This may have to be read on a wide terminal) 
+
+You can see that iprobe has displayed both the branches taken, and the floating
+point ops.  It appears that quake is not only fp intensive, but branch 
+intensive as well. 
+
+Sampling
+--------
+
+Sampling mode, IMHO, is much more useful than counting mode.  It
+allows you to record where in your code events occurred and get accurate 
+hardware profiles of your code as it runs.
+
+This is vastly superior to software profiling which is traditionally used.
+Software profiling has enormous overhead, because it adds extra code to the 
+running program, thereby giving a distorted view of how the program really 
+behaves.  (The uncertainty principle strikes again. ) 
+
+Iprobe does not modify the code at all, (you do not have to include any 
+profiling information from the compiler), and as a result it has overhead in 
+the range of 3-5%. (You are almost getting accurate profiling for free.) 
+
+However, the iprobe tool suite is now a little more difficult to use. 
+Instead of simply running the iprobe program, one must also run
+rep (read entry points) and ipreduce. (Ipreduce combines the sampling
+information and the lay out of functions in the executable to produce
+a useful report. )  Each of these programs have many knobs that can be 
+twisted and turned to do exactly what the user needs. 
+
+
+First, we'll start out with a simple example of profiling a 
+user space program.
+
+Take the following concocted program iprobe_test.c :
+
+void time_sink(void)
+{
+  int i;
+  i=1000;
+  while(i--);
+
+}
+
+void mini_function(void)
+{
+  int i;
+  float temp=1000.0;
+  i=1;
+  while(i--)
+    {
+      temp = temp/2;
+    }
+
+}
+
+main()
+{
+  int i=100000;
+  while (i--)
+    {
+      time_sink();
+      mini_function();
+      
+    }
+}
+
+
+It obviously spends a large amount of time in time_sink, and an
+insignificant amount of time in all other functions.  However,
+all of the floating point operations should appear in mini_function.
+
+Let's get iprobe to tell us what we already know. 
+
+First, compile your code with symbols.  The symbols are
+necessary so that we can take the addresses that the counter gives to
+us, and map them back to actual functions within the program code. 
+
+Issue the following command:
+
+gcc -g -o iprobe_test iprobe_test.c
+
+You will now have a test binary that we can run iprobe on. 
+
+This program is unique in that one function (time_sink) will have a huge cycle
+hit, while the other (mini_function) will have a huge floating point hit. 
+
+Let's have iprobe measure both. 
+
+Issue the following command:
+
+iprobe cycles float_ops -command iprobe_test -method samp
+
+The -command option will tell iprobe to spawn the command "iprobe_test", and 
+run until the program finishes.  By specifying "cycles" and "float_ops" on
+the command line, we tell iprobe to measure both cycles and floating point
+operations while it is running. 
+
+You should see something like:
+
+event: cycles
+event: float_ops
+Node name            : pulitzer.zko.dec.com
+OS                   : Linux 2.1.124-#2 Thu Oct 8 10:48:00 EDT 1998
+CPU count            : 1
+Model                : alpha
+Memory size          : 123 MB
+Counter count        : 2
+cycles               : Low frequency skip 0 interrupts between samples
+float_ops            : Low frequency skip 0 interrupts between samples
+Current time         : Thu Dec  3 14:05:15 1998
+Start time:          : immediate
+Duration             : 0 (until user interrupts)
+Interval             : 1
+Method               : sample
+Measured Modes       : all modes
+Measured Data        : pid ctr ps pc
+Output file          : pcsample.dat
+BufferCount          : 3
+Buffer_size          : 8192
+Start of sampling
+End of sampling
+Buffers written : 59
+Partial buffers written: 1                   
+
+This created a file in your current directory called "pcsample.dat". 
+"pcsample.dat" is the default file name of the sample data if
+none is specified with the -output command. 
+
+This file contains the samples gathered by the iprobe program.  The
+longer that the iprobe program is run, the larger this file will be.   It
+is overwritten with every sampling run of iprobe. 
+
+Now we have to extract the mapping from address to functions using
+the rep program.  (Rep behaves much like the binutils "nm" program.
+In fact, nm provided a basis from which the Linux rep was created.  )
+
+Issue the following command:
+
+rep ./iprobe_test
+
+(The explicit path MAY be necessary, rep currently uses the environmental
+variable "PATH" to determine where to look for programs. ) 
+
+
+Rep will produce the following output:
+
+"
+Your output file will be  address.res
+
+Extracting symbols from:./iprobe_test
+This is an object file.
+Using /usr/src/linux/System.map for kernel symbols.  
+"
+
+
+Rep will also have create a text file called "address.res" that
+contains the mapping of address ranges to functions within a the program.
+
+For example:
+
+_start ./iprobe_test 0000000120000100 00000001200001B0
+__do_global_dtors_aux ./iprobe_test 00000001200001B0 00000001200001E8
+time_sink ./iprobe_test 00000001200001E8 0000000120000240
+mini_function ./iprobe_test 0000000120000240 00000001200002C0
+main ./iprobe_test 00000001200002C0 0000000120000330
+init ./iprobe_test 0000000120000330 00000001200003F0
+__libc_init_first ./iprobe_test 00000001200003F0 0000000120000428
+_dl_start ./iprobe_test 0000000120000428 0000000120000450
+__setfpucw ./iprobe_test 0000000120000450 0000000120000580
+abort ./iprobe_test 0000000120000580 00000001200007E0
+exit ./iprobe_test 00000001200007E0 0000000120000940                  
+
+Address.res is used by the next big piece of the iprobe suite, ipreduce.
+
+Ipreduce takes the sample information, as well as the mapping from rep, and
+combines them into a single report about the runtime of the program.
+
+To run this simply type:
+
+ipreduce 
+
+Ipreduce will create a file called pcsample.rpt. 
+
+Pcsample.rpt looks like this:   (It has been trimmed for brevity.) 
+
++-------------------------------+
+| System Under Test Information |
++-------------------------------+
+
+Operating System:   Alpha/Linux
+OS Version:            V2.1
+CPU type:                  2
+Number of CPUs:            1
+CPU Clock Speed:     267 MHz      
+
+
++-----------------------+
+| Data File Information |
++-----------------------+
+
+Data mask:      0000001E
+Null PID:       00000000
+Counters Used:  1, 2
+Buffers:              59
+Missed samples:        0
+Max records:         338
+Min records:           0
+Beginning time: Thu Dec  3 14:05:15 1998
+Ending time:    Thu Dec  3 14:05:20 1998
+
+Sample counts:
+    Cycles                       19597
+    Float Ops                       28
+    Total:                       19625
+    All filters:                 19625
+
++-----------------+
+| User selections |
++-----------------+                                       
+
+Filters:
+Reporting threshold value: 1
+Reporting threshold percentage: 0.00
+
++---------------------------------+
+| Profile Report | Event = Cycles |
++---------------------------------+
+
+    * One sample = 65536 events *
+
+
+Begin            End                                                        Sample Image Total
+Address          Address          Name                                       Count   Pct   Pct
+-------          -------          ----                                       -----   ---   ---
+0000000120000100-FFFFFC00002FFFFF ./iprobe_test                              18779        95.8 ***********************************************
+00000001200001E8-000000012000023F   time_sink                                17148  91.3  87.5 *******************************************
+0000000120000240-00000001200002BF   mini_function                              138   0.7   0.7
+00000001200002C0-000000012000032F   main                                        27   0.1   0.1
+0000000120001758-0000000120001827   _IO_default_setbuf                           3   0.0   0.0
+0000000120001A80-0000000120001A87   _IO_default_seekoff                          3   0.0   0.0
+0000000120001A88-0000000120001B17   _IO_sputbackc                               13   0.1   0.1
+0000000120001B18-0000000120001B97   _IO_sungetc                                  2   0.0   0.0
+0000000120001BB8-0000000120001C1F   _IO_adjust_column                            2   0.0   0.0
+0000000120001C20-0000000120001C6F   _IO_get_column                               1   0.0   0.0
+0000000120001C70-0000000120001CF7   _IO_flush_all                                8   0.0   0.0
+0000000120001CF8-0000000120001D8F   _IO_flush_all_linebuffered                   9   0.0   0.0
+0000000120001D90-0000000120001E07   _IO_unbuffer_all                             7   0.0   0.0
+0000000120002E80-0000000120003147   arena_get2                                   9   0.0   0.0
+000000012000EFE0-0000000120011127   __printf_fp                                  2   0.0   0.0
+0000000120019D58-FFFFFC00002FFFFF   __do_global_ctors_aux                     1407   7.5   7.2 ***                                                
+
++------------------------------------+
+| Profile Report | Event = Float Ops |
++------------------------------------+
+
+    * One sample = 4096 events *
+
+
+Begin            End                                                        Sample Image Total
+Address          Address          Name                                       Count   Pct   Pct
+-------          -------          ----                                       -----   ---   ---
+0000000120000100-FFFFFC00002FFFFF ./iprobe_test                                 26        92.9 **********************************************
+0000000120000240-00000001200002BF   mini_function                               25  96.2  89.3 ********************************************
+0000000120019D58-FFFFFC00002FFFFF   __do_global_ctors_aux                        1   3.8   3.6 *
+FFFFFC0000300000-FFFFFFFFFFFFFFFF vmlinux                                        2         7.1 ***
+Histgram        ------
+
+FFFFFC00003106F8-FFFFFC00003107A7   do_switch_stack                              2 100.0   7.1 ***           
+
+We told the iprobe program to measure both floating point ops, and 
+cycles; we can see that it followed our instructions. 
+
+According to the results of ipreduce, 87.5% of the program's cycles were
+spent in time_sink, but 89.3% of the floating point ops were
+spent in mini_function.  This is exactly what is expected. 
+
+As we did with counting mode, any type of event can be measured with
+sampling mode.  If you wanted to find out where cache misses or 
+other events happen in your code, simply specify those events on
+the command line. 
+
+
+Histogram mode
+--------------
+
+Because sampling contains all of the functionality of Histogram mode and more,
+Histogram mode is one of the less used modes of the iprobe tool suite. 
+
+The one advatange that Histogram mode has over sampling, the relatively modest
+use of system resources.   Sampling files can easily grow to be tens or hundred
+of megabytes, while very few histograms grow larger than 100k.
+
+
+Histogram mode keeps a big array representing the program's address space.  It
+counts the number of times a performance interrupt occured at a certain 
+location in memory.  Although the result of both histogram and sampling modes 
+appear to be similar, it is in fact different.  Sampling keeps track of when 
+events happened in time, while histogram mode coalesces all of the information
+into a particular array entry.  In the future, some one
+could write a program that allows one to see how events occurred, and when 
+they occurred in relation to one another.  This would allow you to see how a 
+program's characteristics change over time.  
+
+For a simple example of histograms type:
+
+iprobe float_ops -interval 1000 -meth address -command xquake
+
+Once again, we are using quake, and we are going to measure floating
+point operations.   The interval is set to a ridiculously high
+value, so that it will only print the histogram after we have quit
+the program, instead of every second. 
+
+The -meth address command tells iprobe that we want to use histogram
+mode. 
+
+Here is my sample output:
+...
+
+Time 16:29:19
+ADDRESS Histograms
+CPU  Address          float_ops
+0    120000ff8        1
+0    120001538        3
+0    120001558        15
+0    120001578        7
+0    1200016d8        2
+0    120001778        27
+0    120001798        47
+0    1200017b8        182
+0    1200017d8        58
+0    1200017f8        6
+0    120001818        8
+0    120001838        11
+0    120001858        1
+0    120001938        1
+0    120001958        12
+0    120001978        1
+0    1200023b8        2
+0    1200023d8        2
+0    1200023f8        3
+0    120002418        20
+0    120002438        13
+0    120002478        8
+0    120002498        4
+0    1200024b8        16
+0    1200024d8        153
+0    1200024f8        91
+0    120002518        74
+0    120002538        103
+0    120002898        1
+0    120002c18        1                            
+
+
+
+This tells us exactly at what addresses the floating operations occurred.
+Currently, there are not any tools to show you which functions these addresses
+are part of, but you can use gdb to give you an accurate mapping.
+
+(In gdb type  "list *address", and gdb will show you the line and line number
+on the original source file correspsonding to the "address")
+
+Summary
+-------
+
+Iprobe is a very powerful tool suite. It has many features not documented here,
+but the examples here should be enough to get you started.  When in doubt, try 
+the -? switch.  It is a good place to start.   If you fix any bugs 
+please send the patches back to me.  While I can't guarentee that I will
+be able to make regular updates, it is better to have all of the bugfixes in
+a central location. 
+
+Happy iprobing!
+
+If you have questions, comments, or suggestions, send them to 
+Phil Ezolt (ezolt@perf.zko.dec.com or Phillip.Ezolt@compaq.com)

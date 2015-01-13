@@ -1,0 +1,29 @@
+inherit: toolchain-binutils -> /usr/portage/eclass/toolchain-binutils.eclass
+*** Multiple Inheritence (Level: 2)
+inherit: eutils -> /usr/portage/eclass/eutils.eclass
+*** Multiple Inheritence (Level: 3)
+inherit: multilib -> /usr/portage/eclass/multilib.eclass
+*** Multiple Inheritence (Level: 4)
+inherit: toolchain-funcs -> /usr/portage/eclass/toolchain-funcs.eclass
+inherit: portability -> /usr/portage/eclass/portability.eclass
+inherit: libtool -> /usr/portage/eclass/libtool.eclass
+*** Multiple Inheritence (Level: 3)
+inherit: toolchain-funcs -> /usr/portage/eclass/toolchain-funcs.eclass
+inherit: flag-o-matic -> /usr/portage/eclass/flag-o-matic.eclass
+*** Multiple Inheritence (Level: 3)
+inherit: eutils -> /usr/portage/eclass/eutils.eclass
+*** Multiple Inheritence (Level: 4)
+inherit: multilib -> /usr/portage/eclass/multilib.eclass
+inherit: portability -> /usr/portage/eclass/portability.eclass
+inherit: toolchain-funcs -> /usr/portage/eclass/toolchain-funcs.eclass
+inherit: multilib -> /usr/portage/eclass/multilib.eclass
+inherit: gnuconfig -> /usr/portage/eclass/gnuconfig.eclass
+inherit: multilib -> /usr/portage/eclass/multilib.eclass
+inherit: versionator -> /usr/portage/eclass/versionator.eclass
+EXPORT_FUNCTIONS: src_unpack -> toolchain-binutils_src_unpack
+EXPORT_FUNCTIONS: src_compile -> toolchain-binutils_src_compile
+EXPORT_FUNCTIONS: src_test -> toolchain-binutils_src_test
+EXPORT_FUNCTIONS: src_install -> toolchain-binutils_src_install
+EXPORT_FUNCTIONS: pkg_postinst -> toolchain-binutils_pkg_postinst
+EXPORT_FUNCTIONS: pkg_postrm -> toolchain-binutils_pkg_postrm
+RDEPEND: not set... Setting to: 

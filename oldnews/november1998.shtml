@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Software</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+	     <B>Warning</B> links in here may no longer be valid and they will not be updated.
+	     <P>	
+	    
+	  
+	    <FONT SIZE="+1"><B> 
+	    November 26th 1998
+	    </B></FONT><BR>
+	      Linus has released the next development kernel, version 2.1.130, also known as the 'basted turkey release'.
+              <P>	
+	      I've made some updates to the docs on <A HREF="../docs/kernel.html">compiling a kernel</A> to reflect IDE performance in the recent kernels
+	      and various other changes.
+	      <P>
+
+	    <FONT SIZE="+1"><B>
+	     November 23rd 1998
+	    </B></FONT><BR>
+	      Adam C. Powell IV has started a mailing list for high performance work on the Alpha. More info is available on the
+	      <A HREF="../docs/high_perf.html">High Performance</A> page.
+	      <P>
+	
+	    <FONT SIZE="+1"><B>
+	     November 22th 1998
+	    </B></FONT><BR>
+	      We've added some pages for information on <A HREF="../software/dsp-ee">DSP and Electrical Engineering</A> on Alpha-Linux (thanks to
+	      Michael J. Graffam for this information).
+	      <P>
+	    
+	    <FONT SIZE="+1"><B>
+	    November 19th 1998
+            </B></FONT><BR>
+     
+    
+              
+	      <!-- Actual newsitem body -->
+	 Linus has released 2.1.129. You can read <A HREF="http://www.tux.org/hypermail/linux-kernel/1998week47/0824.html">
+	 his comments</A> on it, 2.2 can't be far away.  <P>
+ 
+             
+        <FONT SIZE="+1"><B>
+	    November 17th 1998
+            </B></FONT><BR>
+    
+ 
+      
+	   RedHat has released two security advisories. The first involves sysklogd and all versions
+	of RedHat. The second relates to Samba and is a only problem with RedHat 5.2.	Updates are
+	available from <A HREF="ftp://updates.redhat.com">updates.redhat.com</A>. <P>
+	<B>Update:</B> Samba packages for older releases of RedHat may also be vulnerable.
+	Everybody is advised to upgrade to the latest RPMs.  <P>
+       
+          
+	    <FONT SIZE="+1"><B>
+	    November 16th 1998
+         </B></FONT><BR>
+      
+   
+              
+	      <!-- Actual newsitem body -->
+	      Kernel version 2.0.36 has been released. You can get it from <A HREF="ftp://ftp.kernel.org">ftp.kernel.org</A> , mirrors may take a while to update.
+	      
+         
+
+
+
+	    <FONT SIZE="+1"><B>
+	    November 14th 1998
+	    </FONT></B><BR>
+              
+	      <!-- Actual newsitem body -->
+	      RedHat has placed a new ramdisk image file in the Linux/Alpha 5.2 errata. For those of you receiving
+	      a SIG11 when selecting packages during installation you should download the updated image from 
+	      <A HREF="http://www.redhat.com/support/docs/rhl/alpha/rh52-errata-alpha.html">RedHat</A>.
+	      <P>
+
+
+	    <FONT SIZE="+1"><B>
+            November 12th 1998
+            </B></FONT><BR>
+
+              
+	      <!-- Actual newsitem body -->
+	     So I hope everybody likes the new look. If you have any comments or concerns please feel free to send them on the me at 
+	     <A HREF="mailto:rdp@cheshire.net?subject=alphalinux.org">rdp@cheshire.net</A>. Please take a look around and let
+	     me know if there are any problems. It's taken me a few hours to transfer all the information and it's quite possible
+	     I've made a mistake or two.
+	     <P>
+	     For those of you that haven't heard, kernel version 2.1.128 has been released.
+
+	     <P>
+	     RedHat has released some new products, you can now get a distribution with Intel, Alpha and SPARC CD-ROMs all for
+	     one price. I've placed my order!
+	     <P>
+             
+            
+
+	    <FONT SIZE="+1"><B>
+	    <!-- Newsitem title -->
+            November 11th 1998
+            </B></FONT><BR>
+	      <!-- Actual newsitem body -->
+	    Just received all the materials for the new site. Should be up in a day or two.
+	    <P>
+	  
+	  
+
+
+	    <FONT SIZE="+1"><B>
+            November 12th 1998        
+	    </B></FONT><BR>
+ 
+              
+	      <!-- Actual newsitem body -->
+	     So I hope everybody likes the new look. If you have any comments or concerns please feel free to send them on the me at 
+	     <A HREF="mailto:rdp@cheshire.net?subject=alphalinux.org">rdp@cheshire.net</A>. Please take a look around and let
+	     me know if there are any problems. It's taken me a few hours to transfer all the information and it's quite possible
+	     I've made a mistake or two.
+	     <P>
+	     For those of you that haven't heard, kernel version 2.1.128 has been released.
+
+	     <P>
+	     RedHat has released some new products, you can now get a distribution with Intel, Alpha and SPARC CD-ROMs all for
+	     one price. I've placed my order!
+
+	     <P>
+        
+   
+             
+  
+	     <FONT SIZE="+1"><B>
+            November 11th 1998
+	     </B></FONT><BR>
+	    Just received all the materials for the new site. Should be up in a day or two.
+	    <P>
+
+	    <FONT SIZE="+1"><B>
+	     November 7th 1998
+	     </B></FONT><BR>
+	     Kernel 2.1.127 has been released.
+	     <P>I've received word that the <A HREF="http://www.azstarnet.com/~axplinux">azstarnet</A> site will no longer be updated. 
+	     So I have started moving the various FAQs and HOWTOs over to alphalinux.org. They have yet to be updated but that will take place over the next few                 weeks.
+
+	     <P>The new look to alphalinux.org seems to be nearing completion. Hopefully within a few days things will be converted over.
+	     <P>
+	     
+	     <FONT SIZE="+1"><B>
+	     November 5th 1998
+	     </B></FONT><BR>
+	     Compaq has recently announced some information on <A HREF="http://www.digital.com/alphaoem/alph_esc.htm">new Alpha motherboards</A>.
+	     <P>
+
+	     <FONT SIZE="+1"><B>
+	     November 3rd 1998
+	     </B></FONT><BR>
+	     <A HREF="http://www.redhat.com">RedHat</A> has <A HREF="http://www.redhat.com/news/news-details.phtml?id=180">announced</A> the release 
+	     of RedHat version 5.2 for Alpha, Intel and SPARC.
+	     <P>
+
+     
+	
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

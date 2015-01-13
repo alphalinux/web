@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>Circa RH4.2 Linux Alpha Patches and Bug Fixes - Kernels, GCC, and Profiling: Profiling Repair.</TITLE>
+</HEAD>
+<BODY>
+<A HREF="alpha-patches-n-bugfixes-3.html">Previous</A>
+<A HREF="alpha-patches-n-bugfixes-5.html">Next</A>
+<A HREF="alpha-patches-n-bugfixes.html#toc4">Table of Contents</A>
+<HR>
+<H2><A NAME="s4">4. Profiling Repair.</A></H2>
+
+<P>To make profiling work, you need two patches from David Mosberger
+which were posted to axp-list@redhat.com (tracked down by Toon Moene
+who posted their archive URLs to axp-list).  You might also need one
+of the gcc patches mentioned above.</P>
+<P>In any case, David Mosberger's patches are in the axp-list archive at:</P>
+<P>
+<A HREF="http://www.redhat.com/support/mailing-lists/archives/axp-list/1997-March/0463.html">http://www.redhat.com/support/mailing-lists/archives/axp-list/1997-March/0463.html</A></P>
+<P>and</P>
+<P>
+<A HREF="http://www.redhat.com/support/mailing-lists/archives/axp-list/1997-March/0464.html">http://www.redhat.com/support/mailing-lists/archives/axp-list/1997-March/0464.html</A></P>
+<P>The former is a source patch for binutils to keep gprof from seg
+faulting, and the latter is a binary patch for libc_p.a to keep your
+programs from seg faulting.</P>
+<P>For convenience, both are included in the Patches section.  The former
+is in binutils-new-patches.tar.gz.uue, along with an RPM spec file for
+incorporating it into binutils-2.7.0.2-4.src.rpm, and the latter is
+David Mosberger's libc_p.a binary patch.</P>
+<P>To fix gprof, unpack binutils-new-patches.tar.gz.uue, and rebuild
+binutils-2.7.0.2-4.src.rpm analogously to the instructions above for
+gcc.  But, *don't* install the binary rpm after rebuilding.  It
+conflicts with the libc headers.  Just either copy gprof over the
+version in /usr/bin, or override the /usr/bin version with the new one
+in /usr/local/bin, etc.</P>
+<P>As for the binary patches for libc_p.a, here's an extract from David
+Mosberger's message about it how to apply them:</P>
+<P>After extracting these files, replace them in your libc_p.a. E.g.:</P>
+<P>
+<PRE>
+   ar rv /usr/lib/libc_p.a gmon.po ieee_{s,g}et_fp_control.po
+</PRE>
+</P>
+<P>and then profiling should work again. Note that the binutils-2.7
+gprof has a bug that sometimes causes a SIGFPE. See my earlier mail
+for a patch that fixes this.</P>
+<P>Finally, there is still a problem with mixing profiling and dynamic
+linking. E.g., with dynamic linking, adding -lm will cause a binary
+that segfaults. Adding the -static flag should fix this problem for
+now (until a real solution is found).</P>
+
+
+<HR>
+<A HREF="alpha-patches-n-bugfixes-3.html">Previous</A>
+<A HREF="alpha-patches-n-bugfixes-5.html">Next</A>
+<A HREF="alpha-patches-n-bugfixes.html#toc4">Table of Contents</A>
+</BODY>
+</HTML>

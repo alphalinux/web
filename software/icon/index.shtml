@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Software</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+	<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"--> 
+     </CENTER></TD>
+   </TR>   
+
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../../"><IMG SRC="../../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../../docs/"><IMG SRC="../../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../../intro/"><IMG SRC="../../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../../hardware/"><IMG SRC="../../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../../otherpages/"><IMG SRC="../../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../../about/"><IMG SRC="../../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../../img/head_software.gif" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Software">
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+
+            Using the Icon programming language under AlphaLinux
+            
+
+	    </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+Updated 8/28/1999<P>
+This document explains how to download, compile, and
+install the Icon programming language on the Alpha-Linux
+platform. <P>
+	      
+Icon is a free, high level, cross platform, general purpose programming	
+language that uses the virtual machine concept. It also
+possesses extensive graphics functions as well as support for
+X windows and MS windows.  It even comes with a
+visual interface builder (VIB). <P>
+
+The current release of Icon is 9.3.2 and fully supports Linux running on
+64 bit Alpha's.
+
+More information on Icon and can be obtained from the following
+links:  <P>
+<UL>
+<LI> <A HREF="http://www.cs.arizona.edu/icon/">
+The Icon home page </A>	
+<LI> <A HREF="http://www.drones.com/">
+Unicon home page </A>Unicon is a version of Icon with a superset of POSIX extensions.
+<LI> <A HREF="http://www.linuxgazette.com/issue27/jeffery.html">
+A Glimpse of Icon, Linux Gazette, April 1998 </A>
+<LI> A Glimpse of Icon, Linux Journal, July 1998, Pg. 62
+<LI>Information on how to  
+    <A HREF="http://www.cs.arizona.edu/icon/faq.htm#ugroup">subscribe</A>
+    to the Icon mailing list.
+</UL>
+<HR>  
+<H1> Getting the sources </H1>  	
+For the rest of the document I'm going to assume the installer is logged
+in as root and Icon will be installed in /usr/local/icon.<P>
+The following links point to the sources required for a complete install.
+<UL>
+<LI>Sources for<A HREF="http://www.cs.arizona.edu/icon/ftp/packages/unix">
+Icon.</A>
+<LI><A HREF="http://www.cs.arizona.edu/icon/ftp/library/bipl.tgz">
+    bipl.tgz</A> Base library package for Icon.
+<LI><A HREF="http://www.cs.arizona.edu/icon/ftp/library/gipl.tgz">
+    gipl.tgz</A> Graphics library package.
+<LI><A HREF="http://www.cs.arizona.edu/icon/ftp/library/info.tgz">
+    info.tgz</A> Build scripts for the librarys.
+</UL>
+<H1>Unpacking the sources</H1>	
+<OL>
+<LI>First create the Icon directory. mkdir /usr/local/icon.
+<LI>Then copy the unix.tgz file to /usr/local/icon.
+<LI>Unzip it with gzip -d unix.tgz<BR>
+<LI>Unpack it with tar -xvf unix.tar<BR>
+<LI>Create a directory to hold procedures. /usr/local/icon/ilib.
+<LI>Create a directory to hold the library files. /usr/local/icon/ipl.
+<LI>Copy bipl.tgz, gipl.tgz, and info.tgz into the ipl directory and unzip and untar.
+</OL>
+<H1> Compile the sources </H1>
+<OL>
+<LI>Change to the top level Icon directory.
+<LI>Type make X-Configure name=alpha_linux. 
+<LI>Type make Icon. (Capitol letters matter !)
+</OL>
+<H1> Setup the environment </H1>
+Fire up your text editor and insert the following into
+.bash_profile <P>
+export IPATH=/usr/local/icon/ilib <BR>
+export LPATH=/usr/local/icon/ilib <BR>
+export FPATH=/usr/local/icon/bin <P>
+Then logout and log back in so the environment will
+be set. <P>
+<H1> Set the symbolic links to the binarys. </H1>
+Switch into /usr/local/bin then type- <BR>
+ln -s /usr/local/icon/bin/icont icont <BR>
+ln -s /usr/local/icon/bin/iconx iconx <P>
+At this point you can run Icon from a regular user account
+as long as the environment in .bash_profile is set (see above)
+and /usr/local/bin is in the search path. <P>
+<H1> Build the Icon procedures and program library </H1>
+Jump to the /usr/local/icon/ipl directory and perform the following
+steps. The following must be performed in the proper order or
+the library procedures and programs will not all be translated properly.<BR>
+<OL>
+<LI>Copy the contents of icon/ipl/incl to icon/ilib
+<LI>Copy the contents of icon/ipl/gincl to icon/ilib
+<LI>Type ./Ucode
+<LI>Copy the contents of icon/ipl/procs to icon/ilib
+<LI>Type ./Ugcode
+<LI>Copy the contents of icon/ipl/gprocs to icon/ilib
+<LI>Type ./Icode
+<LI>Type ./Igcode
+</OL>
+If everything builds ok, Icon should be properly installed.<P>
+<H1> Try it out ! </H1>
+Fire up X and in a xterm cd to /usr/local/icon/ipl/gprogs and
+type ./mandel1. A window should open and the mandelbrot set
+should be generated.
+If the above example worked out ok you should be all set
+to start exploring Icon on your own.  The Icon program
+library and the Icon home page contain a wealth of information
+to help you get started programming.	
+<H1> Alpha-Linux specific Icon notes.</H1>
+With the release of version 9.3.2 Icon builds clean on 64 bit systems.<P>
+Both<A HREF="http://people.frankfurt.netsurf.de/Joachim.Wesner/">
+libffm</A> and 
+<A HREF="http://www.unix.digital.com/linux/cpml.htm">
+CPML</A> can be compiled into Icon. To include the faster math librarys,
+open the file<P>
+icon/config/unix/alpha_linux/runtime.hdr<P>
+
+and change LIBS= -lm to <BR>
+LIBS= -lffm -lm <br>
+or<br>
+LIBS= -lcpml -lm
+
+
+<H1> Feedback </H1>
+If you have any comments, questions specific to Icon on
+Alpha_Linux
+feel free to e-mail <A HREF="mailto:timp@clarityconnect.com">Tim Patti</A>
+ 
+ 
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

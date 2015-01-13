@@ -1,0 +1,5108 @@
+<HTML>
+<HEAD>
+   <TITLE>MVI</TITLE>
+</HEAD>
+<BODY LINK="#0000FF" VLINK="#800080" bgcolor="white">
+<B><FONT FACE="Courier New"><FONT SIZE=+4>Motion Video Instructions
+(MVI)</FONT></FONT></B>
+
+<P><FONT SIZE=-1>&nbsp;</FONT>
+
+<P><FONT FACE="Courier New"><FONT SIZE=+1>James Hicks</FONT></FONT>
+
+<P><FONT FACE="Courier New"><FONT SIZE=+1>Richard Weiss</FONT></FONT>
+
+<P><B><FONT FACE="Courier New"><FONT COLOR="#FF0000"><FONT SIZE=+1>Compaq
+Computer Corporation</FONT></FONT></FONT></B>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New,Courier">February 1999</FONT><FONT FACE="Courier New,Courier"></FONT>
+
+<P><FONT FACE="Courier New,Courier">Key words: video, multimedia, high
+performance computing, prefetching, motion estimation, filtering, Alpha
+processor</FONT>
+<BR>&nbsp;
+
+<P><FONT FACE="Courier New">In this paper you will find</FONT>
+<UL>
+<LI>
+<FONT FACE="Courier New"><A HREF="#WhatIsAlpha">What is Alpha</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#WhatIsMVI">What is MVI</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#WhatIsMVI">How to use this guide</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#WhenToUseMVI">When to use MVI</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#DetectingMVI">Detecting MVI capability</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#ASM's">Inline Assembler MACRO</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#MVIInstructionSet">MVI Instruction set
+description</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#PortableCoding">Portable coding Techniques</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#HOWMVIUSED">How MVI instructions are
+used in software</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#SIDEBYSIDE">A Side-by-Side Example of
+Alpha MVI and x86 MMX</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#OPTIMIZE">Additional techniques to optimize
+code</A></FONT></LI>
+
+<LI>
+<U><FONT FACE="Courier New"><A HREF="#Prefetching">Prefetching</A></FONT></U></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#APPLICATIONS">Applications: image filtering
+and motion estimation</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#Motion estimation">Motion Estimation</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#Scheduling Issues">Scheduling Issues</A></FONT></LI>
+
+<LI>
+<FONT FACE="Courier New"><A HREF="#HelpfulURLS">Helpful URLs</A></FONT></LI>
+</UL>
+<FONT SIZE=-1>&nbsp;</FONT>
+
+<P><A NAME="WhatIsAlpha"></A><B><FONT FACE="Courier New">What is Alpha?</FONT></B>
+
+<P><FONT FACE="Courier New">Alpha is a 64-bit processor architecture. The
+architecture is defined by a living architectural specification. It is
+intended to have multiple implementations over many years; the current
+implementations are all superscalar, which means that multiple instructions
+are issued in the same cycle. For the 21164 chip, up to four instructions
+can be issued in a cycle, and for the 21264, up to six instructions can
+be issued. For each implementation there are rules that constrain the instructions
+that can be co-issued. For example, the 21264 has four ALU’s on the integer
+side, but only one of them can execute an integer multiply, so at most
+one integer multiply instruction can be issued in a cycle.</FONT>
+
+<P><A NAME="WhatIsMVI"></A><B><FONT FACE="Courier New">What is MVI?</FONT></B>
+
+<P><FONT FACE="Courier New">Motion Video Instructions or MVI are the DIGITAL
+Alpha’s Multi Media instructions. They are a set of Alpha processor instructions
+that use a single instruction to operate on multiple data in parallel (SIMD).
+This is accomplished by partitioning a 64bit Quadword into a vector of
+8 separate bytes or 4 separate words (16bit). Any code that is capable
+of taking advantage of this parallelism can achieve up to an 8X performance
+boost.</FONT>&nbsp;&nbsp;&nbsp;&nbsp; <FONT FACE="Courier New,Courier">The
+instructions are:</FONT><FONT FACE="Courier New,Courier"></FONT>
+
+<P><FONT FACE="Courier New,Courier"><A HREF="#MINUB8">MINUB8</A>, <A HREF="#MAXUB8">MAXUB8</A>&nbsp;
+unsigned byte minimum/maximum</FONT>
+<BR><FONT FACE="Courier New,Courier"><A HREF="#MINSB8">MINSB8</A>, <A HREF="#MAXSB8">MAXSB8</A>&nbsp;
+signed byte minimum/maximum</FONT>
+<BR><FONT FACE="Courier New,Courier"><A HREF="#MINUW4">MINUW4</A>, <A HREF="#MAXW4">MAXUW4</A>&nbsp;
+unsigned word minimum/maximum</FONT>
+<BR><FONT FACE="Courier New,Courier"><A HREF="#MINSW4">MINSW4</A>, <A HREF="#MAXSW4">MAXSW4</A>&nbsp;
+signed word minimum/maximum</FONT>
+<BR><FONT FACE="Courier New,Courier"><A HREF="#PACKWB">PKWB</A>, <A HREF="#UNPKBW">UNPKBW</A>&nbsp;&nbsp;&nbsp;
+pack/unpack word to byte</FONT>
+<BR><FONT FACE="Courier New,Courier"><A HREF="#PACKLB">PKLB</A>, <A HREF="#UNPKBL">UNPKBL</A>&nbsp;&nbsp;&nbsp;
+pack/unpack long to byte</FONT>
+<BR><FONT FACE="Courier New,Courier"><A HREF="#PERR">PERR</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pixel error</FONT>
+
+<P>&nbsp;
+<BR>&nbsp;
+
+<P><A NAME="guide"></A><B><FONT FACE="Courier New,Courier">How to use this
+guide</FONT></B>
+
+<P><FONT FACE="Courier New,Courier">This guide is an introduction to some
+techniques in high performance computing with a focus on MVI.&nbsp; There
+are a few key techniques for designing efficient code for an Alpha processor.&nbsp;
+This first is to make sure that your data is in the first level cache when
+you want to use it.&nbsp; The sections on <A HREF="#Prefetching">prefetching</A>
+and cache blocking explain this.&nbsp; The second is to take advantage
+of instruction level parallelism.&nbsp; This is explained in the sections
+on <A HREF="#OPTIMIZE">software pipelining</A> and <A HREF="#Scheduling Issues">scheduling</A>
+issues.&nbsp; The third technique is to take advantage of data parallelism.&nbsp;
+This is what MVI is about.&nbsp; The relevant section below explains how
+to detect if a processor supports MVI.&nbsp; This will allow the programmer
+to branch to alternate implementations, so that legacy code can be extended.&nbsp;
+Each of the MVI instructions is described with a sample trace to show how
+it works.&nbsp; There are many examples of how MVI instructions are used
+and a <A HREF="#SIDEBYSIDE">side-by-side example</A> of MVI code with MMX
+code.&nbsp; There are also examples of how to use MVI for <A HREF="#Motion estimation">motion
+estimation</A> in an MPEG encoder and for <A HREF="#filtering">image filtering</A>.&nbsp;
+Since MVI is not currently supported by commercial "C" compilers, it will
+be necessary to include some assembly code to use it.&nbsp; This is relatively
+easy and can be done with inline assembler MACRO.&nbsp; This allows the
+programmer to use assembly language instructions as if they were C statements.&nbsp;
+This can be very useful not only for MVI but for prefetching and other
+techniques as well.</FONT>
+
+<P><FONT FACE="Courier New,Courier">The techniques described in this guide
+can be used </FONT><FONT FACE="Courier New">with OpenVMS, Digital UNIX,
+or Windows NT. Some of the details may change with different operating
+systems.</FONT><FONT FACE="Courier New"></FONT>
+
+<P><A NAME="WhenToUseMVI"></A><B><FONT FACE="Courier New">When to use MVI</FONT></B>
+
+<P><FONT FACE="Courier New">While these new instructions were intended
+to implement high quality software video encoding like MPEG-1,MPEG-2, H.261
+(ISDN video conferencing) and H.263 (Internet video conferencing) only
+your imagination as a software engineer will limit their uses. Anytime
+data can be operated on in parallel you will see the benefit. Desktop Video
+Publishing, Video Conferencing, Internet Commerce and Interactive Training
+are some target trends in visual computing.</FONT>
+
+<P><FONT FACE="Courier New">If the application processes a large amount
+of data as fast as possible (<B><I>high memory bandwidth</I></B>) and the
+data are all 8bit or 16bit integers (<B><I>Byte/Word Integer Data</I></B>)
+and the same operations are performed on all the data (<B><I>Parallelism</I></B>),
+then you definitely want to explore MVI. MVI can make a critical difference
+in achieving video-rate encoding.</FONT><FONT FACE="Courier New"></FONT>
+
+<P><A NAME="DetectingMVI"></A><B><FONT FACE="Courier New">Detecting MVI
+Capability</FONT></B>
+
+<P><FONT FACE="Courier New">The 21164PC has the first implementation of
+MVI.&nbsp; All Alpha processors since that one including the 21264 have
+MVI, and all future processors will implement it.</FONT>
+
+<P><FONT FACE="Courier New">Before taking advantage of MVI instructions
+one must be running on hardware that supports these extensions. This can
+be determined at run time by looking at bit eight in the value the AMASK
+instruction returns. Future extensions may use other AMASK bits. The code
+to do this is written in assembly language rather than C or C++ since there
+is no statement that corresponds to AMASK. Assembly language code in can
+be inserted into the object file using the macro __asm. A detailed description
+of the instruction can be found in the Alpha Architecture Handbook.</FONT>
+
+<P>&nbsp;<FONT FACE="Courier New,Courier">The AMASK instruction takes three
+register arguments.&nbsp; The first register (Ra) must be R31.&nbsp; The
+second register (Rb) has the input mask, which represents the requested
+architectural features.&nbsp; There is a one in every bit position that
+is being queried.&nbsp; The third register (Rc) is the output. </FONT><FONT FACE="Courier New">Bits
+are cleared that correspond to architectural extensions that are present.
+Reserved bits and bits that correspond to absent extensions are copied
+unchanged.&nbsp; If the result is zero, all requested features are present.
+Software may specify an input mask of all 1’s to determine the complete
+set of architectural extensions implemented by a processor. Assigned bit
+definitions are defined below.</FONT>
+<BR>&nbsp;
+
+<P><FONT FACE="Courier New">AMASK Bit Assignments</FONT>
+
+<P><FONT FACE="Courier New">Bit 0. Support for the byte/word extension
+(BWX) The instructions that comprise the BWX extension are LDBU, LDWU,SEXTB,SEXTW,STB,
+and STW.</FONT>
+
+<P><FONT FACE="Courier New">Bit 1. Support for the count extension (CIX)
+The instructions that comprise the CIX extension are&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CTLZ,CTPOP,CTTZ,FTOIS,FTOIT, ITOFF, ITOFS, ITOFT, SQRTF, SQRTG,SQRTS, and
+SQRTT.</FONT>
+
+<P><FONT FACE="Courier New">Bit 2. Support for CIX instructions (not including
+SQRTG,SQRTS, and SQRTT).</FONT>
+
+<P><FONT FACE="Courier New">Bit 8. Support for the multimedia extension
+(MAX) The instructions that comprise the MAX extension are <A HREF="#MAXSB8">MAXSB8</A>,
+<A HREF="#MAXSW4">MAXSW4</A>, <A HREF="#MAXUB8">MAXUB8</A>, <A HREF="#MAXW4">MAXUW4</A>,
+<A HREF="#MINSB8">MINSB8</A>, <A HREF="#MINSW4">MINSW4</A>, <A HREF="#MINUB8">MINUB8</A>,
+<A HREF="#MINUW4">MINUW4</A>, <A HREF="#PERR">PERR</A>, <A HREF="#PACKLB">PKLB</A>,
+<A HREF="#PACKWB">PKWB</A>, <A HREF="#UNPKBL">UNPKBL</A>, and <A HREF="#UNPKBW">UNPKBW</A>.</FONT>
+
+<P><FONT FACE="Courier New">Bit 9. Support for Precise arithmetic trap
+reporting</FONT>
+
+<P>&nbsp;<FONT FACE="Courier New">Software Note:</FONT>
+
+<P><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; Use this instruction
+to make instruction-set decisions; use <A HREF="#implver">IMPLVER</A> to
+make code-tuning decisions.</FONT>
+
+<P><FONT FACE="Courier New">Implementation Note:</FONT>
+<BLOCKQUOTE><FONT FACE="Courier New">Instruction encoding is implemented
+as follows: On 21064/21064A/21066/21068/21066A (EV4/EV45/LCA/LCA45 chips),
+AMASK copies Rbv to Rc.</FONT>
+
+<P><FONT FACE="Courier New">On 21164 (EV5), AMASK copies Rbv to Rc.</FONT>
+
+<P><FONT FACE="Courier New">On 21164A (EV56), 21164PC (PCA56), and 21264
+(EV6), AMASK correctly indicates support for architecture extensions by
+copying Rbv to Rc and clearing appropriate bits.</FONT></BLOCKQUOTE>
+<B>&nbsp;</B>
+
+<P>&nbsp;
+
+<P><B><FONT FACE="Courier New">AMASK Code Examples.</FONT></B>
+
+<P><FONT FACE="Courier New">Assembler file or "S" file</FONT>
+
+<P><FONT FACE="Courier New">This short piece of code is an assembler file
+that can be made into an .obj file and linked to a "C" or "C++" program.</FONT>
+
+<P><FONT FACE="Courier New">Notice <B>#include &lt;kxAlpha.h>. </B>This
+header file comes with the VC RISC edition compiler and the Microsoft SDK.
+It is full of some very interesting information about the DIGITAL Alpha.
+There you can find the expansion of the LEAF_ENTRY() MACRO, which defines
+an entry point for the compiler and initializes the stack pointer.</FONT>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// amask.s</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-------------------------------------------------------------------------------------</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// "C" declaration</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// extern __int64 getAMASK(
+__int64 mask )</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// "C++" declaration</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// extern "C" { __int64
+getAMASK( __int64 mask ); };</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// mask bits are passed
+in a0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// results of amask
+passed back in v0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// use asaxp.exe to
+make an .obj file from this source and link it to</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// your "C" program.
+For example, if you are using Visual C++, custom compile using the</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// command asaxp /O0
+$(InputDir)\amask.s –o ($OutDir)\amask.obj</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// c:\your-command-line>asaxp
+amask.s</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-------------------------------------------------------------------------------------</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#include</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">&lt;kxalpha.h></FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">LEAF_ENTRY(getAMASK)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp; amask
+a0,v0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp; ret
+zero, (ra)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">.end getAMASK</FONT></FONT></TT></DT>
+</DL>
+<TT>&nbsp;</TT>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// calling from "C"
+program</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">extern __int64</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">getAMASK( </FONT><FONT COLOR="#0000FF">__int64</FONT><FONT COLOR="#000000">
+mask );</FONT></FONT></TT></DT>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">void</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">main()</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">{</FONT></FONT></TT></DT>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">__int64</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">amaskValue;</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">amaskValue = getAMASK(
+SOME_64BIT_MASK );</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}</FONT></TT></DT>
+</DL>
+&nbsp;
+
+<P><A NAME="ASM's"></A><B><FONT FACE="Courier New">Inline Assembler MACRO
+(asm's)</FONT></B>
+
+<P><FONT FACE="Courier New">This section describes how to use the function
+"__asm" to include assembly language code in your object file. Here it
+is used to insert the AMASK instruction and test bits in the mask returned,
+but it can be used more generally when assembly code is more suitable than
+C or C++. First it is necessary to convince the compiler that there is
+a function called "__asm." We do that with the extern long __asm( char
+*, … ); declaration. This is saying that __asm is some function that returns
+a long – on an Alpha any integer value returned from a function will be
+in the v0 register and the compiler knows that.</FONT>
+
+<P><FONT FACE="Courier New">Next we declare the __asm function to be intrinsic.
+That means it will be implemented in native assembler word for word. This
+can be seen in the line below that reads #pragma intrinsic __asm</FONT>
+
+<P><FONT FACE="Courier New">Following this there are a couple of #define’s
+for several of the possible bit mask used to determine the availability
+of a desired extension. The bit we are concerned with is bit 8 and is defined
+as SUPPORT_FOR_MVI ((__int64)((0x0100))</FONT>
+
+<P><FONT FACE="Courier New">Finally the MACRO definition is provided. This
+MACRO uses inline assembler to invoke the "amask" instruction. The inline
+code alone is as follows: __asm("amask $a0,$v0",(x) ) where (x) represents
+some 64bit bit mask with the bits we are interested in set or cleared as
+appropriate. One could just as easily write someInt64 = __asm("amask $a0,$v0",
+0x0100 );, then test the value of the variable someInt64 == 0 indicating
+MVI is supported.</FONT>
+
+<P><FONT FACE="Courier New">Let’s take a moment to review this inline assembler
+code.</FONT>
+
+<P><FONT FACE="Courier New">The string "amask $a0,$v0" is indicating that
+register a0 contains the bitmask required by the amask instruction and
+that register v0 will receive the result. This is just as we had written
+this code in Alpha assembler as amask a0,v0. The last parameter in the
+__asm() "function" call is the bitmask value that will be placed in the
+a0 register before the amask instruction is executed. For UNIX, the "function"
+is asm() without the "__".</FONT>
+
+<P><FONT FACE="Courier New">The MACRO "thisAlphaHas()" contains a logical
+NOT (!) to get the code to read and function with positive logic allowing
+a programmer to write</FONT>
+<DIR>
+<DIR><B><FONT FACE="Courier New">if ( thisAlphaHas( SUPPORT_FOR_MVI ) )</FONT></B></DIR>
+</DIR>
+<B><FONT FACE="Courier New">&nbsp;</FONT></B>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// Detect if this Alpha
+Supports MVI</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">extern long __asm</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#0000FF">char</FONT><FONT COLOR="#000000">
+*, …);</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#pragma intrinsic </FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#0000FF">__asm</FONT><FONT COLOR="#000000">)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT COLOR="#008000">&nbsp;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#define</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">SUPPORT_FOR_BWX</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">((</FONT><FONT COLOR="#0000FF">__int64</FONT><FONT COLOR="#000000">)(0x0001))</FONT><FONT COLOR="#008000">
+// bit0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#define</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">SUPPORT_FOR_CIX ((</FONT><FONT COLOR="#0000FF">__int64</FONT><FONT COLOR="#000000">)(0x0002))</FONT><FONT COLOR="#008000">
+// bit1</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#define</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">SUPPORT_FOR_MVI ((</FONT><FONT COLOR="#0000FF">__int64</FONT><FONT COLOR="#000000">)(0x0100))</FONT><FONT COLOR="#008000">
+// bit8</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#define</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">thisAlphaHas(x) (!(</FONT><FONT COLOR="#0000FF">__asm</FONT><FONT COLOR="#000000">("amask
+$a0,$v0",(x))))</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT COLOR="#008000">&nbsp;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">void</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">main( )</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">{</FONT></FONT></TT></DT>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">if</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">( thisAlphaHas(SUPPORT_FOR_MVI ) )</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp; </FONT><FONT COLOR="#000000">printf(
+"MVI Supported \n");</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">else</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#000000">printf(
+"MVI Not Supported \n");</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">}</FONT></FONT></TT></DT>
+</DL>
+<TT><FONT FACE="Courier New">&nbsp;</FONT></TT>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#006600">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#006600">// quick and dirty console
+app to detect hardware capabilities uses AMASK and IMPLVER</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#006600">// you should be able
+to block copy this – include some header files and build it.</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#006600">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">int</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">Verbose = 0;</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">int</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">Quiet&nbsp;&nbsp; = 0;</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">int</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">Debug&nbsp;&nbsp; = 0;</FONT></FONT></TT></DT>
+
+<DT>
+<FONT COLOR="#008000">&nbsp;</FONT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">main</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#0000FF">int</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">Argc,</FONT><FONT COLOR="#008000"> </FONT><FONT COLOR="#0000FF">char</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">**Argv)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">{</FONT></FONT></TT></DT>
+</DL>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">__int64</FONT> amask,
+implver;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">int</FONT>&nbsp;&nbsp;&nbsp;&nbsp;
+i;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">char</FONT>&nbsp;&nbsp;&nbsp;
+opt;</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">char</FONT>&nbsp;&nbsp;
+*implname[]={"21064 (EV4)", "21164 (EV5)", "21264 (EV6)"};</FONT></TT></DT>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#define</FONT> MAXAMASK
+16</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">&nbsp;&nbsp;&nbsp;&nbsp;
+char</FONT>&nbsp;&nbsp; *amaskname[]={</FONT></TT></DT>
+
+<DD>
+&nbsp;</DD>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"BWX (Byte Word extensions)",</FONT></TT></DT>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">"FIX (Floating point instruction extensions)"</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"CIX (Count instruction extensions)"</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused3",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused4",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused5",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused6",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused7",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"MVI (Motion video instruction extensions)",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"Precise arithmetic trap reporting in hardware",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused10",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused11",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused12",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused13",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused14",</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">"unused15" };</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+</DL>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">while</FONT>((opt =
+getopt(Argc, Argv, "vqd?")) != -1) {</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">switch</FONT> (opt)
+{</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">case</FONT> 'v': Verbose
+= 1; <FONT COLOR="#0000FF">break</FONT>;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">case</FONT> 'q': Quiet
+= 1; <FONT COLOR="#0000FF">break</FONT>;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">case</FONT> 'd': Debug
+= 1; <FONT COLOR="#0000FF">break</FONT>;</FONT></TT></DT>
+</DL>
+</DIR>
+
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">default</FONT>:</FONT></TT></DT>
+</DL>
+
+<DIR>
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">printf("cputype [options]\n/v Verbose\n/q
+Quiet\n/d Debug\n");</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">exit(1);</FONT></TT></DT>
+</DL>
+</DIR>
+</DIR>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}</FONT></TT></DT>
+</DL>
+</DIR>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">amask&nbsp;&nbsp; = ~<FONT COLOR="#0000FF">__asm</FONT>("amask
+$a0, $v0", -1);</FONT></TT></DT>
+
+<DT>
+<A NAME="implver"></A><TT><FONT FACE="Courier New">implver = <FONT COLOR="#0000FF">__asm</FONT>("implver
+$v0");</FONT></TT></DT>
+
+<DD>
+&nbsp;</DD>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">if </FONT>(!Quiet) {</FONT></TT></DT>
+</DL>
+
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">if</FONT> (Debug)</FONT></TT></DT>
+
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">printf("Implver = %d\n", implver);</FONT></TT></DT>
+</DL>
+</DIR>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">printf("Implementation version: %s\n\n", implname[implver]);</FONT></TT></DT>
+
+<DD>
+&nbsp;</DD>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">if</FONT> (Debug)</FONT></TT></DT>
+
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">printf("Amask = 0x%x\n", amask);</FONT></TT></DT>
+</DL>
+</DIR>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">printf("Architecture mask\n");</FONT></TT></DT>
+</DL>
+</DIR>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">for</FONT> (i=0;i&lt;MAXAMASK;i++)
+{</FONT></TT></DT>
+</DL>
+
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">if</FONT> (Verbose &amp;&amp;
+(strncmp(amaskname[i], "unused", 6)))</FONT></TT></DT>
+</DL>
+
+<DIR>
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">printf(" %s: %s\n", amaskname[i], (amask &amp;
+(1&lt;&lt;i))?"YES":"NO");</FONT></TT></DT>
+</DL>
+</DIR>
+</DIR>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">else if</FONT> (!Quiet
+&amp;&amp; (amask &amp; (1&lt;&lt;i)))</FONT></TT></DT>
+</DL>
+
+<DIR>
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">printf(" %s\n", amaskname[i]);</FONT></TT></DT>
+</DL>
+</DIR>
+</DIR>
+</DIR>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">} <FONT COLOR="#008000">// code courtesy of
+Dave Wagner</FONT></FONT></TT></DT>
+</DL>
+<A NAME="MVIInstructionSet"></A>
+
+<P><B><FONT FACE="Courier New">MVI Instruction set description</FONT></B>
+
+<P><FONT FACE="Courier New">Alpha MVI code and x86 MMX code are used in
+the following examples. No judgements or comments about relative performance
+of similar code are made or implied. These two architectures are very different
+in their respective implementations. Keep in mind that RISC architectures
+in general will have more assembler instructions representing fewer clock
+cycles. It is likewise important to remember that if used improperly these
+instructions can stall both chips. These examples are in no way – the best
+way. Refer to the appropriate documentation for the best information on
+optimizing your code and preventing stalls. These are brute force examples
+of functionality only.</FONT>
+
+<P><FONT SIZE=-1>&nbsp;</FONT>
+
+<P><B><FONT FACE="Courier New">Unpack Instructions</FONT></B>
+
+<P><A NAME="UNPKBW"></A><FONT FACE="Courier New,Courier"><B>UNPKBW – </B>Unpack
+Bytes to Words expands the low four bytes in a quadword to four words in
+a quadword. This implies two unpacks to re-acquire all eight pixels.</FONT>
+
+<P><FONT FACE="Courier New">Packed Byte: 8 bytes packed into 64bits</FONT>
+<BR>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">REGISTER r1 at start</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="598" >
+<TR>
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+7</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+6</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+5</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+4</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="58"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="60"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Start with data as shown in this table representing
+a 64bit quadword with eight pixels represented as byte values. Assume this
+data is in 64bit register r1</FONT>
+
+<P><TT><FONT FACE="Courier New">Alpha MVI code</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">unpkbw&nbsp;&nbsp;&nbsp; r1, r5&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;
+// unpack the low four bytes into reg r5</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">srl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r1,
+32,&nbsp;&nbsp; r1 <FONT COLOR="#008000">// shift reg r1 right 32 bits,
+result in r1</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">unpkbw&nbsp;&nbsp;&nbsp; r1, r6&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// unpack the high four bytes into reg r6</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<TT><FONT FACE="Courier New">x86 MMX code</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">pxor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm6, mm6<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;
+// set mm6 = 0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm2, mm1<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;
+// mm2 = mm1</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">punpcklbw mm1, mm6&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;
+// unpack low four bytes into mm1</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">punpcklbh mm2, mm6&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;
+// unpack high four bytes into mm2</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 after unpkbw r1,r5</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="612" >
+<TR>
+<TD VALIGN=TOP WIDTH="24%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="24%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="24%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="28%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r1 after srl 32</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="612" >
+<TR>
+<TD VALIGN=TOP WIDTH="55"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="55"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="55"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="55"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="57"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+7</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="57"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+6</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+5</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="78"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+4</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New">Start with data as shown in this table representing
+a 64bit quadword with eight pixels represented</FONT>
+<BR>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 after unpkbw r1,r6</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="612" >
+<TR>
+<TD VALIGN=TOP WIDTH="24%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+7</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="24%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+6</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="24%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+5</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="28%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+4</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT SIZE=-1>&nbsp;</FONT>
+
+<P><A NAME="UNPKBL"></A><B><FONT FACE="Courier New,Courier">UNPKBL</FONT></B>
+<FONT FACE="Courier New,Courier">– Unpack Bytes to long words expands the
+low two bytes in a quadword to two long words in a quadword. This implies
+four unpacks to re-acquire all eight pixels. While this use would be used
+much less often here is how it looks.</FONT>
+
+<P><FONT FACE="Courier New">Packed Byte: 8 bytes packed into 64bits</FONT>
+<BR>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r1 at start</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="613" >
+<TR>
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+7</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+6</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+5</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+4</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="56"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="69"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="64"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Start with data as shown in this table representing
+a 64bit quadword with eight pixels represented as byte values. Assume this
+data is in 64bit register r1</FONT>
+
+<P><TT><FONT FACE="Courier New">Alpha MVI code</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New">unpkbl r1, r5&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#008000">&nbsp;
+// unpack the two low bytes into register r5</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">srl&nbsp;&nbsp;&nbsp; r1, 16, r1&nbsp; <FONT COLOR="#008000">//
+shift register r1 right 16 bits</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">unpkbl r1, r6&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;
+// unpack the next two bytes into register r6</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">srl&nbsp;&nbsp;&nbsp; r1, 16, r1&nbsp; <FONT COLOR="#008000">//
+shift register r1 right 16 bits</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">unpkbl r1, r7<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// unpack the next two bytes into register r7</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">srl&nbsp;&nbsp;&nbsp; r1, 16, r1&nbsp; <FONT COLOR="#008000">//
+shift register r1 right 16 bits</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">unpkbl r1, r8<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// unpack the next two bytes into register r8</FONT></FONT></TT></DD>
+</DL>
+</BLOCKQUOTE>
+<TT><FONT FACE="Courier New">x86 MMX code</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New">pxor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm6, mm6&nbsp;
+<FONT COLOR="#008000">// clear mm6</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm2, mm1<FONT COLOR="#008000">&nbsp;
+// mm2 = mm1</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">punpcklbw mm1, mm6&nbsp; <FONT COLOR="#008000">//
+unpack low four bytes into mm1</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">punpcklbh mm2, mm6&nbsp; <FONT COLOR="#008000">//
+unpack high four bytes into mm2</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm3, mm1<FONT COLOR="#008000">&nbsp;
+// mm3 = mm1</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">punpcklwd mm1, mm6&nbsp; <FONT COLOR="#008000">//
+unpack low two words into mm1</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">punpcklwd mm3, mm6&nbsp; <FONT COLOR="#008000">//
+unpack high two words into mm3</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm4, mm2<FONT COLOR="#008000">&nbsp;
+// mm4 = mm2</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">punpcklwd mm2, mm6&nbsp; <FONT COLOR="#008000">//
+unpack low two words into mm2</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">punpcklwd mm4, mm6&nbsp; <FONT COLOR="#008000">//
+unpack high two words into mm4</FONT></FONT></TT></DD>
+</DL>
+</BLOCKQUOTE>
+<FONT SIZE=-1>&nbsp;</FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="50%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="50%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="50%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="50%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r7</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="50%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+5</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="50%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+4</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r8</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="50%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+7</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="50%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+6</FONT></FONT></TD>
+</TR>
+</TABLE>
+<B>&nbsp;</B>
+
+<P><B><FONT FACE="Courier New">Pack Instructions</FONT></B>
+
+<P><A NAME="PACKWB"></A><B><FONT FACE="Courier New">PACKWB</FONT> </B>–
+Truncates the four (4) component words of the input register and writes
+them to the low four (4) bytes of the output register.
+<BR>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 at start of packwb</FONT>
+
+<P><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 at start of packwb</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+7</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+6</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+5</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+4</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT SIZE=-1>&nbsp;</FONT>
+
+<P><TT><FONT FACE="Courier New">Alpha MVI code</FONT></TT>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp; packwb&nbsp;
+r6, r6</FONT><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// pack four words (4) in low four (4) bytes Hi</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; packwb&nbsp; r5, r5&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;
+// pack four words (4) in low four (4) bytes Lo</FONT></FONT></TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sll&nbsp;&nbsp;&nbsp;&nbsp; r6, 32, r6&nbsp;&nbsp; <FONT COLOR="#008000">//
+shift the high four left</FONT></FONT></TT></DT>
+
+<DD>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; bis&nbsp;&nbsp;&nbsp;&nbsp;
+r5, r6, v0&nbsp;&nbsp; <FONT COLOR="#008000">// logical OR the two halves
+into v0</FONT></FONT></TT></DD>
+</DL>
+<TT><FONT FACE="Courier New">x86 MMX code&nbsp;</FONT></TT>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; packuswb mm0, mm1&nbsp;</FONT>&nbsp;
+<FONT FACE="Courier New"><FONT COLOR="#008000">// truncate and pack mm0
+and mm1 into mm0</FONT></FONT></TT></DD>
+</DL>
+<FONT SIZE=-2>&nbsp;</FONT>
+
+<P><FONT FACE="Courier New">SPECIAL NOTE: <FONT COLOR="#FF0000">the following
+three lines of MVI code will not work</FONT> because the upper four (4)
+bytes of the destination register are written with zero’s by packwb. Therefore
+the second packwb would write zero’s over the first pixels shifted data.</FONT>
+<DL>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New"><FONT COLOR="#FF0000">packwb r6, r6&nbsp;</FONT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<FONT COLOR="#008000">// get high four (4) bytes</FONT></FONT></TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;
+sll</FONT><FONT COLOR="#008000">&nbsp;</FONT>&nbsp;&nbsp; <FONT COLOR="#FF0000">r6,
+32, r6&nbsp;</FONT><FONT COLOR="#008000">&nbsp;&nbsp; // shift them over</FONT></FONT></TT></DT>
+
+<DD>
+<TT><FONT FACE="Courier New"><FONT COLOR="#FF0000">packwb r5, r6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT COLOR="#008000">// get low four (4) bytes will overwrite</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// the high four bytes with zero’s</FONT></FONT></TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#FF0000">&nbsp;</FONT></FONT></TT></DT>
+</DL>
+
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>&nbsp;</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DL>
+<FONT FACE="Courier New">Alpha REGISTER r5 after packwb r5,r5</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 after packwb r6,r6</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+7</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+6</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+5</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+4</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 after sll r6, 32, r6</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="591" >
+<TR>
+<TD VALIGN=TOP WIDTH="58"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+7</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="57"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+6</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="57"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+5</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="57"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+4</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="55"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="55"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="55"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=CENTER WIDTH="53"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER v0 after bis r5,r6,v0</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 >
+<TR>
+<TD VALIGN=TOP WIDTH="76"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+7</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="76"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+6</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="76"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+5</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="76"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+4</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="76"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="76"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="76"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+1</FONT></FONT></TD>
+
+<TD VALIGN=CENTER><FONT FACE="Courier New"><FONT SIZE=-1>Pixel 0</FONT></FONT></TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P><A NAME="PACKLB"></A><B><FONT FACE="Courier New">PACKLB </FONT>– Truncates
+the two (2) component long words in the input register to byte values and
+writes them to the low two (2) bytes of the output register.</B>
+<BR>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 at start</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="606" >
+<TR>
+<TD VALIGN=TOP WIDTH="49%"><FONT FACE="Courier New">Pixel 1</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="51%"><FONT FACE="Courier New">Pixel 0</FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 at start</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="606" >
+<TR>
+<TD VALIGN=TOP WIDTH="49%"><FONT FACE="Courier New">Pixel 3</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="51%"><FONT FACE="Courier New">Pixel 2</FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r7 at start</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="606" >
+<TR>
+<TD VALIGN=TOP WIDTH="49%"><FONT FACE="Courier New">Pixel 5</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="51%"><FONT FACE="Courier New">Pixel 4</FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r8 at start</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="606" >
+<TR>
+<TD VALIGN=TOP WIDTH="49%"><FONT FACE="Courier New">Pixel 7</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="51%"><FONT FACE="Courier New">Pixel 6</FONT></TD>
+</TR>
+</TABLE>
+<TT><FONT FACE="Courier New"></FONT></TT>&nbsp;<TT><FONT FACE="Courier New"></FONT></TT>
+
+<P><TT><FONT FACE="Courier New">Alpha MVI code</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">packlb&nbsp; r5, r5&nbsp;&nbsp;&nbsp;&nbsp;
+<FONT COLOR="#008000">// trunc and pack 2 dwords into 2 bytes</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">packlb&nbsp; r6, r6&nbsp;&nbsp;&nbsp;&nbsp;
+<FONT COLOR="#008000">// trunc and pack 2 dwords into 2 bytes</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">sll&nbsp;&nbsp;&nbsp;&nbsp; r6, 16, r6 <FONT COLOR="#008000">//
+shift pixels 3 and 2 into place</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp;&nbsp; r5, r6, r5 <FONT COLOR="#008000">//
+logical OR pixels 3 and 2 into r5</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">packlb&nbsp; r7, r7&nbsp;&nbsp;&nbsp;&nbsp;
+<FONT COLOR="#008000">// trunc and pack 2 dwords into 2 bytes</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">sll&nbsp;&nbsp;&nbsp;&nbsp; r7, 32, r7 <FONT COLOR="#008000">//
+shift pixels 5 and 4 into place</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp;&nbsp; r5, r7, r5 <FONT COLOR="#008000">//
+logical OR pixels 5 and 4 into r5</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">packlb&nbsp; r8, r8&nbsp;&nbsp;&nbsp;&nbsp;
+<FONT COLOR="#008000">// trunc and pack 2 dwords into 2 bytes</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">sll&nbsp;&nbsp;&nbsp;&nbsp; r8, 48, r8 <FONT COLOR="#008000">//
+shift pixels 7 and 6 into place</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp;&nbsp; r5, r8, r5 <FONT COLOR="#008000">//
+logical OR pixels 7 and 6 into r5</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 after packwl r5,r5</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 after packwl r6,r6</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 after sll r6,16,r6</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 after bis r5,r6,r5</FONT>
+<BR><FONT FACE="Courier New">Bit63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bit0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+3&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>Pixel
+0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r7 and r8 just repeat this sequence
+after shifting the correct number of bits.</FONT>
+
+<P>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New"><B>Byte and Word Minimum and Maximum</B> (MINxxx)
+(MAXxxx)</FONT>
+
+<P><A NAME="MINUB8"></A><B><TT><FONT FACE="Courier New">MINUB8 </FONT>Vector
+Unsigned Byte Minimum</TT></B>
+
+<P><A NAME="MINUW4"></A><B><TT><FONT FACE="Courier New">MINUW4 </FONT>Vector
+Unsigned Word Minimum</TT></B>
+
+<P><A NAME="MINSB8"></A><B><TT><FONT FACE="Courier New">MINSB8 </FONT>Vector
+Signed Byte Minimum</TT></B>
+
+<P><A NAME="MINSW4"></A><B><TT><FONT FACE="Courier New">MINSW4 </FONT>Vector
+Signed Word Minimum</TT></B>
+
+<P><A NAME="MAXUB8"></A><B><TT><FONT FACE="Courier New">MAXUB8 </FONT>Vector
+Unsigned Byte Maximum</TT></B>
+
+<P><A NAME="MAXW4"></A><B><TT><FONT FACE="Courier New">MAXW4&nbsp; </FONT>Vector
+Unsigned Word Maximum</TT></B>
+
+<P><A NAME="MAXSB8"></A><B><TT><FONT FACE="Courier New">MAXSB8 </FONT>Vector
+Signed Byte Maximum</TT></B>
+
+<P><A NAME="MAXSW4"></A><B><TT><FONT FACE="Courier New">MAXSW4 </FONT>Vector
+Signed Word Maximum</TT></B>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">These instructions take the form <B>MINxxx
+Ra,Rb,Rc</B></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<B>MAXxxx Ra,Rb,Rc</B></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<FONT FACE="Courier New">Where the values in register Ra are compared to
+the value in register Rb and the result is placed in register Rc. These
+are vector wise comparisons. That is each byte or each word is compared
+when using the xxxxB8 or xxxxW4 instructions respectively.</FONT>
+
+<P><FONT FACE="Courier New">Alpha MVI code</FONT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; minub8 r5, r6, r6 <FONT COLOR="#008000">//
+get the minimum’s in each BYTE position</FONT></FONT></TT>
+<BR>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 at start</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 at start</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 after calling minub8 r5,r6,r6</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT SIZE=-1>&nbsp;</FONT>
+
+<P><FONT FACE="Courier New">Alpha MVI code</FONT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; minuw4 r5, r6, r6 <FONT COLOR="#008000">//
+get the minimum’s in each WORD position</FONT></FONT></TT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 at start</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x00FF</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 at start</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x00F3</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 after call to minuw4 r5,r6,r6</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001</FONT></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="PERR"></A>
+
+<P>&nbsp;
+
+<P><A NAME="PERR"></A><FONT FACE="Courier New"><B>PERR</B> (Pixel Error)</FONT>
+
+<P><FONT FACE="Courier New">This instruction takes the eight bytes packed
+into two quadword registers and computes the absolute differences between
+them, then adds the eight intermediate results and right aligns the result
+in the destination register. The net result is that motion estimation calculations
+on eight pixels can be done in a single clock tick on an MVI capable Alpha.</FONT>
+
+<P><FONT FACE="Courier New">Paul Rubinfeld, Bob Rose and Michael McCallig
+present several very good examples of applications that use PERR in their
+paper entitled "Motion Video Extensions for Alpha." Look in Helpful URL’s
+for more information.</FONT>
+
+<P><TT><FONT FACE="Courier New">Alpha MVI code</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; perr r5,r6,v0</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">x86 MMX code</FONT></TT>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp; mm2,mm0 <FONT COLOR="#008000">//
+copy mm0 to mm2</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">psubusb&nbsp; mm0,mm1 <FONT COLOR="#008000">//
+compute difference one way</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">psubusb&nbsp; mm1,mm2 <FONT COLOR="#008000">//
+compute difference the other way</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">por&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm0,mm1
+<FONT COLOR="#008000">// OR the results together</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">loop:</FONT></FONT>&nbsp;&nbsp;&nbsp;<FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// perform some loop or other logic to add the 8 bytes</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// in a quadword together and place the result in a</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// quadword register</FONT></FONT></TT></DD>
+</DL>
+&nbsp;
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 at start</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 at start</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Intermediate Absolute Differences</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>2</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>1</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Sum of Absolute Differences placed in Alpha
+REGISTER V0 (64bit)</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="13%"><FONT FACE="Courier New"><FONT SIZE=-1>7</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT SIZE=-1>&nbsp;</FONT>
+
+<P><A NAME="HOWMVIUSED"></A>
+
+<P><B>&nbsp;</B> <B><FONT FACE="Courier New">How MVI instructions are used
+in software</FONT></B>
+
+<P><FONT FACE="Courier New,Courier">In this section, we give some guidelines
+and examples for using the instructions above.&nbsp; The first issue is
+whether you are writing code for just one type of machine or not.&nbsp;
+The section on D<A HREF="#DetectingMVI">etecting MVI</A></FONT>
+<BR><FONT FACE="Courier New,Courier">was usful for determining at runtime
+whether the current Alpha machine has MVI.&nbsp; You might be writing the
+same code for multiple architectures,</FONT>
+<BR><FONT FACE="Courier New,Courier">so you may need to test first to determine
+if the current machine is an Alpha.&nbsp; The following section on potable
+coding explains that.&nbsp; The other subsections describe how to do a
+bytewise add with saturation as well as a simple convolution filter.</FONT>
+<BR>&nbsp;
+
+<P><A NAME="PortableCoding"></A>
+
+<P><B><FONT FACE="Courier New"><FONT SIZE=-1>Portable Coding Techniques</FONT></FONT></B>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// somewhere in your
+code declare a function pointer</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">void </FONT><FONT COLOR="#000000">(*videoProcessingFunctionPointer)(</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#0000FF">unsigned char</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">*someParameter );</FONT></FONT></TT></DT>
+
+<DD>
+<FONT COLOR="#008000">&nbsp;</FONT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// then declare your
+multimedia functions using any combination of</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// MMX – MVI – inline
+assembler – or whatever</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// make sure you surround
+them with the #ifdef _M_ALPHA MACRO</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#if </FONT>((defined(_M_ALPHA)
+|| defined(_alpha)) &amp;&amp; ( defined(_MSC_VER) || defined(__DECC))</FONT></TT></DT>
+
+<DT>
+<FONT COLOR="#008000">&nbsp;</FONT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// declare your function
+that uses MVI</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">void</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">functionUsingMVI(</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#0000FF">unsigned char</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">*someData)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">{</FONT></FONT></TT></DT>
+
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// some process using
+MVI</FONT></FONT></TT></DT>
+</DL>
+</DIR>
+</DL>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">}</FONT></FONT></TT>
+<DL>
+<DD>
+<FONT COLOR="#008000">&nbsp;</FONT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// declare your function
+that does not use MVI</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">void</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">functionWithoutMVI(</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#0000FF">unsigned char</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">*someData)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">{</FONT></FONT></TT></DT>
+
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// same process but
+without MVI instructions</FONT></FONT></TT></DT>
+</DL>
+</DIR>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}</FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#else</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// declare your x86
+version that uses MMX instructions</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">void</FONT> FunctionUsingMMX(
+<FONT COLOR="#0000FF">unsigned char</FONT> *someData )</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">{</FONT></TT></DT>
+
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// same process using
+x86 MMX code</FONT></FONT></TT></DT>
+</DL>
+</DIR>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}</FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#endif</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// somewhere in the
+initialization portion of you program</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#if</FONT> ((defined(_M_ALPHA)
+|| defined(_alpha)) &amp;&amp; ( defined(_MSC_VER) || defined(__DECC))</FONT></TT></DT>
+</DL>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// setup the function
+pointer by testing for MVI support</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">if</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">( thisProcessorHas( SUPPORT_FOR_MVI ) )</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; //+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; //
+we can use MVI</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; //
+point the function pointer at the MVI function</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; //-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp; videoProcessingFunctionPointer
+= functionUsingMVI;</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">else</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; //+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; //
+we can not use MVI</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; //
+point at the NON MVI version of the function</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; //-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp; videoProcessingFunctionPointer
+= functionWithoutMVI;</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#else</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;</FONT></TT></DT>
+</DL>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// we are building for
+x86 MMX point at that code</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">videoProcessingFunctionPointer
+= FunctionUsingMMX;</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<DL>
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#endif</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// THEN FINALLY IN THE
+PROGRAM BODY</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">getMyData( &amp;myVideoData ); <FONT COLOR="#008000">//
+get some data</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// call the desired
+function through the pointer</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// it will be pointing
+at the best fit function on this platform</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">(*videoProcessingFunctionPointer)( &amp;myVideoData
+); <FONT COLOR="#008000">// our multimedia code</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New">processMyDataSomeMore( &amp;myVideoData );</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">displayMyData( &amp;myVideoData );</FONT></TT></DT>
+</DL>
+<B><FONT FACE="Courier New"></FONT></B>
+
+<P><A NAME="SatAdd"></A>
+<BR><B><FONT FACE="Courier New">Unsigned Saturating Arithmetic</FONT></B>
+
+<P><FONT FACE="Courier New">The current versions of MVI do not have explicit
+byte- or word-partitioned arithmetic operations, but it is possible to
+produce the same results with multiple instructions. First we explain why
+one would want a saturating add.&nbsp; Consider the following situation.
+Suppose we want to blend two pixels by adding their red, green, and blue
+values together and dividing by two (shift right one bit). For example,
+if a simple add is applied to the 16-bit values shown below and then truncated
+to 16 bits the answer is actually less than both of the addends, and the
+shifted value will not be the average. The rest of the answer is in the
+most significant bit or in this case bit 17. Applying this to the green
+component of a pixel’s color value (assuming that 16 bits are used to represent
+each color), blending these two medium green pixels together would result
+in a pixel that is lighter green than the original two. Additionally, since
+pixel intensities or colors can only range from all of a color - 0xFFFF
+to none of a color – 0x0000, bit 17 is meaningless to us in terms of "greenness."</FONT>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New">Simple Add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1111 0000 0000 0000&nbsp; (0xF000)</FONT></TT></DD>
+<TT><FONT FACE="Courier New"></FONT></TT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp; 0011 0000 0000 0000&nbsp; (0x3000)</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">Result truncated to 16bits 0010 0000 0000
+0000&nbsp; (0x2000)</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">Right shifted value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0x1000 (not the result we desire)</FONT></TT></DL>
+&nbsp;
+
+<P><FONT FACE="Courier New">Unsigned saturating arithmetic causes values
+that would overflow to be "clamped" to the maximum possible value (0xFFFF)
+and values that would underflow to be "clamped" to the minimum (0x0000).
+A saturating add of these two green pixels overflows 16 bits and therefore
+gets "clamped" to a maximum value of 0xFFFF which is a much better representation
+of the color expected after blending two medium green pixels.</FONT>
+<DL><TT><FONT FACE="Courier New">Saturating Add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0xF000</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x3000</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">result "clamped" to maximum 0xFFFF</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">right shift with rounding&nbsp;&nbsp; 0x8000
+( much better )</FONT></TT></DL>
+&nbsp;
+
+<P><FONT FACE="Courier New">In practice, a better solution might be to
+first do the division by two and then add the results, in which case overflow
+is not a real problem. However, the conversion from YUV video representation
+to RGB representation is a problem that requires saturated arithmetic,
+where the data are all unsigned byte. The equation for this conversion
+is given by</FONT>
+<DIR>
+<DIR>
+<DIR>
+<DIR><FONT FACE="Courier New">R = 1.1644*Y + 1.5966*V – 16</FONT></DIR>
+</DIR>
+</DIR>
+</DIR>
+<FONT FACE="Courier New">If Y and V are both close to 255, then the result
+will be greater than 255, and saturated arithmetic will be needed. Another
+example is pixel filtering, which is discussed below.</FONT>
+
+<P><TT>&nbsp;</TT>
+
+<P><B><TT><FONT FACE="Courier New">Alpha MVI "unsigned saturating add for
+packed words"</FONT></TT></B>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New">eqv&nbsp;&nbsp;&nbsp; r6, zero, t0 <FONT COLOR="#008000">//
+1’s complement of r6</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">minuw4 r5, t0,&nbsp;&nbsp; r5 <FONT COLOR="#008000">//
+get the smaller values</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; r5, r6,&nbsp;&nbsp; v0 <FONT COLOR="#008000">//
+add r6 to r5 and place in v0</FONT></FONT></TT></DD>
+</DL>
+&nbsp;Note that for unsigned packed bytes, just replace <FONT FACE="Courier New,Courier">minuw4</FONT>
+with <FONT FACE="Courier New,Courier">minub8.</FONT>
+<BR>&nbsp;
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 at start</FONT>
+<BR><FONT FACE="Courier New">Pixel 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Pixel 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pixel 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Pixel 0</FONT>
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0xFFFF</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 at start</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0xFFFF</FONT></FONT></TD>
+</TR>
+</TABLE>
+&nbsp;
+
+<P><FONT FACE="Courier New">What happens?</FONT>
+
+<P><FONT FACE="Courier New">First we take the 1’s complement of register
+r6. The "eqv" instruction does a more general operation than implied by
+the comment. The "eqv" instruction alone is Rc&lt;- Ra XOR (NOT Rb), therefore
+when Rb is zero (NOT Rb) is all 1’s and that XOR anything will flip the
+bits or produce the 1’s compliment. Why do we want the 1’s compliment of
+r6? Well first of all it would work with either r5 or r6 as long as we
+called minuw4 using whichever register we took the 1’s compliment of. The
+1’s compliment is the largest number we can add to the original number
+and not overflow. Knowing that piece of information, we simply pick the
+smaller of this pixels 1’s compliment or the corresponding pixels original
+value and do the addition. Since we picked the smallest number from a set
+of numbers containing the largest value that would not overflow, we are
+guaranteed not to overflow.</FONT>
+<BR>&nbsp;
+
+<P><FONT FACE="Courier New">Alpha REGISTER t0 after call to eqv r6,zero,t0</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0xFFFF&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0xFFFE&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0xFFFF</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 after call to minuw4 r5,t0,r5</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0xFFFE&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER v0 after call to addq r5,r6,v0</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0xFFFF&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0xFFFF</FONT></FONT></TD>
+</TR>
+</TABLE>
+<TT>&nbsp;</TT>
+
+<P><B><TT><FONT FACE="Courier New">Alpha MVI "unsigned saturating subtract
+of packed words"</FONT></TT></B>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New">minuw4 r5, r6, r6 <FONT COLOR="#008000">//
+get the minimums at each word</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">subq&nbsp;&nbsp; r5, r6, v0 <FONT COLOR="#008000">//
+subtract r6 from r5 and place in v0</FONT></FONT></TT></DD>
+</DL>
+<FONT SIZE=-1>&nbsp;</FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r5 at start</FONT>
+<BR><FONT FACE="Courier New">Pixel 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Pixel 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pixel 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Pixel 0</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x00FF</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 at start</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x00F3</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Courier New"></FONT>&nbsp;<FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">Alpha REGISTER r6 after call to minuw4 r5,r6,r6</FONT>
+<BR>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0001</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT SIZE=-1>&nbsp;</FONT>
+
+<P><FONT FACE="Courier New">What happens?</FONT>
+
+<P><FONT FACE="Courier New">When we started Pixel 0 or the low word in
+r5 = 0x0001 and in r6 = 0x00F3 subtracting r6 from r5 would result in a
+value that exceeds the limits of an unsigned 16-bit word i.e. something
+negative (-242). Recall the behavior of "clamping" to the minimum value
+– that is the effect achieved when all the minimum pixel values are placed
+in the r6 register and then subtracted from the original r5 register values.
+If the minimum pixel value was in r6 as is the case with Pixel 2, then
+the simple unsigned subtract results in a value that is less than the original
+but greater than the minimum value. If however the minimum value was in
+r5 then that value is moved to r6 by the minuw4 instruction and ultimately
+subtracted from itself resulting in zero, "clamped" to the minimum unsigned
+value.</FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Alpha REGISTER V0 after call to subq r5,r6,v0</FONT>
+<BR><FONT FACE="Courier New">Pixel 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Pixel 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pixel 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Pixel 0</FONT>&nbsp;
+<TABLE BORDER CELLPADDING=7 WIDTH="590" >
+<TR>
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x00FE&nbsp;</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+
+<TD VALIGN=TOP WIDTH="25%"><FONT FACE="Courier New"><FONT SIZE=-1>0x0000</FONT></FONT></TD>
+</TR>
+</TABLE>
+<B><FONT SIZE=-1>&nbsp;</FONT></B>
+
+<P><B><FONT FACE="Courier New">Simple Pixel Filtering Example</FONT></B>
+
+<P><FONT FACE="Courier New">Consider a two dimensional array or bitmap
+of 32bit pixel values arranged as RGBA. Where the RGBA (Red Green Blue
+and Alpha) values are represented in the four 8bit components of a 32bit
+unsigned long. A simple convolution filter will replace each pixel by the
+weighted sum of the values of the pixels surrounding it.&nbsp; This is
+done independently for RGBA.&nbsp; A typical filter algorithm might employ
+a loop as in the following "C" language example. The algorithm will have
+<I>high memory bandwidth</I>. It is <I>Byte/Word</I> Integer Data and can
+take advantage of <I>parallelism</I>. These are the qualifiers for using
+MVI.</FONT>
+
+<P><TT><FONT FACE="Courier New">Loop on row</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">&nbsp; Loop on column</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">Red&nbsp;&nbsp; = 0; <FONT COLOR="#008000">//
+clear accumulators</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">Green = 0;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">Blue&nbsp; = 0;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">Alpha = 0;</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE><TT><FONT FACE="Courier New"><FONT COLOR="#008000">// loop
+on some filter length and pull out the RGBA components</FONT></FONT></TT>
+
+<P><TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">for</FONT> ( x=0
+x&lt; length of filter ; x++) {</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">temp = ((inputArray[ row ] [ col ] >> 24 )
+&amp;&amp; 0xFF);</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">Red += temp * filterValue[x];</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">temp = ((inputArray[ row ] [ col ] >> 16 )
+&amp;&amp; 0xFF);</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">Green += temp * filterValue[x];</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">temp = ((inputArray[ row ] [ col ] >> 8 )
+&amp;&amp; 0xFF);</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">Blue += temp * filterValue[x];</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">temp = ((inputArray[ row ] [ col ] ) &amp;&amp;
+0xFF);</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">Alpha += temp * filterValue[x];</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<TT><FONT FACE="Courier New">}</FONT></TT></BLOCKQUOTE>
+</BLOCKQUOTE>
+<TT><FONT FACE="Courier New">Alpha MVI code stub (the result is left in
+a 16 bit value which would need to be shifted and packed into 8 bits again)</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// work on 2 pixels
+at a time ( 64bits)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">addl&nbsp;&nbsp;&nbsp;
+a1, t8, t11 </FONT><FONT COLOR="#008000">// t11=addr of data t8=offs to
+current pixels (2)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">ldq&nbsp;&nbsp;&nbsp;&nbsp;
+t4, 0(t11)&nbsp; </FONT><FONT COLOR="#008000">// get 2 pixels from array</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">unpkbw&nbsp; t4, t0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT COLOR="#008000">// unpack low four bytes RGBA</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">srl&nbsp;&nbsp;&nbsp;&nbsp;
+t4, 32, t4&nbsp; </FONT><FONT COLOR="#008000">// shift the high four bytes</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">unpkbw&nbsp; t4, t1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT COLOR="#008000">// unpack the high four bytes RGBA</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// t5 holds the filter
+value</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">mulq&nbsp;&nbsp; t5,
+t0, t0&nbsp;&nbsp; </FONT><FONT COLOR="#008000">// multiply RGBA of pixel
+1 by filter value</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">mulq&nbsp;&nbsp; t5,
+t1, t1&nbsp;&nbsp; </FONT><FONT COLOR="#008000">// multiply RGBA of pixel
+2 by filter value</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// unsigned saturating
+adds for RGBA accumulators</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// r6 pixel 1 RGBA accumulator</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">eqv&nbsp;&nbsp;&nbsp;
+t0, zero, r6 </FONT><FONT COLOR="#008000">// 1’s compliment of t0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">minuw4 t0, r6,&nbsp;&nbsp;
+t0 </FONT><FONT COLOR="#008000">// get the smaller values</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">addq&nbsp;&nbsp; r6,
+t0,&nbsp;&nbsp; r6 </FONT><FONT COLOR="#008000">// accumulate RGBA’s pixel
+1</FONT></FONT></TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// r5 pixel 2 RGBA accumulator</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">eqv&nbsp;&nbsp;&nbsp;
+t1, zero, r5 </FONT><FONT COLOR="#008000">// 1’s compliment of t0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">minuw4 t1, r5,&nbsp;&nbsp;
+t1 </FONT><FONT COLOR="#008000">// get the smaller values</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">addq&nbsp;&nbsp; r5,
+t1,&nbsp;&nbsp; r5 </FONT><FONT COLOR="#008000">// accumulate RGBA’s pixel
+2</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<A NAME="SIDEBYSIDE"></A>
+
+<P><B><FONT SIZE=-1>&nbsp;</FONT><FONT FACE="Courier New">A Side-by-Side
+Example of Alpha MVI and x86 MMX</FONT></B>
+
+<P><FONT FACE="Courier New">This example is a loop used to blend pixel
+values.</FONT>
+
+<P><FONT FACE="Courier New">First – A "C" code example</FONT>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//&nbsp;&nbsp; BlendWithoutMVI</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">void</FONT> BlendWithoutMVI(
+UCHAR* pInputA, UCHAR* pInputB, UCHAR* pOutput )</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">{</FONT></TT></DT>
+</DL>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">unsigned char</FONT>
+*frontImage;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">unsigned char</FONT>
+*backImage;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">unsigned char</FONT>
+*output;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">long</FONT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+l_lImgSizeX;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">long</FONT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+l_lSizeY;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">long</FONT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+y;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">unsigned long</FONT>&nbsp;
+pixelInLine;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">unsigned long</FONT>&nbsp;
+x;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">unsigned short</FONT>
+usFront;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">unsigned short</FONT>
+usBack;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">unsigned short</FONT>
+usTemp;</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ImgSizeX&nbsp;&nbsp; = 720;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ImgSizeX&nbsp; >= 2;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">SizeY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 486;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">frontImage = pInputB;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">backImage&nbsp; = pInputA;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">output&nbsp;&nbsp;&nbsp;&nbsp; = pOutput;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 0;</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">do</FONT> {</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pixelInLine = ImgSizeX;</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+do</FONT> {</FONT></TT></DT>
+</DL>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// replace MVI code
+with loop</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">for</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">( x=0;x&lt;8;x++ ) {</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">usFront&nbsp;&nbsp; = ((<FONT COLOR="#0000FF">unsigned
+short</FONT>)(frontImage[x] &amp; 0x00ff));</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">usBack&nbsp;&nbsp;&nbsp; = ((<FONT COLOR="#0000FF">unsigned
+short</FONT>)(backImage[x] &amp; 0x00ff));</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">usFront&nbsp; -= usBack;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">usFront&nbsp; *= s_ubAlpha;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">usFront&nbsp; += 0x0080;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">usTemp&nbsp;&nbsp;&nbsp; = usFront;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">usTemp&nbsp; >>= 8;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">usFront&nbsp; += usTemp;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">usFront >>= 8;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">usFront&nbsp; += usBack;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">output[x] = (<FONT COLOR="#0000FF">unsigned
+char</FONT>)( usFront &amp; 0x00ff );</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">pixelInLine--;</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// move the pointers
+up to the new offset</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">frontImage += 8;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">backImage&nbsp; += 8;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">output&nbsp;&nbsp;&nbsp;&nbsp; += 8;</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">} <FONT COLOR="#0000FF">while</FONT> ( pixelInLine
+> 0 );</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">y++;</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}<FONT COLOR="#0000FF">while</FONT> ( y &lt;
+l_lSizeY );</FONT></TT></DT>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">s_ubAlpha--;</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<TT><FONT FACE="Courier New">}</FONT></TT>
+
+<P><TT>&nbsp;</TT>
+
+<P><TT>&nbsp;</TT>
+
+<P><TT><FONT FACE="Courier New">Next – x86 MMX Code as inline assembler
+in a "C" file.</FONT></TT>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//&nbsp;&nbsp; BlendUsingMMX</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//-</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">void</FONT> BlendUsingMMX(
+UCHAR* pInputA, UCHAR* pInputB, UCHAR* pOutput )</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">{</FONT></TT></DT>
+</DL>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">LONG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ImgSizeX = 720;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">LONG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SizeY&nbsp;&nbsp;&nbsp; = 486;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">LONG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+y;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">static __int64</FONT>&nbsp;&nbsp;
+ROUND&nbsp;&nbsp;&nbsp; = 0x0080008000800080;</FONT></TT></DT>
+
+<DD>
+<TT><FONT FACE="Courier New">static __int64 mmAlphaValue = 0x00FF00FF00FF00FF;</FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">&nbsp;</FONT></TT></DD>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// l_mmAlphaValue should
+have A | A | A | A</FONT></FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">__asm</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">{</FONT></TT></DT>
+
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">pxor mm6, mm6&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Clear mm6...</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">movq mm5, mmAlphaValue <FONT COLOR="#008000">//
+mm5 = A | A | A | A</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">movq mm7, ROUND</FONT></TT></DT>
+</DL>
+</DIR>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">}</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">for</FONT> ( y = 0;
+y &lt; SizeY; y++) {</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">__asm</FONT> {</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+esi, pInputB&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">// esi
+is the front image</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+edi, pInputA&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">// edi
+is the back image</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+edx, pOutput&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">// edx
+is the output image</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">xor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ebx, ebx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">//
+ebx = 0, pixel offset</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ecx, ImgSizeX&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">// ecx = for
+counter for pixel in line</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">shr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ecx, 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">//
+Processing 4 pixels at a time</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">jz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+finisha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">//
+Skip if no pixels to process</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE><TT><FONT FACE="Courier New">loopa:</FONT></TT></BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm0, [esi
++ ebx] <FONT COLOR="#008000">// mm0 = Front[0:7]</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm2, [edi
++ ebx] <FONT COLOR="#008000">// mm2 = Back [0:7]</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm1, mm0&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm1 = mm0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm3, mm2</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">punpcklbw mm0, mm6&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm0 = Front[0:3]</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">punpckhbw mm1, mm6&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm1 = Front[4:7]</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">punpcklbw mm2, mm6&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm2 = Back [0:3]</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">punpckhbw mm3, mm6&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm1 = Back [4:7]</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">psubw&nbsp;&nbsp;&nbsp;&nbsp;
+mm0, mm2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">//
+mm0 = Front - Back [0:3]</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">psubw&nbsp;&nbsp;&nbsp;&nbsp;
+mm1, mm3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">//
+mm1 = Front - Back [4:7]</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">pmullw&nbsp;&nbsp;&nbsp; mm0, mm5&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm0 = FB0 * Alpha</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">pmullw&nbsp;&nbsp;&nbsp; mm1, mm5&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm1 = FB1 * Alpha</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">paddw&nbsp;&nbsp;&nbsp;&nbsp; mm0, mm7&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm0 = FB0 * Alpha + ROUND = C0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">paddw&nbsp;&nbsp;&nbsp;&nbsp; mm1, mm7&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm1 = FB1 * Alpha + ROUND = C1</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm2, mm0&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm2 = C0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mm3, mm1&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm3 = C1</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">psrlw&nbsp;&nbsp;&nbsp;&nbsp; mm0, 8&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm0 = C0 >> 8</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">psrlw&nbsp;&nbsp;&nbsp;&nbsp; mm1, 8&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm1 = C1 >> 8</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">paddw&nbsp;&nbsp;&nbsp;&nbsp; mm0, mm2&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm0 = C0 + (C0 >> 8)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">paddw&nbsp;&nbsp;&nbsp;&nbsp; mm1, mm3&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm1 = C1 + (C1 >> 8)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">psrlw&nbsp;&nbsp;&nbsp;&nbsp; mm0, 8&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm0 = Result Pixel 0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">psrlw&nbsp;&nbsp;&nbsp;&nbsp; mm1, 8&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm1 = Result Pixel 1</FONT></FONT></TT></DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">packuswb&nbsp; mm0, mm1&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// mm0 = Result [0:7]</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">paddb&nbsp;&nbsp;&nbsp;&nbsp; mm0, [edi +
+ebx] <FONT COLOR="#008000">// Add the back (Cached)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">movq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [edx +
+ebx], mm0 <FONT COLOR="#008000">// Store the result</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ebx,
+8&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Goto next pixel</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">dec&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ecx&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// decrement counter</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">jg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+loopa</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<TT><FONT FACE="Courier New">finisha:</FONT></TT>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esi,
+ebx&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Increment the pointers</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; edi,
+ebx</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; edx,
+ebx</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eax,
+ebx</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pOutput,
+edx&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; // Store back the pointers</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pInputB,
+esi</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pInputA,
+edi</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE><TT><FONT FACE="Courier New">}</FONT></TT></BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE><TT><FONT FACE="Courier New">}</FONT></TT></BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">__asm</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">emms</FONT><FONT COLOR="#008000"> // Clear
+the MMX Status</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<TT><FONT FACE="Courier New">}&nbsp; <FONT COLOR="#008000">// code adapted
+from a performance test example provided by Richard Fuoco</FONT></FONT></TT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">Now - Alpha MVI Code as an Alpha Assembler
+implementation</FONT></TT>
+<DL>
+<DT>
+<TT><FONT COLOR="#008000">&nbsp;</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#include</FONT><FONT COLOR="#000000">
+&lt;kxalpha.h></FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//+</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// blend.S</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// use asaxp.exe to
+make an .obj file from this source and link it to</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// your "C" program.</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// c:\your-command-line>asaxp
+blend.s</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// ----- BlendUsingMVI
+------------------------------------------------------</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// "C" declaration</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// extern void BlendUsingMVI(&nbsp;
+UCHAR* pInputA,</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UCHAR* pInputB,</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UCHAR* pOutput,</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+__int64 fadeValue )</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// Register Usage:</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// on entry...</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// a0 holds the address
+of the Back image (parameter 1)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// a1 holds the address
+of the Front Image (parameter 2)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// a2 holds the address
+of the Output buffer (parameter 3)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// a3 holds the fade
+value (parameter 4)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// FYI. The first integer
+parameters always go here.</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// a0 - a5 is an alias
+for the integer registers r16-r21</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// If these were floating
+point values they would go in f16-f21</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// respectively.</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// mixed parameters
+i.e. int, int, float</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// are placed in their
+respective registers in order</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// therefore the first
+two integer parameters will be in</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// a0 and a1 (that is
+r16-r17) and the float will</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// be in f18 (NOT f16)
+because it is the third parameter</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// working registers</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// t0 four bytes of
+the packed pixels of the front image</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// t2 four bytes of
+the packed pixels of the back image</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// t4 temporary storage</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// t5 temporary storage</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// t6 temporary storage</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// t9 used as counter
+pixelsInLine</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// it is hard coded
+to (720 >> 2 ) or 180 in this NTSC example</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// it is divided/shifted
+because we consume 4 pixels (4 bytes) at a time</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// t10 used as a loop
+counter (y in the "C" example) y&lt;l_lSizeY</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// this is hard coded
+to 486 in this NTSC example</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// t11 used as a "C"
+pointer into memory</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// notice right after
+loopa: I add the offset in t8</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// to the address in
+a1 and store it in t11</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// this yields the pointer
+0(t11)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">// 0(t11) reads as zero
+bytes off of the address in t11</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">//</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#define</FONT><FONT COLOR="#008000">
+</FONT><FONT COLOR="#000000">byteMask 0xff</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#define </FONT><FONT COLOR="#000000">_ROUND_&nbsp;
+0x0080008000800080</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">#define </FONT><FONT COLOR="#000000">wordMask
+0xff00ff00ff00ff00</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#3366FF">#define</FONT><FONT COLOR="#000000">
+</FONT>mviAlphaValue 0x00FF00FF00FF00FF</FONT></TT></DT>
+
+<DD>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;</FONT></FONT></TT></DD>
+</DL>
+<TT><FONT FACE="Courier New">LEAF_ENTRY(BlendUsingMVI)</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">mov&nbsp; 486,&nbsp;&nbsp;&nbsp;&nbsp;
+t10</FONT><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // top of
+for ( y=0;y&lt;l_lSizeY )</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">mov&nbsp; _ROUND_</FONT>,
+t6</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<TT><FONT FACE="Courier New">loopy:</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// we are just doing it as a do loop</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// and counting down from 486 to 0</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">mov&nbsp; 720, t9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</FONT><FONT COLOR="#008000">// pixels in line is 720</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">srl&nbsp; t9,&nbsp;
+2, t9&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">// processing 4 pixels
+at a time</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">ble&nbsp; t9,&nbsp;
+finisha&nbsp; </FONT><FONT COLOR="#008000">// test to see if we have some
+pixels</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// to process I know we will it's hard coded</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// in this example to (720 >> 2) or (180)</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<TT><FONT FACE="Courier New">loopa:</FONT></TT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; ldl&nbsp;&nbsp;&nbsp;
+t4,&nbsp; 0(a0)&nbsp;&nbsp;&nbsp; <FONT COLOR="#008000">// front</FONT></FONT></TT>
+<BR><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; ldl&nbsp;&nbsp;&nbsp;
+t5,&nbsp; 0(a1)&nbsp;&nbsp;&nbsp; <FONT COLOR="#006600">// back</FONT></FONT></TT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; unpkbw t4,&nbsp; t0&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// unpack four bytes</FONT></FONT></TT>
+<BR><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; unpkbw t5,&nbsp; t2&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// unpack four bytes</FONT></FONT></TT>
+<BR>&nbsp;
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; subq&nbsp;&nbsp; t0,&nbsp;
+t2, t0&nbsp;<FONT COLOR="#008000">&nbsp; // t0 holds (front - back) [0:3]</FONT></FONT></TT></DT>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; mulq&nbsp;&nbsp; t0,&nbsp;
+a3, t0&nbsp;<FONT COLOR="#008000">&nbsp; // t0 *= s_ubAlpha</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; addq&nbsp;&nbsp; t0,&nbsp;
+t6, t0&nbsp;&nbsp; <FONT COLOR="#008000">// t0 += _ROUND_ = c1</FONT></FONT></TT></DT>
+</DL>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#000000">addq&nbsp;&nbsp;
+t0,&nbsp; t2, t0</FONT><FONT COLOR="#008000">&nbsp;&nbsp; // add back</FONT></FONT></TT>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; srl&nbsp;&nbsp;&nbsp; t0,&nbsp;
+8,&nbsp; t0&nbsp;<FONT COLOR="#008000">&nbsp; // shift top 8 into byte
+position</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; pkwb&nbsp;&nbsp; t0,&nbsp;
+t0&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// t0 holds low 4 bytes</FONT></FONT></TT></DT>
+</DL>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#000000">stl&nbsp;&nbsp;&nbsp;
+t0,&nbsp; 0(a2)</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp; lda&nbsp;&nbsp;&nbsp;
+t9,&nbsp; -1(t9)</FONT></FONT></TT></DT>
+</DL>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#000000">lda&nbsp;&nbsp;&nbsp;
+a0,&nbsp; 4(a0)</FONT></FONT></TT>
+<BR><TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp;
+lda&nbsp;&nbsp;&nbsp; a1,&nbsp; 4(a1)</FONT></FONT></TT>
+
+<P><TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp;
+lda&nbsp;&nbsp;&nbsp; a2,&nbsp; 4(a2)</FONT></FONT></TT>
+<BR><TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp;
+bgt&nbsp;&nbsp;&nbsp; t9,&nbsp; loopa</FONT></FONT></TT>
+<DT>
+<TT><FONT FACE="Courier New">finisha:</FONT></TT></DT>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">lda&nbsp;&nbsp; t10,&nbsp;
+-1(t10)&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">// bottom
+of for ( y=0;y&lt;486;x++ )</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">bgt&nbsp;&nbsp; t10,&nbsp;
+loopy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#008000">// in
+this case it is a while loop</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; ret zero, (ra)</FONT></TT></DT>
+</DL>
+<TT><FONT FACE="Courier New">.end BlendUsingMVI</FONT></TT>
+<BR>&nbsp;
+
+<P><TT><FONT FACE="Courier New"><FONT SIZE=-1>&nbsp;</FONT></FONT></TT>
+
+<P><A NAME="OPTIMIZE"></A><B><FONT FACE="Courier New"><FONT SIZE=+1>Additional
+techniques to optimize code</FONT></FONT></B>
+
+<P><FONT FACE="Courier New">To get maximum performance, it is necessary
+to take advantage of parallelism and to optimize cache performance. Of
+course, one of the basic features of the Alpha processors is instruction
+level parallelism (ILP) or superscalar implementation. This means that
+multiple instructions can be issued in a single cycle. In addition, there
+is SIMD parallelism that is supported by MVI in the form of byte- and word-segmented
+instructions. This feature can be used in two ways: the CPU can do more
+operations per cycle or it can do the same number of operations with fewer
+registers. A third type of parallelism is software pipelining, which makes
+better use of the superscalar design.</FONT>
+
+<P><FONT FACE="Courier New">One of the problems with using ILP is filling
+all of the issue slots with instructions that are ready and can be co-issued.
+It is often the case that different iterations of a loop will be independent
+or weakly dependent (the beginning of an iteration only depends on the
+beginning of an earlier iteration). The idea of software pipelining is
+to have more than one iteration of a loop executing at the same time. The
+iterations are initiated at constant intervals of cycles.</FONT>&nbsp;&nbsp;
+<FONT FACE="Courier New,Courier">For example, suppose the body of a loop
+can be decomposed into two parts A and B.&nbsp; The i-th iteration of the
+loop would be A(i)|B(i).&nbsp; Take the simplest case where different iterations
+of the loop are independent.&nbsp; If we rearrange the loop so that in
+one iteration we do B(i-1)|A(i), then we can further move code from B(i-1)
+so that it is executing in parallel with A(i).&nbsp; This has the potential
+for acommodating latency in both of these pieces.&nbsp; Startgin and stopping
+the loop is handled by a prologue which does A(0) and an epilogue which
+does B(N).&nbsp; An example of software pipelining can be found in the
+<A HREF="#filtering">filtering code</A>.</FONT>
+
+<P><B>&nbsp;</B>
+
+<P><A NAME="Prefetching"></A><B><TT><FONT FACE="Courier New"><FONT COLOR="#000000"><FONT SIZE=+1>Prefetching</FONT></FONT></FONT></TT></B>
+
+<P><FONT COLOR="#000000"><TT><FONT FACE="Courier New">I</FONT></TT><FONT FACE="Courier New,Courier">t
+is<B> </B>always important to know where your data is coming from.&nbsp;
+For example, it could be in the first level cache, the board level cache
+or memory.&nbsp;</FONT><FONT FACE="Courier New"><TT> </TT></FONT></FONT><FONT FACE="Courier New">The
+single most important technique for improving memory performance is prefetching
+data. The amount of time to load data from memory can take 50-150 times
+longer than the time it takes to load data from the first level cache.
+This means that a program that is accessing a lot of data can spend most
+of its time waiting for the data to be loaded, and speeding up the numerical
+operations will have no effect.</FONT><FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">There is another way in which accurate prefetching
+improves program performance.&nbsp; When a load is issued, one of the first
+things that happens is that a physical register is allocated to hold the
+resulting data.&nbsp; If the data is not in the D-cache (first level cache),
+then this register cannot be used for any other instruction until that
+value is filled.&nbsp; In some cases, the machine will stall on other instructions
+because there are no physical registers available.&nbsp; Prefetches do
+not use up any physical registers.&nbsp; In addition, loads or prefetches
+that miss in the D-cache require another resource called the missed address
+file (MAF).&nbsp; There are only eight of these in the 21264 and six in
+the 21164.&nbsp; If you issue more than eight, the extra ones will wait.&nbsp;
+This can add to the latency problem.</FONT><FONT FACE="Courier New"></FONT>
+
+<P><FONT FACE="Courier New">The following is a detailed description of
+how to use prefetching in your code.&nbsp; The prefetch instructions which
+will bring a cache block into the first-level cache are loads to either
+R31 or F31. The registers R31 for integer instructions and F31 for floating
+point instructions always contain the value zero regardless of what the
+program does. A load to one of these registers will cause the data to be
+fetched from memory or a second- or third-level cache if it is not in the
+first-level cache. The value is not actually put in a register, but it
+will be put in the first-level cache if it wasn’t there already.<FONT COLOR="#000000"><TT>&nbsp;
+</TT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Courier New,Courier">This
+is particularly important for the 21264.&nbsp;</FONT><TT><FONT FACE="Courier New">
+</FONT></TT><FONT FACE="Courier New,Courier">A prefetch looks like an ordinary
+load except the target register is either r31 or f31.&nbsp; There are four
+types of prefetch for the 21264.&nbsp; They are:</FONT></FONT><FONT FACE="Courier New,Courier"></FONT><U><FONT FACE="Courier New,Courier"></FONT></U>
+
+<P><FONT FACE="Courier New,Courier"><U>Instruction type</U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<U>description</U></FONT>
+<BR><FONT FACE="Courier New,Courier">ldl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+data will be evicted last</FONT>
+<BR><FONT FACE="Courier New,Courier">ldq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+data will be evicted next</FONT>
+<BR><FONT FACE="Courier New,Courier">lds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+data will be modified, so mark as dirty</FONT>
+<BR><FONT FACE="Courier New,Courier">wh64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+the entire cache block will be modified, so</FONT>
+<BR><FONT FACE="Courier New,Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+don't get it from memory</FONT><FONT FACE="Courier New,Courier"></FONT>
+
+<P><FONT FACE="Courier New,Courier">There is also a general rule about
+how far ahead to prefetch.&nbsp; If you have N streams of data that are
+being loaded or stored, then the number of cache blocks that you can prefetch
+in advance of a load for each stream is Min(2, 8/N).&nbsp;&nbsp; This roughly
+corresponds to the limitation of eight MAF's.&nbsp; For example, if there
+are two streams of data, then you should prefetch 4 blocks ahead or 256
+bytes.&nbsp; Thus, if your code has a load:</FONT><FONT FACE="Courier New,Courier"></FONT>
+
+<P><FONT FACE="Lucida Console">ldq&nbsp; r2, 80(r1)</FONT>
+
+<P><FONT FACE="Courier New,Courier">then you would add 80 to 256:</FONT>
+
+<P><FONT FACE="Lucida Console">ldl&nbsp; r31, 336(r1)</FONT>
+
+<P><FONT FACE="Courier New,Courier">Generally, the first three types of
+prefetch in the table above will not get you into any trouble even if you
+issue more than you really need.&nbsp; Also, they will not cause an exception
+if the address is not valid.&nbsp; However, the wh64 can have a bad side
+effect if you run off the end of your data because it will zero out the
+data at the address you give it if it is not in the L1 cache.&nbsp; The
+way to put prefetches into routines in "C" or FORTRAN is with asm's.&nbsp;
+For example, if you have a pointer which is the appropriate number of blocks
+ahead of the values you are fetching, then you can pass it to the assembly
+macro:</FONT>
+
+<P><FONT FACE="Courier New,Courier">__asm("ldl $r31, %0", ptr);</FONT>
+
+<P><FONT FACE="Courier New">There are some implementation differences between
+the 21164 and the 21264. For the 21164, the only difference between the
+two types is that "ldl r31" will always load the value into the first level
+cache, but "ldt f31" will load to the second level cache and will load
+to the first level cache if it does not interfere with other loads. This
+distinction is present in the 21164 but not the 21264.&nbsp; The </FONT><FONT FACE="Lucida Console">lds</FONT><FONT FACE="Courier New">
+is a prefetch with intent to modify, so this should be used if the program
+is going to read, modify, and store a new value in the same address. Ldq
+is a prefetch with "evict next" property. The first level cache for the
+21264 is two-way associative, so there are two blocks associated with each
+index (cache line). The one that is normally evicted is the older of the
+two. This can be overridden with the "evict next" property. This is used
+when the data will fit in the second level cache but not in the first,
+so that other useful data will remain in the first level cache. The compiler
+will often insert these instructions into your code; however, it is always
+a good idea to check this by searching through the disassembly for them.
+Here is an example which illustrates the use of prefetching.</FONT>
+
+<P><B><FONT FACE="Courier New">C code</FONT></B>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; <FONT COLOR="#0000FF">for</FONT>
+(I = 0; I &lt; 10000; I++)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a[I] = a[I] * x + b[I];</FONT></TT></DT>
+</DL>
+<TT><FONT FACE="Courier New">This code can be written without prefetches
+in assembly language as</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">loop:</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f1, 0(a0)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f2, 0(a1)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">lda&nbsp; a0, 8(a0)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">lda&nbsp; a1, 8(a1)</FONT></TT></DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">mult f1, f0, f1</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">addt f1, f2, f1</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">stt&nbsp; f1, 0(a0)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">lda&nbsp; a2, -1(a2)</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">bgt&nbsp; a2, loop</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+&nbsp;
+
+<P><TT><FONT FACE="Courier New">The loop can be improved by unrolling it
+four times and inserting prefetches for each of the arrays.</FONT></TT>
+
+<P><TT>&nbsp;</TT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; loop:</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f1,&nbsp; 0(a0)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f2,&nbsp; 8(a0)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f3,&nbsp; 16(a0)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f4,&nbsp; 24(a0)</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f5,&nbsp; 0(a1)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f6,&nbsp; 8(a1)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f7,&nbsp; 16(a1)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldt&nbsp; f8,&nbsp; 24(a1)</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">mult f1,&nbsp; f0, f1</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">mult f2,&nbsp; f0, f2</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">mult f3,&nbsp; f0, f3</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">mult f4,&nbsp; f0, f4</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">addt f1,&nbsp; f5, f1</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">addt f2,&nbsp; f6, f2</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">addt f3,&nbsp; f7, f3</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">addt f4,&nbsp; f8, f4</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">stt&nbsp; f1,&nbsp; 0(a0)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">stt&nbsp; f2,&nbsp; 8(a0)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">stt&nbsp; f3,&nbsp; 16(a0)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">stt&nbsp; f4,&nbsp; 24(a0)</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldl&nbsp; r31, 256(a1) # prefetch</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">lds&nbsp; f31, 256(a0) # prefetch</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">lda&nbsp; a2,&nbsp; -4(a2)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">lda&nbsp; a0,&nbsp; 32(a0)</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">lda&nbsp; a1,&nbsp; 32(a1)</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">bgt&nbsp; a2,&nbsp; loop</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+&nbsp;
+
+<P><FONT FACE="Courier New">This program illustrates the use of prefetches,
+but the scheduling of instructions is far from optimal. Note that the prefetch
+is four cache blocks ahead of the actual loads.</FONT>
+
+<P><B><FONT FACE="Courier New">Cache Locality</FONT></B>
+
+<P><FONT FACE="Courier New">Programs that take advantage of cache locality
+will make more efficient use of the cache hierarchy. There are two types
+of cache locality: temporal and spatial. Temporal locality is an issue
+if the same data is accessed more than once. Loads and stores are often
+the source of large delays when the data is not in the cache, so the fewer
+the better and the greater the temporal locality the better, since data
+that is in the cache at one time instant is most likely going to be there
+a little bit later. Ideally, when performing multiple operations on data,
+it is best to get one block at a time and perform all of the operations
+then, as opposed to accessing the data multiple times and performing a
+few operations each time. While the former is often more efficient in terms
+of use of the machine, it is generally more difficult to code and the code
+is more difficult to read and debug. Nevertheless, temporal locality may
+make a big difference for sections of the code where most of the time is
+spent.</FONT>
+
+<P><FONT FACE="Courier New">Spatial locality is also related to the order
+of accessing data. The order in which you access data should be compatible
+with the order in which it is stored. The worst case occurs when two blocks
+are accessed sequentially so that data in the second block is not in the
+cache when the first block is, and when it is brought into the cache it
+replaces the first block before its processing is finished.</FONT>
+
+<P><FONT FACE="Courier New">An example which illustrates temporal locality
+issues is the following:</FONT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">for</FONT> (I=0; I&lt;32000;
+I++){</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b[I] = f(a[I],c1,c2,c3); </FONT><FONT COLOR="#008000">// later values for
+b[I] will</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// evict earlier ones in cache</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.}</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">for</FONT> (I=0; I&lt;32000;
+I++){</FONT></TT></DT>
+</DL>
+
+<DIR>
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">c[I] = g(b[I],d1,d2,d3); <FONT COLOR="#008000">//
+b[I] is no longer cached</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">.</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">.</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">.}</FONT></TT></DT>
+</DL>
+</DIR>
+</DIR>
+</BLOCKQUOTE>
+&nbsp;
+
+<P><FONT FACE="Courier New">The problem in this example is that a long
+time passes between when each b[I] is produced in the first loop and when
+it is used in the second. Suppose b[I] is a floating point value, which
+occupies eight bytes. Also assume that the cache holds 64K bytes. When
+the first loop exits, it will have stored 256K bytes of data, of which
+only the last 64K will still be in the cache. When the second loop starts,
+none of the data that it loads first is in the cache. In addition, the
+first 64K bytes that are loaded will evict the last 64K bytes that were
+left by the first loop, so none of the data will be coming from the cache.
+One way to solve this problem would be do loop fusion, which combines the
+two loops:</FONT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">for</FONT> (I=0; I&lt;32000;
+I++){</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#008000">&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#000000">b[I]
+= f(a[I],c1,c2,c3); </FONT><FONT COLOR="#008000">// b[I] is stored into
+cache</FONT></FONT></TT></DT>
+</DL>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">.</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">c[I] = g(b[I],d1,d2,d3);
+</FONT><FONT COLOR="#008000">// b[I] is loaded from cache</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">.</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">.</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">.}</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<FONT FACE="Courier New">However, this solution may cause another problem.
+If the functions f and g require a lot of code, then the I-cache may not
+be large enough to hold both of them, so each loop iteration would require
+fetching them into the I-cache. It is also possible that there would not
+be enough registers to hold the constants and other intermediate results
+required for both function calls. In this case, these values would have
+to be stored. A better solution to the problem is <I>cache blocking</I>,
+which means that one block of the cache is processed at a time. An example
+of that is:</FONT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;</FONT></TT>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">for</FONT><FONT COLOR="#000000">
+(I=0; I&lt;32000/64; I++){</FONT></FONT></TT></DT>
+</DL>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">for</FONT><FONT COLOR="#000000">(J=I*64;j&lt;I*64+63;
+j++){</FONT></FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp; b[J]
+= f(a[J],c1,c2,c3); </FONT><FONT COLOR="#008000">// b[j]’s in same cache
+block</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">.}</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">&nbsp;&nbsp;&nbsp; </FONT><FONT COLOR="#0000FF">for</FONT><FONT COLOR="#000000">(J=
+I*64;j&lt;I*64+63; j++){</FONT></FONT></TT></DT>
+</DL>
+
+<DIR>
+<DIR>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">c[J] = g(b[J],d1,d2,d3);</FONT></FONT></TT></DT>
+</DL>
+</DIR>
+</DIR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">.}</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New"><FONT COLOR="#000000">}</FONT></FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+&nbsp;
+
+<P><FONT FACE="Courier New">Most caches are organized in 32 or 64 byte
+blocks. When a byte of data is requested from a cache farther down the
+hierarchy or memory, a block of data is fetched which contains that byte.
+If another byte is requested and it is in the same block as the first one,
+then it is already in the cache and doesn’t have to be fetched from farther
+away. This is spatial locality. It is most important to know the organization
+of the cache in order to take best advantage of its speed of access.</FONT>
+
+<P><B><FONT FACE="Courier New,Courier">Alignment of Data</FONT></B>
+
+<P><FONT FACE="Courier New">In this section, we give an example of how
+to align a block of data and how to load unaligned data without trapping.
+Alignment of data is a key issue when working with byte or word data. The
+most efficient way to fetch data is eight-bytes-at-a-time with an ldq.
+However, unless the data are aligned on a quadword boundary, the ldq will
+be trapped. The trap causes a significant slowdown. The following code
+excerpt aligns your data on a quadword boundary (the address is divisible
+by eight), so that ldq can be used without trapping:</FONT>
+
+<P><FONT FACE="Courier New"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+<DIR>
+<DIR><TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">char</FONT> *p;
+<FONT COLOR="#008000">/* pointer to the start of n bytes of data */</FONT></FONT></TT>
+
+<P><TT><FONT FACE="Courier New">p = (<FONT COLOR="#0000FF">char</FONT>
+*) malloc(n+63);</FONT></TT>
+
+<P><TT><FONT FACE="Courier New"><FONT COLOR="#0000FF">while</FONT> (((<FONT COLOR="#0000FF">unsigned
+long</FONT>) p &amp; 63) != 0) p++;</FONT></TT></DIR>
+</DIR>
+&nbsp;
+
+<P><FONT FACE="Courier New">Note that the above code aligns the data so
+that the address is divisible by 64. Thus, it is aligned with cache block
+boundaries as well.</FONT>
+
+<P><FONT FACE="Courier New">Even in the basic ALPHA instruction set, it
+is possible to process data in parallel (more than one byte or word at
+a time). The MVI instructions expand these capabilities.</FONT>
+
+<P><FONT FACE="Courier New">If the data are inherently misaligned (e.g.
+they are in blocks whose size is not divisible by eight), they can still
+be fetched in groups of eight bytes or four words. The following code is
+taken from the ALPHA architecture manual:</FONT>
+
+<P><TT><FONT FACE="Courier New">&nbsp;</FONT></TT>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; LDQ_U R1, (R11)&nbsp; ;
+Ignores va&lt;2:0>, R1 = CBAx xxxx</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; LDQ_U R2, 7(R11) ; Ignores
+va&lt;2:0>, R2 = yyyH GFED</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; EXTQL R1, R3, R1 ; R1 =
+0000 0CBA</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; EXTQH R2, R3, R2 ; R2 =
+HGFE D000</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp; BIS&nbsp;&nbsp; R2, R1,
+R1 ; R1 = HGFE DCBA</FONT></TT></DT>
+</DL>
+&nbsp;
+
+<P><FONT FACE="Courier New">Note: this assumes that the effective address
+of R11 is such that its remainder mod 8 is 5. The value of the aligned
+quadword containing (R11) is CBAx xxxx, and the value of the aligned quadword
+containing 7(R11) is yyyH GFED.</FONT>
+
+<P><A NAME="APPLICATIONS"></A>
+
+<P><B><FONT FACE="Courier New">Applications: image filtering and motion
+estimation</FONT></B>
+
+<P><A NAME="filtering"></A><B><FONT FACE="Courier New">Image Filtering</FONT></B>
+
+<P><FONT FACE="Courier New">Image filtering is convolution of an image
+with a two-dimensional mask of constants. Often, this convolution can be
+computed by two convolutions with one-dimensional masks. In this case,
+the two-dimensional mask is said to be separable. <I>Since most masks that
+one encounters are separable, we will show how to use MVI in the case of
+a one-dimensional mask</I>. Of course, this code can also be applied to
+one-dimensional signal filtering. It is assumed here that both the image
+and mask data are represented as bytes. This example shows how to use 16
+bits to store the intermediate results, so we can only operate on 4 image
+pixels at a time. In addition, for some masks it is possible to avoid multiplies
+by doing shifts and adds. This is generally preferable since integer multiplies
+can have a latency of 15 cycles.</FONT>
+
+<P><FONT FACE="Courier New">We give an example which uses a one-dimensional
+mask of length three and consists of the elements [M0 M1 M2]. In most cases
+the mask values are normalized so that the sum of their absolute values
+is unity. Based on this assumption, we represent the mask values as 8-bit
+binary fractions. The mask values are loaded into registers and kept there
+since they are re-used over the entire image. The general strategy is:</FONT>
+<OL START="0">
+<LI>
+<FONT FACE="Courier New">read in 4 bytes at a time,</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">unpack them into words,</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">multiply by M0,</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">shift the data and multiply by M1,</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">accumulate the result</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">shift and multiply by M2, and</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">accumulate the result.</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">pack data</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">store results</FONT></LI>
+</OL>
+<FONT FACE="Courier New">For simplicity, we take the case where the mask
+values are M0 = M2 = 0.25, and M1 = 0.5. These masks can be implemented
+with adds and shifts. The operations for M0 and M2 are handled by a shift
+at the end. The following code fragment ignores the setup for the loop
+and the loop control. A pipelined approach is taken here, so that data
+that was loaded in the previous iteration is still used in the current
+iteration. Thus, the steps become:</FONT>
+
+<P><FONT FACE="Courier New">&nbsp;</FONT>
+<OL START="0">
+<LI>
+<FONT FACE="Courier New">shift data from previous iteration</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">load 4 new bytes</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">unpack them into words</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">multiply by 2, but preserve the original data
+for next iteration</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">accumulate</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">round</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">shift (divide by 4)</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">pack data</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">store results</FONT></LI>
+</OL>
+<FONT FACE="Courier New">The following figure shows how the data is combined.
+In the first row, the current data is shown each word in a white square.
+Two words of data from the last iteration are shown in gray squares. The
+second and third rows are the same data shifted to the right by one and
+two words respectively. The purpose of the figure is to help the reader
+follow the code. If we double the middle row and add the three rows together,
+we get the desired result. Note that the general format for Alpha instructions
+is the first two registers are sources and the third is the target.</FONT>
+<BLOCKQUOTE><TT>&nbsp;</TT>
+<TABLE BORDER WIDTH="452" HEIGHT="24" >
+<TR>
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="1">X</TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="1">X</TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="1"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="1"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="1"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="1"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="1"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="1"></TD>
+</TR>
+
+<TR>
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="24">X</TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="24">X</TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="24"></TD>
+</TR>
+
+<TR>
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="24">X</TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="57" HEIGHT="24">X</TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="24"></TD>
+
+<TD ALIGN=CENTER VALIGN=CENTER WIDTH="56" HEIGHT="24"></TD>
+</TR>
+</TABLE>
+&nbsp;<TT>&nbsp;</TT>
+<DL><TT>&nbsp;</TT>
+<DT>
+<TT><FONT FACE="Courier New">loop:</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">sll&nbsp;&nbsp;&nbsp; t0, 48, t8 # get low
+byte from i-1</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">sll&nbsp;&nbsp;&nbsp; v0, 32, t9 # get low
+2 bytes from i-1</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldl&nbsp;&nbsp;&nbsp; v0, (a0) # read 4 bytes</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">unpkwb v0, v0 # unpack into word</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; v0, v0, t0 # multiply middle
+by M1</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">srl&nbsp;&nbsp;&nbsp; t0, 16, t10 # get high
+3 bytes</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">srl&nbsp;&nbsp;&nbsp; v0, 32, t11 # get high
+2 bytes</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; t8, t10, t8 # combine
+shifted data</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; t9, t11, t9</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; v0, t8, t8</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; t8, t9, t8</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; t8, rnd, t8 # round off</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">srl&nbsp;&nbsp;&nbsp; t8, 2, t8 # divide by
+4</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">pkwb&nbsp;&nbsp; t8, t8</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">stl&nbsp;&nbsp;&nbsp; t8, (a1)</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+<TT>&nbsp;</TT>
+
+<P><A NAME="Motion estimation"></A><B><FONT FACE="Courier New">Motion estimation</FONT></B>
+
+<P><FONT FACE="Courier New">Motion estimation is used for video encoding
+of macroblocks of an image in a video stream. MPEG1, MPEG2, and H.263 all
+have block-based motion estimation as a computationally demanding task.
+The assumption is that the images in a stream change smoothly and most
+of the image will be present in succeeding images, although it may have
+moved a little and it may have changed a little. Based on this assumption,
+given a macroblock, one can search the previous image to find the most
+similar macroblock. If a similar one is found, then it is only necessary
+to encode the motion of the macroblock and the difference in the values.
+MVI allows the program to measure similarity of blocks very quickly. In
+the following code fragment, we take an 8x8 block of pixels and look for
+the best match in a reference image. This 8x8 block can be thought of as
+eight quadwords: each quadword containing eight pixels. Conceptually, the
+inner loop takes the difference between 8 rows of one block and 8 rows
+of a subimage. The basic steps are</FONT>
+
+<P><FONT FACE="Courier New">&nbsp;</FONT>
+<OL>
+<LI>
+<FONT FACE="Courier New">load eight rows from each of the two blocks to
+be compared</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">compute the sum of absolute differences for each
+pair</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">accumulate the results</FONT></LI>
+
+<LI>
+<FONT FACE="Courier New">compare the total with the previous best match,
+branch if it is better</FONT></LI>
+</OL>
+&nbsp;
+
+<P><FONT FACE="Courier New">A global search would nest this inside a double
+loop indexed on the rows and columns of the search area of the reference
+or target image. One way to improve the efficiency is to search each vertical
+slice by simply loading one new quadword for each new iteration and re-use
+the seven that overlap. It is necessary to align the data from the previous
+image that is being matched, since most of the time, the starting point
+for the search will not be aligned on a quadword boundary (see section
+4.4.4). The following code is scheduled in a simple way and does not incorporate
+the context in which it would be used. It is not the most efficient way
+to schedule the code. However, some care was used to issue the unaligned
+loads in different cycles to avoid trapping in the case that they reference
+the same quadword (a1 is divisible by eight), and the 21164PC (PCA-56)
+latency of two was used. Also, a PCA-56 can only issue one extract or shift
+in a cycle.</FONT>
+
+<P><TT>&nbsp;</TT>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<DL>
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; t8, (a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 1 from previous frame</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s5, 7(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# rest of row 1</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">extql&nbsp; t8, AT, t8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 1 alignment process</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">extqh&nbsp; s5, AT, s5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 1 cont'd</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq&nbsp;&nbsp;&nbsp; t0, (a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 1, reference frame, aligned</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; t8, s5, t8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 1 prev</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; t9, 8(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 2 prev</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s5, 15(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# don't co-issue loads</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">extql&nbsp; t9, AT, t9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# alignment process</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">extqh&nbsp; s5, AT, s5</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq&nbsp;&nbsp;&nbsp; t1, 8(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 2 ref</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; t9, s5, t9</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; t10, 16(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 3 prev</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s5, 23(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 3 prev</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">extql&nbsp; t10, AT, t10</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">extqh&nbsp; s5, AT, s5</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq&nbsp;&nbsp;&nbsp; t2, 16(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 3 ref</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; t10, s5, t10</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; t11, 24(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 4 prev</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s5, 31(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 4 prev</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">extql&nbsp; t11, AT, t11</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">extqh&nbsp; s5, AT, s5</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq&nbsp;&nbsp;&nbsp; t3, 24(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 4 ref</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; t11, s5, t11</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; t12, 32(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 5 prev</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s5, 39(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 5 prev</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">extql&nbsp; t12, AT, t12</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">extqh&nbsp; s5, AT, s5</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq&nbsp;&nbsp;&nbsp; t4, 32(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 5 ref</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; t12, s5, t12</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s0, 40(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 6 prev</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s5, 47(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 6 prev</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">extql&nbsp; s0, AT, s0</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">extqh&nbsp; s5, AT, s5</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq&nbsp;&nbsp;&nbsp; t5, 40(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 6 ref</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; s0, s5, s0</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s1, 48(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 7 prev</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s5, 55(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 7 prev</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">extql&nbsp; s1, AT, s1</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">extqh&nbsp; s5, AT, s5</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; s1, s5, s1</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq&nbsp;&nbsp;&nbsp; t6, 48(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 7 ref</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s2, 56(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 8 prev</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq_u&nbsp; s5, 63(a1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 8 prev</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">ldq&nbsp;&nbsp;&nbsp; t7, 56(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# row 8 ref</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">extql&nbsp; s2, AT, s2</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">perr&nbsp;&nbsp; t0, t8, v0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# first of 8 perr</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">extqh&nbsp; s5, AT, s5</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">perr&nbsp;&nbsp; t1, t9, s3</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">bis&nbsp;&nbsp;&nbsp; s2, s5, s2</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">perr&nbsp;&nbsp; t2, t10, s4</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; v0, s3, v0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# latency 2 for MVI</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">perr&nbsp;&nbsp; t3, t11, s3</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; v0, s4, v0</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">perr&nbsp;&nbsp; t4, t12, s4</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; v0, s3, v0</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">perr&nbsp;&nbsp; t5, s0, s3</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; v0, s4, v0</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">perr&nbsp;&nbsp; t6, s1, s4</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; v0, s3, v0</FONT></TT></DT>
+
+<DT>
+<TT><FONT FACE="Courier New">perr&nbsp;&nbsp; t7, s2, s3</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; v0, s4, v0</FONT></TT></DT>
+
+<DD>
+<TT>&nbsp;</TT></DD>
+
+<DT>
+<TT><FONT FACE="Courier New">addq&nbsp;&nbsp; v0, s3, v0</FONT></TT></DT>
+</DL>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A NAME="HelpfulURLS"></A>
+
+<P><B>&nbsp;</B>
+
+<P><A NAME="Scheduling Issues"></A><B>Scheduling Issues</B>
+
+<P><FONT FACE="Courier New">The order in which you issue instructions can
+have an effect on the speed that your code executes, even on the 21264,
+which has out-of-order (OoO) execution of instructions.&nbsp; The main
+factor to consider is the latency of each instruction. On an in-order machine
+such as the 21164PC, if an instruction is issued before its input arguments
+are ready, the machine will have to stall until they are ready.&nbsp; In
+the case of OoO execution, the machine may continue to execute instructions,
+but physical registers will be allocated for the pending instructions,
+and the machine may stall if it runs out of physical registers.</FONT>
+
+<P><FONT FACE="Courier New">MVI instructions have a latency of 2 for the
+21164PC and 3 for the 21264, and they can be issued every cycle. For the
+21264, there is a return slot two cycles after an MVI instruction is issued,
+and only another MVI can be issued in this slot. In the following code
+fragments the main point is to pay attention to the MVI instructions and
+when the results are used. The other instructions are filling the remaining
+issue slots. Here is a code fragment written for the 21164PC:</FONT>
+<BLOCKQUOTE>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New">perr t0, t8, s0&nbsp; <FONT COLOR="#008000">//
+MVI instruction</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">addq v0, AT, v0&nbsp; <FONT COLOR="#008000">//
+non-MVI instruction</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">perr t1, t9, s1&nbsp; <FONT COLOR="#008000">//
+MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">addq a5, AT, a5&nbsp; <FONT COLOR="#008000">//
+non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">perr t2, t10, s2 <FONT COLOR="#008000">//
+MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">addq v0, s0, v0&nbsp; <FONT COLOR="#008000">//
+use result of first perr</FONT></FONT></TT></DD>
+</DL>
+</BLOCKQUOTE>
+<FONT FACE="Courier New">Here is a code fragment written for the 21264:</FONT>
+<BLOCKQUOTE>
+<DL>
+<DD>
+<TT><FONT FACE="Courier New">perr t0, t8, s0&nbsp; <FONT COLOR="#008000">//
+MVI instruction</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">addq v0, AT, v0&nbsp; <FONT COLOR="#008000">//
+non-MVI instruction</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">ldq&nbsp; AT, (a0)&nbsp;<FONT COLOR="#008000">&nbsp;&nbsp;
+// non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">sll&nbsp; t1, 16, t1&nbsp; <FONT COLOR="#008000">//
+non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">perr t1, t9, s1&nbsp; <FONT COLOR="#008000">//
+MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">addq a0, AT, a0&nbsp; <FONT COLOR="#008000">//
+non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">ldq&nbsp; AT, 8(a1)&nbsp;<FONT COLOR="#008000">&nbsp;
+// non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">sll&nbsp; t2, 16, t2&nbsp; <FONT COLOR="#008000">//
+non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">perr t2, t10, s2 <FONT COLOR="#008000">//
+either an MVI instruction or no instruction</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">addq a0, AT, a0&nbsp; <FONT COLOR="#008000">//
+non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">ldq&nbsp; AT, 16(a1)&nbsp;<FONT COLOR="#008000">
+// non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">sll&nbsp; t3, 16, t3&nbsp; <FONT COLOR="#008000">//
+non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">perr t3, t11, s3 <FONT COLOR="#008000">//
+either an MVI instruction or no instruction</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">addq v0, s0, v0&nbsp; <FONT COLOR="#008000">//
+use result of first perr</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">ldq&nbsp; AT, 24(a1)&nbsp;<FONT COLOR="#008000">
+// non-MVI</FONT></FONT></TT></DD>
+
+<DD>
+<TT><FONT FACE="Courier New">sll&nbsp; t4, 16, t4&nbsp; <FONT COLOR="#008000">//
+non-MVI</FONT></FONT></TT></DD>
+</DL>
+</BLOCKQUOTE>
+&nbsp;
+
+<P>&nbsp;
+
+<P>&nbsp;
+
+<P><A NAME="HelpfulURLS"></A><B><FONT FACE="Courier New">Helpful URL’s</FONT></B>
+
+<P><FONT FACE="Courier New">MVI Code Examples</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="mvi-code-ex.pdf">MVI Code Examples (.pdf)</A></FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.digital.com/semiconductor/alpha/mvi-code-ex.htm">http://www.digital.com/semiconductor/alpha/mvi-code-ex.htm</A></FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.europe.digital.com/semiconductor/alpha/mvi-code-ex.htm">http://www.europe.digital.com/semiconductor/alpha/mvi-code-ex.htm</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Reference Libraries</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://ftp.digital.com/pub/Digital/info/semiconductor/literature/dsc-library.html">Digital Semiconductor Reference Library</A></FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://dutlbcz.lr.tudelft.nl/alphant/articles/MVI.html">AlphaNT MVI Reference Library</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Issues in Multimedia Authoring</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.cs.sfu.ca/cs/CC/365/mark/material/notes/Chap2/Chap2.html">http://www.cs.sfu.ca/cs/CC/365/mark/material/notes/Chap2/Chap2.html</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Motion Video Instruction Extensions for Alpha.
+(White Paper)</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="pmvi.pdf">MVI Background Brief (.pdf)</A></FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.digital.com/alphaoem/papers/pmvi-abstract.htm">MVI Abstract</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Advanced Technology for Visual Computing: Alpha
+Architecture with MVI (White Paper)</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.digital.com/semiconductor/mvi-backgrounder.htm">http://www.digital.com/semiconductor/mvi-backgrounder.htm</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Parallelized Algorithms ( class notes )</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://ozone.crle.uoguelph.ca/chris/reportC.html">http://ozone.crle.uoguelph.ca/chris/reportC.html</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">CCITT H.261 - Understanding H.261 Image Compression</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.igd.fhg.de/icib/telecom/ccitt/rec_h.261-1990/pvrg-descript/chapter2.5.html">http://www.igd.fhg.de/icib/telecom/ccitt/rec_h.261-1990/pvrg-descript/chapter2.5.html</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Intro to YUV &lt;> RGB</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.webartz.com/fourcc/">http://www.webartz.com/fourcc/</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Basics of Device Independent Color</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.cs.sfu.ca/cs/CC/365/mark/material/notes/Chap3/Chap3.3/sRGB/sRGB.html">http://www.cs.sfu.ca/cs/CC/365/mark/material/notes/Chap3/Chap3.3/sRGB/sRGB.html</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Software developers’ homepage with lots of
+kits. Look for Spike.</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.digital.com/semiconductor/alpha/developers.htm">http://www.digital.com/semiconductor/alpha/developers.htm</A></FONT>
+
+<P>&nbsp;
+
+<P><FONT FACE="Courier New">Digital continuous profiling infrastructure</FONT>
+
+<P><FONT FACE="Courier New"><A HREF="http://www.research.digital.com/SRC/dcpi/">http://www.research.digital.com/SRC/dcpi/</A></FONT>
+
+<P>&nbsp;
+
+</BODY>
+</HTML>
+

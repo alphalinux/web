@@ -1,0 +1,500 @@
+<HTML>
+<HEAD>
+<TITLE>The AlphaLinux Homepage Oldnews July 1999</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="description" content="Information on the Alpha port of Linux">
+<meta name="keywords" content="alpha linux axp multia as200 jensen ruffian alphastation alphaserver 21064 21164 21264 064 64-bit 164 264 sx lx">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+
+
+<TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->  
+  
+	</CENTER>
+	</TD>
+
+</TR>  
+<TR>
+
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD WIDTH=700 BGCOLOR="#B70000" ALIGN="CENTER">
+	<A HREF="intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A>
+	<A HREF="docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A>
+	<A HREF="software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A>
+	<A HREF="hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A>
+	<A HREF="otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A>
+	<A HREF="about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A>
+	</TD>
+	<TD WIDTH=16>&nbsp;</TD>
+
+</TR>
+<TR>
+
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+</TR>
+<TR VALIGN="top">
+	<TD><IMG SRC="../img/penguinedge.gif" WIDTH="16" HEIGHT="77" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD BGCOLOR="#DC9D33">
+	<P>
+	<IMG SRC="../img/penguincircle.gif" WIDTH="92" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="">
+	<IMG SRC="../img/logo.gif" WIDTH="498" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="AlphaLinux">
+	</P>
+<TABLE BORDER=0 HSPACE=8>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+	<TD WIDTH=500 VALIGN=TOP>
+	<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"><B>New Gnumeric and Enlightenment Packages<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>	
+            </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><I>July 26th 1999</I></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	<A HREF="http://www.redhat.com">RedHat</A> has released  updates to Gnumeric and Enlightenment. There is a security
+	problem with the Gnumeric package shipped with RH6.0 and <A HREF="http://www.enlightenment.org">Enlightenment</A> can cause problems with certain
+	Java programs. Updates are available
+	from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/">ftp.alphalinux.org</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+        </TABLE>
+	<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"><B>New Samba Packages<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>	
+            </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><I>July 23rd 1999</I></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	<A HREF="http://www.redhat.com">RedHat</A> has released new <A HREF="http://www.samba.org">Samba</A> packages for
+	RedHat 5.2 and 6.0 for Alpha. This fixes several security problems with the original package. Updates are available
+	from <A HREF="ftp://ftp.alphalinux.org/redhat/updates">ftp.alphalinux.org</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+        </TABLE>
+	<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"><B>SuSE AXP (German) Released<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>	
+            </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><I>July 12th 1999</I></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	<A HREF="http://www.suse.com">SuSE</A> has released SuSE AXP for the German market. At the moment there's no information on when
+	the international version will be available though it seems that anybody purchasing the SuSE 6.1 for AXP will receive
+	a free upgrade to the next SuSE release in September. More information can be found in <A HREF="http://linuxtoday.com/stories/7563.html">this article</A>
+	at LinuxToday and at the <A HREF="http://www.suse.de/axp/axp.html">SuSE German</A> website.
+	    <P>
+	    </TD>
+	   </TR>	
+
+        </TABLE>
+	<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"><B>Copper Alphas from IBM?<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>	
+            </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><I>July 7th 1999</I></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	<A HREF="http://www.theregister.co.uk">The Register</A> is running a <A HREF="http://www.theregister.co.uk/990707-000019.html">
+	short article</A> on IBM producing copper Alphas next year for both <A HREF="http://www.compaq.com">Compaq</A> and <A HREF="http://www.alpha-processor.com">
+	Alpha Processor Inc.</A>
+	    <P>
+	    </TD>
+	   </TR>	
+
+        </TABLE>
+	<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"><B>Compaq To Spend 100 Million on Alpha/Unix<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>	
+            </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><I>July 7th 1999</I></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	According to several articles in the press, <A HREF="http://www.compaq.com">Compaq</A> is to spend an additional $100 million
+	dollars on Alpha and Tru64Unix (formerly Digital Unix). More details can be found in <A HREF="http://www.techweb.com/news/story/TWB19990706S0006">
+	this article</A> at CMP's Tech Web. 
+	    <P>
+	    </TD>
+	   </TR>	
+
+        </TABLE>
+	<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"><B>RedHat and API Giving Away Alpha System<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>	
+            </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><I>July 1st 1999</I></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	<A HREF="http://www.redhat.com">RedHat</A> and <A HREF="http://www.alpha-processor.com">Alpha Processor Inc. (API)</A> are giving
+	away a 164LX system. To enter go to RedHat <A HREF="http://www.redhat.com/survey">Survey</A> page and enter.
+	    <P>
+	    </TD>
+	   </TR>	
+
+        </TABLE>
+	<P>
+	
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"><B>API and Atipa Linux Solutions Ink Deal<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>	
+            </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><I>July 1st 1999</I></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	 <A HREF="http://www.alpha-processor.com">Alpha Processor Inc. (API)</A> and <A HREF="http://www.atipa.com">Atipa Linux Solutions</A> have
+	 signed a deal for Atipa to start selling Alpha based system. A press release for the deal can be found at <A HREF="http://www.newsalert.com/bin/story?StoryId=Cn3MwqbKbyte0mZi">
+	 NewsAlert.com</A>.
+	    <P>
+	    </TD>
+	   </TR>	
+
+        </TABLE>
+	<P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"><B>Compaq Releases Fortran Beta<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>	
+            </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><I>July 1st 1999</I></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	  
+Compaq's Fortran for Linux Alpha Systems now available for Beta test!<P>
+
+Compaq is very pleased to announce the beta availability of its
+industrial
+strength, highly optimized Fortran 95 compiler.  This compiler as well
+as a
+Fortran 90 capable debugger and 
+tuned math library  is immediately available for test and evaluation on
+Linux Alpha based systems.  All interested customers are invited to
+register
+as beta testers and download the software from
+<A HREF="http://www.digital.com/fortran/linux/">http://www.digital.com/fortran/linux/</A><P>
+
+
+The Alpha optimized Fortran compiler and math libraries have been
+developed
+in response to customer demand from the High Performance Technical
+Computing
+(HPTC) community and will provide the Linux technical community with
+tools
+for getting the best 
+Alpha performance. <P>
+
+Compaq is partnering with the University of New Hampshire(UNH) to
+provide an
+innovative support
+approach for its Linux Alpha based development tools.  Beginning with
+the
+Beta program,
+UNH will be developing a peer support environment with information and
+tools
+available to solve customer problems.<P>
+
+Fortran is the first compiler available from Compaq for the Linux Alpha
+platform.  Other compilers (including C and C++) are planned for the
+future.
+
+
+	    <P>
+	    </TD>
+	   </TR>	
+
+        </TABLE>
+	<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"><B>Another Update for 6.0<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>	
+            </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><I>July 1st 1999</I></td>
+	    </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Helvetica, sans-serif">
+	  <A HREF="http://www.redhat.com">RedHat</A> has released another update for 6.0. This time it's an update
+	  to talk that allows it to work properly with ytalk. The update is available from <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0">
+	  ftp.alphalinux.org</A>.
+
+	    <P>
+	    </TD>
+	   </TR>	
+
+        </TABLE>
+	<P>
+
+
+
+	
+	</TD>
+	<TD WIDTH=2><FONT COLOR="#DC9D33"></FONT></TD>
+	<TD VALIGN=TOP BGCOLOR="#DC9D33" WIDTH=250 ALIGN=CENTER>
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=190>Alpha Related Sites</TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TD></TR>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="http://www.alphalinux.org/hardware/vendors.shtml">Vendor List</A><BR>
+		<A HREF="http://www.alpha-processor.com">Alpha Processor, Inc.</A> (API)<BR>
+		<A HREF="http://www.compaq.com">Compaq Computer Co.</a><BR>
+		<A HREF="http://www.digital.com">Compaq Digital Products</a> (DEC)<BR>
+		<A HREF="http://www.sec.samsung.com">Samsung Semiconductor</a><BR>
+	</TD></TR></TABLE>
+	<P>
+			
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=190>AlphaLinux Docs</TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TD></TR>
+		
+		<TR><TD BGCOLOR="#DC9D33">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="http://www.alphalinux.org/faq/FAQ.html">AlphaLinux FAQ</A><BR>
+		<A HREF="http://www.alphalinux.org/docs/alpha-howto.html">AlphaLinux Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/milo.html">MILO Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/srm.html">SRM Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/alphabios-howto.html">AlphaBIOS Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/docs/fbcon_faq.shtml">Frame Buffer Howto</A><BR>
+	</TD></TR></TABLE>
+	<P>
+
+
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=190>Software Releases</TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="ftp://ftp.alphalinux.org/patches">Kernel Patches</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/kernel">Latest Kernel</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/gnome">Gnome 1.0</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/kde">KDE 1.1</A><BR>
+		<A HREF="http://www.unix.digital.com/linux/cpml.htm">Compaq Math Library</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/DIR_LISTING"> FTP Site Listing</A><BR>	
+	</TD></TR></TABLE>
+	<P>
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=190>AlphaLinux Distributions</TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="http://www.redhat.com">RedHat</A><BR>
+		<A HREF="http://www.debian.org">Debian</A><BR>
+		<A HREF="http://www.suse.com">SuSE</A><BR>
+		<A HREF="http://www.turbolinux.com">TurboLinux</A><BR>
+	</TD></TR></TABLE>
+	<P>
+	
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=190>Contact Us</TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="mailto:news@alphalinux.org">News Items</A><BR>
+		<A HREF="mailto:webmaster@alphalinux.org">Webmaster</A><BR>
+		<A HREF="mailto:ftpadmin@alphalinux.org">FTP Admin</A><BR>
+		<P>
+		<A HREF="oldnews/">Old News...</A><BR>
+	</TD></TR></TABLE>
+	<P>
+
+
+	    
+	</TD>
+	</TR>
+	</TABLE>
+	
+
+
+<!-- End of Sidebar. -->
+
+
+        </TABLE>
+        
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+          <FONT COLOR="#DC9D33" FACE="helvetica,sans-serif" SIZE="-1">
+
+	<CENTER>Powered  by Alpha / Linux® is a registered trademark of Linus Torvalds<br>Hosted by <a href="http://www.theshell.com">TheShell.com</a></CENTER>
+
+           </FONT>
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>
+ 

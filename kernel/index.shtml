@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Kernel Support</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+
+
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPA
+CE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HS
+PACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0
+ HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+
+
+    <TR VALIGN="top">
+      <TD><IMG SRC="../img/penguinedge.gif" WIDTH="16" HEIGHT="77" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD BGCOLOR="#DC9D33">
+        <IMG SRC="../img/kernel-support.gif" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            <P></B></FONT>
+<P>
+Welcome to the AlphaLinux.org Linux kernel support page.  It is our intension to help the AlphaLinux community with common kernel compilation problems.  We will attempt to log any valid problem or patch. 
+  We will not cover the dev kernels here.
+<P>
+<I><small>Maintained by:  Barrett G. Lyon</small></I>
+
+
+
+              <!-- Subtitle --> 
+	      <FONT SIZE="+1"><B>
+              <UL>Current Stable Release
+	      </FONT></B><br>
+
+	         May 13, version <a href="http://www.us.kernel.org/pub/linux/kernel/v2.2/">2.2.19</a>
+		<P>
+		Version 2.2.19 seems to operates stable in a heavily loaded production environment. 
+		<P>
+
+		<table border=0>
+		<tr><td valign=top>BUGS:</td><td>
+                none discovered <P> 
+     
+                </td></tr>
+
+		<tr><td valign=top>Patches:</td>
+		<td>
+		Standard Alan Cox patches for 2.2.20 (pre)<P>
+                </td></tr>
+
+                <tr><td valign=top>Notes:</td>
+                <td>
+                pgcc - Do not use to compile a kernel<P>
+		</td></tr></table>
+		
+
+	      </UL>
+
+              <!-- Subtitle --> 
+	      <FONT SIZE="+1"><B>
+              <UL>Old Stable Release
+	      </FONT></B><br>
+
+	      Aug 25, 2000 version <a href="<a href="http://www.gz.us.kernel.org/pub/linux/kernel/v2.0/">2.0.38</a>
+		<P>
+		It has been superceded by Linux v2.2, which is the new stable kernel.  It is suggested to use v2.2 on Alpha
+		architecture.
+	      </UL>
+
+
+              <!-- Subtitle --> 
+	      <FONT SIZE="+1"><B>
+	      <UL>Obtaining Kernel Source
+	      </FONT></B><br>
+		The Linux Kernel Archive Mirror System is set up so that for each two-letter country code from the list below,
+		you can simply use the host names www.country-abrivation(us,jp etc.).kernel.org or ftp.country-abrivation.kernel.org to reach
+		a mirror supporting that specific country. Each mirror will have a full archive of /pub/Linux/ and /pub/software/, although
+		they may not carry both the gzip and bzip2 compression formats.   For a list of these sites please visit
+		<a href="http://www.kernel.org/mirrors/">http://www.kernel.org/mirrors/</a>.
+	      </UL>
+	      
+	      <FONT SIZE="+1"><B>
+	      <UL>Documentation 
+              </B></FONT><BR>
+
+		<table>
+		
+		<tr><td valign=top><A HREF="http://metalab.unc.edu/LDP/HOWTO/Kernel-HOWTO.html">The LDP Kernel HOWTO</a></td>
+		<td valign=top>Mostly directions on how to make an x86 kernel (poorly written).</td></tr>
+
+		<tr><td valign=top><a href="http://www.linuxhq.com/doc22/">2.2.x "Documentation" directory</a></td>
+		<td valign=top>Helpful information on device and kernel configuration.</td></tr>
+
+		<tr><td valign=top><a href="http://charlotte.redhat.com/support/docs/rhl/kernel-upgrade/kernel-upgrade-5.html">Kernel upgrade HOWTO</a></td>
+		<td valign=top>How to upgrade an RedHat (Alpha Distro.) from a v2.0.x kernel to a v2.2.x kernel.</td></tr>
+
+		<tr><td valign=top><a href="http://www.linuxhq.com/patch-howto.html">Patch HOWTO</a></td>
+		<td valign=top>How to Apply Linux Patches.</td></tr>
+
+		<tr><td valign=top><a href="http://roadrunner.swansea.linux.org.uk/clue.html">Clue-Point-Two</a></td>
+		<td>A hint sheet for 2.2.x migration.</td></tr>
+
+		<tr><td valign=top><a href="http://www.linuxhq.com/change22.html">Linux 2.2 Changes File</a></td>
+		<td>A list of software that must be upgraded for 2.2.x.</td>
+
+		</table>
+	      </UL>
+
+
+
+	      <FONT SIZE="+1"><B>
+	      <UL>Linux Kernel Related Sites
+	      </B></FONT><BR> 
+		<table>
+
+		<tr><td valign=top width=225><a href="http://www.kernel.org">www.kernel.org</a></td>
+		<td valign=top>The Linux Kernel Archives.</td></tr>
+
+		<tr><td valign=top><a href="http://www.linuxhq.org">www.linuxhq.com</a></td>
+		<td valign=top>LinuxHQ, great source of information.</td></tr>
+
+		<tr valign=top><td><a href="http://www.kt.opensrc.org/">www.kt.opensrc.org</a></td>
+		<td valign=top>Kernel Traffic, an excellent site listing summaries an archive of the Linux Kernel Mailing List
+		(LKML).</td></tr>
+
+		<tr><td valign=top><a href="http://lxr.linux.no/">lxr.linux.no</a></td>
+		<td valign=top>Linux Kernel Cross-Referencing Index</td></tr>
+
+		<tr><td valign=top><a href="http://metalab.unc.edu/linux-source/">metalab.unc.edu/linux-source/</a></td>
+		<td valign=top>Linux Source Navigator</td></tr>
+
+		<tr><td valign=top><a href="http://lsd.linux.cz/">lsd.linux.cz/</a></td>
+		<td valign=top>The Linux Source Driver</td></tr>
+
+		<tr><td valign=top><a href="http://linux-patches.rock-projects.com/">linux-patches.rock-projects.com/</a></td>
+		<td valign=top>The Linux Kernel Patch Archive</td></tr>
+
+		</table>
+	      </UL>
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

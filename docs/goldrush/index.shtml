@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation  Goldrush, Tsunami DS10, DS20, DS20E, DP264, ES40, XP1000, XP900, UP2000 </TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+   <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../../"><IMG SRC="../../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../../intro/"><IMG SRC="../../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../../software/"><IMG SRC="../../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../../hardware/"><IMG SRC="../../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../../otherpages/"><IMG SRC="../../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../../about/"><IMG SRC="../../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            DP264 -Tsunami machines
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+	      The DP264 series includes the DS20 (DP264 OEM version), DS20E, ES40, DS10, XP1000, XP900 and UP2000 based systems. When
+	      compiling a kernel all of the machine require either a generic of DP264 specific kernel.
+
+	      <P>
+	SRM should be used to boot the DP264 series. There is a MILO for these machines however it is not very reliable.	      
+	      
+<P><FONT SIZE="+1"><B>
+DS20, DS20E and DP264</FONT></B>
+<P>
+	The Goldrush (DS20 and DP264) systems are a EV6 or EV67 (21264, 21264a) based system with 1 or 2 CPUs on
+	daughter cards, 2 PCI buses and support up to 4Gig of RAM. 
+	The DS20 is officially supported from Compaq as a Linux box. Kernels 2.2.1 and later have support and can be
+	compiled as DP264 or generic.<P>
+	The GoldRack (DS20E) is either a workstation or rack mount version of the DS20.
+	<P>
+	
+	    <UL>
+	       <LI><A HREF="http://www.digital.com/alphaserver/ds20/ds20.html">Compaq DS20</A> home page</LI>
+	       <LI><A HREF="http://www.alpha-processor.com/products/264dp-board.shtml">Alpha-Processor's 264DP</A> motherboard</LI>
+	       <LI><A HREF="http://www.digital.com/alphaserver/workstations/ds20e/index.html">Compaq DS20E</A> home page</LI>
+	   </UL>
+	
+<P><FONT SIZE="+1"><B>UP2000, UP2000+</B></FONT>
+             <P>The Swordfish is the first motherboard to come out of <A HREF="http://www.alpha-processor.com">Alpha Processor Inc.</A>
+	     in Concord Mass. The UP2000 is a uni or dual processor motherboard based around the Tsunami chipset though four
+	     of the C Chips have been removed so it only has one 256bit memory bus instead of two. This is also
+	     the first motherboard to use API's Slot B processor cartridge. Current configurations range from a 667MHz 2MB version
+	     up to a 750MHz 8MB version.<P> This motherboard was used to demonstrate the worlds first 1GHz chip running at room
+	     temperature at PCExpo in June 1999.
+
+	     Resources:<BR>
+	      <UL>
+	       <LI>Alpha Processor Inc. <A HREF="http://www.alpha-processor.com"> home page</A></LI>
+	       <LI><A HREF="http://www.alpha-processor.com/products/up2000-board.shtml">UP2000/UP2000+</A> home page</LI>
+	      </UL>
+
+<P><FONT SIZE="+1"><B>XP1000</B></FONT>
+<P>
+           The Monet/Brisbane is the last of the purpose built Alpha workstations to come out of Digital/Compaq. From now on all
+	   workstation will be derived from server products. The systems have a 4MB cache and support up to 2Gig of memory.
+
+	   <P>The Monet is a single 500MHz workstation, Brisbane is the 667MHz version. 
+	   <P>
+	   Compaq<A HREF="http://www.digital.com/alphaserver/workstations/xp1000/index.html">XP1000</A> homepage.
+
+<P><FONT SIZE="+1"><B>DS10, XP900</B></FONT>
+<P>
+           The DS10 (webbrick) is based on a 466MHz EV6 with 2MB cache. The processor is soldered to the
+	   board (unlike the DS20 daughter cards) and it not upgradeable. They also make use of the ALI
+	   IDE controller instead of the Cypress present in the DS20 series. Also available is the
+	   DS10L (slate) which is a 1U rackmount version, both of these are now available with a 600MHz CPU.
+	   <P>
+
+	    Compaq<A HREF="http://www.compaq.com/alphaserver/ds10/index.html">DS10</A> homepage.
+	     Compaq<A HREF="http://www.compaq.com/alphaserver/ds10l/index.html">DS10L</A> homepage
+	    <P>
+	   The XP900 is a workstation version of the DS10 aimed at the OpenVMS market.
+	   <P>
+	   Compaq<A HREF="http://www.digital.com/alphaserver/workstations/xp900/index.html">XP900</A> homepage.
+	   <P>
+	
+
+<P><FONT SIZE="+1"><B>ES40</B></FONT>
+        The clipper is the high end of the Tsunami series. It supports up to 4 500MHz processors
+	with up to 16Gig of memory.
+
+	<P>Compaq <A HREF="http://www.digital.com/alphaserver/es40/es40.html">ES40</A> homepage.
+
+<P>	<FONT SIZE="+1"><B>Note:</B></FONT> The kernel with RedHat 5.2 for the DP264 is broken in
+	respect to cards with builtin PCI-PCI bridges (Ex:  IntraServer cards that have 2 SCSI plus Ethernet
+		behind a bridge). If you are using one of these cards then use one of the images below.     
+
+
+	   <UL><FONT SIZE="+1"><B>Kernel Images</B></FONT>
+		<LI><A HREF="ftp://ftp.alphalinux.org/kernel/images/generic-up-223.img">Generic UP</A> Image</LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/kernel/images/generic-smp-223.img">Generic SMP</A> Image</LI>
+    	   </UL>
+
+<P>	   <FONT SIZE="+1"><B>Hints and Tips for the DS20/DP264:</B></FONT><P>
+           1) Large memory configurations<P>
+
+At the time of writing, the maximum memory capacity of any Alpha machine running Linux is 2GB. Putting any more memory than this into your DP264 will result
+in a spectacular boot-time crash<P>
+
+2) The SRM console must have the variable os_type=vms when using the system with larger memory configurations. The OSF (Digital Unix) PALcode would cause
+problems which are cured by booting from the VMS PALcode. The correct PALcode is then installed by aboot.<P>
+
+3) SCSI cards, video cards and PCI buses.<P>
+
+Video cards must be put onto PCI bus 0.<P>
+
+In early revisions of the DP264, the system would not work with an Adaptec 2940UW SCSI card on PCI bus 0. In general, there is a performance hit when any
+SCSI card is put onto the same PCI bus as the video card. Put your SCSI card onto bus 1.<P>
+
+4) Non-generic kernel builds<P>
+
+Kernels up to and including 2.2.9 can not be built as anything other than generic kernels, due to a bug in the initialization procedure. Don't build them
+specifically for the DP264.   <P>
+
+
+	      <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

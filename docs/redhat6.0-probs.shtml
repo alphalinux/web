@@ -1,0 +1,327 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation - RedHat 6.0 Problems</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER> <a href="http://www.alphalinux.org/cgi-bin/banmat1.cgi?URL=3"><br>
+<img src="http://www.alphalinux.org/banners/mwbanner.gif" border=0 height=60 width=480 vspace=10></a>
+     </CENTER></TD>
+
+     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            RedHat 6.0 Problems 
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+	   This is a list of known problems with RedHat 6.0 for Alpha. This includes the
+	contents of the RedHat errata and other problems that RedHat has yet to fix.
+      <P>
+
+	  <FONT SIZE="+1"><B>
+	net-tools:
+              </B></FONT><BR> 
+	<P>
+	<B>Symptom:</B> 
+Several potential buffer overruns have been corrected within the net-tools package. 
+	<BR>
+	<B>Solution:</B> Download and install the following updated package:
+	<UL>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/net-tools-1.52-2.alpha.rpm">net-tools-1.52-2.alpha.rpm</A></LI>
+	</UL>    
+    <P>
+
+	  <FONT SIZE="+1"><B>
+	talk:
+              </B></FONT><BR> 
+	<P>
+	<B>Symptom:</B> 
+The older version 1 talk protocol was broken in Red Hat 6.0. 
+	<BR>
+	<B>Solution:</B> Download and install the following updated package:
+	<UL>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/talk-0.11-2.alpha.rpm">talk-0.11-2.alpha.rpm</A></LI>
+	</UL>    
+    <P>
+
+	  <FONT SIZE="+1"><B>
+	KDE-1.1:
+              </B></FONT><BR> 
+	<P>
+	<B>Updates:</B> 
+New KDE RPMs are available for Red Hat Linux 6.0. These RPMs upgrade the 1.1.1pre2 release to 1.1.1 final + fixes.
+Several security holes have been closed, and other bugs noted in the original RPMs have been corrected. 
+	<BR>
+	<P>
+	<B>Solution:</B> Download and install the following updated packages:
+	<UL>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdeadmin-1.1.1-1.alpha.rpm">kdeadmin-1.1.1-1.alpha.rpm</A></LI>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdebase-1.1.1-1.alpha.rpm">kdebase-1.1.1-1.alpha.rpm</A></LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdegames-1.1.1-1.alpha.rpm">kdegames-1.1.1-1.alpha.rpm</A></LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdegraphics-1.1.1-1.alpha.rpm">kdegraphics-1.1.1-1.alpha.rpm</A></LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdelibs-1.1.1-1.alpha.rpm">kdelibs-1.1.1-1.alpha.rpm</A></LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdemultimedia-1.1.1-1.alpha.rpm">kdemultimedia-1.1.1-1.alpha.rpm</A></LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdenetwork-1.1.1-1.alpha.rpm">kdenetwork-1.1.1-1.alpha.rpm</A></LI>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdesupport-1.1.1-1.alpha.rpm">kdesupport-1.1.1-1.alpha.rpm</A></LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdetoys-1.1.1-1.alpha.rpm">kdetoys-1.1.1-1.alpha.rpm</A></LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kdeutils-1.1.1-1.alpha.rpm">kdeutils-1.1.1-1.alpha.rpm</A></LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/korganizer-1.1.1-1.alpha.rpm">korganizer-1.1.1-1.alpha.rpm</A></LI>
+		<LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kpilot-3.1b9-1.alpha.rpm">kpilot-3.1b9-1.alpha.rpm</A></LI>
+	</UL>    
+    <P>
+
+	  <FONT SIZE="+1"><B>
+	mod_php:
+              </B></FONT><BR> 
+	<P>
+	<B>Problem:</B> 
+Red Hat Linux 6.0 shipped with PHP 3.0.7. This release of PHP had some problems with glibc 2.1.
+A later errata release corrected those problems, but it had problems with postgresql, which it intended to support.
+    <P>
+This release corrects all known problems with PHP3, as well as adding modular postgresql and imap support. 
+	<BR>
+	<P>
+	<B>Solution:</B> Download and install the following updated packages:
+	<UL>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/mod_php3-3.0.9-1.alpha.rpm">mod_php3-3.0.9-1.alpha.rpm</A></LI>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/mod_php3-imap-3.0.9-1.alpha.rpm">mod_php3-imap-3.0.9-1.alpha.rpm</A></LI>	  	
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/mod_php3-manual-3.0.9-1.alpha.rpm">mod_php3-manual-3.0.9-1.alpha.rpm</A></LI>  
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/mod_php3-pgsql-3.0.9-1.alpha.rpm">mod_php3-pgsql-3.0.9-1.alpha.rpm</A></LI>  
+	</UL>    
+    <P>
+              <!-- Subtitle --> 
+	  <FONT SIZE="+1"><B>
+	dev, rxvt, screen:
+              </B></FONT><BR> 
+	  <P>
+	<FONT COLOR="B70000"><B>Security:</B></FONT> 
+        The /dev/pts filesystem was mounted with options 'mode=0622' in Red Hat Linux 6.0, instead of
+        the correct 'gid=5,mode=0620'. This could lead to users being able to write to affected ttys. 
+	<P>
+        Additionally, once this was corrected, screen and rxvt would still chmod the tty devices to
+        potentially insecure modes. 
+	<BR>
+	<P>
+	<B>Solution:</B> Download and install the following updated packages:
+	<UL>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/dev-2.7.7-2.alpha.rpm">dev-2.7.7-2.alpha.rpm</A></LI>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/rxvt-2.6.0-2.alpha.rpm">rxvt-2.6.0-2.alpha.rpm</A></LI>	  	
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/screen-3.7.6-9.alpha.rpm">screen-3.7.6-9.alpha.rpm</A></LI>  
+	</UL>    
+	  <FONT SIZE="+1"><B>
+	 XFree86:
+              </B></FONT><BR> 
+	  <P>
+	<B>Symptoms:</B> 
+        A number of problems exist with the XFree86 RPMs shipped with Red Hat Linux 6.0. The font
+        server is hardcoded not to accept TCP connections. A race condition leads to slow startups on
+        X servers which are entirely cached in memory. There are some problems with inputting
+        ISO-8859-1 characters with an ISO-8859-2 language in use. By default, the directory
+        /etc/X11/xdm/authdir does not exist, which causes the X server to fall back to no authentication
+        at all. 
+	<P>
+        Additionally, those users who did not use Xkb keyboard extension had problems wwith
+        backspace and Motif applications. 
+	<P>
+        (1999-06-17) The original xinitrc packages released for this update, xinitrc-2.4-1, had errors
+        (the xinitrc and Xclients files were not executable). This has been fixed in the currently available
+        errata pacakges.
+	<P> 
+	<B>Solution:</B> Download and install the following updated packages:
+	<UL>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-100dpi-fonts-3.3.3.1-52.alpha.rpm">XFree86-100dpi-fonts-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-3.3.3.1-52.alpha.rpm">XFree86-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-3DLabs-3.3.3.1-52.alpha.rpm">XFree86-3DLabs-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-75dpi-fonts-3.3.3.1-52.alpha.rpm">XFree86-75dpi-fonts-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-FBDev-3.3.3.1-52.alpha.rpm">XFree86-FBDev-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-Mach64-3.3.3.1-52.alpha.rpm">XFree86-Mach64-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-Mono-3.3.3.1-52.alpha.rpm">XFree86-Mono-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-P9000-3.3.3.1-52.alpha.rpm">XFree86-P9000-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-S3-3.3.3.1-52.alpha.rpm">XFree86-S3-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-S3V-3.3.3.1-52.alpha.rpm">XFree86-S3V-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-SVGA-3.3.3.1-52.alpha.rpm">XFree86-SVGA-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-TGA-3.3.3.1-52.alpha.rpm">XFree86-TGA-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-Xnest-3.3.3.1-52.alpha.rpm">XFree86-Xnest-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-Xvfb-3.3.3.1-52.alpha.rpm">XFree86-Xvfb-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-cyrillic-fonts-3.3.3.1-52.alpha.rpm">XFree86-cyrillic-fonts-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-devel-3.3.3.1-52.alpha.rpm">XFree86-devel-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-doc-3.3.3.1-52.alpha.rpm">XFree86-doc-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-libs-3.3.3.1-52.alpha.rpm">XFree86-libs-3.3.3.1-52.alpha.rpm</A></LI>
+            <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/XFree86-xfs-3.3.3.1-52.alpha.rpm">XFree86-xfs-3.3.3.1-52.alpha.rpm</A></LI>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/xinitrc-2.4.1-1.noarch.rpm">xinitrc-2.4.1-1.noarch.rpm</A></LI>
+	</UL>    
+
+	<P>
+	  <FONT SIZE="+1"><B>
+	  wu-ftpd:
+              </B></FONT><BR> 
+	  <P>
+	<B>Symptom:</B> file name globbing is broken. 'ftpwho' does not displaying complete information.
+                     
+
+	<BR>
+	<B>Solution:</B> Download the updated <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/wu-ftpd-2.5.0-2.alpha.rpm">wu-ftpd rpm</A>
+	and upgrade the package.
+	<P>	   
+
+	<FONT SIZE="+1"><B>
+	kernel update
+              </B></FONT><BR> 
+	  <P>
+	<FONT COLOR="B70000"><B>Security:</B></FONT> Vulnerability allows remote users to crash machines running 2.2.x kernels. 
+		<BR>
+	<B>Solution:</B> Depending on if you have a either a single or multi-processor Alpha download:<BR>
+	<UL>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kernel-2.2.5-22.alpha.rpm">kernel-2.2.5-22.alpha.rpm</A></LI>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kernel-smp-2.2.5-22.alpha.rpm">kernel-smp-2.2.5-22.alpha.rpm</A></LI>
+	</UL>
+	<P>
+	    It Is also recommend that you download and install the following.
+	</P>
+	<UL>
+	     <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kernel-source-2.2.5-22.alpha.rpm">kernel-source-2.2.5-22.alpha.rpm</A></LI>
+	     <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kernel-headers-2.2.5-22.alpha.rpm">kernel-headers-2.2.5-22.alpha.rpm</A></LI>
+	     <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/kernel-doc-2.2.5-22.alpha.rpm">kernel-doc-2.2.5-22.alpha.rpm</A></LI>
+	</UL>    
+	
+	<FONT SIZE="+1"><B>
+	utemper:  
+              </B></FONT><BR> 
+	  <P>
+	<B>Symptom:</B> Several programs on Red Hat 6.0 may not stop running when a user logs out due to a problem handling signals. Programs affect by this bug included xterm, rxvt, and screen.
+	<BR>
+	<B>Solution:</B> Download the updated <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/utempter-0.5-2.alpha.rpm">utemper rpm</A>
+	and upgrade the package.
+	<P>	
+
+	<FONT SIZE="+1"><B>
+	New boot images:  
+              </B></FONT><BR> 
+	  <P>
+	<B>Symptom:</B> A number of bugs are fixed in this release which include: <BR>
+	<UL>
+	    <LI>ICP Vortex RAID controller driver module missing</LI>
+            <LI>VIA-Rhine ethernet card driver module missing </LI>
+            <LI>Kickstart installs recrypts passwords even if "--iscrypted" is given</LI> 
+            <LI>Problems obtaining complete DHCP replies from Windows NT DHCP servers (NOTE: for this problem you will also need the new pump package.)</LI>
+            <LI>Foreign language installs using the hard drive install method</LI>
+            <LI>Hard drive installs from partitions that will be mounted in the installed system</LI>
+	</UL>
+	
+	<B>Solution:</B> Download an updated <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/images/ramdisk.img">ramdisk.img</A>
+	<P>	
+	<B>Further Instructions:</B> Copy "ramdisk.img" to a floppy disk using "dd" or "rawrite.exe" then proceed with the instructions in the installation guide. 
+	<P>
+	
+	<FONT SIZE="+1"><B>
+	mod_php3:
+	</B></FONT><BR>
+        <P>
+	<B>Notice:</B>The PHP v3 Apache module shipped with Red Hat Linux 6.0 Web Server 2.0 does not
+                      function properly with some PHP code. The PHP team also discovered some issues
+                      with PHP and glibc 2.1. For this reason, we are making PHP 3.0.8 available, which
+                      corrects these issues. We have also included PostgreSQL and IMAP support on the
+                      basis of user demand. 
+	<BR>
+	<B>Solution:</B> Download the updated <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/mod_php3-3.0.8-1.alpha.rpm">mod_php3 rpm</A>
+	and upgrade the package.
+	<P>
+			
+	<FONT SIZE="+1"><B>
+	inn:
+	</B></FONT><BR>
+	<P>
+	<FONT COLOR="B70000"><B>Security:</B></FONT> Security problems have been found with the version of INN that shipped with Red Hat Linux 6.0. By editing the inn.conf file, or changing the INNCONF environment variable, the 'news' user could execute arbitrary code as root. 
+	<BR>
+	<B>Solution:</B> Download an and upgrade the following packages:<BR>
+	<UL>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/inn-2.2-9.alpha.rpm">inn-2.2-9.alpha.rpm</A></LI>
+	    <LI><A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/inn-devel-2.2-9.alpha.rpm">inn-devel-2.2-9.alpha.rpm</A></LI>
+	</UL>    
+	
+	<FONT SIZE="+1"><B>
+	pump:
+	</B></FONT><BR>
+	<P>
+	<B>Symptom:</B> Pump would not allow Linux machines to get an IP from an NT server using DHCP. <BR>
+	<B>Solution:</B> Download an updated <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/pump-0.6.7-1.alpha.rpm">pump rpm</A> and upgrade the package.
+	<P>	
+
+	
+	<FONT SIZE="+1"><B>
+	xscreensaver:
+	</B></FONT><BR>
+	<P>
+	<FONT COLOR="B70000"><B>Security:</B></FONT> certain security checks were disabled that could result in a security vulnerability if the screensaver was configured in a particular manner. While Red Hat Linux 6.0 does not ship with such a configuration, it is recommended that users upgrade to the fixed packages. <BR>
+	<B>Solution:</B> Download an updated <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/xscreensaver-3.09-4.alpha.rpm">xscreensaver rpm</A> and upgrade the package.
+	<P>		
+
+	<FONT SIZE="+2"><B>
+	<U><FONT COLOR="B70000">Unoffical Erratta</FONT></U>
+	</B></FONT><P>	
+	
+	<FONT SIZE="+1"><B>
+	netkit-base:
+	</B></FONT><BR>
+	<P>
+	<B>Symptom:</B> Ping generated unaligned traps and erroneously reported receiving of wrong data<BR>
+	<B>Solution:</B> Download an updated <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/netkit-base-0.10-30.alpha.rpm">netkit-base-0.10-30.alpha.rpm</A> and upgrade the package.
+	<P>	
+
+	<FONT SIZE="+1"><B>
+	samba:
+	</B></FONT><BR>
+	<P>
+	<B>Notice:</B> Updated samba package to include smbmount and smbumount.<BR>
+	<B>Solution:</B> Download an updated <A HREF="ftp://ftp.alphalinux.org/redhat/updates/redhat-6.0/samba-2.0.3-9.alpha.rpm">samba-2.0.3-9.alpha.rpm</A> and upgrade the package.
+	<P>
+	
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+     
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

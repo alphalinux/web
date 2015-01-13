@@ -1,0 +1,130 @@
+What?
+-----
+Compaq/Digital's High Performance Servers Divisions/Benchmark Performance 
+Engineering presents: 
+
+The Iprobe tool suite (4.3) for Alpha/Linux. 
+
+When?
+-----
+Date: 10/07/99
+
+What's new?
+-----------
+New Web Page at www.alphalinux.org/~iprobe (thanks Richard Payne)
+Added EV6 FreeBSD support (Andrew Gallatin)
+Added EV6 support (Jim Goddard + Phil Ezolt)
+Added FreeBSD support (Andrew Gallatin) 
+
+How?
+---
+LICENSE: GPL.
+
+Who?
+----
+Contact: Phillip.Ezolt@compaq.com or ezolt@perf.zko.dec.com
+
+What is iprobe?
+---------------
+Iprobe is the greatest thing since sliced bread. 
+                             
+In addition, Iprobe is a low-overhead tool suite that uses the Alpha event 
+counters to find performance bottlenecks in kernel and userspace. 
+                             
+The Compaq Alpha processor has some nifty on-chip performance hardware which 
+can be used to find bottlenecks in program code. Iprobe gives the user access 
+to this hardware.   
+                             
+The iprobe suite allows one to pinpoint problem code.  It can not only 
+determine where a program is spending its cycles, but it can also figure out 
+where caches misses and  floating point instructions occur.  A few of the 
+questions that Iprobe can help to answer are:  Where is my program missing the
+cache?  Where is my program spending allof its cycles?   Which branch path is 
+taken most often? 
+                            
+ Internally, Iprobe has been used to optimize performance in CPU benchmarks, 
+on all Alpha operating systems,  and  several  commercial databases. 
+                            
+ Iprobe has traditionally be a cross-platform Alpha tool. It runs on Digital 
+Unix, Open VMS,  and Windows NT, and it is now being released under GPL for 
+Alpha/Linux. 
+
+*** Begin SHAMELESS PLUG ****
+If you are interested in learning how Iprobe works, and are attending the
+1999 ALS, please stop by the Iprobe presentation. 
+
+It will be held on Thursday, Oct 14 at 2:00 pm in Ballroom CD. 
+
+The talk discusses the use of Iprobe to find performance bottlenecks in
+Apache.
+*** End SHAMELESS PLUG ****
+
+
+Who can run it? 
+---------------
+The iprobe suite should run on all Alpha machines created prior to the EV67. 
+
+Currently, it has been tested successfully on all Alpha/Linux machines that 
+boot using the Digital SRM and aboot.  It may NOT run on machines running
+MILO. 
+
+For those that use MILO, iprobe MAY work.  For example, 
+The AlphaStation 250 is known to work, but not the AlphaStation 500.  
+
+For this, and other performance reasons, SRM is really the way to go.
+
+Iprobe also requires a kernel >2.1.132.  Any 2.2.X kernels should work. 
+
+Where do I get it? 
+------------------
+
+http://www.alphalinux.org/~iprobe
+
+The suite consists of two required parts, and a third which is optional:
+
+1) A kernel driver 
+
+iprobe_suite-4.3-driver.o.gz
+
+	This has been compiled for your convenience.  The source is availbe
+in the rpm/tarball with the source for the rest of the suite, but it
+must be compiled against a kernel with performance counter support, so for 
+ease of use,  a binary driver is provided. 
+
+2) Application Suite 
+
+iprobe_suite-4.3-1.alpha.rpm
+
+	These are all the applications that actually use the performance
+counters.   Instruction on their use is provided within. 
+
+3) Source 
+iprobe_suite-4.3-1.src.rpm
+
+	This is the source for all of the above. 
+
+
+How do I install?
+-----------------
+You need both the rpm and the kernel module.  One will NOT work without
+the other. 
+
+Get these files: 
+iprobe_suite-4.3-driver.o.gz 
+iprobe_suite-4.3-1.alpha.rpm
+
+Once you get the rpm, simply type
+
+rpm -i iprobe_suite-4.3-1.alpha.rpm
+
+You will also need to unzip and insert the kernel module.  More information
+is available in the INSTALL document. 
+
+*******IMPORTANT************
+
+Documentation will be installed in /usr/doc/iprobe_suite-4.3/  
+Read INSTALL for instructions on installing the suite.
+Read TUTORIAL for instructions on using the suite.
+
+If you don't read this, it will NOT work, and you will be frustrated. 
+

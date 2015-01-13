@@ -1,0 +1,126 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - OldNews</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+
+
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>  
+
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+		<P>Since late 2000 we've been keeping all the news items (as well as articles and press releases)
+		in a database. Enter your search string below to find any recent news items.
+	
+		<FORM ACTION="search.php" METHOD=POST>
+		<TABLE CELLSPACING=5>
+                <TR>
+                        <TD><FONT  FACE="Arial, Helvetica, sans-serif">Headline:</TD><TD> <INPUT TYPE=TEXT SIZE=25 NAME=headline><BR></TD>
+                </TR>
+                <TR>
+                        <TD><FONT  FACE="Arial, Helvetica, sans-serif">NewsText:</TD><TD> <INPUT TYPE=TEXT SIZE=25 NAME=newstxt><BR></TD>
+                        <TD><INPUT TYPE=submit NAME=submitter VALUE="Search"></TD>
+                </TR>
+                </TABLE>
+		</FORM>
+
+	
+	     Placed here are the old news items from the front page, organized by year and month.	     
+
+	     <P>	
+	     <TR>
+	     <TD></TD>
+	     <TD>
+	     <UL><FONT SIZE="+1"><B>2000</FONT></B> 
+	     <LI><A HREF="april2000.shtml">April</A></LI>
+	     <LI><A HREF="march2000.shtml">March</A></LI>
+	     <LI><A HREF="january2000.shtml">January</A></LI>
+	     </UL>
+	     </TD>
+	     </TR>
+	<TR>
+	 <TD></TD>
+	 <TD>
+	  <UL><FONT SIZE="+1"><B>1999</FONT></B>  
+	  <LI><A HREF="december1999.shtml">December</A></LI>
+	  <LI><A HREF="november1999.shtml">November</A></LI>
+	  <LI><A HREF="october1999.shtml">October</A></LI>
+	  <LI><A HREF="september1999.shtml">September</A></LI>  
+	  <LI><A HREF="august1999.shtml">August</A></LI>
+	  <LI><A HREF="july1999.shtml">July</A></LI>
+	   <LI><A HREF="june1999.shtml">June</A></LI>
+	    <LI><A HREF="may1999.shtml">May</A></LI>
+	   <LI><A HREF="april1999.shtml">April</A></LI>
+	   <LI><A HREF="march1999.shtml">March</A></LI>
+	   <LI><A HREF="february1999.shtml">February</A></LI>
+	   <LI><A HREF="january1999.shtml">January</A></LI>
+	  </UL>
+	 </TD>
+	</TR>
+
+	     <TR>
+	      <TD></TD>
+	      <TD>
+	      <UL><FONT SIZE="+1"><B>1998</FONT></B>
+	      <LI><A HREF="september1998.shtml">September</A></LI>
+	       <LI><A HREF="october1998.shtml">October</A></LI>
+ 	       <LI><A HREF="november1998.shtml">November</A></LI>
+	       <LI><A HREF="december1998.shtml">December</A></LI>
+	      </TD>
+	     </TR>
+
+	
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+     
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

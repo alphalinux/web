@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation - Updating SRM on an AS200</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ 
+  <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Updating SRM console on an AS200
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+	   <P>(the info below is without warranty)
+
+
+<UL>
+<LI> get the latest firmware from
+<A HRFE="ftp://ftp.digital.com/pub/DEC/Alpha/firmware/index.html">ftp.digital.com</A>
+(choose your machine on the left)
+</LI>
+
+<LI> download the firmware file (in my case it was `as255_v8_1.exe')</LI>
+
+<LI>boot  linux</LI>
+
+<LI>format a floppy (`fdformat /dev/fd0H1440')<BR>
+   *don't* put a filesystem onto it - you don't need it!
+</LI>
+
+<LI> put the firmware file onto the disk - starting with an offset of 512
+byte:<BR>
+   `dd if=as255_v8_1.exe of=/dev/fd0 bs=512 seek=1' <BR>
+the next step is somehow a hack.
+maybe there is a better way to do it - pls inform me!
+you need to boot from the disk (directly in the srm console)
+- but currently there is no boot stuff on it.
+</LI>
+
+<LI> create an empty (hex) bootblock:<BR>
+   `dd if=/dev/zero bs=512 count=1 | xxd boot_block_empty'
+</LI>
+
+<LI> determine the size of the firmware file<BR>
+   `ls -la as255_v8_1.exe'<BR>
+   divide that size by 512 (decimal) and calculate the hex value of it.
+</LI>
+
+<LI>edit the file `boot_block_empty' you created in step 6.
+   you have to jump to offset 1e0 (the line before the last line).
+   the next is a bit complicated.
+   you have to reverse the byte order of the hex value calculated in
+   step 7 in a long int (8 byte - 64 bit) order.
+   example:<BR>
+    your value from step 7 was: a09 (= 0000 0000 0000 0a09)<BR>
+    the value you have to enter is: 090a 0000 0000 0000<BR>
+   hope everyone understood...
+</LI>
+<LI> edit the next long int<BR>
+   enter: 0100 0000 0000 0000<BR>
+   this is the offset the file starts.
+</LI>
+
+<LI> make sure that the next long int (at offset 1f0) is:<BR>
+    0000 0000 0000 0000<BR>
+     this is a flag - don't know what it is used for.
+</LI>
+
+<LI>edit the last long int. this is a checksum.
+    it is the addition of all long ints (8 bytes) before.
+    pay attention on the REVERSE ORDER!!!<BR>
+    in my example it is:
+    0a0a 0000 0000 0000
+</LI>
+<LI> exit editor and write the bootblock back to disk:<BR>
+    `xxd -r boot_block_empty | dd of=/dev/fd0H1440'
+</LI>
+
+<LI> halt linux -> go to the srm console and boot from the created disk:
+    `boot dva0'
+</LI>
+<LI> the machine/srm seems to reboot - the the update menu should appear.</LI>
+</UL>
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+        
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

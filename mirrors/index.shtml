@@ -1,0 +1,170 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Mirrors</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->
+     </CENTER></TD>
+   </TR> 
+
+
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPA
+CE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HS
+PACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0
+ HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><H1>Mirrors</H1></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            <P></B></FONT>
+
+              <!-- Subtitle --> 
+	      <P>Below is a list of sites that mirror ftp.alphalinux.org. If you'd like to be an alphalinux.org mirrors
+	      site please see the <A HREF="mirror-howto.shtml">ALO Mirror Howto</A>.
+	      <P>
+              <FONT SIZE="+1"><B>Australia</B></FONT>
+              <P>
+              <TABLE WIDTH=100% CELLSPACING=5 BORDER=1 CELLPADDING=5>
+               <TR>
+                <TH>Server Name</TD>
+                <TH>Directory</TH>
+                <TH>Geographic Location</TH>
+                <TH>Bandwidth</TH>
+                </TR>
+              
+                <TR>
+                 <TD>mirror.cse.unsw.EDU.AU</TD>
+                 <TD><A HREF="ftp://mirror.cse.unsw.EDU.AU/pub/linux/alphalinux/">/pub/linux/alphalinux</A><BR>
+		<A HREF="http://mirror.cse.unsw.EDU.AU/pub/linux/alphalinux/">/pub/linux/alphalinux</A></TD>
+                 <TD>Sydney</TD>
+                 <TD></TD>
+                 </TR>
+                 </TABLE>
+	      
+	      <FONT SIZE="+1"><B>France</B></FONT>
+	      <P>
+	      <TABLE WIDTH=100% CELLSPACING=5 BORDER=1 CELLPADDING=5>
+	       <TR>
+	        <TH>Server Name</TD>
+		<TH>Directory</TH>
+		<TH>Geographic Location</TH>
+		<TH>Bandwidth</TH>
+		</TR>
+
+		<TR>
+		 <TD>ftp.club-internet.fr</TD>
+		 <TD><A HREF="ftp://ftp.club-internet.fr/pub/mirrors/ftp.alphalinux.org">pub/mirrors/ftp.alphalinux.org/</A></TD>
+		 <TD>Paris, France</TD>
+		 <TD>215 Mbps</TD>
+		 </TR>
+		 </TABLE>
+	
+	      <P><FONT SIZE="+1"><B>Poland</B></FONT>
+	      <P>
+	      <TABLE WIDTH=100% CELLSPACING=5 BORDER=1 CELLPADDING=5>
+	       <TR>
+	        <TH>Server Name</TD>
+		<TH>Directory</TH>
+		<TH>Geographic Location</TH>
+		<TH>Bandwidth</TH>
+		</TR>
+
+		<TR>
+		 <TD>ketlin.univ.szczecin.pl</TD>
+		 <TD><A HREF="ftp://ketlin.univ.szczecin.pl/pub/mirrors/ftp.alphalinux.org">pub/mirrors/ftp.alphalinux.org/</A></TD>
+		 <TD>Poland University of Szczecin</TD>
+		 <TD>100 Mbit</TD>
+		 </TR>
+		 </TABLE>
+	      <P><FONT SIZE="+1"><B>United States</B></FONT>
+	      <P>
+	      <TABLE WIDTH=100% CELLSPACING=5 BORDER=1 CELLPADDING=5>
+	       <TR>
+	        <TH>Server Name</TD>
+		<TH>Directory</TH>
+		<TH>Geographic Location</TH>
+		<TH>Bandwidth</TH>
+		</TR>
+
+		<TR>
+		 <TD>gatekeeper.dec.com</TD>
+		 <TD><A HREF="ftp://gatekeeper.dec.com/pub/linux/alphalinux">pub/linux/alphalinux</A></TD>
+		 <TD>Palo Alto California USA</TD>
+		 <TD>100Mb/sec</TD>
+		 </TR>
+
+		 <TR>
+		 <TD>emperor.alpha-processor.com</TD>
+		 <TD><A HREF="ftp://emperor.alpha-processor.com/pub/ftp.alphalinux.org/">pub/ftp.alphalinux.org/</A></TD>
+		 <TD>Concord MA USA</TD>
+		 <TD>T1</TD>
+		 </TR>
+		 
+		 <TR>
+		 <TD>nowhere.staller.sunysb.edu</TD>
+		 <TD><A HREF="ftp://nowhere.staller.sunysb.edu/pub/alphalinux.org/">pub/alphalinux.org/</A></TD>
+		 <TD>Stone Brook NY USA</TD>
+		 <TD>T3</TD>
+		 </TR>
+
+		 <TR>
+		 <TD>linux.itec.suny.edu</TD>
+		 <TD><A HREF="ftp://linux.itec.suny.edu/pub/linux/ftp.alphalinux.org/">pub/linux/ftp.alphalinux.org/</A></TD>
+		 <TD>Buffalo NY USA</TD>
+		 <TD>T1</TD>
+		 </TR>
+
+		 <TR>
+		 <TD>hal.bravegnuworld.com</TD>
+		 <TD><A HREF="ftp://hal.bravegnuworld.com/pub/mirrors/alo">pub/mirrors/alo</A></TD>
+		 <TD>San Pierre, IN</TD>
+		 <TD>256Kbps - 1.5Mbps</TD>
+		 </TR>
+
+		 </TABLE>
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

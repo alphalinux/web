@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ 
+  <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Kernel Compiling on Alpha
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+<P>If you're new to Linux or Linux on Alpha you may also want to take a look at our <A HREF="../kernel">Kernel support</A>
+pages.</P>
+
+
+<FONT SIZE="+1"><B>  
+First, why do you want to do this?
+</B></FONT><BR>  
+Well, you don't have to, I'm sure most people go for months or even years on the original kernel that came
+with their distribution, but if you want to get the latest bug fixes, as well as tune you kernel to your particular machine
+then you need to compile your own. The latest stable version (as I write this) is 2.2.14. The is 
+development version is currently at 2.3.28 (but that could change very quickly).
+<P>
+
+<FONT SIZE="+1"><B>  
+The stable series:
+</B></FONT><BR>  
+Any distribution should be able to compile these out of the box. I know RedHat can, if anybody has comments on the Debian
+and Stampede version let me know. The kernels are available from <A HREF="ftp://ftp.kernel.org">ftp.kernel.org</A> and the many,
+many mirrors that exist around.. The requirements for compiling a stable kernel
+can be found at <A HREF="http://www.linuxhq.com/changes20.html">www.linuxhq.com</A>.
+<P>
+
+<FONT SIZE="+1"><B>
+The development series:
+</B></FONT><BR> 
+You might not be able to compile these right out of the box, you may  need to get and/or build other packages first. You should
+check <A HREF="http://www.linuxhq.com/21-index.html">www.linuxhq.com</A> for the requirements for building development kernels.
+
+<P>Once you've got your kernel you need to uncompress (gunzip for .gz and bzip2 for .bz2 files) and untar (tar -xvf) it. Now it is strongly 
+suggested that you untar these files where they will not interfere with the kernels headers from your distribution (somewhere like /usr/local/src). 
+RedHat in particular has modified the headers for compiling other software, of course some programs (X servers..) require access to the 
+currently running kernel headers.
+
+<P>Now you need to run 'make config' to configure the kernel. As of 2.2.x make menuconfig and make xconfig work fine
+on the Alpha (thought will the development version there may be trouble). If you don't know what a particular option is for try the using the ? prompt for help info, also there is plenty of
+other info in the Documentation directory. Once you have finished this run a 'make depend', then a 'make boot', then 'make modules' and
+finally a 'make modules_install'. If all works well 
+you will be left will a file called vmlinux.gz in the  /usr/local/src/linux/arch/alpha/boot directory, and any modules you have
+compiled should be in /lib/modules/x.x.xx (where x.x.xx is your kernel version) directory. Copy the vmlinux.gz file to the root of 
+your file system. I recommend that you name it something different to preserve your current good kernel, after all
+something might go wrong and you'll need that old kernel as a safety net. 
+
+<P>Now the next time you boot, setup MILO (or whichever loader you use) to boot the new kernel. Remember to keep a reference to your
+old kernel, just in case.
+
+<P>If you want to make the kernel again, with different options maybe, make sure to do a 'make clean' before attempting the
+compile. This will clean out the source tree from your previous compile.
+
+<P>Now this is only a brief overview of how to do this. There is a lot of information out there on compiling kernels in general and
+most applies to the Alpha port also. One big difference is that there is no 'make zImage' on Alpha, instead there's 'make vmlinux' and
+'make boot'.</P>
+	   
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+     
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

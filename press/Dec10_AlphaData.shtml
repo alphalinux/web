@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Press Release</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>     
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+       
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+<H1><B>Press Release</B></H1>
+<CENTER><IMG SRC="sv11211250.gif"></CENTER>
+
+
+<P>December 1999: Alpha Data Parallel Systems Ltd. of Edinburgh, UK are pleased to announce the launch of the Alpha Node.  This  new and exciting  product utilizes four high performance Alpha processors in a slimline 2U rackmout  unit. The Alpha Node is unique in that it has been designed from the bottom-up to be used as a building block for Beowulf systems and Linux clusters. The design of both hardware and software has been optimized to provide the best performance for scaleable computing. Prices for Alpha Node start in the region of $10,000.
+
+
+<P>As Linux and Beowulf clusters push into the commercial and industrial arenas, Alpha Node will be at the forefront of this technology providing a cost effective and professional solution. The price and performance achievable with Beowulf clusters make them viable alternatives to more traditional high-end computers and supercomputers.” comments Scott McConnachie, Marketing Manger. “Beowulf  clusters would use many PC chassises  which carry additional features not required by a pure processing node. Alpha Node replaces PCs with 5.3GFLOPS 2U boxes, when you consider up to 20 Alpha Node units fit into a single rack mount enclosure, the price/performance /footprint advantage quickly becomes apparent.”
+
+<P>Alpha Data specializes in high-performance computing and offers a range of hardware and software solutions for compute-intensive applications, providing customers with scaleable, parallel processing systems and add-on boards.  Suitable applications include Digital Signal Processing (DSP), image processing, molecular simulation, fluid dynamics, neural networks, weather forecasting and financial modeling. 
+
+<UL>Alpha Node Product Highlights
+<LI>	Processors: 4 * Alpha up to 667MHz, each processor supports up to 1GB SDRAM and 8MB level 3 cache.</LI>
+<LI>	Expansion and Clustering: 8 * 100 Base TX Fast Ethernet and 4 * PMC (PCI Mezzanine Card) sites for further expansion and integration of many PMC cards  such as Frame Grabbers or Fiber Channel Interface cards.  This gives an excellent scope to add a huge number of third-party PMC cards opening up the Alpha Node to many diverse applications.</LI>
+<LI>	Software: supplied bundled with Red Hat Linux and Parallel Processing software such as MPI, PVM GUI debugger, performance monitor and code editor. </LI>
+
+<P>For more information please visit <A HREF="http://www.alphadata.co.uk">http://www.alphadata.co.uk</A>,  
+ contact <A HREF="mailto:sales@alphadata.co.uk">sales@alphadata.co.uk</A> or phone +44 131 555 0303
+
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

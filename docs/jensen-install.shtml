@@ -1,0 +1,303 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+    <TR>
+        <TD WIDTH=16>&nbsp;</TD>
+        <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->
+
+  
+        </CENTER>
+        </TD>
+
+   </TR>  
+	
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Jensen install using 'aboot'
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+<P>
+<I>[Updated 6.11.1996 for aboot 0.5 + ELF kernel]</I>
+<P>
+This file is a changed version of Jim Paradis' documentation on installing
+Linux on the "Jensen" Alpha board. I have changed this to reflect the steps
+necessary to use aboot instead of the standard bootloader.
+<P>
+Using aboot has two advantages compared with Jim's original solution
+you don't need a special modified kernel to install. Any standard
+   vmlinux.gz can be used.
+<P>
+<UL>
+<LI>aboot can load multiple kernels direct from a ext2-filesystem from
+    a partition on the root disk after installation, so you can easily
+    try out new test kernels without destroying your only working kernel.</LI>
+<LI> aboot can pass *any* bootoptions you want to the kernel, and does not
+    limit their size</LI>
+<LI>using aboot, you can auto-boot Linux from the SRM console even if
+   you require boot-options longer than 8 characters (eg. root=... :-)) </LI>
+</UL>
+<P>
+The necessary files can be found in:
+<P>	
+	<A
+HREF="ftp://ftp.alphalinux.org/pub/Linux-Alpha/jensen/install">ftp.alphalinux.org/pub/Linux-Alpha/jensen/install</A>
+<P>
+You will need the following files:
+<P>
+<B><A HREF="ftp://ftp.alphalinux.org/pub/Linux-Alpha/jensen/install/minlabel.exe">minlabel.exe</A></B> :	Partitioning
+utility <BR>
+<B><A HREF="ftp://ftp.alphalinux.org/pub/Linux-Alpha/jensen/install/copyboot.exe">copyboot.exe</A></B> :   Utility for copying
+the bootdisk to the hard drive <BR>
+<P>
+<B><A HREF="ftp://ftp.alphalinux.org/pub/Linux-Alpha/jensen/install/lxboot.aboot">lxboot.aboot</A></B> :	copy of an
+aboot-ready sector 0 (disklabel) from my disk.
+			copyboot needs this to extract the position and length of
+			 the bootcode from the image  <BR>
+<P>
+<B><A HREF="ftp://ftp.alphalinux.org/pub/Linux-Alpha/jensen/install/bootlx.aboot">bootlx.aboot</A></B> :	The aboot
+first-stage loader image itself           
+                        Currently, this is aboot-0.2. As soon as I find the 
+                        time, I will provide a version with aboot-0.3* and   
+                        with an extra option so that you do not have to      
+                        recompile aboot to get the whole functionality.     <BR>
+<P>
+<B><A HREF="ftp://ftp.alphalinux.org/pub/Linux-Alpha/jensen/install/vmlinux.gz">vmlinux-*.gz</A></B> :	A stock kernel with
+the following options [IIRC]:   <BR>
+<P>
+<UL>
+<LI>ramdisk</LI>		
+<LI>all SCSI devices, AHA1742</LI>				
+<LI>NE2000, WD8003, SMC ultra</LI>			
+<LI>DOS, Minix, ext2, iso9660 filesystems</LI>	
+<LI>PS/2 mouse, serial + parallel port drivers</LI>	
+</UL>
+<P>
+I tested this on a Jensen with Firmware ROM 1.7. Things should work with
+older ROM versions, too. When you want to upgrade your firmware and have an
+ELSA WINNER 1000 graphics card in your system, be aware ROM versions above
+1.7 hang during initialization of the ARC firmware when the ELSA card is
+used in EISA mode - this seems to be due to a bug in the ELSA's own firmware
+ROM, and ELSA is not willing to help in that case.
+<P>
+WARNING:
+it seems that aboot will not work on a Jensen with a firmware >1.7 - you get 
+a fail message directly when loading aboot. The only solution I know is 
+downgrading to a 1.7 firmware (which has no disadvantages AFAIK).
+<P>
+
+<B><FONT SIZE="+2">Procedure:</FONT></B>
+<BR>
+<B><FONT SIZE="+1">1. Prepare your floppies:</FONT></B>
+<P><UL>
+<LI>Create a DOS-formatted floppy with the standalone ARC utilities
+   (MINLABEL.EXE and COPYBOOT.EXE)</LI>
+
+<LI> Create the bootimage and write it to a second, formatted floppy:
+	<UL><LI>cat lxboot.aboot lxboot.aboot bootlx.aboot vmlinux.gz >/dev/fd0</LI>
+    	(or do the same with COPY /B on a DOS system and copy the resulting 
+   	file to disk using RAWRITE.EXE).The double lxboot.aboot is not a typo - 
+	we need a filler of 512 bytes since for reasons I forgot, aboot expects
+	to be placed starting at sector *2* on the disk.	
+   	<BR>	
+   	You can replace vmlinux.gz with any newer kernel you like - use
+   	quickstrip before compressing to save space.
+	</UL>
+	<P>
+<LI> If you are installing Red Hat, prepare a pseudo-bootdisk: take any of the
+   bootdisk images and create a disk as describes in the installation docs.
+   The setup tool needs this to copy a kernel to your harddisk later during
+   the installation, and will insist to do so. You can later replace this
+   kernel with a real one for the Jensen.</LI>
+
+<LI>Create the ramdisk floppy image for your distribution plus any other
+   disks which your installation may need (debian base-disks etc.).</LI>
+
+<LI>You will, of course, need the installation media for your OS distribution
+   (CD or floppies)</LI>
+<P></UL>
+
+
+<B><FONT SIZE="+1">2. Partition the root disk</FONT></B>
+<P>
+<UL>
+<LI>Get to the ARC console opening screen.  If your Jensen comes up to the
+   ARC console (it says "ARC" in the first line and presents you with a
+   menu), you're all set.  If it comes up to the SRM console (>>> prompt),
+   enter the command "SET OS NT" and press CTRL-P to enter the ARC console.</LI>
+
+<LI>Insert the "ARC utilities" disk.</LI>
+
+<LI>Choose "Run a program"</LI>
+
+<LI>Enter:<BR> 
+<UL>    a:minlabel<BR>
+   	[use eisa(0)disk(0)fdisk(0)minlabel.exe if that fails]<BR>
+</UL>
+<BR>
+   	This invokes the standalone minlabel utility, which is exactly like the
+      	Linux minlabel utility.
+<P>
+
+<LI>Choose the disk you are going to partition. I [Jim] have made every
+   effort to make these utilities understand Linux-style device names, so
+   you should be able to enter something like "/dev/sda".
+   ['sda' seems to work fine - ms]</LI>
+
+<LI> Partition the disk. Most likely you'll want a small (4Mb) initial
+   partition for the bootstrap, and the rest of the disk for Linux.  If
+   you have only one disk on your system, you'll have to further partition
+   the disk to provide a Linux partition and a swap partition.  Make sure
+   that the space for the bootstrap is not only the first partition, but
+   is at the beginning of the disk (offset 0).</LI>
+
+<LI>Exit the minlabel program.</LI>
+
+</UL>
+
+<B><FONT SIZE="+1">3. Copy the aboot bootloader and Linux kernel to the boot partition:</FONT></B>
+<P>
+<UL>
+<LI>be sure that you have set the correct floppy drive type.  Even if you
+   *do* have a 2.88MB ED drive, you should set this to 1.44MB if you want
+   to read a 1.44MB disk using copyboot. To set this, use 'Edit
+   environment variables' from the Setup menu and set 'FLOPPY=2'. You may
+   have to do this directly before the next step, otherwise you get read
+   errors after block 720 and the system will not boot.</LI>
+
+<LI>Choose "Run a program" from the ARC menu</LI>
+
+<LI>Enter: a:copyboot</LI>
+         <UL>[use eisa(0)disk(0)fdisk(0)copyboot.exe if that fails]</UL>
+
+<LI>Select source and destination devices <BR>
+   (source is typically /dev/fd0, destination is /dev/sda, /dev/sdb,...)</LI>
+
+<LI>Remove the ARC utilities disk from the drive and insert the Linux
+   bootimage disk.</LI>
+
+<LI>Hit <B>ENTER</B> to start copying.</LI>
+</UL>
+
+<P>
+<B><FONT SIZE="+1">4. Set up the system to come up to SRM console:</FONT></B>
+<P>
+
+<LI>Remove floppy from drive
+<LI>Select "Supplementary menu..."
+<LI>Select "Set up the system..."
+<LI>Select "Switch to OpenVMS or OSF console"
+<LI>Select "Switch to OSF"
+<LI>Type ESC
+<LI>Power-cycle the system.
+</UL>
+
+<P>
+<B><FONT SIZE="+1">5. Boot and install your system:</FONT></B>
+<P>
+<UL>
+
+<LI>At >>> prompt, type:</LI>
+	<UL>BOOT -FL "i" DKAx00 <BR>
+	where x00 refers to the boot device (DKA000 for SCSI device 0, DKA100 for <BR>
+	device 1, etc.).aboot will then load and ask you what kernel and commandline to boot.<BR>
+	</UL>
+
+<LI>at the aboot prompt, type:</LI>
+<UL> 0/a root=/dev/fd0 load_ramdisk=1 <BR>
+     (or whatever you need to install/boot). The '0/a' tells aboot to load the <BR>
+     kernel that was written directly to the beginning of the disk. You can <BR>
+     tell aboot to load a kernel directly from the root filesystem later, <BR>
+     after installing the system.<BR>
+</UL>
+
+<LI>From here on, you should be able to follow the instructions that came <BR>
+   with your Linux distribution. Beware, however, that you should not <BR>
+   re-partition the disk containing the boot code + kernel, since this will <BR>
+   remove the bootable flag from the disklabel. Also, you do not need to <BR>
+   write bootcode and/or kernel to the disk, since this will remove the <BR>
+   aboot code. If either of these happens, you should be able to reinstall <BR>
+   aboot+kernel from the ARC console as described above. <BR>
+
+<LI> Once you have installed Linux on your system, you can boot it from the <BR>
+   SRM console by saying something like:<BR>
+   <UL>
+	>>> boot -fl "i" dka000    [interactive boot, as described above]
+	>>> boot -fl "1" dka000    [use default config no. 1]
+   </UL>	
+   Read the aboot docs for further instructions about the possible options <BR>
+   and how to setup auto-boot.
+</UL>
+
+<P>
+
+The ARC-bootable minlabel and copyboot which were provided by Jim Paradis
+enabled this installation procedure - before, you had to do this on another
+system with SCSI disks.<BR> Thanks a lot, Jim! 
+<P>
+This text is based on Jim's original documentation and contains major parts
+of that. I have removed parts that are not necessary for installing (but
+which you may want to read in the original version, because they outline
+*why* this complicated procedure is necessary), and have added things which
+I thought might be helpful while trying this installation myself.
+<P>
+Michael Schwingen, michaels@stochastik.rwth-aachen.de <BR>
+-- 
+Jim Paradis (paradis@amt.tay1.dec.com)        "It's not procrastination, <BR>
+Digital Equipment Corporation		       it's my new Just-In-Time  <BR>
+(508)952-4047				       Workload Management System!" <BR>
+http://www.tiac.net/users/jrp/index.html <BR>
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+      <TR>
+	<TD></TD>
+
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,260 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+   <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            AS200 - Install
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+	      
+<P>Ok.  This one drove me nuts!  I FINALLY got the box up and running (and 
+trust me, I am not a Linux nor Alpha expert!).  I wrote it all down, and 
+hope it helps those out there like me who were THIS close to admitting 
+defeat.  Remember, it all worked for me, but I can't promise anything. 
+Individual results may vary. </P>
+ 
+<P>Update firmware to as200_v6_8.exe.</P>  
+<P>Boot ARC console.</P>  
+<P>There appear to be several version of this floating around.  I downloaded 
+the file referenced here: <A HREF="http://www.windows.digital.com/ntsbuftp/index/epid152.htm">"http://www.windows.digital.com/ntsbuftp/index/epid152.htm</A> </P>
+ 
+<P>It appears to be just the ARC firmware, but I don't really know.  At any 
+rate, don't following the instructions inside the README.1ST file in that archive -- 
+it's for updating ARC (from ARC).  Use the instructions from step #1 of the first link 
+above instead (i.e. <A HREF="http://home.pacbell.net/ryanlath/as200.html">http://home.pacbell.net/ryanlath/as200.html</A>).</P> 
+ 
+<P>Create 3 DOS floppy disks.</P> 
+<P>Disk 1: renamed \milo\avanti to just "milo", then copy milo a:copy \milo\arc\linload.exe a: </P>
+ 
+ 
+<P>This worked fine.  NOTE, HOWEVER, IF YOU HAVE A REDHAT ALPHA CD and have 
+added a CD-ROM drive to your system, you can boot it right from ARC.  I 
+used 
+the following command: 
+    boot -t iso9660 scd0:kernels/xl.gz root=/dev/scd0 
+ </P>
+<P>Note that it uses the "xl" kernel, which seems to work OK for getting into 
+the RedHat 
+installer (there is no "avanti" kernel, I don't know why).  [ I didn't 
+figure this out until 
+AFTER I installed everything! ] </P>
+ 
+<P>Disk 2: copy \kernels\xl.gz a:</P> 
+ 
+<P>I'm not sure if I tried this.  Instead, I got the avanti image file from <A HREF="ftp://ftp.digital.com/pub/linux/redhat/redhat-5.1/alpha/images/avanti.img">
+ftp://ftp.digital.com/pub/linux/redhat/redhat-5.1/alpha/images/avanti.img</A> 
+and used rawrite to put it on the second disk.</P> 
+ 
+
+<P>Disk 3: rawrite \images\ramdisk.img a: </P>
+ 
+<P>Note, the avanti.gz and avanti-s.gz (SRM) kernels do not seem to work. 
+Nor 
+did the other 897 milo/ kernel/ ramdisk combos I think I tried... </P>
+ 
+<P>RedHat doesn't even appear to HAVE an avanti.gz image -- strange.  At any 
+rate, 
+I used the ramdisk image from here:<A HREF="ftp://ftp.digital.com/pub/linux/redhat/redhat-5.1/alpha/images/ramdisk.img"> 
+ftp://ftp.digital.com/pub/linux/redhat/redhat-5.1/alpha/images/ramdisk.img</A> </P>
+ 
+<P>At this point, just do what I say and rename xl.img to vmlinux.img and 
+rawrite it onto a floppy.  During the end of the install you will be asked 
+for the boot disk - use this one.  I am not sure why, but it worked. </P>
+ 
+<P> 
+I just used the disk #2, above.  I don't know why you would need to do this 
+extra step. <P>
+ 
+<P>I have a boot choice called "Boot Linux Floppy".  My load options look 
+like 
+this:</P>
+ 
+<PRE>LOADIDENTIFIER=Linux Floppy 
+SYSTEMPARTITION=multi(0)disk(0)fdisk(0) 
+OSLOADER=multi(0)disk(0)fdisk(0)\linload.exe 
+OSLOADPARTITION=multi(0)disk(0)fdisk(0) 
+OSLOADFILENAME=\milo 
+OSLOADOPTIONS=nodebug </PRE>
+ 
+ 
+<P>Boot the box with the Disk 1 in the floppy drive, then choose "Boot Linux 
+Floppy" from the boot menu. </P>
+ 
+<P>At the MILO> prompt place the Disk 2 in the floppy and type: 
+ 
+boot fd0:xl.gz "root=/dev/fd0 load_ramdisk=1 prompt_ramdisk=1" </P>
+ 
+ 
+<P>I used "boot fd0:vmlinux.gz root=/dev/fd0 load_ramdisk=1 prompt_ramdisk=1", 
+perhaps because I used the avanti disk image rather than the xl.gz kernel 
+mentioned here (or perhaps the filename is inconsequential). </P>
+ 
+<P>When prompted for the ramdisk, place Disk 3 into the floppy.  After it 
+gets 
+loaded, you *SHOULD* get the Red Hat setup screen. </P>
+ 
+<P>Partition your drive(s), choose your packages, etc.  Install Red Hat. </P>
+ 
+ 
+<P>You can't use the RedHat partitioner to create your MILO (FAT) partition 
+as a primary partition (at least I couldn't figure out how).  I used fdisk 
+to 
+first create the DOS/FAT/MILO partition (first), then the linux partition 
+(again a primary), and then an extended partition with the rest of the 
+disk (with swap and other partitions inside it). </P>
+ 
+<P>After the install, I used Disk 1 to boot again, but changed the "Boot 
+Linux 
+Floppy"<P>
+<PRE>OSLOADOPTIONS=nodebug to: 
+OSLOADOPTIONS=boot sda6:vmlinux.gz root=/dev/sda6. </PRE>
+ 
+<P>sda6 is mounted on / (root). </P>
+ 
+<P>One BIG caveat.  NONE of this worked with the Number9 video card that was 
+shipped with my Alpha from Onsale.  I replaced it with a generic S3 Trio64 
+pci video card I had. </P>
+ 
+ 
+<P>I had much better luck with the #9 card, but I still had problems with it 
+once I 
+got everything up and running -- it appeared to lock up every once in 
+awhile. 
+I tried a #9 Motion 771 (a S3/968 based card) and that wouldn't even boot! 
+Luckily, I had an STB Nitro 3D (S3/VirgeGX) around as well, and that 
+appears 
+to work fine (but I had to add the XF86S3V X-server package). </P>
+ 
+<P>If you are wondering, I partitioned my hard drive as follows: </P>
+<PRE> 
+/home is /dev/sda5 100Mb 
+swap is /dev/sda7 48Mb 
+/dos 3Mb 
+/usr  is /dev/sda1  802Mb 
+/  is /dev/sda6  80Mb 
+</PRE> 
+<P>Now, after logging in as root I used:
+ 
+"dd if=/dev/fd0 of/dev/sda8 bs=1440k"
+ 
+with Disk 1 in the floppy to copy Milo to the DOS partition.  Then you can 
+set the load options to boot Linux from the DOS partition.</P>
+<P>  My  load options now look like this: </P>
+<PRE> 
+LOADIDENTIFIER=Linux 
+SYSTEMPARTITION=scsi(0)disk(0)rdisk(0)partition(5) 
+OSLOADER=scsi(0)disk(0)rdisk(0)partition(5)\linload.exe 
+OSLOADPARTITION=scsi(0)disk(0)rdisk(0)partition(5) 
+OSLOADFILENAME=\milo 
+OSLOADOPTIONS=boot sda6:vmlinux.gz root=/dev/sda6 
+</PRE> 
+<P> 
+For me, with linux installed on sda2, and linload/milo on the first primary 
+partition, the lines look like this: 
+</P>
+<PRE> 
+LOADIDENTIFIER=Linux 
+SYSTEMPARTITION=scsi(0)disk(0)rdisk(0)partition(1) 
+OSLOADER=scsi(0)disk(0)rdisk(0)partition(1)\linload.exe 
+OSLOADPARTITION=scsi(0)disk(0)rdisk(0)partition(1) 
+OSLOADFILENAME=\milo 
+OSLOADOPTIONS=boot sda2:vmlinux.gz root=/dev/sda2 
+</PRE>
+<P> 
+As others have mentioned, setting SYSTEMPARTITION, OSLOADPARTITION 
+and OSLOADFILENAME are not needed (since linload automatically tries 
+to load milo from the same directory).  I updated them because I didn't 
+want 
+to actually verify that the above is true ;-) </P>
+<P> 
+The critical thing that isn't really mentioned is that the OSLOADER line 
+should 
+refer to your DOS/FAT/MILO partition.  This is one reason I put it into a 
+primary 
+partition (although I guess it doesn't really matter).  The OSLOADOPTIONS 
+line 
+is (obviously) for your actual linux kernel partition. </P>
+ 
+<P>Reboot the machine, choose "Boot Linux" and away you go! </P>
+ 
+ 
+<P>You probably also want to set up "Autoboot" in the ARC console.  I have two 
+Linux boot entries defined, one for linux from the HD (which is the first 
+selection, 
+which is what gets auto-booted), and another entry for booting MILO from a 
+floppy 
+(the original load options from above). </P>
+ 
+<PRE> 
+Good luck, 
+ 
+Claude 
+ 
+//claude@highlandconsulting.com 
+
+PS - Now comes getting XWindows up and running.  Hmmm... 
+ 
+Once I got a working card in there (and ran Xconfigurator) things seem to 
+be 
+working fine. 
+ 
+Have fun.... 
+ 
+Matt Goheen 
+
+
+</PRE> 
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,210 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Software</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+	     <B>Warning</B> links in here may no longer be valid and they will not be updated.
+	     <P>	
+	    
+	  
+	 
+
+        <FONT SIZE="+1"><B>
+        October 31st 1998
+	</B></FONT><BR>
+	Interesting <A HREF=" http://www.zdnet.com/pcweek/stories/news/0,4153,361622,00.html">  Ziff Davis article </A>
+	on the current state of Alpha. It's even mentioned that Compaq has been talking about an EV9 and EV10 chip. The is at
+	least the second time I've heard this info so with any luck Alpha has a bright future.
+
+	<P>I've see a preview of the new web page design, looks very good. I think everybody should like it. We even have a new
+	mascot, one of Tux's cousins I think. Hopefully we should be changing over in a week or so.
+
+	<P>For people looking to buy a system, I was just sent this link on <A HREF=" http://www.linuxgazette.com/issue31/pavlicek.html"> 
+	Linux Gazette</A> for putting together the $500 Alpha System. It's from August but worth a read. You should be able to do it a 
+	little cheaper by now.
+
+	<P>I keep getting more info on the 21264. The latest says that it is available now in very limited numbers. Performance 
+	looks very good at about 1.5 to 2.2 times the 21164 at similar clock speeds and the 21364(EV7) should be at least a 40%
+	improvement over that due to a faster memory subsystem.
+	<P>
+         
+	<FONT SIZE="+1"><B>
+        October 29th 1998
+	</B></FONT><BR>
+        Just received some info from <A HREF="http://www.alpha-processor.com">www.alpha-processor.com</A> regarding the long awaited
+        21264 chip. The official date is January 1999, and systems should be appearing by February.
+
+        <P>Here's an article on <A HREF=" http://lwn.net/1998/1029/alphaals.html">LWN</A> covering the 
+        Atlanta Linux Showcase from an Alpha centric point of view.
+	<P>
+	
+	<FONT SIZE="+1"><B>
+        October 28th 1998
+        </B></FONT><BR>
+	<P>For those of you that think the site is ugly I'm talking with a couple of people who have
+        volunteered their services as professional web masters to make the place look a little better.. Stay tuned
+        for more info.</P>
+
+        <P>For those looking to compile their own kernel on Alpha I've start a <A HREF="../docs/kernel.html">page</A> 
+        devoted to compiling both the stable versions and the development versions.</P>
+
+        <P>As for the 21264 chip, I've received several mails on this. One person said it's available now
+         in some systems costing over 200K. Others varied from next month to second quarter 1999. Who knows?</P>
+
+
+        <FONT SIZE="+1"><B>
+	October 27th 1998
+	</B></FONT><BR>
+	For those who are looking to compile KDE on Alpha it seems that egcs-1.0.3a and
+	binutils-2.9.0.15-1 are a winning combination.
+
+	<P>Well I guess I got what I asked for. Mail has been flooding into my inbox in regards to the site, mostly
+	positive I must add. So keep it coming.
+
+	<P>I've added the <A HREF="../intro/">'What is it?'</A> page for people just starting out with AlphaLinux or wondering what it is.
+
+	<P> Just got an email saying that Samsung has released a 700MHz 21164a Alpha chip, still nothing on the release of the
+	21264 though, but then again...700MHz, I'll take one of those.
+	<P>
+	
+	<FONT SIZE="+1"><B>
+        October 26th, 1998
+	</B></FONT><BR>
+	Well, <a href="http://www.alphalinux.org">www.alphalinux.org</a> is now up and running. It's taken
+	a few weeks to get here but we're alive and kicking. As usual we're looking for any info that isn't here already.
+	Please feel free to contact <A HREF="mailto:rdp@cheshire.net">me</A> with anything you think belongs here.</A>
+	<P>
+	We're hoping to provide a comprehensive resource for both newbies and experienced Alpha users, and I'm always
+	looking for <A HREF="mailto:rdp@cheshire.net">feedback</A>.
+	<P>
+
+	<FONT SIZE="+1"><B>
+	October 20th, 1998
+	</B></FONT><BR>
+        Here's an article from <A HREF="http://www.crn.com/dailies/weekending102398/oct19dig20.asp">Computer Reseller
+        News</A> about Compaq's announcements regarding the Alpha.
+	<P>
+
+        <FONT SIZE="+1"><B>
+        October 19th, 1998
+	</B></FONT><BR>
+        It seems that Compaq has donated an Alpha box to the Debian project. More information can be found
+        at  <A HREF="http://lwn.net/daily/debian-alpha.html">Linux Weekly News</A> 
+
+        <FONT SIZE=3><P>I've started breaking out the <A HREF="../hardware/vendors.html">vendors</A> into various categories based on country.
+        If you know of others, <A HREF="mailto:rdp@cheshire.net">please send</A> them to me.
+
+        <P>I've also started working on making the images look a little better. I'm slowly starting to understand the Gimp.</P>
+
+        <FONT SIZE="+1"><B>
+        October 15th, 1998
+	</B></FONT><BR> 
+        Compaq has decided to offer more support for Linux on both Intel and Alpha platforms. More information is
+        available at <A HREF="http://www.linuxresources.com">LinuxResources</A></P></FONT>
+
+        <P>Nils Faerber has started up a project to improve the port of Mozilla for Alpha using Lesstif.. He's setup
+        a <A HREF="http://www.unix-ag.org/Linux-Alpha/Mozilla/">web site </A>and some mailing lists for those wishing to help, and 
+        for those of you that are interested, here's his <A HREF="mozilla.txt">announcement</A>.
+	<P>
+        <FONT SIZE=3><A HREF="http://www.cpumicromart.com">CPU Micromart</A> has asked me to pass along the fact that they
+        have bought DEC's last stock of UDB/Multias and will be selling them off. They have around 3000 of various types so
+        if your looking for a low cost Alpha, check them out. Any specific questions can be routed to 
+        <A HREF="mailto:multia@cpumicromart.com">CPU's multia support</A>.
+	<P>
+
+
+
+	<FONT SIZE="+1"><B>
+        October 13th, 1998
+	</B></FONT><BR> 
+        Good News! The use of the alphalinux.org domain name has been approved. For anybody interested <A HREF="email.txt">here's the
+	e-mail</A>. Thanks to everyone involved.
+	<P>
+ 
+         <FONT SIZE="+1"><B>
+	 October 7th, 1998
+	 </B></FONT><BR> 
+	 There looks to be some info coming out about the 
+	 <A HREF="http://www.digital.com/semiconductor/alpha/microprocessorforum.htm">21364 processor</A>. Should be released about
+	 the same time as Intel's Merced.</P>
+
+	 <P>In an effort to clean things up all the architecture specific information is now under the <A HREF="../docs">install page</A>.</P>
+	 <P>We now have the alphalinux.org domain name registered and we have written to Linux International looking for permission to
+	 use the Linux name. Hopefully the move can be made in a couple of weeks. Stay tuned for more info.</P>
+  
+        <FONT SIZE="+1"><B>
+	October 5th, 1998
+	</B></FONT><BR> 
+	OK, I've got a small list of <A HREF="../hardware/vendors.html">hardware vendors </A>together. A few people have sent
+	in information, please keep it coming.
+	<P>
+
+	<FONT SIZE="+1"><B>
+	October 1st, 1998
+	</B></FONT><BR> 
+	I'm in the process of setting up a vendor's page. If anybody would like to <A HREF="mailto:rdp@cheshire.net">send me </A>
+	the name of the vendor they bought their
+	system from and your experiences with the vendor  (good or bad). I'll add your info and try to have it setup this weekend.
+	<BR>
+	Most people seem to think that alphalinux.org is the best bet for a domain name...more info to come soon.</P></FONT>
+	<P>
+
+	
+
+	
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

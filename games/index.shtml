@@ -1,0 +1,113 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.61 [en] (X11; I; Linux 2.2.12-20 i586) [Netscape]">
+   <title>AlphaLinux - Gaming Excitement!</title>
+</head>
+<body text="#000000" bgcolor="#000000" link="#DD0000" vlink="#CC0000" alink="#CC0000">
+&nbsp;
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="0" >
+<tr>
+<td WIDTH="16">&nbsp;</td>
+
+<td>
+<center><!--#exec cgi="/cgi-bin/banmat1.cgi"--></center>
+</td>
+</tr>
+
+<tr>
+<td WIDTH="16">&nbsp;</td>
+
+<td ALIGN=CENTER WIDTH="600" BGCOLOR="#B70000"><a href="../"><img SRC="../img/butt_home.gif" ALT="Home" HSPACE=8 BORDER=0 height=28 width=55></a><a href="../docs/"><img SRC="../img/butt_docs.gif" ALT="Documentation" HSPACE=8 BORDER=0 height=28 width=48></a><a href="../intro/"><img SRC="../img/butt_intro.gif" ALT="Intro" HSPACE=8 BORDER=0 height=28 width=45></a><a href="../hardware/"><img SRC="../img/butt_hardware.gif" ALT="Hardware" HSPACE=8 BORDER=0 height=28 width=94></a><a href="../otherpages/"><img SRC="../img/butt_otherpages.gif" ALT="Other pages" HSPACE=8 BORDER=0 height=28 width=119></a><a href="../about/"><img SRC="../img/butt_about.gif" ALT="About" HSPACE=8 BORDER=0 height=28 width=57></a></td>
+</tr>
+
+<tr>
+<td HEIGHT="4"><img SRC="dot.gif" ALT="" height=1 width=1></td>
+
+<td HEIGHT="4"><img SRC="dot.gif" ALT="" height=1 width=1></td>
+</tr>
+
+<tr VALIGN=TOP>
+<td></td>
+
+<td BGCOLOR="#DC9D33">
+<center>
+<h1>
+Alpha/Linux Gaming</h1></center>
+
+<table BORDER=0 WIDTH="584" NOSAVE HSPACE="8" VSPACE="0" >
+<tr ALIGN=LEFT VALIGN=TOP NOSAVE>
+<td WIDTH="20" NOSAVE><font face="Helvetica, sans-serif"><font size=-1>Commercial&nbsp;</font></font><font face="Helvetica, sans-serif"><font size=-1></font></font>
+<p><font face="Helvetica, sans-serif"><font size=-1>&nbsp;&nbsp; Open Source</font></font>
+<br><font face="Helvetica, sans-serif"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.raven-games.com/hhexen">Hexen&nbsp;</a></font></font>
+<br><font face="Helvetica, sans-serif"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.raven-games.com/linuxheretic">Heretic</a></font></font>
+<br><font face="Helvetica, sans-serif"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://quake.sourceforge.net/">Quake</a></font></font>
+<br><font face="Helvetica, sans-serif"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://d1x.warpcore.org/">Descent</a></font></font>
+<br><font face="Helvetica, sans-serif"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://europa.isa.net.au/~peterh/index.html">Descent2</a></font></font>
+<br><font face="Helvetica, sans-serif"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://lxdoom.linuxgames.com/">Doom</a></font></font><font face="Helvetica, sans-serif"><font size=-1></font></font>
+<p><font face="Helvetica, sans-serif"><font size=-1>&nbsp; Closed Source</font></font>
+<br><font face="Helvetica, sans-serif"><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.lokigames.com/">Loki</a></font></font><font face="Helvetica, sans-serif"><font size=-1></font></font>
+<p><font face="Helvetica, sans-serif"><font size=-1>Non Commerical&nbsp;</font></font>
+<br><font face="Helvetica, sans-serif"><font size=-1>&nbsp;&nbsp; Open
+Source</font></font>
+<br><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://xracer.annexia.org/">XRacer</a></font>
+<br><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.freeciv.org/">Freeciv</a></font><font size=-1></font>
+<p><font size=-1>Linux Demos</font>
+<br><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://skal.planet-d.net/mind/index.html">State
+of mind</a></font><font size=-1></font>
+<p><font size=-1>Multimedia Subsystems</font>
+<br><font size=-1>&nbsp;&nbsp; <a href="http://linux.3dfx.com/">Glide</a></font>
+<br><font size=-1>&nbsp;&nbsp; <a href="http://www.alsa-project.org/">ALSA</a></font>
+<br><font size=-1>&nbsp;&nbsp; <a href="http://www.mesa3d.org/">Mesa</a></font>
+<br><font size=-1>&nbsp;&nbsp; <a href="http://www.xfree86.org/">XFree86</a></font>
+<br><font size=-1>&nbsp;&nbsp; <a href="http://www.ggi-project.org/">GGI</a></font>
+<br><font size=-1>&nbsp;&nbsp; <a href="http://www.devolution.com/~slouken/SDL/">SDL</a></font>
+<p><font size=-1>Reviews</font>
+<br><font size=-1>&nbsp;&nbsp; None yet!</font></td>
+
+<td WIDTH="100" NOSAVE>3/14/2000:
+<p>Hello!&nbsp; This is a really sparse page right now, but I would like
+it to become a rallying point for all things Alpha/LInux &amp; gaming.&nbsp;
+<p>Things I am planning for the future:
+<ol>
+<li>
+Hook up with the Alpha/Linux glide people, and help port glide.&nbsp;&nbsp;</li>
+
+<li>
+Help demo writers port to Alpha.</li>
+
+<li>
+Distribte game binaries compiled with the Compaq compilers &amp; some decent
+optimzation switches.&nbsp;</li>
+
+<li>
+Produce a Alpha optimzation guide for game writers.</li>
+
+<li>
+Review Commercial Alpha/Linux games.</li>
+
+<li>
+Create an Alpha/Linux Gaming FAQ</li>
+</ol>
+Ultimately, I&nbsp;think that a successful Alpha/Linux&nbsp; is one where
+all opernsource programs compile out of the box on Alpha/Linux, so all
+patches will be contributed back to the project leads.&nbsp;
+<p>If you have comments, additions,&nbsp; or game review suggestions,&nbsp;
+email me at Phillip.Ezolt@compaq.com</td>
+</tr>
+</table>
+
+<p>&nbsp;</td>
+</tr>
+</table></center>
+
+</body>
+</html>

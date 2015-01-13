@@ -1,0 +1,2176 @@
+<!doctype linuxdoc system>
+
+<article>
+
+<title>Linux/Alpha Frequently Asked Questions</title>
+<author><url url="mailto:rdp@alphalinux.org" name="Rich Payne">
+</author>
+<date>v1.6, 3 Nov 2000
+<abstract>
+This document attempts to answer the most common Linux/Alpha related
+questions.  It also contains various pointers to other information
+sources that may help you get started in the Alpha world.  The latest
+version of this FAQ can always be found via the <url
+url="http://www.alphalinux.org" name="Linux/Alpha home page">.
+It can also be downloaded, in .html or a number of other formats, from the <url
+url="http://www.alphalinux.org/faq/otherformats" name="AlphaLinux.Org"> home page.
+</abstract>
+
+<toc>
+
+<sect>What State Is Linux/Alpha In? <label id="What State Is Linux/Alpha In">
+
+<p> Linux/Alpha is for real: pretty much everything is up and running:
+there is XFree86, LaTeX, ghostview, Netscape, Emacs, gcc, C++, NFS,
+automounter, all sorts of shells, perl, python, Java, Tcl/Tk, scheme,
+apache HTTP server, and pretty much anything else that's freely
+available.  X11 works well on several video cards (see below).  Thanks
+to Dave Taylor and Linus Torvalds, there is now even a <url
+name="Quake binary"
+url="ftp://ftp.digital.com/pub/DEC/Linux-Alpha/X11"> for Linux/Alpha!
+Since April 1997, it is now also possible to run many Linux/x86
+binaries through the em86 emulator. (See section <ref id="em86">)
+The list of applications supported by em86 includes gems
+such as applix, Netscape, and acrobat.  The emulator has been made
+available free of charge by Jim Paradis of Digital Semiconductor.
+
+Linux/Alpha presently runs on most of the Alpha boxes that come with
+the PCI or EISA bus.  This excludes the old TURBOchannel based DEC
+3000 series of workstations.
+
+
+<sect1>Supported Drivers
+
+<p>
+<bf/Drivers that are known to work/ (let us known if there is something new):
+<itemize>
+<item> X11:  Almost all XFree86 drivers work on Linux/Alpha.  Perhaps the
+	biggest missing feature is packed 24-bit support.  32bpp/depth 24
+	works fine, though. <newline>
+	The SVGA server on Alpha supports only a subset of the cards supported
+	on Intel: Matrox and S3Virge are supported, but a number of older chipsets 
+	are not.<newline>
+	SuSE is actively involved with the development of XFree. If you have a
+	card that isn't supported yet, you may find a driver at their <url
+	url="http://www.suse.com/" name="website">. <newline>
+
+       There are some development X servers available from Digital's FTP
+	<url name="site" url="ftp://ftp.digital.com/pub/DEC/Linux-Alpha/X11">;
+	you might check there if XFree86 doesn't work on your system. <newline>
+
+       Commercial X-servers are available from MetroLink and XiGraphics.
+	(See the section on commercial software.) You may need these if you have
+	a very new graphics card.
+
+<item> keyboard
+<item> console (TGA, EGA+ or VGA+ compatible cards)
+<item> selection (console mouse support)
+<item> serial
+<item> line-printer (centronics port)
+<item> floppy
+<item> SCSI: disks, CD-ROMs, and tapes seem to work fine.  Host adapters that
+	are known to work:
+	<itemize>
+	<item>NCR/Symbios 53c810, 825, 875 (use the ncr53c8xx driver),895,896
+	<item>aha1740 (on Jensen, at least)
+	<item>BusLogic (all cards ISA or PCI cards should work fine except
+	for the Flashpoint; EISA cards may be flaky in older EISA systems).
+	<item>Qlogic ISP1020
+	<item>support for Adaptec cards in now fairly solid though users do
+	occasionally have problems with them.
+	</itemize>
+
+<item> ftape (QIC-80 tape drives) 
+<item> IDE driver: disks and CD-ROMs (ATAPI) are known to work.
+<item> Networking:
+  <itemize>
+  <item>Ethernet drivers: de4x5, de500, depca, ewrk3, ne2000.
+        The following drivers are supposed to be working as well:
+	<itemize>
+	<item>Western Digital (aka SMC Elite) wd80x3
+	<item>SMC Ultra
+	<item>SMC EtherEZ
+	<item>3Com 3c503, 3c503/16, 3c509-B, 3c509-C
+	<item>Cabletron e2100
+	<item>Hewlett Packard PC Lan  (model 27245, uses hp.c) 
+	<item>Hewlett Packard PC Lan+ (model 27247 or 27252A, uses hp-plus.c) 
+	<item>Ansel AC3200 EISA card.
+	<item>AMD PCnetPCI (79C970 and 79C970A) based Ethernet cards
+	 (LANCE32 driver).
+	<item>Intel EtherExpress Pro/100
+	</itemize>
+  <item>Other drivers: ppp, ibmtr (IBM token ring driver).
+
+  <item>ISDN: ICN 2B and ICN 4B cards (if you have problems with them,
+       contact <url url="mailto:tsbogend@bigbug.franken.de" name="Thomas
+       Bogendoerfer">).
+
+  </itemize>
+
+<item> Cameras/Scanners: QuickCam (both grayscale and color
+	versions).  HP ScanJet reportedly work.  Mustek flat
+  	scanners are supported, too.
+
+<item> Sound cards: SoundBlaster compatible cards seem to work well.
+	The Microsoft Sound System compatible card built into the
+	UDB is supported, too.
+
+<item> Joystick: The joystick interface on a
+	SoundBlaster16 (which is just a regular PC joystick port) is
+	known to work with joystick-0.7.3 (as a module).  There were a
+	few minor patches that had to be applied.  If you want it, send
+	mail to <url name="David Mosberger"
+	url="mailto:David.Mosberger@acm.org">.  The "koules" game is known
+	to work with the joystick.
+</itemize>
+
+<sect1>Known Bugs And Workarounds
+
+<p>This section lists known bugs in Linux/Alpha and discusses how they
+can be avoided or worked around.  As things are under constant
+development, this section is rather volatile.  Just because it isn't
+listed here doesn't mean the problem isn't known already.  On the
+other hand, if you run a recent distribution, it's likely that most of
+the problems have been addressed already.  In any case, before sending
+mail off to <url url="mailto:axp-list@redhat.com" name="axp-list">, be
+sure to check this section first.  If you discover a new
+problem/workaround, we would appreciate if you could send us a report
+(preferably in linuxdoc SGML format).
+
+<descrip>
+
+<tag/Kernel hangs or panics when trying to mount root file system:/ The Linux
+	kernel currently has <tt>/dev/sda2</tt> hard coded as its default root
+	file system.  Thus, if your root file system is on any other
+	disk or partition, you will have to specify the boot
+	option <tt>root=/dev/</tt><it>root-partition</it>.
+	For example, if the root file system is on <tt>/dev/hda1</tt>,
+	you'd specify <tt>root=/dev/hda1</tt>.
+
+<tag>ELF <tt/gdb/ behaves odd w.r.t. shared functions.</tag>  When
+	using <tt/gdb/ on a dynamically linked binary, it is best
+	to force eager resolution of dynamic symbols.  To do this,
+	simply issue the command <tt>set env
+	LD&lowbar;BIND&lowbar;NOW=1</tt> from within <tt/gdb/.  Otherwise,
+	you may see unexpected behavior when trying to step into
+	or over a shared function.  The source of this problem is known,
+	but nobody has had time yet to fix the problem.
+
+<tag/Kernel reports 2.88MB floppy drive:/ On the Alphas, the kernel
+	<em/always/ reports floppy drives as having 2.88MB capacity
+	even if a smaller capacity drive is installed.  This is nothing
+	to worry about: normally, the floppy driver automatically
+	detects and selects the correct capacity so everything will work
+	fine.  The only exception to this rule is when formatting a
+	new floppy disk.  To do this, you'll need to select the device
+	name with the correct capacity.  For example, if the system
+	has a 1.4MB drive, format <tt>/dev/fd0H1440</tt> instead of
+	<tt>/dev/fd0</tt>.
+
+<tag/Unaligned accesses:/
+	The Alpha, like all real RISC CPUs, requires that memory
+	accesses are <em/naturally aligned/.  For example, reading
+	a 4 byte integer from memory requires that the address of the
+	integer be a multiple of 4.  Similarly, 8 byte integers need
+	to start at an address that is a multiple of 8.  If the CPU
+	attempts to access a word that is not properly aligned,
+	the CPU will trap into the kernel and issue a warning message.
+	The kernel will then go ahead and emulate the unaligned access
+	so that the user-level process executes as if nothing had
+	happened (except for a substantial slow-down due to the
+	fault).
+
+	Typically, an unaligned fault message looks like this:
+	<tscreen><verb>
+X(26738): unaligned trap at 000000012004b6f0: 00000001401b20ca 28 1
+	</verb></tscreen>
+	What this means is that the process executing command <tt/X/
+	(the X11 server) with process id 26738 caused an
+	unaligned fault accessing address 0x1401b20ca.  This access
+	was performed by the instruction located at address
+	0x12004b6f0.  The other numbers are less important, but if
+	you check the kernel sources, you'll find that they tell you
+	more info on what kind of instruction caused the fault (e.g.,
+	a load vs. a store).
+
+	You do not need to be overly alarmed when seeing such a message.
+	The program causing the faults will work <em/correctly/.
+	Eventually, all unaligned accesses will be fixed, but
+	in the meantime, just ignore these messages (if you're a programmer,
+	please take a minute and fix the source of the unaligned access
+	instead...).
+
+<tag>Linker issues <tt/warning: using multiple gp values/ message:</tag>
+	This is a warning message that
+	is often issued by the linker when building a large program.
+	Unless you're into low-level hacking, you don't want to know what
+	it means. The good news is: you can safely ignore this message and
+	this warning will be optional in the future.
+
+<tag/IDE driver causes time to run slow:/ The default configuration of the
+	IDE driver disables interrupts for extended periods of time.  This
+	causes the kernel to loose timer interrupts and as a result, time
+	runs slow.  To avoid this, use the following command on all of the
+	IDE drives in your system:
+	<tscreen><verb>
+		hdparm -u 1 /dev/hd?
+	</verb></tscreen>
+	This reconfigures the IDE driver to re-enable interrupts as quickly
+	as possible.
+
+<tag/<tt/minlabel/,<tt/fdisk/ fail to update kernel partition table:/
+	Do not attempt to use a system after changing the partition
+	table.  Even if <tt/minlabel/ and/or <tt/fdisk/ show the correct
+	values you <em/will/ have to reboot the machine before the new
+	values take effect.
+
+<tag><tt>tar xvMf /dev/fd0</tt> hangs.</tag> (This bug should not occur
+	on GNU libc-based systems.)  Due to a bug in the
+	malloc package that comes with libc-0.43, multi-volume tar
+	archives do not work. Recompile and link with the gmalloc
+	stand alone package, or get an updated libc.
+
+<tag/Clock seems to be off by 20 years:/ This is not really a bug, but
+	many people seem to have problems with it. Here's Jay Estabrook's
+	Definitive Solution.
+	<tscreen><verb>
+ARC console and SRM console keep dates in the time-of-year (TOY) clock
+in slightly different formats (actually, only the "year" field differs).
+
+The "/sbin/clock" binary normally expects the format which SRM uses; you can,
+however, tell it to expect ARC format instead, using the "-A" flag.
+Thus, to read the clock when its kept in ARC format, say "clock -r -A", and
+to write it, "clock -w -A". If its not written in the expected format, the
+console (ARC or SRM) will prolly complain about it the next time it has a
+chance... :-\
+
+The best way to ensure you're using the correct format, is to set the date via
+the console's date-setting facility; under ARC, it's a menu item some place,
+under SRM it's a command (IIRC; try "help date").
+
+Then you must ensure that the "clock" call in the RH script
+/etc/rc.d/rc.sysconfig KNOWS WHAT FORMAT TO READ THE TOY IN!!!!
+
+If you're using ARC console to boot MILO/kernel, do:
+
+1. running RH 4.1, make sure /etc/sysconfig/clock contains:
+
+	CLOCKMODE="ARC"
+
+2. running RH 4.2, make sure /etc/sysconfig/clock contains (at least):
+
+	ARC=true
+
+Now, If you're using SRM console to directly boot a kernel, then:
+
+1. RH 4.1, same file, set CLOCKMODE=""
+
+2. RH 4.2, same file, set ARC=false
+
+Refer to /etc/rc.d/rc.sysconfig for details about how the above are used to
+call "clock" with the appropriate arguments.
+	</verb></tscreen>
+
+<tag/Clock gets set to a random date and time/
+	This occurs on the PC164/LX164/SX164 mainboards.
+        This is due to a slightly different version of the TOY clock
+        hardware on these boards. As seen above, your system clock gets
+        set from the TOY clock during bootup, using <tt/clock/.
+	To test if your	setup has this problem try the following command:
+	<tscreen><verb>
+while true; do /sbin/clock -r [-A]; done
+	</verb></tscreen>
+	(use the -A option when your hardware TOY clock is in ARC format)
+	<newline>
+	If you see any inconsistent results, you need to upgrade your
+	<tt>/sbin/clock</tt>. Get one of:
+	<tscreen><verb>
+gatekeeper.dec.com:/pub/DEC/Linux-Alpha/Kernels/clock-pc164-rh4.2
+gatekeeper.dec.com:/pub/DEC/Linux-Alpha/Kernels/clock-pc164-rh50
+	</verb></tscreen>
+
+<tag>0>0>0>0>0>0></tag>
+	Standard MILO images are configured to talk to the first serial  
+	port as well as the screen. When you have a modem connected it
+	will talk back. To resolve this, either make sure your modem is
+	turned off at boot time, connect it to a different port, or build
+	your own MILO, disabling serial port echo.
+
+<tag/<tt/fdisk/ doesn't recognize my disk's partitions./ This may occur when
+	you're using BSD-style partitioning, e.g when partitioned using
+	Digital Unix's <tt/disklabel/ utility. Just go into <tt/fdisk/'s BSD
+	mode and you will be all right.
+
+<tag><tt/vi/ handles keystrokes in batches of four</tag>
+	In fact, other apps will show the same behavior: it really is a <tt/ncurses/
+	problem. It may be related to the <tt/termio/ vs. <tt/termios/ programming error
+	described in the section below. A workaround is to issue <tt/stty eof '^a'/
+  	before starting vi.
+
+<tag>X will not start on Ruffian (164UX), UP1000 or UP1100</tag>
+	Starting X fails with "Failed to set IOPL for I/O".
+	Cause: the stock 5.1 GLIBC doesn't recognize the RUFFIAN 
+	system type. This is fixed in most recent distributions 
+	if you still encounter this do <em/exactly/ the following (as root):
+	<tscreen><verb>
+ln -s EB164 /etc/alpha_systype
+	</verb></tscreen>
+	For UP1000,UP1100 systems change the system type from above to Tsunami:
+	<tscreen><verb>
+ln -s Tsunami /etc/alpha_systype
+	</verb></tscreen>
+	The following distributions are known to have this problem for the UP1000, UP1100: RedHat < 6.2,
+	Debian < Woody.
+
+<tag><tt/ipfwadm/ fails.</tag>
+	RedHat 5.1 and 5.2 for Alpha shipped with a buggy ipfwadm. The common
+	workaround is to use ipfwadm from RedHat 5.0. (Note: when you're running 
+	a 2.1.* or 2.2.* kernel you'll be using ipchains instead.)
+
+<tag>Instable configurations with Adaptec SCSI controllers.</tag>
+	This seems to occur with Adaptec 2940 on PC164 in particular. Improvement
+	has been reported after turning off the autodetection of device speed, width
+	and termination. Get the utility from:
+	<tscreen><verb>
+http://www.windowsnt.digital.com/support/drivers/drivers.asp/
+	</verb></tscreen>
+	Put it on a floppy, or any FAT partition, and select "Run a program" from
+	the ARCBIOS menu. (Newer systems will allow you to configure SCSI controllers
+	by running the onboard utility through the i386 emulator in the firmware.)
+
+<tag>XL266 refuses to boot after setting time.</tag>
+	When you forget to use the -A option when setting the hardware clock on an XL266,
+	the ARCBIOS may see an invalid time, and refuse to boot any OS until this has
+	been corrected. Unfortunately, when the setting is sufficiently invalid, it will
+	not allow you to do so. (This is definitely a bug...) To recover you need a modified
+	version of linload.exe. (Thanks to Juergen Schroeder this is available from 
+	<url url="ftp://ftp.ub.uni-marburg.de/pub/unix/linux/alpha/linload_auto.exe">.)
+	Put it on a floppy, together with your favorite MILO, and
+	use the "Run a Program" option to start it. Once in MILO you can boot linux, and
+	set the clock again. Be sure to use -A this time...<newline>
+	(I believe the modification to linload.exe is that the location of MILO is
+	hardwired into the program.)
+
+</descrip>
+
+<sect1>Porting to Alpha: the <tt/long/ and <tt/short/ of it
+
+<p> Here is a somewhat random collection of popular ways of shooting
+yourself in the foot on Unix when programming in C.  This has
+practically nothing to do with Linux or Alpha, but since Linux/Alpha
+is among the pioneers in 64-bit land, these errors are more likely to
+show on such systems.
+
+<descrip>
+<tag><tt/sizeof(long)!=32/</tag> Many programs assume a long is
+	32 bits wide.  This is non-sense.  The ANSI C standard
+	does not specify anything like that.  For example, on
+	an Alpha running a grown up operating system such as
+	DEC Unix or Linux, the fundamental C types have the following
+	sizes and alignment restrictions:
+	<itemize>
+	<item><tt/char/: 8 bits as usual, byte alignment is fine.
+	<item><tt/short/: 16 bits as usual, 2 byte alignment required.
+	<item><tt/int/: 32 bits as usual, 4 byte alignment required.
+	<item><tt/float/: 32 bits as usual, 4 byte alignment required.
+	<item><tt/long/: 64 bits, 8 byte alignment required.
+	<item><tt/void*/: 64 bits, 8 byte alignment required.
+	<item><tt/double/: 64 bits as usual, 4 byte alignment required.
+	</itemize>
+	Note that the above implies that you cannot cast a pointer
+	to an integer without loosing bits.  In fact, Alpha binaries
+	by default are purposely arranged in such a way that if you
+	try to do this, they'll dump core---it is much better to
+	learn about such program errors via a core dump than through
+	some subtle errors.
+
+	If you need a variable with exactly <it/n/ bits in it, you can
+	use the following types in Linux applications (and most other
+	systems that are based on GNU libc):
+	<itemize>
+	<item><tt/int8_t/: signed integer type with 8 bits.
+	<item><tt/int16_t/: signed integer type with 16 bits.
+	<item><tt/int32_t/: signed integer type with 32 bits.
+	<item><tt/int64_t/: signed integer type with 64 bits.
+	<item><tt/u_int8_t/: unsigned integer type with 8 bits.
+	<item><tt/u_int16_t/: unsigned integer type with 16 bits.
+	<item><tt/u_int32_t/: unsigned integer type with 32 bits.
+	<item><tt/u_int64_t/: unsigned integer type with 64 bits.
+	</itemize>
+	In the kernel, use the following types instead:
+	<itemize>
+	<item><tt/__s8/: signed integer type with 8 bits.
+	<item><tt/__s16/: signed integer type with 16 bits.
+	<item><tt/__s32/: signed integer type with 32 bits.
+	<item><tt/__s64/: signed integer type with 64 bits.
+	<item><tt/__u8/: unsigned integer type with 8 bits.
+	<item><tt/__u16/: unsigned integer type with 16 bits.
+	<item><tt/__u32/: unsigned integer type with 32 bits.
+	<item><tt/__u64/: unsigned integer type with 64 bits.
+	</itemize>
+	However, the availability of these types is somewhat system
+	dependent.  In particular, on a 32 bit machine, the 64 bit
+	integers are typically available only when using GNU C.  Also,
+	keep in mind that there are still machines out there that
+	have odd word sizes, such as 36 bits.  So, for the sake of
+	portability, these types should be used sparingly.
+
+<tag/Error return value of <tt/inet&lowbar;addr/()/ It is a common myth
+	to assume that <tt/inet&lowbar;addr()/ returns -1 in case of
+	error.  In fact, even the Linux man-page propagates this
+	superstitious belief.  But don't be misguided: in truth,
+	<tt>inet&lowbar;addr()</tt> returns <tt/INADDR&lowbar;NONE/ in case
+	of error.  This manifest constant is defined in
+	<tt>netinet/in.h</tt>.  An even better solution is to avoid
+	this function all together.  Reasonably modern libraries provide
+	the <tt/inet&lowbar;aton/() function that has an unmistakable
+	return value to indicate success or failure.
+
+<tag><tt/struct termio/ does <em/not/ equal <tt/struct termios/</tag>
+	Many Linux programs incorrectly assume it is all right to mix
+	and match <tt/struct termio/ and <tt/struct termios/ and their
+	<tt/ioctl()/ calls.  Well, not quite.  The two interfaces are in fact
+	incompatible on many systems (for historic reasons, this can't be
+	fixed easily).  Thus, if you use <tt/struct termio/, then be
+	sure to use the termio calls <em/only/ (<tt/TCGETA/, <tt/TCSETAF/,
+	<tt/TCSETAW/, and <tt/TCSETA/).  In contrast, if you use the termios
+	structure, be sure to use its calls only (<tt/TCGETS/, <tt/TCSETSF/,
+	<tt/TCSETSW/, and <tt/TCSETS/).
+
+<tag>Atomicity of sub-word loads/stores</tag>
+	It is generally not safe to assume that reading or writing a
+	quantity that is smaller than the machine's word size is
+	atomic.  In particular, all early Alpha chips do not have
+	atomic instructions to read or write a byte or a short (16
+	bits).  Unless you're into kernel hacking where you need to
+	synchronize with devices and/or interrupts, you probably won't
+	care.  But even in user-space this can cause problems in case
+	your program is sharing data with another process through
+	shared memory, for example.
+</descrip>
+
+
+<sect>Are There Any Mailing Lists I Should Join?
+
+<p> Yes, we suggest subscribing to the "axp-list" mailing list.  To
+subscribe, simply send mail with a subject of "subscribe" (no
+message-body) to: <url url="mailto:axp-list-request@redhat.com"
+name="axp-list-request@redhat.com">.
+
+<p> There's also the Debian-Alpha mailing list. It's a must when you
+use that distribution, but it also carries discussions on topics that
+Red Hat users might be interested in. Visit <url
+url="http://www.debian.org" name="Debian home page"> to subscribe.
+
+<p>There are also several other mailing lists for AlphaLinux. There's
+a complete list and archives available at <url url="http://www.alphalinux.org/archives"
+name="www.alphalinux.org">.
+
+<p> If you're curious to see what's going on in the Japanese
+Linux/Alpha scene, the "linux-alpha-jp" mailing list is for you.
+Subscribe to that list by sending mail to <url
+url="mailto:majordomo-zagato@kuamp.kyoto-u.ac.jp"
+name="majordomo-zagato@kuamp.kyoto-u.ac.jp"> with a body containing
+the line "subscribe linux-alpha-jp".  Be advised that many mails are
+written in Japanese (ISO-2022-JP).
+
+<sect1>And How About NewsGroups?
+
+<p> The group <url url="news:comp.os.linux.alpha"
+name="comp.os.linux.alpha"> started in June 1997. It should be available on
+most servers by now, and can also be read through <url
+url="http://xp7.dejanews.com/qs.xp?QRY=comp.os.linux.alpha&amp;OP=dnquery.xp&amp;defaultOp=AND&amp;svcclass=dncurrent&amp;maxhits=20&amp;nofilt=1"
+name="DejaNews">.
+
+<sect>What's The Minimum Configuration To Run Linux/Alpha?
+
+<p> Linux/Alpha is known to run on machines with as little as 8MB of
+RAM and a 170MB harddisk.  In those 8MB of RAM, you can run
+Emacs-19.28 without swapping, but that's about it.  A system with 16MB
+RAM and 500MB is perfectly reasonable to work with, even when using
+X11. 32MB RAM and on the order of 1GB of disk should satisfy even
+power-hungry users, though, as usually is the case: the more the
+better.
+
+<p> (Well, I guess one's perception of what is reasonable can change with
+time, and with DRAM prices. I know that by now many people would consider
+32MB the bare minimum, 64MB usable. Recent releases of RedHat seem to need
+at least 24MB just to install...<newline>
+And you'll have a hard time looking for a hard disk smaller than 2GB.)
+
+<p> Note that, though many Alpha mainboards support EIDE, performance is 
+reported to be unsatisfactory. SCSI is recommended.
+
+
+<sect> How fast is the Alpha ?
+
+<p> This depends on the type of system you have, and what you are trying to do.
+
+<p> The Alpha is a RISC processor: it has fewer and simpler instructions. Thus,
+at the same clockspeed, it will generally be slower than a CISC processor. But,
+being simpler, it will be easier to build processors that run at higher speeds.
+The fastest Alpha (now at 833MHz) will outpace the fastest Intel processor
+(1 GHz.) This will remain true for many years to come. (It will also be
+more expensive.)
+
+<p> In BogoMIPS, Alpha's up to the 164 show a speed approximately equal to the
+clock frequency in MHz (like Intel's 486 and early Pentium processors.) The
+264 has a BM value of twice the clock speed (like Pentium MMX and higher.)
+<newline> This, however can not be taken as a true indication of the speed for
+real applications.
+
+<p> RISC instructions are fewer and simpler, so you need to execute more of
+them to get the same amount of work done. On top of that, they are also larger.
+So, to keep your Alpha running at full speed, you need large caches and high
+memory bandwidth. Most Alpha's have two levels of cache on chip, and the newer
+boards also provide wide (128 or 256 bit) memory busses. Some of the older
+Alpha systems, however, do suffer from lack of memory bandwidth.
+
+<p> The Alpha has earned itself a reputation for floating point performance.
+However, it takes a very good compiler and libraries to achieve the optimum.
+Until recently, this meant that the real numbercrunchers would often revert 
+to Digital Unix. Recently, though the compilers in the Open Source arena 
+still lag behind, large improvements have been made w.r.t. the libraries and
+compilers. Compaq has ported the Tru64 (Digital Unix) <url name="compilers and math libraries" 
+url="http://www.compaq.com/products/software/linux/"> over to Linux. They
+are available for free download for academic and personal use, commercial
+use does require purchasing a license. 
+
+<sect> What Systems Does Linux/Alpha Run On?<label id="Supported Systems">
+
+<p> The number of Alpha platforms that are supported by Linux is
+quickly increasing. The following is a list of workstations and
+motherboards that are known to work with Linux.
+If you have any corrections to the list, please send 
+<url url="mailto:docs@alphalinux.org" name="us"> mail.
+More information on these system types is also available at
+the <url url="http://www.alphalinux.org/docs" name="AlphaLinux.org documentation
+archives">.
+
+<itemize>
+<item> <p><bf><url url="http://www.compaq.com/alphaserver/es40/index.html" name="ES40"></bf> The ES40 is
+       currently one of the largest Alpha machines that runs Linux. It's available with 1-4 500MHz CPUs with
+       4MB of cache or 1-4 667MHz CPUs with 8MB of DDR cache, and supports up to 32Gig of memory.
+        Linux kernels for these machines should be compiled as either Generic or DP264.
+
+<item><p><bf><url url="http://www.compaq.com/alphaserver/ds10/index.html" name="DS10"> <url url="
+      http://www5.compaq.com/alphaserver/ds10l/index.html" name="DS10L"></bf> The difference between the
+      DS10 and the DS10L is that the L version is a 1U rack-mountable unit, whereas the standard DS10 is
+      a desktop box. These are based on the Tsunami chipset and have CPUs at either 466 or 600MHz, with
+      2MB of cache.
+      Linux kernels for these machines should be compiled as either Generic or DP264.
+
+<item> <p><bf><url url="http://www.digital.com/alphaserver/workstations/" name="XP1000 and XP900"></bf> These
+       are the last true workstation products to come out of Digital/Compaq. From now on all the workstations
+       will use the same parts as the servers. The XP1000 is sold with either a 500MHz (Monet) or
+       667MHz (Brisbane) CPU and both are based on the Tsunami chipset.. The XP900 is sold as a VMS workstation.
+       Linux kernels for these machines should be compiled as either Generic or DP264.
+
+<item> <p><bf><url url="http://www.api-networks.com/products/up1000-board.shtml" name="UP1000"> and
+        <url url="http://www.api-networks.com/products/up1100-board.shtml" name="UP1100"></bf> Products
+	of Alpha Processor Inc (now API NetWorks Inc). Both are based around the AMD Irongate system
+	controller and can take up 768MB of memory (3slots, PC100 Unbuffered ECC 168Pin DIMMs). The UP1000
+	uses API's slot B and can accommodate either a 600MHz 2MB or 700MHz 4MB slotB. The UP1100 has a 600MHz
+	processor soldered to the board and a 2MB cache (all the CPUs uses in both boards are EV67). 
+	The UP1100 also has UDMA66 support (UP1000 has
+	UDMA33), onboard sound (use the trident driver is 2.2.16 or later) and an onboard 21143 (tulip) ethernet
+	controller. Both boards also have dual serial, parallel and dual USB (yes, the USB does work under Linux).
+	Linux kernels for these machines should be compiled as either Generic or Nautilus.
+
+<item> <p><bf><url url="http://www.api-networks.com/products/up2000-board.shtml" name="UP2000 and UP2000+">
+       </bf> Another product of Alpha Processor Inc, now API NetWorks Inc. They are very similar
+       to the DP264 series except that they can only take 2Gig of RAM (8 Slots, uses PC100 Registered ECC
+       168Pim DIMMs) and have a different SCSI controller (Adaptec Ultra2Wide). Instead of using the
+       daugthercard approach that the DP264 uses, the UP2000 and UP2000+ use the API SlotB which contains
+       the processor, cache and VRM. SlotBs for these boards are available in the following configs:
+       600MHz 2MB, 667MHz 2MB, 667MHz 4MB, 750MHz 4MB, 750MHz 8MB and 833MHz 4MB (DDR cache, UP2000+ only).
+       Linux kernels for these machines should be compiled as either Generic or DP264.
+
+<item> <p><bf><url url="http://www.api-networks.com/products/264dp-board.shtml" name="DP264"> and
+        <url url="http://www5.compaq.com/alphaserver/ds20e/index.html" name="DS20/DS20E"></bf> The DP264
+	and DS20 are dual EV6 (or EV67) machines based on Tsunami. The DP264 is the OEM version and
+	is almost functionally the same. They support up to 4Gig of memory using PC100 Registered
+	ECC 200 Pin DIMMs with 16 slots. They also have onboard Adaptec SCSI (Ultra Wide) and support
+	speeds of 500 or 667 (500s have either 2 or 4MB or cache, 667 has either 4MB (Samsung) or
+	8MB of DDR cache (Compaq)).
+	Linux kernels for these machines should be compiled as either Generic or DP264.
+	
+<item> <p><bf><url url="http://www.api-networks.com/products/164ux-board.shtml"
+	name="AlphaPC 164UX"></bf> Interestingly,
+	this is not a Digital product. It was developed by Deskstation,
+	(called RUFFIAN then), and is now being sold by Samsung. It supports
+	speeds up to 800 MHz, and comes with on-board Ultra Wide SCSI
+	(Symbios Logic 53C875), and 10/100 Mb Ethernet (Digital 21143).
+	Like the 164SX an LX, it uses DIMMs (SDRAM) for memory, but
+	it has 6 slots rather then 4.
+
+<item> <p><bf><url url="http://www.dec.com/semiconductor/alpha/dsc-pc164lx.html"
+	name="AlphaPC 164LX"></bf> is Digital's best bet. It's based on the
+	<bf>AlphaPC 164</bf>, but with speeds up to 600 MHz, and using
+	DIMMs rather than SIMMs. (i.e. SDRAM rather then DRAM.)
+
+<item> <p>The low end of the EV5  generation is the <bf><url
+        url="http://www.digital.com/semiconductor/alpha/dsc-pc164sx.html"
+        name="AlphaPC 164SX"></bf>. It uses the 21164PC variant of the
+        Alpha microprocessor, at 400 or 533 MHz. This board is targeted
+        at the NT Workstation market, but it will run Linux just fine.
+
+<item> <p>For a complete Workstation you may want to look at <bf>Miata</bf> (Personal Workstation). This comes with a Graphics
+	Card (Powerstorm) for which X11 support does not (yet) exist,
+	but Matrox Millennium is a popular replacement.
+
+<item>  <p><bf>Alcor (AS600), Bret (AS500)</bf>.  The Alcor kernel
+	is supposed to work fine with the AlphaStation 500 as
+	well.  If you can confirm this, please let us know.
+
+<item>  <p><bf>EB164</bf>.  The Aspen Timberline and Summit machines are
+	similar to this machine/motherboard.  The EB164 has been replaced
+	by the PC164 and it's successors (see above).
+
+<item> <p><bf>Cabriolet (aka AlphaPC64):</bf>
+	This is a PCI-bus based motherboards using the 21064 Alpha CPU.  
+	It is more pricey than the 21066 systems but it does make for a
+	real nice system and many third-party products are based on this
+	design.  This board typically runs at 275MHz but some vendors sell
+	an (overclocked) 300MHz version. It really is historical now, but
+	you may be able to find them at very attractive prices.
+
+<item> <p><bf>Mikasa</bf> (AlphaServer 1000).  Noritake (AlphaServer 1000a)
+	is supported as well, if you use kernels 2.0.30 or higher, with the
+	appropriate patches. However, the builtin Cirrus graphics card
+	is not (or very poorly) supported by X11.
+
+<item> <p><bf>Mustang (AS200),M3 (AS250),(AS255),Avanti (AS400)
+	:</bf> Linux now runs on all of these AlphaStations.
+	The reason for clumping all these machines together is that they are
+	all very similar to program.  In particular, they all can run one
+	and the same kernel when booted using the same firmware.  Thus,
+	when configuring a kernel, simply pick "Avanti" as the system type
+	since that covers all of the above machines.
+
+<item> <p><bf>XL</bf>
+	The XL machine is also know as the "Windows NT Dream Machine."
+	Well, for what it's worth, (most of them) are perfectly happy
+	running Linux.
+
+	The regular XL is based on the 21064 CPU and runs either at 233
+	or 266MHz with 512KB or 2MB of second level cache, respectively.
+
+	The newer <url url="http://www.digital.com/info/CU3102/" name="XL Turbo">
+	 is based on the 21164A CPU and runs either at
+	300 or 366MHz.  The Turbo always comes with 2MB of
+	second-level cache.
+
+<item> <p><bf>ALPHAbook 1</bf>
+	The ALPHAbook 1 is a 21066A based notebook (the first and only
+	portable Alpha, so far).  Linux works fine on this machine with
+	a few extra patches.  An X server is available for this machine
+	as well.
+
+<item> <p><bf><url url="http://www.alphalinux.org/docs/jensen.shtml" name="Jensen"> (aka DEC 2000 aka DECpc AXP 150):</bf>
+	This is the oldest of all Alpha PCs and comes with an EISA bus.
+	You probably don't want to buy such a machine new anymore since
+	you can now get faster machines	for less money.  However, it is
+	not uncommon to get really amazing deals for these machines and
+	a Jensen definitively would make a nice home box.  The
+	firmware seems a little picky about what graphics card and SCSI
+	controllers
+	it wants, but if you're just looking for an affordable Alpha box,
+	it might be worthwhile to look into it.
+
+<item> <p><bf>Noname (aka AXPpci33):</bf>
+	This is a PCI-bus based motherboard using the 21066 Alpha CPU
+	(Low-Cost Alpha).  The core of the 21066 is the same as the 21064.
+	The only difference is that the 21066 also has a memory and I/O
+	controller integrated into the chip (which has the effect that the
+	external interface is much simpler and therefore much cheaper).
+	This board is available in a 166 and a 233MHz version.
+
+<item> <p><bf><url name="UDB" url="http://www.alphalinux.org/docs/udb-multia.shtml">:</bf>
+	Linux/Alpha also runs well on the Universal Desktop Box.
+	(That's the box that's called "Multia" when it's running Windows NT.)
+	The TGA graphics card and the builtin soundcard
+	are supported.  The UDB is basically a Noname board with more
+	hardware builtin and wrapped into a neat little box.  So when
+	configuring a kernel for it, simply select the "Noname" system
+	type.  The UDB currently provides the lowest-cost entry point
+	into the Alpha world.
+
+<item> <p><bf>EB*:</bf>
+	Digital used to sell various other evaluation boards (e.g.,
+	EB66, EB64+, etc.). Reportedly, Linux/Alpha may run on some of
+	these.  But they were relatively pricey and should now be
+	considered obsolete.
+</itemize>
+
+<sect1> Unsupported Systems
+
+<p> Linux/Alpha is unlikely to support the TURBOchannel-based Alpha
+systems in the near (or any) future (this is the DEC 3000 series of
+workstations).  The reason for this is two-fold: first, these machines
+have an I/O system that is very different from PCI-based machines and
+therefore do not look anything like PCs (e.g., pretty much all drivers
+would have to be written from scratch).  Second, with the advent of
+PCI, the TURBOchannel is pretty much dead technology (for better or
+worse) and it just isn't all that much fun to develop software for
+dead technology (on the other hand, it may soon be possible to buy
+such systems cheaply, which would make them more interesting to Linux
+users, I suppose).
+<p>If you have such a machine and want to run a free OS, look for the
+*BSD's. At least one of them supports the 3000 series.
+
+<sect1>Table
+
+<p>The table below (one of Jay Estabrook's many invaluable contributions)
+may prove useful to select the right MILO/Kernel/bootfloppy for your
+system.
+
+<tscreen><verb>
+The following table may be useful; sorry, but I haven't put in the "family" designations
+explicitly, but the groupings and MILOs are indicative, mostly.
+
+--Jay++
+
+------------------------------------------------------------------------------- 
+Note: "AS" can equally stand for "AlphaStation" and "AlphaServer", though
+      both may *not* be available for a given platform.
+
+Hardware Type		Aliases			MILO image
+=============		=======			==========
+
+DECpc 150		JENSEN			N/A	
+DEC 2000 Model 300(S)	JENSEN
+DEC 2000 Model 500	CULZEAN
+
+AS 600			ALCOR			xlt-alcor
+
+AS 500			MAVERICK,BRET		xlt-alcor
+XL-300			XLT
+XL-366			XLT
+XL-433			XLT
+
+AS 200 4/*		MUSTANG			avanti
+AS 205 4/*		LX3
+AS 250 4/*		M3
+AS 255 4/*		LX3+
+AS 300 4/*		MELMAC
+AS 400 4/*		AVANTI
+
+XL-233			XL			xl
+XL-266			XL			xl
+
+Personal Workstation	MIATA			miata
+PWS 433a(u)
+PWS 500a(u)
+PWS 600a(u)
+
+AS 2100	(EV4)		SABLE			N/A
+AS 2100 (EV5)		GAMMA-SABLE		N/A
+AS 2000 (EV4)		DEMI-SABLE
+AS 2000 (EV5)		DEMI-GAMMA-SABLE
+
+AS 1000	(EV4)		MIKASA			N/A
+AS 1000 (EV5)		MIKASA-PRIMO		N/A
+
+AS 1000A (EV4)		NORITAKE		N/A
+AS 1000A (EV5)		NORITAKE-PRIMO		N/A
+AS 600A			ALCOR-PRIMO
+AS 800			CORELLE
+
+AXPpci33		NONAME			udb-noname
+UDB			MULTIA
+
+AlphaBook1 (laptop)	ALPHABOOK1		N/A
+
+AlphaPC64		CABRIOLET		cabrio
+AlphaPCI64
+
+AlphaPC164		PC164			pc164
+
+AlphaPC164-LX		LX164			lx164
+
+AlphaPC164-SX		SX164			sx164
+
+EB164			EB164			eb164
+
+EB64+			EB64+			eb64p
+
+EB66+			EB66+			eb66p
+
+EB66			EB66			eb66
+
+AS 4100			RAWHIDE			N/A
+AS 4000			RAWHIDE			N/A
+AS 1200			TINCUP			N/A
+
+-------------------------------------------------------------------------------
+</verb></tscreen>
+
+
+<sect>So, what should I buy?
+
+<sect1>Boards
+
+<p> Most of the Alpha motherboards sold today go through Samsung and API NetWorks.
+Samsung handles some of the sales for Asia where <url url="http://www.api-networks.com" name="API NetWorks, Inc.">
+handles the Americas and Europe.
+
+<sect1>Systems
+
+<p>
+In general, it's likely that buying a complete system will actually be
+cheaper than putting one together yourself.  This is especially true
+for many of the third-party systems and for Digital's XL machines.  If
+you add the costs of all the components to the price of the
+motherboard, you'll quickly find that it's difficult to beat those
+prices.  The good news about this is of course that it will also save
+you the trouble of having to find appropriate parts.
+A number of third-party vendors can be found through the <url
+url="http://www.alphapowered.com" name="AlphaPowered"> page. They typically
+offer configurations based on 164LX and 164SX boards, but some may have
+nice deals on the older boards as well.
+
+<p>
+Linux will also run on some of Digital's server-class systems. Check the
+table in the previous chapter.
+
+<sect1>Brief Alpha Systems Overview
+
+<p> A brief (but unfortunately rather dated) introduction and overview of
+various Alpha systems and processors on the market can be found in <url
+url="http://www.alphalinux.org/docs/alpha-howto.html" name="Brief Alpha System Overview">.
+
+
+<sect>Where Do I Get Alpha Hardware?
+
+<p>Check the <url url="http://www.alphapowered.com"
+name="AlphaPowered"> page and the <url url="http://www.alphalinux.org/hardware/vendors.shtml" name="AlphaLinux.Org vendors
+list"> which both contain a list of vendors. 
+
+
+<sect>Noname (AXPpci33) and Multia (UDB) <label id="Noname (AXPpci33)">
+
+<p> This section provides some more information on the Noname motherboard.
+There are some hints and tips that you might be interested in if you're
+considering putting together a system on your own.
+
+First off, here is what the Noname board looks like: <url
+url="http://ftp.digital.com/pub/DEC/axppci/small&lowbar;pci33.gif"
+name="picture of Noname board">.
+
+This section also includes standard benchmark performance results,
+which might help give you an idea of how a Noname system performs.
+
+Before going out and purchasing such a machine, please be aware that
+the Noname really is a low-end machine and as such is relatively low
+performance. The Noname <em/can/ make for a nice machine (especially
+together with a TGA graphics card), but be sure to run the
+applications you care about before making a purchase decision.  Rather
+then putting together a system based on this board, it is currently
+much cheaper to get a Universal Desktop Box (<url name="UDB"
+url="http://www.annex.co.uk/systems/udb.html">).  That box is basically a
+Noname with lots of very nice builtin hardware. The last UDB's are now
+being sold at &dollar; 99,-.
+
+<sect1>Which Firmware Does Linux/Alpha Require?
+
+<p> You will need the OSF/1 PALcode to run Linux.  Digital has made
+the firmware available for ftp so you can download the SRM console
+from <url name="Digital's ftp site"
+url="ftp://ftp.digital.com/pub/DEC/axppci">. There are two serious
+drawbacks with the SRM console: it eats away 2-3MB of RAM and older versions
+<bf>cannot</bf> boot from IDE drives.  With newer machines 2-3MB of memory
+is not all that significant, and IDE is support on newer platforms. Fortunately, the free <url
+url="http://www.alphalinux.org/faq/milo.html" name="MILO"> replacement firmware doesn't suffer from
+these problems.  Plus with MILO, you get all the sources!
+
+
+<sect1>What Do I Need To Watch Out For?
+
+<p>
+<itemize>
+<item> <bf> Keyboard </bf>
+
+<p>If you plan on running DEC Unix (formerly known as OSF/1), you have
+to get a board with a PS/2 style connector.  On the other hand, it
+seems a lot easier/cheaper to find cases and keyboards for AT-style
+connectors.  (Nekotech seems to be shipping Noname motherboards with
+the PS/2 connectors on a slot-bracket which allows you to have the
+best of both worlds: a regular (cheap) AT-case without having to tie
+up a serial port for the mouse.)
+
+The only difference between the PS/2 and AT-style keyboard
+interface is the keyboard <bf>connector</bf>. The electrical interface
+is identical.  In fact, you can buy AT to PS/2 converters in any
+computer shop for a few bucks.  The advantage of PS/2-style board is
+that there is a second connector that can be used for a PS/2 mouse
+(i.e., no need to tie up a serial port with a serial mouse).  But then
+again: economy of scale currently works in the direction that serial
+mice are dirt cheap and omni-present, which can't be said about PS/2
+mice.
+
+<item><bf>Memory</bf>
+
+<p> Be careful about what kind of SIMMs you get.  In particular,
+"logical parity" SIMMs <bf>do not</bf> work.  What you should get is
+70ns memory with 36bits/SIMM.  These are also known as ECC SIMMs.
+Please refer to the OEM Design Guide for details.
+
+Also notice that some of the firmware simply <em/refuses/ to boot with
+anything less than 16MB of RAM installed.  Older versions of the SRM
+console used to do that and the ARC console apparently has the same
+bad habit.  MILO and any reasonably recent release of the SRM console
+should boot fine in 8MB, however.
+
+</itemize>
+
+
+<sect1>Will Normal ISA Cards Work?
+
+<p> They should and, as far as we can tell, they really do work.
+Besides the drivers for the on-board interfaces, several other ISA
+cards are known to work already (e.g., depca and ne2000 Ethernet
+cards, sound cards, internal modems, etc.).  Notice that the SRM
+console includes a configuration command called "isacfg" that allows
+to setup the PCI/ISA bridge.  That command has an undocumented option
+<tt/enadev/ that allows to enable the ISA card.
+
+
+<sect1>What's Performance Like?
+
+<p> Notice that the numbers below are for DEC Unix.  Linux/Alpha is
+likely to be less tuned at this point, but it gives you an idea of
+where the hardware stands.  
+
+<sect2>233MHz, 1MB Second-level Cache
+
+<p><tscreen><verb>
+-------------------------------------------------
+DRAFT 0.02 Performance Flash 	AXPpci33, 233MHz
+Digital UNIX 3.2		1MB BCache
+-------------------------------------------------
+SPEC CINT92
+	SPECint92		100.2
+	SPECbase_int92		 91.2
+SPEC CFP92
+	SPECfp92 		112.7
+	SPECbase_fp92		107.8
+LINKPACK
+64-bit Double-Precision
+	100x100	MFLOPS		 17.32
+	1000x1000 MFLOPS	 93.95
+Dhrystone
+	V1.1 instructions/sec	263.012
+	v2.1 instructions/sec	250.000
+Whetstone
+	Single-precision KWIPS	249.292
+	Double-precision KWIPS	211.255
+DN and R Labs CPU2	
+	MVUPS			274.47
+SLALOM
+	Patches		      	 5,686
+	MFLOPS			 40.07
+Livermore Loops
+	Geo. mean MFLOPS	 21.95
+CERN	
+	CERNS units		 28.99
+-------------------------------------------------
+</verb></tscreen>
+
+<sect1>To Probe Further
+
+<p> A lot of useful and detailed information is available at <url
+url="http://ftp.digital.com/pub/DEC/axppci/read&lowbar;me.html"
+name="Digital's ftp server">.
+
+
+<sect>Jensen (DEC 2000/DECpc 150/Highscreen AXP)
+
+<p><it>This section was contributed and was maintained for many 
+years by Martin Ostermann. (Thanks, Martin !) Currently Martin doesn't own a 
+Jensen anymore: updates for this section may be sent directly 
+to <url url="mailto:geerten@bart.nl" name="me"></it>
+
+<p> The Jensen was the first Alpha PC that has been available
+commercially from DEC.  Not surprisingly, there are a few oddities
+with it.  This section is an attempt to help people getting
+Linux/Alpha installed on a Jensen, and to provide additional
+information operating Linux on the Jensen.
+
+<sect1>Installation
+
+<p>First off, there is no MILO for the Jensen.  So it is unavoidable to
+use Jensen's builtin 
+<url name="SRM" url="http://www.alphalinux.org/faq/srm.html"> 
+console.  Unfortunately, it is severely
+handicapped with respect to boot command line option processing.
+Thanks to <url name="Michael Schwingen"
+url="mailto:michaels@stochastik.rwth-aachen.de"> there is now a new
+<url name="aboot" url="ftp://ftp.alphalinux.org/pub/aboot">
+loader that can work around these limitations.
+
+Secondly, the Jensen SRM console cannot boot from a floppy. This used
+to make bootstrapping Linux a real pain, until <url name="Jim Paradis"
+url="mailto:paradis@amt.tay1.dec.com"> contributed a minilabel and
+writeboot programs executable from the ARC console. These tools can be
+download from the <url url="http://www.alphalinux.org/docs/jensen.shtml" name="AlphaLinux.Org
+Jensen Page">.
+
+ 
+The original version -- <bf/ which is outdated and you should not use this 
+now/ -- is available together with a the JENSEN-HOWTO describing the installation 
+process in detail from <url name="ftp.digital.com" 
+url="ftp://ftp.digital.com/pub/DEC/Linux-Alpha/ARCHIVES/JENSEN&lowbar;INSTALL/">.
+
+The Jensen is supported by <url name="Red Hat Linux"
+url="http://www.redhat.com">, but some things still cause trouble.
+
+<sect1>The Jensen is different
+
+<p>The Jensen differs from other systems in several ways:
+
+<itemize>
+<item> <bf/No MILO./ It was already stated that there is no MILO for the Jensen. This is
+because the firmware implementation of the Jensen differs somewhat
+from the one on other systems. <it/PALcode/ is the keyword to look for, if
+your interested to know more.
+
+<item> <bf/EISA-Bus./ The Jensen has only got an EISA bus, no
+PCI. Furthermore, it uses a very special addressing scheme for the
+bus. While the kernel usually takes care of that in respect to device
+drivers, it has to be taken care of by utilities that do i/o in user
+space, like the X servers. Therefore you need special support from the
+X server, which is  available in XFree86 version 3.3 (or later) for S3
+cards, available from <url name="www.xfree86.org"
+url="http://www.xfree86.org/">. You'll also find
+other useful stuff there, ported by <url name="Stephan Kanthak"
+url="http://www.informatik.rwth-aachen.de/I6/Colleagues/kanthak/Jensen/jensen&lowbar;fan&lowbar;page.html">,
+like a ported SVGAlib.
+
+If you're interested in details, watch for the keywords <it/ SPARSE vs
+DENSE memory/.
+
+<p><bf/Note:/ Only S3 based cards are supported. The Compaq QVision,
+which is one of the graphic cards originally  shipped by Digital, is
+<bf/not/ currently not supported by XFree86, and support for it is
+unlikely to occur at all.
+
+<item> <bf/RTC./ Somehow it was managed to locate the real time clock
+at a different place (I/O port 0x170 instead of 0x70 on all other
+machines). Thus the original clock program will fail. A patched
+version is available from <url name="Martin Ostermann's Alpha Page"
+url="http://www.comnets.rwth-aachen.de/~ost/alpha/alpha.html">.
+
+<item> <bf/Firmware./ Since the Jensen is the oldest machine around,
+there are chances that you got a very old firmware. The date format
+changed in newer version, which will cause an offset of 20 years. You
+ought to get a <url
+url="http://ftp.digital.com/pub/DEC/Linux-Alpha/ARCHIVES/JENSEN&lowbar;INSTALL/jensen&lowbar;firmware&lowbar;procedure.html"
+name="firmware update">. WARNING: If you own an ELSA-Winner 1000
+graphics adapter, don't update beyond version 1.7!
+Otherwise you'll not be able to use your card in EISA mode. This is
+probably due to a bug in the EISA BIOS of the card.
+
+</itemize>
+
+<sect1>Known Problems
+
+<p> Know Problem and workarounds:
+<itemize>
+
+<item> <bf/Date and Time./ Due to the location of the real time clock
+and/or an old firmware. See above.
+
+<item> <bf/Won't boot after firmware update./ Aboot doesn't work with
+new firmwares. It is known to work <url
+url="http://ftp.digital.com/pub/DEC/Linux-Alpha/ARCHIVES/JENSEN&lowbar;INSTALL/jensen&lowbar;firmware&lowbar;procedure.html"
+name="with versions up to 1.7">.
+<newline>
+If you own an
+ELSA-Winner 1000  graphics adapter and upgraded beyond firmware
+version 1.7, the card won't work in EISA mode. Turn the card, so that
+it is plugged in with its ISA side. 
+<newline>
+Maybe you want to downgrade you
+firmware again. (Windows-NT 3.51 and 4.0 seem to work fine with firmware 1.7)
+<url name="This version"
+url="http://ftp.digital.com/pub/DEC/Linux-Alpha/ARCHIVES/JENSEN&lowbar;INSTALL/jensen&lowbar;firmware&lowbar;procedure.html">
+is now available from Digital's FTP server.
+
+<item> <bf/aboot-0.x doesn't compile on recent kernels./ 
+Get aboot-0.4 or above, it works with recent kernels.
+
+<item> <bf/Won't automatic reboot after correct shutdown./ Known
+problem, with 2.0.x kernels. Apparently this has been solved with
+recent 2.1.x kernels. I tried 2.1.88, and rebooting worked. But that
+kernel version had other problems.
+
+<item> <bf/Second serial port is unusable./ 
+Accessing '/dev/cua1' will freeze the system immediately. You may test 
+this by issuing 'cat /dev/cua1', but I suggest that you put your 
+file-systems in read-only mode first. In case you need more serial 
+ports, it is no problem to install an additional serial buffer 
+card. In case you need this for a modem, you ought to do that 
+anyway, because  the builtin ports are unbuffered (16450 
+compatible), not buffered ones (16550!). 
+
+</itemize>
+
+Sometimes people tend to blame the Jensen for general Alpha related
+problems. Please keep in mind that only the hardware is different, and
+that in most cases the kernel handles the hardware access. Thus for most
+programs it doesn't make a difference if they are being run on the
+Jensen or any other Digital/Alpha machine. 
+
+<sect1>Hardware Issues
+
+<p>You may ask yourself, how you can upgrade your system. Here are some 
+suggestions, but please note that I actually <bf/did not/ test most of this 
+stuff, I just collected information found on the internet: 
+
+<itemize>
+<item><bf/RAM updates./
+4 MB, 8MB (dual-RAS aka doublesided), 16 MB, and 32 MB SIMMs produced 
+as late as summer of 96 have been reported to work, but I do not know 
+if a certain refresh cycles is required. Note that you need <bf/ 36 
+bit true parity/ SIMMs (but only one of the 4 parity bits on each 
+SIMM is actually used, as Michael Schwingen confirmed).   
+
+<item><bf/Video card./
+Basically any VGA ISA or EISA card <bf/may/ work. Most actually do, if 
+you use the ARC console and Windows NT. Unfortunately, the SRM 
+console, which you need to boot Linux, is somewhat picky about the 
+cards it supports. It uses an Intel-x86 emulation to initialize the card 
+via its VGA-BIOS, and that one seems to be buggy.
+<newline>
+If you want to run X, you need an S3 based card. Any S3 card (but, 
+<bf/not/ S3-Virge, etc), which has been accepted by the SRM console, 
+should work. Look at the XFree documentation for the XF86S3 driver for 
+detailed information.
+
+</itemize>
+
+<sect1>Miscellaneous Information
+
+<p>So what is the Jensen all about? There is a some information
+available online:
+
+<itemize>
+<item><bf>The Evolution of the Alpha AXP PC (<url name="text"
+url="http://www.digital.com/.i/info/DTJD04/DTJD04SC.TXT">/<url
+name="Postscript" url="http://www.digital.com/.i/info/DTJD04/DTJD04P8.PS">)</bf>
+by David G. Conroy, Thomas E. Kopec, and Joseph R. Falcone.
+  This describes the development leading to the Jensen system. 
+
+<item><bf>Product announcement and description (<url
+url="http://ftp.digital.com/pub/DEC/Alpha/systems/as1000/docs/SOC/Feb94/ch-1-b.txt"
+name="text">/<url
+url="http://ftp.digital.com/pub/DEC/Alpha/systems/as1000/docs/SOC/Feb94/ch-1-b.ps.Z"
+name="Postscript">)</bf>  by Digital. This is
+an overview of the Jensen system components and options.
+<item><bf>PB22H-KB System Module -- Hardware Reference Information (<url 
+url="ftp://ftp.netbsd.org/pub/NetBSD/misc/dec-docs/ek-a0638-td.pdf.gz"
+name="PDF">)
+</bf> by Digital. This is an in-depth description of the Jensen hardware.
+</itemize>
+
+<sect>AlphaStation 200
+
+<p> These boxes have become quite popular recently because they are now
+available cheaply (Digital is clearing out the warehouse ??) which makes
+them the successor to the UDB as a lower end way into the Alpha 
+world. <url url="http://www.onsale.com" name="Onsale"> and <url 
+url="http://www.webauction.com" name="Webauction"> are the places to get them.
+
+<p> Rick Taylor (<url url="mailto:charlet@hubcap.clemson.edu" 
+name="Charles E. Taylor IV">) supplied the following details:
+
+<descrip>
+
+<tag/CPU/
+ The AS200 comes with 21064 or 21064A CPUs. Speeds are 166MHz and 233 MHz.
+ The support chipset is the 21071-AA.
+<tag/cache/
+ Apart from the on-chip cache, there is 512K of cache on the mainboard.
+<tag/memory/
+ There are 6 slots for 72 pin true parity SIMMs. Slots must be filled
+ in pairs. According to the specs, 384 megs of RAM can be added. The items 
+ from Onsale seem to come with 16 MB. You may want to add some before
+ installing Linux.
+<tag/disc/
+ The base configuration does not include any discs...
+<tag/video/
+ .. nor a graphics card. Any Alpha supported PCI video card should work:
+ S3Virge DX (4MB) and S3Trio64V2 (2MB) definitely do.
+
+</descrip>
+
+<p>Some more quotes from Rich's mail:
+
+<itemize>
+<item>"As with most of these older Alphas, upgrading the firmware is all but a
+necessity to install Linux.  Mine came with an older SRM that just wouldn't
+load the Linux kernel without locking, and upgrading to the latest ARC fixed
+the problem.  Mine came from the batch of Alphas that onsale and webauction
+have been (and still are, in the case of webauction) selling, so I'd assume
+other new AS200 owners might have similar problems."
+
+<item>"To get the builtin sound card to work you need to recompile the kernel on
+RedHat.  Fairly simple, but I just talked a guy through it on the RedHat-AXP
+list, so I thought I'd mention it. :)"
+
+<item>"Something that surprised me when I first installed (before I hooked the
+machine into the local ethernet network and while I was using PPP): my modem
+wouldn't work on the first com port.  I suspect that had something to do with
+the serial console setting.  The symptom was the modem constantly getting
+traffic when no program should have been talking to it.  Not too tough to
+figure out, but it could be rather confusing to someone who didn't get the
+documentation with their machine.  A quick fix is to simply use the other com
+port for the modem."
+
+<item>"My AS200 came with something of an oddity - an ISA card with two PCMCIA slots
+on it.  According to the DEC shipping label it was an option, but as I don't
+have any PCMCIA devices, I removed the card from the machine and put it in
+storage.  I'm not sure if/how the card works in Linux, and I didn't get any
+documentation for the card, so I don't have much information on it."
+</itemize>
+
+<p> If you have bought one of them you may find the following URL's
+useful: both give a step by step recipe to get Linux installed.
+<newline><url url="http://www.alphalinux.org/docs/as200.shtml">
+<newline><url url="http://www.mindspring.com/&tilde;ccsf-lug/AS200.htm">
+ 
+<sect> Samsung APC164UX (Ruffian)
+
+<p> (This section is written by <url url="mailto:stig@alpha-processor.com" 
+name="Stig Telfer">.)
+
+<sect1> Ruffian Links
+<p>
+<itemize>
+
+<item><url url="http://www.alpha-processor.com/products/downloads/customer_support/UX/"
+ name="Alpha Processor Inc Customer support pages"> for APC164UX boards.
+
+<item><url url="http://talisman.alphalinux.org/ALOHcl/query.php?Platform=PC164ux"
+ name="AlphaLinux.org's hardware database"> for APC164UX boards.
+
+
+<item><url url="http://www.theophys.kth.se/&tilde;jurijus/alpha/"
+ name="A detailed installation guide"> for Red Hat 5.2. 
+
+<item><url url="http://www.usa.samsungsemi.com/products/alpha/alpha-prodinfo.htm"
+ name="Samsung Semiconductor page"> giving a good introduction to their Alpha systems.
+
+<item><url url="ftp://gatekeeper.dec.com/pub/DEC/Linux-Alpha/Kernels"
+ name="Gatekeeper">, Digital's Linux support page. Several useful Ruffian upgrades available here. 
+
+<item> Stefan Reinauer's <url url="http://www.suse.de/~stepan/" name="MILO page">.
+</itemize>
+
+<p><bf/Note/: I accept no responsibility for anything that 
+goes wrong as a consequence of reading this section of the FAQ.
+If you have anything to add to it, please do! 
+
+
+<sect1> Introduction
+
+<p> The Ruffian board is broadly similar to the 164LX board, but beefed up with
+six DIMM slots instead of four (giving a maximum memory capacity of 1536MB),
+and with on-board SCSI and ethernet.  It also takes higher-clocked EV56 
+processors (up to 667MHz) and has more PCI slots.
+
+<sect2>Hardware configuration:
+
+<p>
+<itemize>
+
+<item> Intel PIIX3 Southbridge and IDE controller.
+
+<item> Symbios 53C875 SCSI controller.
+
+<item> DEC 21143 Tulip ethernet controller.
+
+</itemize>
+
+<p> In all, a well-configured EV56 workstation.
+Yet it is plagued with a bad reputation.
+
+
+<sect2>The Caveat
+
+<p> While the vast majority have no trouble with their Ruffians (author
+included), a handful of users find fundamental shortcomings that make the 
+board unusable for their applications. 
+
+<sect2>The Symptoms
+
+<p> A virtual memory stress-test that induces continuous heavy paging can 
+cause the machine to die.  The problem manifests itself through various 
+"Unable to handle kernel paging request", "killing the swapper", 
+"attempting to swap the idle process" messages, and a register dump. 
+The system may become unusable after that. 
+
+<p> The stress-test may run without failure (I have run it for three days 
+without fault), or it may fail within seconds.
+
+<p> Some people claim this problem only arises with large memory configurations. 
+
+<sect2>The Fix
+
+<p> <url url="mailto:dobrek@itp.uni-hannover.de" name="Lukasz Dobrek"> 
+of Hannover University has identified that his processor has been
+overheating and believes that this has been causing the problems described
+above.  He put some silicon paste between processor and heatsink and
+found that his machine became stable again.  Silicon paste is an interface
+material that improves heat transfer between surfaces.
+
+<p> Other people have suggested that the problem is aggravated in large memory
+configurations.
+
+<p> Elsewhere it has been suggested that using the latest milo will help 
+improve stability.
+
+
+<sect1>Hardware Issues with the Ruffian 
+
+<sect2>Ruffian On-board Ethernet 
+
+<p>The Ruffian's on-board DEC Tulip Ethernet is not very good at
+auto-sensing a 100Mbit link with the Linux Tulip driver.  Using recent 
+versions of the tulip driver appears to help.  The author has also found 
+the problem to be sensitive to the network hardware.  By changing hubs, or 
+even ports on the same hub, the problem disappears.
+
+<p>The tulip device driver page is well documented at:
+<itemize>
+<item> <url url="http://www.scyld.com/network/tulip.html">
+</itemize>
+
+<p>These pages also contain instructions on how to install the
+driver. Alternatively, try looking at the section on building your own
+kernel in this FAQ. (The location of the tulip device driver in the
+linux source tree is drivers/net/tulip.c, copy your newly-downloaded
+version in here and you're ready to build)
+
+<p>If your ethernet doesn't autosense 100Mbit, there are some other
+options I have found to sometimes work, although we're in experimental
+territory here and what may work for me may not work for you.
+
+<p>Your first option is to hard-code your ethernet interface to be 100baseTX, 
+bypassing the autosensing mechanism. However, this doesn't always work. What 
+does sometimes work is hard-coding the medium to be 10Mbit, and then 100Mbit. 
+The first packet will fail transmission, but after that the link is brought up 
+in 100Mbit mode. To bypass the auto-sensing mechanism, edit tulip.c and put 
+numbers into the options array, according to your media type as defined in 
+an array further down the code (10baseT is 12, 100baseT is 4). If you still 
+can't get this to work, try this patched version of the tulip driver, actually 
+patched for the Miata by Loic Prylli. What it does is to keep trying with 
+user-specified hard-coded media.
+
+<p>Again, your experience may vary...
+
+<sect2>Video Cards 
+
+<p> Older versions of MILO (the bootloader) required that the video card was 
+put into the 64-bit slot.  This was because all the other PCI slots are behind
+a PCI-PCI bridge which was not correctly supported by MILO.
+
+<p> However, work by Nikita Schmidt and Stefan Reinauer have addressed this 
+problem and recent MILOs support a video card in any PCI slot, freeing that 
+64-bit slot up for better things...
+
+<p> You can find Nikita's work 
+<url url="ftp://genie.ucd.ie/pub/alpha/milo/" name="here"> 
+and Stefan's work <url url="http://www.suse.de/~stepan/" name="here">.
+Stefan's work builds upon the improvements done by Nikita on the stock MILO
+available from Compaq at the Gatekeeper FTP site above.
+
+
+<sect1> The Red Hat Release CDs and the Ruffian 
+
+<p> Unfortunately, both Red Hat 5.1 and 5.2 releases have flaws to be aware 
+of when installing on a Ruffian.
+
+<sect1>Red Hat 5.1 
+
+<p>For your first disk, you should use a different milo and ldmilo.exe
+file, which are downloadable from Gatekeeper, Digital's FTP server:
+
+<itemize>
+ <item>    <url url="ftp://ftp.alphalinux.org/pub/Linux-Alpha/Kernels/milo-ruffian-981020">
+ <item>    <url url="ftp://ftp.alphalinux.org/pub/Linux-Alpha/Kernels/ldmilo-ruffian-981020">
+</itemize>
+
+<sect2>How to build your milo disk
+<p>
+<enum>
+<item>   Take a DOS-formatted floppy 
+<item>   Copy the two files above onto it, renaming them to 'ldmilo.exe' and 'milo' 
+<item>   Thats it, you're done :-) 
+</enum>
+
+<sect2>Running XFree with Red Hat 5.1 
+
+<p>If the XFree X server fails to start on your system, try adding the
+following link:
+
+<p><tt>cd /etc; ln -s EB164 alpha_systype</tt>
+
+<p>If your graphics card uses the SVGA X-server (eg, if you have a
+Matrox graphics card), you should also pick up the patched SVGA server. (
+<url url="ftp://mea.tmt.tele.fi/pub/XFree86/"> ).  Or, upgrade to a newer 
+version of XFree, as packaged with any current distribution.
+
+<sect2>Reading the time and date correctly with Red Hat 5.1 
+
+<p>The Ruffian ARCSBIOS uses a different format for time and date. In
+releases of Red Hat up to 5.1, this meant that Linux would not report
+the correct date and time.
+
+<p>This can be fixed using: 
+<itemize>
+<item>     An updated version of the clock binary (try gatekeeper), 
+<item>     by getting your date and time from another system on the network using rdate -s, 
+<item>     or by using xntpd. 
+</itemize>
+
+<p>Date and time issues are fixed for the Ruffian in Red Hat 5.2 
+
+<sect1>Red Hat 5.2 
+
+<p>Unfortunately the Ruffian kernel provided on the Red Hat 5.2 CD
+doesn't contain support for the Symbios 875 on-board SCSI. However,
+you can take the kernel image from Red Hat 5.1 to perform the
+install. Once installed, you can build your own kernel - the sources
+on <url url="ftp://gatekeeper.dec.com/pub/DEC/Linux-Alpha/Kernels">
+for 2.0.35 are tried and trusted.
+
+
+
+<sect>Which Graphics Cards Work With Linux/Alpha?
+
+<p> Linux/Alpha supports both DEC's TGA and generic VGA cards.  The
+new PowerStorm cards from DEC are not supported yet.
+
+<sect1>TGA Card
+
+<p> TGA is DEC's (first) family of workstation graphics cards for the
+PCI bus.  It makes for nice and very quick cards.  The only drawback
+is that since it is coming from the workstation market, it does
+<em/not/ support 16-bit color mode.
+
+There are three versions of the TGA card.  They are all based on the
+21030 chip:
+<tscreen><verb>
+Model:  Description:
+ZLXp-E1  8-plane TGA (256 colors)
+ZLXp-E2 24-plane TGA (16 million colors)
+ZLXp-E3 24-plane TGA + 32-plane Zbuffer (16 million colors and 3D support)
+</verb></tscreen>
+Caveat: as described below, only the ZLXp-E1 is currently supported by
+an X server.
+
+<sect1>VGA Cards
+
+<p> Linux boots in VGA mode, so pretty much any graphics card should
+do for Linux.  However, the graphics card also needs to work with the
+firmware.  This is non-trivial since many PCI cards need proprietary
+wakeup sequences to bring them into a VGA compatible mode.  To solve
+this problem, the firmware includes an x86 emulator that is used to
+execute the BIOS initialization code on the graphics card.  In theory,
+it is therefore possible plug in any PC graphics card.
+
+DEC implemented an x86 emulator that is used by the MILO (Linux), SRM
+(DEC Unix), and ARC (Windows NT) firmware.  This emulator is mature
+and can indeed initialize most, if not all, cards.  To be on the safe
+side, take a look at the hardware-compatibility lists for DEC Unix and
+Windows NT before deciding on a card.
+
+MILO also comes with an (optional) emulator that is free.  It is not
+nearly as mature as DEC's emulator, but it nevertheless is able to
+initialize at least following graphics cards:
+
+<tscreen><verb>
+bus card type:                  chip:   BIOS version:                   Note:
+=== =========================== ======  ===========================     =====
+ISA Orchid Fahrenheit 1280	S3 805	????				4
+ISA #9 GXE Level 12             S3 928  BIOS Version 1.13.03S
+PCI #9 GXE 64 PCI               S3 864  BIOS Version 1.02.09u
+PCI Diamond Stealth 64 DRAM PCI S3 864  BIOS Version 1.14               1
+PCI Diamond Video 64 DRAM PCI   S3 868  BIOS Version 1.02               1
+PCI Diamond Stealth 64 DRAM     S3 764  BIOS Version 2.01		2,3
+
+Notes:
+======
+1:     Reported by pgwduane@mail.atnet.net.
+2:     The S3 764 chip is mostly known as Trio64.
+3:     Reported by viper@ludd.luth.se.
+4:     Reported by jestabro@amt.tay1.dec.com.
+</verb></tscreen>
+
+<sect1>Cards Supported by the X Windowing System
+
+<p> According to the XFree 3.3.3.1 Release Notes:
+<tscreen><verb>
+The following X servers are available for Alpha hardware:
+
+          XMa64.tgz       Mach 64 server
+          XMono.tgz       Mono server (generic driver only)
+          XP9K.tgz        P9000 server
+          XTGA.tgz        DEC 21030 (TGA) server
+          XS3.tgz         S3 server
+          XS3V.tgz        old S3 ViRGE server (please use SVGA server)
+          XSVGA.tgz       SVGA server (Matrox Millennium and S3 ViRGE drivers only)
+</verb></tscreen>
+The S3 server is known to work with 764x, 805, 864,
+928 based cards (e.g., Orchid Fahrenheit 1280, &num;9 GXE64, &num;9
+Level 12, &num;9 Motion 771).  The Mach64 server is known to work
+with WinTurbo GX-VRAM and Graphics Xpression CX-DRAM cards.
+
+<p> These servers are available from <url url="ftp://ftp.xfree86.org/pub/">.
+More recent developments are available from <url url="http://www.suse.com/"
+name="SuSE">. Check out the section on commercial software for other options.
+
+<p> For TGA not just one, but two servers exist: the first one is by the
+XFree project, as mentioned above. It's relatively young so it's not
+well-optimized yet, but it's definitively usable and since sources are
+available for it, anybody can improve it.<newline> The other one is
+based on DEC-proprietary code (sources are not available). It is fast
+and relatively stable and can be found <url name="here"
+url="ftp://ftp.digital.com/pub/DEC/Linux-Alpha/X11">.
+
+<sect1>Can Linux/Alpha Run Without Graphics Card?
+
+<p> The firmware can be controlled over a serial line terminal at 9600
+Baud and it is possible to boot Linux/Alpha in that manner. The kernel
+can also handle being booted headless without any trouble. Make sure
+to pass the kernel the device name of the console you wish to use.
+For example if you wanted to redirect the console to the first serial
+port, you would add 'console=ttyS0' to the list of flags sent to the
+kernel.
+
+<p>The other important thing to remember here is that by default there is
+no getty spawned on the serial ports. You must add a line like this
+to the /etc/inittab to be able to login on the serial port(s):
+
+<p><verb>S1:2345:respawn:/sbin/mingetty ttyS0</verb>
+
+<p>Then force init to reread its configuration file with:
+<verb>init q</verb>
+<p>By default you also can not login as root over the serial port. To
+add this ability add the serial port(s) (ttyS0 and/or ttyS1) to the /etc/securetty file.
+
+<sect>Where Do I Get Linux Software?<label id="Where Do I Get Linux Software">
+
+<p> There are currently approximately four end-user installable Linux
+distributions for the Alpha available. 
+
+Commercial products for Linux/Alpha also start to appear slowly.  Some
+noteworthy products are listed in the next section.
+
+If you know of any other Linux/Alpha distributions or products, please
+mail <url url="mailto:geerten@bart.nl" name="us">.
+
+<sect1>Red Hat
+
+<p> Red Hat is distributing the Alpha version of its well-known Linux
+distribution.  Red Hat for Alpha is ELF-based and available both
+on CD-ROM and via ftp.  The distribution uses the RPM system (Red Hat
+Package Manager) which allows easy installation of both sources and
+binaries.  Besides installing packages, it also allows to keep track
+of what's installed and it can even uninstall packages that you don't
+like anymore.  But Red Hat is a lot more than just RPM.  Be sure
+to check their <url name="web site" url="http://www.redhat.com/"> for
+all the details. <newline>
+
+The Red Hat distribution is available via ftp from the Red Hat
+<url name="site" url="ftp://ftp.redhat.com/pub/">. Version 6.2 has been
+available for some time now and 7.0 should soon be released, be sure to download the errata as well.
+<url url="http://www.redhat.com/mirrors.html" name="Mirror sites">
+all over the world are available as well.
+
+<sect1>Debian GNU/Linux
+
+<p> Debian has now made two releases for Alpha. The first being Debian 2.1 (Slink)
+and now 2.2 (Potato) has been released. More information on Debian can
+be found at the <url url="http://www.debian.org/" name="Debian home page"> and
+the <url url="http://www.debian.org/ports/alpha" name="Debian Alpha Port"> page.
+
+<sect1>Stampede
+
+<p> It seems that a distribution for Alpha is also being prepared by
+<url url="http://www.stampede.org" name="Stampede">.
+
+<p>SuSE has also started releasing their Linux distribution for Alpha (starting
+with 6.1). The Alpha version is usually released a couple of weeks after the
+i386 port. SuSE can be found on the web at <url url="http://www.suse.com" name="www.suse.com">.
+
+<p>TurboLinux (formerly Pacific HiTech) has recently started porting
+their distribution over to Alpha. The first version being 6.0, they
+can be found on the web at <url url="http://www.turbolinux.com" name="www.turbolinux.com">.
+
+<sect1>Sources
+
+<p> The Linux/Alpha homepage contains a list of ftp sites and mirrors
+that are used by the developers to make the latest and greatest
+version of various programs available.  The Linux/Alpha home page is
+located at <url url="http://www.alphalinux.org" name="www.alphalinux.org">.
+
+Of course, the regular Linux ftp sites such as <url
+url="ftp://sunsite.unc.edu:/pub/Linux"> or <url
+url="ftp://tsx-11.mit.edu/pub/linux"> are good for Linux/Alpha, too.
+
+<sect1>Building a Kernel
+
+<p>
+If you want to build your own kernel you may want to follow <url
+name="this" url="http://www.bart.nl/&tilde;geerten/patches.txt">
+recipe, by Harvey J. Stein. It's for 2.0.30: clean patches for 2.0.32
+are available as well, and these can be used for 2.0.33 too.<newline>
+
+<p>
+Patches for more recent 2.0 kernels (up to 2.0.35) are available from
+<url url="ftp://gatekeeper.dec.com/pub/DEC/Linux-Alpha/" name="gatekeeper">.
+A set for 2.0.36 will appear as soon as Jay Estabrook finds the time to
+create them. Some people report some success by using the 2.0.35 patches
+on a 2.0.36 kernel.
+<p>
+Recent 2.1.xxx kernels will compile on Alpha without patches.
+For kernels up to 2.1.131, do not forget to comment out "SMP = 1"
+in the Makefile (unless you are compiling for an SMP-system..)
+In 2.1.132 SMP has been changed into a normal config option.
+With the system-type selections they also include a 'generic' option,
+to create a kernel that will run on any supported Alpha platform.
+<p>
+Likewise for 2.2.0 and 2.2.1 (2.2.* is just the continuation of 2.1.*,
+now declared stable.) Beware of 2.2.2. though: it needs additional
+patches to compile on non-Intel platforms.
+
+<sect>Commercial Applications
+
+<p> The list of native Linux/Alpha applications currently includes the
+following:
+<descrip>
+
+<tag>Applixware</tag>
+  The Applixware suite of office applications, which has 
+  already earned some fame in the Linux arena, is now available
+  for Linux/Alpha too: <url url="http://linux.applixware.com">
+ 
+<tag>BRU backup software</tag>
+  Backup software is available from <url url="http://www.estinc.com/"
+  name="EST Inc"> (the personal edition of BRU is included with
+  Craftwork Linux v2.2/AXP).
+
+<tag>NDP Fortran</tag>
+  Microway sells Fortran compilers for Linux/Alpha.  Information is
+  available at <url name="Microway's home page"
+  url="http://www.microway.com/">.
+
+<tag>NAG Fortran90</tag>
+  Alternatively, there's a compiler from NAG. Linux/Alpha is just one of
+  many platforms supported. Check out their <url name="home page"
+  url="http://www.nag.co.uk/">.
+
+<tag>Motif</tag>
+  Motif for Linux/Alpha is now available for free. Look around the
+  various Linux software sites for binaries and source. 
+  <url url="http://www.metrolink.com" name="Metrolink"> has also
+  produced OpenMotif RPMs available for download.
+
+<tag>X servers</tag>
+  <url name="MetroLink" url="http://www.metrolink.com/"> also produces
+  a commercial X-server. If your graphics hardware is not supported by
+  XFree, you may want to check out their homepage.
+
+<tag>Open Sound System</tag>
+  More and better sound-card support compared to what comes with the
+  Linux kernel.  Available from <url
+  url="http://www.4front-tech.com/oss.html" name="4Front Technologies">.
+  Also don't forget to check out <url url="http://www.alsa-project.org" name="Alsa">,
+  the Advanced Linux Sound Architecture. They now have several Alpha machines and
+  are ensuring that the next generation of Linux sound support runs on Alpha.
+
+<tag>XVScan</tag>
+  XVScan is, you guessed it, scanning software to use with John Bradley's
+  <em/xv/. It supports "Most HP Scanjets, including the ancient ScanJet
+  Plus..". Check out <url url="http://www.tummy.com/xvscan" name="tummy.com,
+  ltd.">. (Thanks to Michael Champigny for pointing this out.)
+
+<tag>Picture Elements</tag>
+  <url url="http://www.picturel.com" name="Picture Elements">'s PCI image processing
+  boards are actively supported under Linux/alpha. They also distribute some
+  free <url url="http://www.picturel.com/software.html" name="software">,
+  including tools/patches that will help you crosscompile from Linux/Alpha
+  for a variety of other platforms.
+
+
+<tag>Multimedia software</tag>
+  A variety of Multimedia software is available from <url url="http://www.mpegtv.com"
+  name="MpegTV">, some of it for Linux/Alpha.
+
+</descrip>
+<p>Also be sure to read through the <url url="http://www.alphalinux.org/software" name="AlphaLinux.Org Software">
+pages for more commercial and non-commercial software.
+
+
+<p> Aside from the above native applications many Linux/x86
+applications can be run under Linux/Alpha using the em86 emulator.
+See Section <ref id="em86"> for details.
+
+
+<sect>How To Boot Linux/Alpha?<label id="How To Boot Linux/Alpha">
+
+<p> There are basically three ways of getting Linux/Alpha booted,
+depending on what firmware you're using.  The preferred method of
+booting used to be to install MILO into the flash ROM. However,
+since all development on AlphaBIOS has stopped and there are only
+a few people left working on MILO, the preferred way is now via SRM console.
+
+<p>Installation of and booting with
+MILO is described in the the <url url="http://www.alphalinux.org/faq/milo.html" name="MILO Howto">.
+Be sure to use a recent MILO!
+Booting with SRM is described in the <url url="http://www.alphalinux.org/faq/srm.html" name="SRM
+Howto">.
+
+
+<sect>EM86: How To Run Linux/x86 Apps on Linux/Alpha<label id="em86">
+
+<p>Thanks to Jim Paradis, it is now possible to run Linux/x86
+binaries on your Alpha box. The em86 emulator is based on the
+FX!32 emulator/binary translator Digital produced for Windows NT.
+(Unfortunately the second part is <em/not/ available for Linux.)
+
+<p>The emulator is currently considered beta-quality, but it works very
+well for applications such as Netscape or Applix.  At present, a UDB
+may not be fast enough for em86 (depending on your patience, of
+course) but anything starting at a 300MHz 21164 should do nicely.
+(If you are not satisfied with the speed, but happen to own a Digital Unix
+license for your machine, you may want to take a look at the next chapter.)
+<newline>A future version of em86 may include the ability to redirect
+shared-library calls to the native libs, rather than load the x86 versions
+which must be run through the emulator. This will not only improve the
+speed, but also save you a lot of discspace.
+
+<p>See the <url url="ftp://ftp.digital.com/pub/DEC/Linux-Alpha/em86/"
+name="em86 ftp directory"> for details. The README file will provide you
+with all the info you need to install the emulator. Note that for kernel
+version 2.0.30 the em86-patches are included in the <url
+url="ftp://gatekeeper.dec.com/pub/DEC/Linux-Alpha/Kernels/"
+name="alpha-patches"> at gatekeeper, which may save you some work.
+
+<sect1>Two quotes from the README
+<p>Here is what you can do with em86..
+<p><tscreen><verb>
+	Application Notes
+
+              EM86 has been tested on numerous test cases and small
+              applications (xtetris, for example). In addition, three
+              major packages have been verified to run to varying
+              degrees under EM86. Following are notes on each package.
+ 
+              __________________________________________________________
+              Application___________Notes_______________________________
+
+              Netscape Navigator    Install Netscape Navigator Gold
+              Gold 3.01             as per the supplied installation
+                                    instructions.
+
+                                    _____________ WARNING_____________
+
+                                    DO NOT under ANY circumstances enable
+                                    Java or JavaScript until further notice.
+				    Attempting to use these WILL crash your
+                                    browser. While this is a known problem
+				    even under Linux/x86, none of the suggested
+                                    workarounds improved the situation. We are
+                                    currently investigating this problem.
+                                    __________________________________
+
+                                    If Netscape has trouble locating
+                                    Internet hosts, but you can ping
+                                    these hosts from the command line,
+                                    try installing an /etc/nsswitch.conf
+                                    file.
+
+
+              Adobe Acrobat Reader  Use the supplied install procedure
+              3.0                   to install Acrobat Reader. With
+                                    the em86-patch applied to your
+                                    kernel, this application should
+                                    run normally. Otherwise, you will
+                                    need to modify the script
+
+                                    /usr/local/Acrobat3/bin/acroread
+
+                                    to use EM86 to invoke the acroread
+                                    binary.
+
+              Applixware 4.2        Because Applixware uses rpm for
+                                    installation, you must override
+                                    the architecture check. (rpm does
+                                    not normally allow you to install
+                                    the binaries for one architecture
+                                    onto a machine of a different
+                                    architecture). To override, copy
+                                    the install script from the CD to
+                                    a writable location, then edit the
+                                    script to supply the "-ignorearch"
+                                    flag to rpm. Since Applixware has
+                                    binaries that invoke other binaries,
+                                    you need to apply the em86-patch
+                                    to the kernel for it to run. Since
+                                    Applixware pushes lots of data on
+                                    the stack, you also need to apply
+                                    the traparg patch to the kernel.
+</verb></tscreen>
+<p>..and here is what you cannot..
+<p><tscreen><verb>
+        Restrictions
+
+              The EM86 restrictions are as follows:
+
+              o   EM86 emulates user-mode code only.
+ 
+              o   EM86 cannot run programs that access virtual memory 
+                  above the address 78000000.
+
+              o   EM86 does not now, nor will in the future, support the 
+	          following system calls: setup, break, ptrace, stty, 
+		  gtty, prof, acct, phys, lock, mpx, ulimit, profil, 
+		  ioperm, iopl, idle, mx86, modify-Ldt, create_module,
+                  init_module, delete_module, get_kernel_syms, bdflush, 
+		  afs_syscall, and sysctl.
+
+              o   EM86 0.9.1 does not support the following system
+                  calls that will be supported in future releases: mount, 
+		  umount, uselib, old_readdir, sysinfo, ipc sigreturn, 
+		  clone, adjtimex, quotactl, sysfs, flock, msync, mlock, 
+		  munlock, mlockall, munlockall, sched_setparam,
+                  sched_getparam, sched_setscheduler, sched_getscheduler, 
+		  sched_yield, sched_get_priority_max, sched_get_priority_min,
+		  sched_rr_get_interval, nanosleep, and mremap.
+</verb></tscreen>
+
+<p>And if you don't care to spend all those CPU cycles while your Alpha
+pretends to be an Intel CPU, then the next chapter shows you an other way
+to make many applications available.
+
+<sect>How To Run DEC Unix Netscape on Linux/Alpha
+
+<p>(This section was contributed by <url name="Gerald Anderson"
+url="mailto:gander@voyager.netcomi.com">.  Note that the Linux/x86
+Netscape binary can be run through <url
+url="ftp://ftp.digital.com/pub/DEC/Linux-Alpha/em86/" name="em86">.
+This is a bit slower, but doesn't require any special licenses.
+Now that Netscape's sourcecode is available, we expect to see a native
+Linux/Alpha version in the near future. However porting to 64bit proved
+more difficult than expected. A fairly stable version of Mozilla is
+available for download from <url url="http://www.alphalinux.org"
+name="the AlphaLinux Homepage">. Or check out <url
+url="http://www.unix-ag.org/Linux-Alpha/Mozilla/" name="Nils Faerber">'s
+page for the latest developments.)
+
+<p> Support for running ECOFF (the OSF and DU version of <tt/a.out/)
+binaries must have been built into the Linux/Alpha kernels.  In
+effect, this allows you to run with minimal difficulty a large variety
+of programs that were originally compiled on an OSF/1 or Digital Unix
+Alpha.
+
+<quote>
+<bf/IMPORTANT:/ All Compaq software mentioned in this section is
+copyright by Compaq and other parties.  You cannot legally use any of
+this software on your Linux box without the appropriate license(s) for
+that machine.  If your machine is owned by a university, it may be
+covered by a campus license agreement---check with your local
+representative. Please note that recently Compaq has allow for
+most of the Tru64 libraries to be shipped with Linux. There is
+usually a Tru64-compat package that is shipped. Install this package
+and you will be able to run some Tru64 applications.
+</quote>
+
+
+<sect1> Requirements
+
+<p>There are two separate lists of requirements depending on if you
+have access to OSF/1 v3.x or Digital Unix 4.x (Editor's note: Digital
+renamed DEC OSF/1 to DEC Unix somewhere around release 3.2---it's the
+same OS, just different releases).
+
+<descrip>
+ <tag>For DEC OSF/1 up to and including v3.2:</tag>
+  <itemize>
+   <item>Linux kernel version 2.0.x or 2.1.x (you must have ECOFF
+		support compiled in)
+   <item> Access to an Alpha running OSF/1 3.x
+  </itemize>
+ <tag>For DEC Unix version v4.0 or newer:</tag>
+  <itemize>
+   <item> Linux kernel version 2.1.23+ (you must have ECOFF support
+		compiled in)
+   <item> Access to an Alpha running DU 4.x
+  </itemize>
+</descrip>
+
+
+<sect1>How-To
+ 
+<p>For both OSF/1 3.x and Digital Unix 4.x you must complete the
+following.
+
+<enum>
+<item> Get <tt>/sbin/loader</tt> from the Digital machine and place it
+	in <tt>/sbin/loader</tt> on your Linux box.
+
+<item>  Create a directory on your Linux box for <tt>/usr/shlib</tt>
+ 
+<item>  Get the following libraries from the Digital box and place in the 
+ 	<tt>/usr/shlib</tt> directory on your Linux box
+      <itemize>
+	<item><tt>libXm.so</tt>
+ 	<item><tt>libXmu.so</tt>
+ 	<item><tt>libm.so</tt>
+ 	<item><tt>libX11.so</tt>
+ 	<item><tt>libXt.so</tt>
+ 	<item><tt>libdnet_stub.so</tt>
+ 	<item><tt>libc.so</tt>
+ 	<item><tt>libXext.so</tt>
+      </itemize>
+      If you are going to use Digital Unix 4.0 libs/loader you must also get:
+      <itemize>
+ 	<item><tt>libSM.so</tt>
+ 	<item><tt>libICE.so</tt>
+      </itemize>
+ 
+<item> Get the file <tt>/etc/svc.conf</tt> from the Digital box and
+	place it in <tt>/etc/svc.conf</tt> on your Linux box.
+ 
+<item>  Download from <url name="ftp.netscape.com"
+	url="ftp://ftp.netscape.com/"> the OSF/Alpha version of navigator
+ 	(e.g., get <tt>netscape-v301-export.alpha-dec-osf2.0.tar.gz</tt>
+	from <url name="this" url="ftp://ftp.netscape.com/pub/navigator/3.01/unix/">
+	directory).
+ 
+<item>  Install it
+ 
+<item>  Run it!!	
+</enum> 
+ 
+<sect1>Conclusion
+ 
+<p> This procedure has been tested on a RedHat 4.0 and RedHat 4.1 box
+with kernel versions 2.0.27, 2.0.28 (for OSF/1 3.x) and 2.1.23 (for DU
+4.x).  It seems to be very stable when running the OSF/1 libs/loader
+but I've noticed some problems with Segmentation Faults using the DU
+4.0 libs/loader.  I've also noticed that when using DU 4.0 libs/loader
+that the <tt>/etc/svc.conf</tt> file is not as necessary as when
+running the OSF/1 stuff.  It does complain, but it is not fatal.
+
+If you have questions regarding this document please first refer to
+the archives for the axp-list mailing list/archive at <url
+name="http://www.redhat.com"
+url="http://www.redhat.com/support/mailing-lists/">, then if you
+didn't find your answer feel free to mail me at <url
+name="gander@voyager.netcomi.com"
+url="mailto:gander@voyager.netcomi.com">.
+
+All other comments regarding this section may be sent directly to <url
+name="gander@voyager.netcomi.com"
+url="mailto:gander@voyager.netcomi.com">.
+ 
+<quote>
+<bf/NOTE:/ Java applets may or may not work OSF/1 or DU
+libs/loader.  
+</quote>
+ 
+
+
+<sect1>Mail
+<p>After setting Netscape up like this, sending E-Mail still fails. Oleg
+Gusev came up with the following solution:
+<itemize>
+<item>mkdir /etc/sia/</item>
+<item>touch /etc/sia/siainitgood</item>
+<item>copy /etc/sia/matrix.conf from DU to Linux</item>
+</itemize>
+<p>There can also be problems with using Netscape mail as a POP3 or IMAP client as a
+non-root user authenticated via NIS (no local account). Netscape complains that no user 
+name has been specified even though one has been entered.
+
+<sect1>Threads
+<p>When you receive errors that mention DECthreads you need to do the following:
+<itemize>
+<item> (re)move libpthread.so and libpthreads.so from the shared library directory
+<item> <tt>ln -sf /usr/shlib/libc.so /usr/shlib/libpthread.so/</tt>
+<item> <tt>ln -sf /usr/shlib/libc.so /usr/shlib/libpthreads.so/</tt>
+</itemize>
+This problem is known to occur with recent Netscapes and with Adobe Acrobat 3.
+
+<sect>Change Log
+
+<p>
+<descrip>
+<tag/v1.6:/     Added all the new platforms (DS10,DS10L, DS20, ES40, UP2000....)
+                Fixed many, many broken links (still more to fix)
+		Removed the vendors section and instead put in a link to the AlphaLinux.org vendors list
+		A massive amount of corrections/fix-ups (many more still to go)
+		Updated Ruffian section from Stig
+		Removed the names of Geerten Kuiper and David Mosberger as neither maintain this anymore.
+		Removed all azstarnet links
+<tag/v1.1.5:/	A number of new FAQ's in "Known Bugs and Workarounds".
+		Linking around pthreads libraries to run DU software.
+		Martin O.'s final contribution to the Jensen section.
+		Updates in "Where to get Alpha Hardware".
+		Dropped the section on documentation.
+<tag/v1.1.4:/	Stig Telfer's chapter on Ruffian.
+		Rick Taylor's info on AS200.
+		Additional update on X support.
+		Commercial X-servers from MetroLink and XiGraphics.
+		New chapter "How fast is the Alpha?".
+		Removed chapter "Acknowledgements".
+<tag/v1.1.3:/	Patch to Jensen section (Martin O.)
+		Applixware for Alpha.
+		Andy Isaacson's update on X support.
+		Some updates to list of resellers.
+		Started chapter on AS200.
+		Stampede disribution.
+		Problem with keystrokes in vi.
+		Links to 164RX, 264DP boards.
+		Spelling fixes, repaired some links.
+<tag/v1.1.2:/	Small patch to Jensen section (Martin O.)
+		Update on Swedish resellers by Knut Markus Johansson.
+		Deutsche Linux Distribution. Note on Red Hat 5.0.
+		URL for Hugo van der Kooij's Kernel Build HOWTO.
+		Jay Estabrooks' table of system types.
+<tag/v1.1.1:/	Minor changes: spelling fixes, repaired some links.
+<tag/v1.1:/	(never released)<newline>
+		Dropped some FAQ's that were relevant to ancient
+		distributions. Added FAQ's about PC164 clock, Milo/modem.
+		Info/links for PC164LX/SX/UX. Miata now
+		listed under supported systems.
+		Mentions partial support for Millenium II in X11.
+<tag/v1.08:/  NAG Fortran under commercial applications.
+		Ditto Net/Equater by BSC Software.
+		Ditto Clio E-Mail package.
+		A Reference to Harvey J. Stein's Patch Notes.
+<tag/v1.07:/  Updated Jensen section (Martin Ostermann).
+		Added Jay Estabrook's description of clock problems.
+		Updated David Mosberger-Tang's E-mail.
+<tag/v1.06:/  Added Red Hat as supplier for Motif.
+		Added ReQAS to list of hardware suppliers.
+<tag/v1.05:/  Added XVScan, Picture Elements to list of commercial applications.
+		Added PSDS to list of hardware suppliers.
+		Fixed some broken links.
+<tag/v1.04:/  Added Geerten Kuiper as new maintainer.
+		Added info on comp.os.linux.alpha.
+		Combined em86 references in new chapter.
+<tag/v1.03:/  Added info on X server for Jensen (Martin Osterman).
+<tag/v1.02:/  Added Italian company Bergamo Perego and updated BVC entry.
+<tag/v1.01:/  Added Finnish company PSS-Trade.  Fixed voice number of
+		AVNET Italy.  Mention em86 in "Commercial Applications"
+		section as well as in several other places.
+<tag/v1.0:/   Mention Debian as a (forthcoming) Linux/Alpha distributor.
+		Turn Motif section into section listing commercial
+		applications for Linux/Alpha.  Add note that
+		Acknowledgment section is out of date.  Add pointer to
+		Alpha Compiler Cookbook to section on on-line documentation
+		and on-line Alpha architecture handbook.  Add Parsys to
+		list of UK resellers.  Add Nirocenta to list of Swedish
+		resellers.  Add mention of ALPHAbook1, Miata, and (Demi-)Sable.
+		Various other fixes.  
+<tag/v0.992:/	Added section on how to run Netscape on Linux/Alpha
+		(contributed by Gerald Anderson).
+<tag/v0.991:/	Removed Kenetics info.  Moved UDB links from
+		DEC to http://www.annex.co.uk/systems/udb.html.
+<tag/v0.99:/	Jensen update by Martin.  Added Enorex info.
+<tag/v0.98:/	Added scanner entry to list of supported devices.
+		Fixed link to AXPpci33 info.  Updated info on
+		available Red Hat and Craftworks distributions.
+<tag/v0.97:/	Document need of LD_BIND_NOW for gdb.
+<tag/v0.96:/	More networking and ISDN drivers (info by Thomas
+		Bogendoerfer).  Updated XL entry in respect to
+		Matrox Millenium.
+<tag/v0.95:/	Added Finish vendor.  Update C++ info.  Added Quake info.
+<tag/v0.94:/	Updated Jensen section (by Martin).  Updated graphics card
+		section to be more explicit about TGA (thanks to Jay).
+<tag/v0.93:/	Status update on ELF.  Update on XL Turbo.  Added pointer
+		to DEC semiconductor on-line library.  Added Motif
+		info.
+<tag/v0.92:/	Added section on common porting problems (thanks to
+		Jay Estabrook for the nifty title!).  More pointers
+		to online docs.
+		Qlogic ISP1020 driver works fine now (requires kernel 2.0.1
+		or newer). BusLogic SCSI cards, reportedly work, too.
+<tag/v0.91:/	Updated XL section with info by Jay Estabrook (all errors
+		are mine).
+<tag/v0.9:/	Jensen section rewritten (and now maintained) by Martin.
+		Added DEC Australia contact.  Added Aspen Timberline as an
+		alias for eb164. The isp1020 SCSI driver has been reported
+		to work with Linux/Alpha.
+<tag/v0.8:/	Added UK reseller.  Added info on Crafwork Linux.
+		Updated price for Kentics boards (it's cheaper now).
+		Various other minor fixes and updates.
+<tag/v0.77:/	Explain unaligned access faults in "Known Bugs and Workarounds"
+		section.  Updated pricing and availability of PCI 64/164
+		boards.  Added section on on-line documentation.
+<tag/v0.76:/	Lots of UDB info is available at the
+		<url name="UDB InfoCenter"
+		url="http://www.digital.com/info/udb">, so
+		all UDB links now point to that URL.
+		Updated section on supported drivers (de500 Fast Ethernet
+		card works as well).  Added info on Japanese Linux/Alpha
+		mailing list and ftp site.  Updated section on German
+		Alpha resellers.
+<tag/v0.75:/	Updated "International Technology Sales" info and
+		recommendation to avoid BLADE (thanks, Jon!).
+		Removed section listing CD-ROM vendors---there are
+		just too many of them to keep up with this FAQ.
+<tag/v0.74:/	Added to "Known Bugs and Workarounds" section.
+<tag/v0.73:/	Workaround for IDE interrupt-loosing problem added.
+		IBM tokenring driver added to list of working drivers.
+<tag/v0.72:/	Rewrote motherboard section, added Alpha PCI info.
+		Added one or two vendors.
+<tag/v0.71:/	Expanded Platform 2000.
+<tag/v0.70:/	Various updates to the list of French resellers.  Added
+		Swiss reseller.  Added
+		section with CD-ROM resellers.  Updated performance section
+		for Noname based on data received from Francois Potard.
+		Section on Noname boards now contains the caveat that
+		ARC can't boot in 8MB.
+<tag/v0.51:/	The X11 TGA server is now available as a Beta version!
+		See Section <ref id="What State Is Linux/Alpha In">.
+		Added info on Kenetics Technology board.
+<tag/v0.50:/ Linux now runs on the Alpha XL and EB164!
+	     Support for IDE CD-ROMs (ATAPI) has been added.
+	     SRM section is now a separate HOWTO.  Most sections
+	     got revised.
+<tag/v0.42:/ Updated <tt/aboot/ documentation to reflect version 0.3.
+<tag/v0.41:/ Added Austrian Alpha vendor.  Updated list of known bugs
+	and workarounds (fully compliant IEEE math is now possible if
+	one desires so).
+<tag/v0.40:/ ewrk3 Ethernet driver added to the list of working
+	drivers.
+<tag/v0.39:/ Updated US vendor section (contributed by Maddog).
+<tag/v0.38:/ Various minor updates throughout the document.
+<tag/v0.37:/
+ <itemize>
+ <item>Started list of known bugs/workarounds.
+ <item>Mention <tt/aboot-0.2/ in Jensen section.
+ </itemize>
+<tag/v0.36:/
+ <itemize>
+ <item> Added Jensen installation information.
+ <item> Joystick driver now works too (as a module).
+ <item> Universal Desktop Box is now supported! (See Section
+	 <ref id="Supported Systems">.)
+ <item> Updated Section <ref id="Where Do I Get Linux Software">.
+ <item> Updated entry for Red Hat as the first 50 or so packages are
+	available now.
+ <item> Updated Section <ref id="Supported Systems">.
+ <item> Expanded discussion on how to boot Linux with the
+	SRM firmware (Section <ref id="How To Boot Linux/Alpha">).
+ </itemize>
+</descrip>
+
+</article>

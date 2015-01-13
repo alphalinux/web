@@ -1,0 +1,23 @@
+<TITLE>link check</TITLE>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000"
+ LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<H1 ALIGN=CENTER>link check</H1>
+<CENTER>
+<P><HR><P><A HREF="file:/mnt/home/axplinux/www.alphalinux.org/software/index.shtml"><B>/mnt/home/axplinux/www.alphalinux.org/software/index.shtml</B></A><P>
+<TABLE BORDER=0 CELLPADDING=2 CELLSPACING=0>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#FFFFFF"><A HREF="file:/mnt/home/axplinux/www.alphalinux.org/">[ image ]</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFFFFF">OK.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#FFFFFF"><A HREF="file:/mnt/home/axplinux/www.alphalinux.org/docs/">[ image ]</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFFFFF">OK.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#FFFFFF"><A HREF="file:/mnt/home/axplinux/www.alphalinux.org/intro/">[ image ]</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFFFFF">OK.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#E0E0E0"><A HREF="file:/mnt/home/axplinux/www.alphalinux.org/hardware/">[ image ]</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#E0E0E0">OK.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#E0E0E0"><A HREF="file:/mnt/home/axplinux/www.alphalinux.org/otherpages/">[ image ]</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#E0E0E0">OK.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#E0E0E0"><A HREF="file:/mnt/home/axplinux/www.alphalinux.org/about/">[ image ]</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#E0E0E0">OK.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#FFFFFF"><A HREF="ftp://ftp.alphalinux.org/">ftp.alphalinux.org</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFFFFF">Skipping ftp URL.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#FFFFFF"><A HREF="http://www.abisource.com">AbiSource</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFFFFF"><B>Connection failed.</B></TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#FFFFFF"><A HREF="http://www.vistasource.com/products/axware/platforms">ApplixWare</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFFFFF">OK.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#E0E0E0"><A HREF="http://www.gnome.org/projects/gnumeric">Gnumeric</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#E0E0E0"><B>Moved <A HREF="http://www.gnome.org/projects/gnumeric/"><B>here</B></A>.</B></TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#E0E0E0"><A HREF="http://koffice.kde.org/">KOffice</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#E0E0E0">OK.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#E0E0E0"><A HREF="http://www.compaq.com/partners/netscape/downloads/register_nav4_Linux.html">Tru64 Netscape Communicator</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#E0E0E0">OK.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#FFFFFF"><A HREF="ftp://ftp.alphalinux.org/mirrors/redhat/redhat-6.2/RedHat/RPMS/">Local Copy</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFFFFF">Skipping ftp URL.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#FFFFFF"><A HREF="ftp://ftp.alphalinux.org/pub/mozilla/">Newest development Mozilla</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFFFFF">Skipping ftp URL.</TD></TR>
+<TR><TD ALIGN=RIGHT VALIGN=TOP BGCOLOR="#FFFFFF"><A HREF="http://www.support.compaq.com/alpha-tools/index.html">Compaq Power Tools</A>: </TD><TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFFFFF">

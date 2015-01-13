@@ -1,0 +1,314 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux -Rawhide Installation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+    <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../../"><IMG SRC="../../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../../intro/"><IMG SRC="../../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../../software/"><IMG SRC="../../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../../hardware/"><IMG SRC="../../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../../otherpages/"><IMG SRC="../../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../../about/"><IMG SRC="../../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            AS4100
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+<CENTER>
+<H1>Installing RedHat Linux 6.0 on a Digital (DEC) Alpha 4100</H1>
+Jason Blakey - jblakey@playground.net
+<P>
+August 15, 1999
+</CENTER>
+<HR>
+<P>
+<H2><B><I>Synopsis</I></B></H2>
+<HR WIDTH=300 ALIGN="LEFT">
+<P>
+Yes! - it can be done - RedHat Linux 6.0 does run on the Alpha platform - and
+yes, i did get it runnning.  This document should help others get there
+as well (or at least, that is my hope).  Getting Linux up on the Alpha
+was a 3 day, trial-and-error fest, and if this document helps anyone else
+bypass that joy, then i'm happy.
+<P>
+<HR WIDTH=300 ALIGN="LEFT">
+<H2><B><I>Preliminaries</I></B></H2>
+<HR WIDTH=300 ALIGN="LEFT">
+<P>
+<DL>
+<DT><B>Upgrade Firmware</B></DT>
+<DD>
+Trying to install Linux on a box that is running less than the most recent
+firmware revision is an exercise in futility.  At the SRM prompt, you can
+type <B>show vers</B> to display the current firmware level.  If need be,
+please visit:
+<A HREF="http://ftp.digital.com/pub/DEC/Alpha/firmware/readmes/alpha4x00.html">http://ftp.digital.com/pub/DEC/Alpha/firmware/readmes/alpha4x00.html</A>
+and download/install the appropriate firmware update.   The documentation
+for this is actually quite helpful and well written.
+<P>
+NOTE: To get to 5.4 (the most recent version), you must first upgrade
+to version 5.3, then make the jump to 5.4.   Otherwise, the 5.4 
+upgrade will NOT work.
+</DD>
+<P>
+<DT><B>Build Your Installation and Ramdisk Diskettes</B></DT>
+<DD>
+To boot up the installer, you need to build two 1.44MB floppy disks - 
+one containing the kernel and installation scripts, and a second which
+has a copy of the RAMDISK image for Linux.  Most models of Alphas
+need to use their own kernel image.  In the case of the 4100, 
+the image is titled generic.img, and you can locate it (and ramdisk) at:
+<A HREF="ftp://ftp.digital.com/pub/linux/redhat/current/alpha/images/">ftp://ftp.digital.com/pub/linux/redhat/current/alpha/images/</A>
+<P>
+If you have a different alpha, please consult:
+<A HREF="http://www.redhat.com/corp/support/manuals/RHL-6.0-Manual/alpha-inst/booklet/doc009.html#s1.4">http://www.redhat.com/corp/support/manuals/RHL-6.0-Manual/alpha-inst/booklet/doc009.html#s1.4</A>
+where there is a table which shows which images are needed by each model of alpha.
+
+<P>
+On a linux box (ix86), the following commands will help build your floppies
+<P>
+<B>/bin/dd if=<I>generic.img</I> of=/dev/fd0 bs=72k</B>
+<P>
+<B>/bin/dd if=<I>ramdisk.img</I> of=/dev/fd0 bs=72k</B>
+<P>
+(Of course, you need to have the generic.img and ramdisk.img files
+already downloaded to do this...).
+</DD>
+<P>
+<DT><B>Verify Your Hard Drives</B></DT>
+<DD>
+Using the <B>show config</B> and <B>show dev</B> commands, verify
+that your SCSI devices are visible to the system.  If you can't see
+your hard drives, then Linux will not be able to either.
+</DD>
+</DL>
+
+<P>
+<HR WIDTH=300 ALIGN="LEFT">
+<H2><B><I>The Installation</I></B></H2>
+<HR WIDTH=300 ALIGN="LEFT">
+<P>
+After much hindsight-provided knowledge, the installation of RedHat Linux 6.0 on an 4100 should go like this:
+<P>
+<DL>
+<DT><B>Insert your generic.img disk in the floppy drive, and type
+the following commands at the SRM prompt:</B></DT>
+<DD>
+<I>First, set up the boot flags - the 4100 cannot accept all these options
+on the command line, so we need to store them in boot_osflags</I>
+<P>
+<B>set boot_osflags "root=/dev/fd0 load_ramdisk=1 prompt_ramdisk=1"</B>
+<P>
+<I> Now, boot the box from the linux kernel (compressed) on the floppy</I>
+<P>
+<B>boot dva0 -file vmlinux.gz</B>
+</DD>
+<P>
+<DT><B>When the box comes up, follow the standard RedHat installation</B></DT>
+<DD>
+This document assumes you are famiiliar with the RedHat installation process.
+</DD>
+<P>
+<DT><B>Partition Your Hard Drives</B></DT>
+<DD>
+This is an interesting part - and a little tricky, so pay attention.
+The <B>boot</B> drive needs to be labeled with BSD-style disk labels.
+<B>All other drives</B> need standard Linux style partitioning to be
+recognized.
+<P>
+<DT><B>Notes on BSD-Style Disk Labeling</B></DT>
+<DD>
+To properly install <B>aboot</B> (a boot-loader that helps your 
+Alpha load Linux), you need to leave a little free space at the 
+start of your hard disk - say approx 10 Megs (to be safe).  To
+accomplish this, start your <B>A</B> partition on cylinder 10 or
+so.  
+<P>
+In the example shown below, the setup is like this:
+<OL TYPE="A">
+<LI>It's a 4.3 GIG drive</LI>
+<LI>Partition A is my main partition</LI>
+<LI>Partition B is my swap partition</LI>
+<LI>Partition C represents the entire disk (You have to have a partition like this)</LI>
+</OL>
+<P>
+Note: Make sure you set your fstype flags (ext2 for Linux partitions,
+and swap for swap partitions), otherwise the Linux Installer will not 
+recogize them.
+<P>
+Here is what my labeling looks like (mileage may vary):
+<P>
+BSD disklabel command (m for help): p
+<P>
+3 partitions:
+<TABLE CELLPADDING=5>
+<TR><TD>Partition</TD><TD>size</TD><TD>offset</TD><TD>fstype</TD><TD>[fsize bsize   cpg]</TD></TR>
+<TR><TD>a:</TD><TD>5462100</TD><TD>160650</TD><TD>ext2</TD><TD># (Cyl.   72*- 2488*)</TD></TR>
+<TR><TD>b:</TD><TD>2763180</TD><TD>5622750</TD><TD>swap</TD><TD># (Cyl. 2488*- 3711*)</TD></TR>
+<TR><TD>c:</TD><TD>8380080</TD><TD>0</TD><TD>unused</TD><TD>0 0 # (Cyl.    1 - 3708)</TD></TR>
+</TABLE>
+<P>
+Please note: the cylinder display is NOT correct - this is due to a wierd
+virtual addressing scheme hard drives use nowadays.  
+</DD>
+<P>
+<DT><B>Let the installation Run</B></DT>
+<DD>
+Depending on where you are downloading from (or if you are loading from
+CD-ROM, which i did not), installation may take 30 - 60 minutes.  Always
+a good time to read a little Heinlein...
+</DD>
+</DL>
+<P>
+<HR WIDTH=300 ALIGN="LEFT">
+<H2><B><I>After the Installation Completes</I></B></H2>
+<HR WIDTH=300 ALIGN="LEFT">
+<P>
+<DL>
+<DT><B>Reboot to the SRM Prompt</B></DT>
+<P>
+<DT><B>Boot from Floppy with the Hard Drive as Root</B></DT>
+<DD>
+<I>First, clear your boot_osflags variable</I>
+<P>
+<B>set boot_osflags ""</B>
+<P>
+<I>Next, do the boot</I>
+<P>
+<B>boot dva0 -file vmlinux.gz -flags "root=/dev/sda1"</B>
+<P>
+Note: This command is VERY specific to my system - you root disk may be
+different.
+<P>
+The box should boot, and after a little while, present you with a 
+<B>Login:</B> prompt.  YAY! - We are almost there...
+</DD>
+<P>
+<DT><B>Install ABOOT</B></DT>
+<DD>Remember when we saved some cylinders at the start of the hard disk? Here
+is where they get used.  Execute the following command:
+<P>
+<B>/sbin/swriteboot /dev/sda /boot/bootlx -f3</B>
+<P>
+Note: If your boot disk is not sda - then you need to experiment!:)
+</DD>
+<P>
+<DT><B>Install the kernel in the proper location</B></DT>
+<DD>
+For some reason, the redhat installer does NOT install a kernel in the root 
+directory.  You need to do a:
+<P>
+<B>cp /boot/vmlinux-2.2.5-16 /vmlinux</B>
+</DD>
+<P>
+<DT><B>Shutdown the System</B></DT>
+<DD>
+Issue a
+<P>
+<B>/sbin/init 0</B>
+<P>
+command to bring the box down.  When it has halted, reload the box and 
+get to the SRM prompt.
+</DD>
+<P>
+<DT><B>Set the SRM Boot Variable</B></DT>
+<DD>
+<TABLE CELLPADDING=3>
+<TR ALIGN="LEFT"><TD><B>Command</B></TD><TD><B>What it Does</B></TD></TR>
+<TR><TD>set bootdef_dev "dkb0"</TD><TD>Sets the boot device</TD></TR>
+<TR><TD>set boot_file "1/vmlinux"</TD><TD>Sets which file to boot from</TD></TR>
+<TR><TD>set boot_action "boot"</TD><TD>Sets the boot action to autoboot</TD></TR>
+<TR><TD>set boot_osflags "root=/dev/sda1"</TD><TD>Tells the kernel where root is</TD></TR>
+<TR><TD>set boot_reset "on"</TD><TD>??? - dunno</TD></TR>
+</TABLE>
+<P>
+NOTE: Depending on your system, the values in this table WILL be different
+than <B>dkb0</B>, <B>1/vmlinux</B> or <B>/dev/sda1</B>
+</DD>
+</DL>
+<P>
+<HR WIDTH=300 ALIGN="LEFT">
+<H2><I><B>Booting Linux from the Hard Drive</B></I></H2>
+<HR WIDTH=300 ALIGN="LEFT">
+<DL>
+<DT>Once you have all your variables set, just issue the command:</DT>
+<P>
+<DD>
+<B>boot</B>
+<P>
+and the system should initialize, locate the kernel on the hard disk, 
+load it, and then mount your partitions.  If you run into problems, the 
+following SRM commands can be quite useful:
+<P>
+<TABLE CELLPADDING=5>
+<TR><TD><B>Command</B></TD><TD><B>What it Does</B></TD></TR>
+<TR><TD>show | more</TD><TD>Will show all environment variables set</TD></TR>
+<TR><TD>show config</TD><TD>Will show the configuration of the box</TD></TR>
+<TR><TD>show dev</TD><TD>Will probe for attached devices</TD></TR>
+<TR><TD>show version</TD><TD>Will display the version of firmware installed</TD></TR>
+</TABLE>
+<P>
+</DD>
+</DL>
+<P>
+<HR WIDTH=300 ALIGN="LEFT">
+<H2><I><B>Some Helpful Websites</B></I></H2>
+<HR WIDTH=300 ALIGN="LEFT">
+Here are a few helpful / interesting websites:
+<P>
+<OL TYPE="A">
+<LI><A HREF="http://www.alphalinux.org">The AlphaLinux HomePage</A></LI>
+<LI><A HREF="http://www.digital.com">Digital's Website</A></LI>
+<LI><A HREF="http://www.redhat.com/corp/support/manuals/RHL-6.0-Manual/alpha-inst/booklet/doc000.html">RedHat Linux 6.0 Alpha Instructions</A></LI>
+</OL>
+<P>
+NOTE: A very useful mailing list is the RedHat Alpha mailing list, which
+can be reached at axp-list@redhat.com.
+<P>
+<HR>
+Comments / Questions - Contact jblakey@playground.net
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

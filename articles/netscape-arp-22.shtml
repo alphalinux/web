@@ -1,0 +1,125 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Hardware</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>  
+
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+
+
+              <!-- Subtitle --> 
+<FONT SIZE="+3"><B>Netscape on AlphaLinux</B></FONT>
+<P>	    
+     Having a usable GUI browser for Alpha Linux is something us Alpha 
+Linux users have wanted for a long time. The problem lies with the 
+fact there are few GUI browsers for x86 Linux, let alone our beloved 
+Alpha. Netscape Communicator makes up the largest GUI browser 
+user base. The problem here comes from the 64-bit unclean code that 
+makes up what we call Netscape Communicator. By now you are probably 
+asking if Communicator is not 64-bit clean, how did they make it for 
+Tru64 UNIX? Well I'll tell you. They did it with this handy little 
+compile time flag part of Compaq's compilers called taso. The taso 
+flag tells the linker to force the code into the lower 31-bit memory 
+address space. So what we have here is some questionable code, 
+compiled with our good friend taso, that now runs on Tru64 UNIX.
+<P>
+     Compaq has now released Netscape Communicator 4.7 for Alpha 
+Linux. The download site may be found at 
+http://www.compaq.com/partners/netscape/downloads/register_nav4_Linux-
+.html What you will find there is an RPM package containing both 
+Netscape Communicator 4.7 and the Tru64 UNIX libraries required to run 
+it on Alpha Linux. While you do have to register for the download, it 
+will cost you no money and only about a minute of your time to fill 
+out the form. 
+<P>
+     To install Netscape for RPM users simple use rpm with "-i" to 
+install. For Debian users you will have to use alien to make a deb out 
+of it. Alien with "-dsk" should produce the required deb, you will 
+then need to install it from root ("/") as the script is sort of brain 
+dead. Once you have Netscape installed, you should be able to simple 
+type "netscape" from an xterm. The very first time you run Netscape 
+from each user account it will give you a few error messages. These 
+messages are normal they simply are telling you that the directory 
+".netscape" does not exist and there are no cache directories. Simply 
+clicking on "OK" will let you continue on. Communicator will then 
+create a directory ".netscape" in your $home and a few configuration 
+files within that directory. 
+<P>
+     The first thing you will probably notice is the awesome speed at 
+which Communicator functions. Compared to the Window$ equivalent it is 
+quite fast. I would have to say the credit belongs to Compaq's 
+compiler development team. 
+<P>
+     Java is about the only thing which does not work. Some small Java 
+applets do run correctly, but others and especially large ones will 
+lock the browser up. In cases like these you will need to use your 
+good friend kill with "-9" to take care of it. I highly recommend you 
+disable Java all together in edit -> preferences. 
+<P>
+     After using Communicator for a couple of months, I like it. 
+Although I really wish Java worked, but I guess having no Java is 
+better then having no Communicator at all. Something I would like to 
+you to take note of is that Debian GNU/Linux 2.2 (potato) has added a 
+clone of the taso flag. The trick now would be getting 
+Netscape/AOL/whatever to compile Communicator for us. 
+<P>
+Ron Farrer
+rbf@farrer.net
+Feel free to send me comments, suggestions, corrections. Flames should 
+be directed at /dev/null.
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

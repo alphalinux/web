@@ -1,0 +1,118 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Alpha Performance
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+	      On this page is information relating getting the most out of the Alpha processor. Included are links to the
+	      new Compaq compilers and libraries as well as the fast math libraries.
+	      <P>
+
+	      <UL>
+		<LI><A HREF="perf.html">Performance Tips</A> for AlphaLinux</LI>
+	       <LI><A HREF="http://www.compaq.com/fortran/linux/index.html">Compaq Fortran</A> compiler for AlphaLinux</LI>
+	       <LI><A HREF="http://www.unix.digital.com/linux/compaq_c/index.html">Compaq C</A> compiler for AlphaLinux</LI>
+		<LI><A HREF="http://www.unix.digital.com/linux/compaq_cxx/index.html">Compaq C++</A> compiler for AlphaLinux</LI>
+	       <LI><A HREF="http://www.compaq.com/math/">CPML</A> Compaq Portable Math Library</LI>
+	      <LI><A HREF="http://www.compaq.com/math/">CXML</A> Compaq Extended Math Library</LI>
+		<LI><A HREF="http://www.alpha-processor.com/products/downloads/developer_support/performance/">EV6 Assembly</A> routines
+			for the Linux kernel</LI>
+	       <LI>A few hand-coded <A HREF="http://members.jcom.home.ne.jp/kgoto/">BLAS </A>(basic linear algebra subroutines)- 
+	       700+ MFlop/s!!</LI>
+	      
+	       <LI><A HREF="http://cyclone.ncsa.uiuc.edu/PCA/PerformanceTuning.html">Performance Tuning Guide</A> Originally for the R10000</LI>
+	       <LI><A HREF="http://www.hpcf.cam.ac.uk/C_rant.html">Reasons for using Fortran</A> over C or C++</LI>
+	       <LI><A HREF="http://www.mostang.com/~davidm/papers/expo97/paper/">Article on Alpha Optimization</A> written by David Mosberger</LI>
+	       <LI><A HREF="http://orion.chem.vt.edu/alpha-linux/">Performance Optimization on Alpha Linux Workstations</A></LI>
+
+	      </UL>
+
+	      <UL><FONT SIZE="+1"><B>
+	      Alpha Processor and Assembly Documentation
+	      </FONT></B><BR>
+	       <LI><A HREF="http://www.unix.digital.com/faqs/publications/base_doc/DOCUMENTATION/V40D_PDF/APS31DTE.PDF">Assembly 
+	        Language</A> Programmer's Guide</LI>
+	       <LI><A HREF="http://www.unix.digital.com/faqs/publications/base_doc/DOCUMENTATION/V40D_PDF/APY8ACTE.PDF">Digital Unix</A>
+	        Calling Standards for Alpha</LI>
+	       <LI><A HREF="http://www.unix.digital.com/faqs/publications/base_doc/DOCUMENTATION/V40D_PDF/APUBXCTK.PDF">Digital Portable</A>
+	        Mathematics Library</LI>
+	       <LI><A HREF="http://gatekeeper.dec.com/pub/digital/DECinfo/semiconductor/literature/alphaahb.pdf">Alpha Architecture</A>
+	        Handbook Version 3</LI>
+	       <LI><A HREF="http://gatekeeper.dec.com/pub/digital/DECinfo/semiconductor/literature/21164hrm.pdf">Hardware Reference</A>
+	        Manual for the 21164</LI>
+	       </UL>		
+		
+	      <UL><FONT SIZE="+1"><B>
+	      Beowulf
+	      </FONT></B><BR>
+	       <LI><a href="http://www.phy.duke.edu/~rgb/brahma/Resources/beowulf/">Beowulf Project at CESDIS</a></LI>
+	       <li><a href="http://beowulf.org/"></>Archive beowulf mailing lists</a></li>
+	       <LI><a href="http://www.ibiblio.org/pub/Linux/docs/howto/archive/Beowulf-HOWTO.html">Beowulf HOWTO</a></LI>
+	       <LI>[defunct] <A HREF="http://www.cerca.umontreal.ca/~malevsky/MSG/MSG.html">Message-passing tools </A>for Structured Grid communications (MSG)</LI>
+	       <LI><A HREF="http://www.lsc-group.phys.uwm.edu/~www/docs/beowulf/index.html">University of Wisconsin</A>- Milwaukee Beowulf System </LI> 
+	       <LI><A HREF="http://www.extremelinux.org/">http://www.extremelinux.org/</A></LI>
+	       <LI>[archive] <A HREF="http://beowulf-underground.org/">beowulf-underground.org</A> Beowulf Underground</LI>
+	      </UL>	      
+
+	      <UL><FONT SIZE="+1"><B>
+	      Alpha Linux Success Stories
+	      </FONT></B><BR>
+		<li><a href="http://www.hpti.com/Clusterweb/news.html">NOAA chooses AlphaLinux</a> to power next-gen forecasting lab.  The choice itself is a success! :-)</li>
+	        <li><a href="http://cnls.lanl.gov/avalon/">Avalon</a> at Los Alamos National Lab, (140 boxes, #114 supercomputer in the world for just
+	           over $300K)</li>
+	      <li><a href="http://www.linuxjournal.com/article.php?sid=2494">Digital Domain's 200 Alpha cluster</a> that did the rendering for Titanic</li>
+	      <LI><A HREF="http://www.cs.sandia.gov/cplant">Sandia National Laboratories</A> Computational Plant</LI>
+	      </UL>
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

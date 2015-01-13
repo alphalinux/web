@@ -1,0 +1,434 @@
+<HTML>
+<HEAD>
+<TITLE>The AlphaLinux Homepage</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="description" content="Information on the Alpha port of Linux">
+<meta name="keywords" content="alpha linux axp multia as200 jensen ruffian alphastation alphaserver 21064 21164 21264 064 64-bit 164 264 sx lx">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+
+
+<TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD><CENTER><a href="http://www.alphalinux.org/cgi-bin/banmat1.cgi?URL=2"><br><img src="http://www.alphalinux.org/banners/lodgepole.gif" border=0 height=60 width=480 vspace=10></a>
+	</CENTER>
+	</TD>
+
+</TR>  
+<TR>
+
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD WIDTH=700 BGCOLOR="#B70000" ALIGN="CENTER">
+	<A HREF="intro/"><IMG SRC="img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A>
+	<A HREF="docs/"><IMG SRC="img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A>
+	<A HREF="software/"><IMG SRC="img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A>
+	<A HREF="hardware/"><IMG SRC="img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A>
+	<A HREF="otherpages/"><IMG SRC="img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A>
+	<A HREF="about/"><IMG SRC="img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A>
+	</TD>
+	<TD WIDTH=16>&nbsp;</TD>
+
+</TR>
+<TR>
+
+	<TD HEIGHT="4"><IMG SRC="img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+</TR>
+<TR VALIGN="top">
+	<TD><IMG SRC="img/penguinedge.gif" WIDTH="16" HEIGHT="77" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD BGCOLOR="#DC9D33">
+	<P>
+	<IMG SRC="img/penguincircle.gif" WIDTH="92" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="">
+	<IMG SRC="img/logo.gif" WIDTH="498" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="AlphaLinux">
+	</P>
+
+
+	<TABLE BORDER=0 WIDTH="584" HSPACE=8>
+
+
+<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+	<TD WIDTH=500 VALIGN=TOP>
+	
+	<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0> 
+		<TR>
+		<TD><font color="#FFFFFF">.</font></td>
+
+		<TD>
+		
+		<!-- Newsitem title bar thing.. -->
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%>
+		<TR>
+		<TD BGCOLOR="#000000" valign=top align=left><img src="img/slb.gif"></td>
+		<TD BGCOLOR="#000000"><font color="#FFFFFF"><B>AlphaLinux Newsitems</b></font></td>
+		<TD BGCOLOR="#000000" valign=top align=right><img src="img/srb.gif"></td>
+		</tr></table>
+
+		<BR>
+		
+		<table cellpadding=0 cellspacing=0 border=0 width=150>
+		<TR>
+		<TD bgcolor="#B70000" valign=top align=left><img src="img/sl.gif"></td>
+		<TD bgcolor="#B70000">March 9th 1999</td>
+		<TD bgcolor="#B70000" valign=top align=right><img src="img/sr.gif"></td>
+		</tr></table>
+		</td></tr>
+
+	<TR>
+
+		<TD></TD><TD VALIGN=TOP><img src="img/sp.gif"></TD></TR>
+            <TR><TD WIDTH="32"><IMG SRC="img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD bgcolor="#765223" VALIGN=CENTER><B>
+             Debian 2.1 (slink) released.
+            </B>
+
+	    </TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	<A HREF="http://www.debian.org">Debian</A> 2.1 (slink) has <A HREF="http://www.debian.org/News/1999/19990309">been released</A>
+	 on schedule. <A HREF="http://www.debian.org/releases/slink/alpha/release-notes/index">
+	Release notes</A> and <A HREF="http://www.debian.org/releases/slink/alpha/install">install instructions</A> are available for Alpha. We'll pull down a copy
+	of this onto ftp.alphalinux.org as soon as possible.
+	<BR><BR>
+	 </TR>
+
+
+	<TR>
+ 
+		<TD></TD><TD>
+ 		<table cellpadding=0 cellspacing=0 border=0 width=150>
+		<TR>
+		<TD bgcolor="#B70000" valign=top align=left><img src="img/sl.gif"></td>
+		<TD bgcolor="#B70000">March 8th 1999</td>
+		<TD bgcolor="#B70000" valign=top align=right><img src="img/sr.gif"></td>
+		</tr></table>
+		</td></tr>
+
+	    <TR><TD></TD><TD VALIGN=TOP><img src="img/sp.gif"></TD></TR>
+	    <TD WIDTH="32" ><IMG SRC="img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD bgcolor="#765223" VALIGN=CENTER><B>
+            Kernel 2.2.3 Released.
+            </B></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	<A HREF="ftp://ftp.alphalinux.org/pub/AXP/kernel">Kernel version 2.2.3</A> has been released. 
+	This includes the fixes for Alpha that stopped 2.2.2 from compiling.
+	<BR><BR>	
+ </TR>
+
+<TR>
+		<TD></TD><TD>
+ 		<table cellpadding=0 cellspacing=0 border=0 width=150>
+		<TR>
+		<TD bgcolor="#B70000" valign=top align=left><img src="img/sl.gif"></td>
+		<TD bgcolor="#B70000">March 5th 1999</td>
+		<TD bgcolor="#B70000" valign=top align=right><img src="img/sr.gif"></td>
+		</tr></table>
+		</td></tr>
+
+
+	    <TR><TD></TD><TD VALIGN=TOP><img src="img/sp.gif"></TD></TR>
+            <TD WIDTH="32"><IMG SRC="img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD bgcolor="#765223" VALIGN=CENTER><B>
+            System Updates.
+            </B></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	Just a warning to everybody that on Saturday March 6th we are going to be performing some
+	hardware maintenance so www.alphalinux.org and ftp.alphalinux.org may be unavailable for
+	parts of the day.
+	<BR><BR>
+	
+<TR>
+		<TD></TD><TD>
+ 		<table cellpadding=0 cellspacing=0 border=0 width=150>
+		<TR>
+		<TD bgcolor="#B70000" valign=top align=left><img src="img/sl.gif"></td>
+		<TD bgcolor="#B70000">March 3th 1999</td>
+		<TD bgcolor="#B70000" valign=top align=right><img src="img/sr.gif"></td>
+		</tr></table>
+		</td></tr>
+
+	    <TR><TD></TD><TD VALIGN=TOP><img src="img/sp.gif"></TD></TR>
+            <TD WIDTH="32"><IMG SRC="img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD bgcolor="#765223" VALIGN=CENTER><B>
+            Rumors of faster chips.
+            </B></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	The Register has an <A HREF="http://www.theregister.co.uk/990303-000002.html 
+	">article</A> on the Alpha. Rumor has it that it'll be able to clock
+	speeds of 1.4GHz by the end of 2001 and reach speeds of 1100MHz
+	by the end of this year.
+	<BR><BR>
+	</TR>
+
+
+<TR>
+		<TD></TD><TD>
+ 		<table cellpadding=0 cellspacing=0 border=0 width=150>
+		<TR>
+		<TD bgcolor="#B70000" valign=top align=left><img src="img/sl.gif"></td>
+		<TD bgcolor="#B70000">March 3th 1999</td>
+		<TD bgcolor="#B70000" valign=top align=right><img src="img/sr.gif"></td>
+		</tr></table>
+		</td></tr>
+
+	    <TR><TD></TD><TD VALIGN=TOP><img src="img/sp.gif"></TD></TR>
+            <TD WIDTH="32"><IMG SRC="img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD bgcolor="#765223" VALIGN=CENTER><B>
+            Civilization ported to AlphaLinux.
+            </B></TD>
+          </TR>
+
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	If you're interested in games, it seems the upcoming Civilization (Call to Power) game will be
+            ported to Alpha. Has anybody seen this game yet at LinuxWorld Expo? 
+	<BR><BR>
+	</TR>
+
+
+<TR>
+		<TD></TD><TD>
+ 		<table cellpadding=0 cellspacing=0 border=0 width=150>
+		<TR>
+		<TD bgcolor="#B70000" valign=top align=left><img src="img/sl.gif"></td>
+		<TD bgcolor="#B70000">March 3th 1999</td>
+		<TD bgcolor="#B70000" valign=top align=right><img src="img/sr.gif"></td>
+		</tr></table>
+		</td></tr>
+	
+	    <TR><TD></TD><TD VALIGN=TOP><img src="img/sp.gif"></TD></TR>
+            <TD WIDTH="32"><IMG SRC="img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD bgcolor="#765223" VALIGN=CENTER><B>
+		New Portable Math Library 
+            </B></TD>
+          </TR>
+
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	<A HREF="http://www.compaq.com">Compaq</A> has released a <A HREF="http://www.unix.digital.com/linux/cpml.htm">Portable Math Library
+	</A> (CPML) for AlphaLinux. Compaq claims the library is faster than the standard Linux libm and <I>"with a few exceptions"</I> is faster
+	than libffm. You must register before downloading the library.
+	<BR><BR>
+	</TR>
+
+<TR>
+		<TD></TD><TD>
+ 		<table cellpadding=0 cellspacing=0 border=0 width=150>
+		<TR>
+		<TD bgcolor="#B70000" valign=top align=left><img src="img/sl.gif"></td>
+		<TD bgcolor="#B70000">March 3th 1999</td>
+		<TD bgcolor="#B70000" valign=top align=right><img src="img/sr.gif"></td>
+		</tr></table>
+		</td></tr>
+
+	    <TR><TD></TD><TD VALIGN=TOP><img src="img/sp.gif"></TD></TR>
+            <TD WIDTH="32"><IMG SRC="img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD bgcolor="#765223" VALIGN=CENTER><B>
+             Linus has a new toy!
+            </B></TD>
+          </TR>
+
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	<A HREF="http://www.compaq.com">Compaq</A> has put out <A HREF="http://www.newsalert.com/bin/story?StoryId=CnTTWubKbyte2otK"> this press
+	release</A> detailing additional support for Linux. It also mentions that Compaq has donated a AlphaServer DS20 system to Linus for Linux development. 
+	<BR><BR>
+	
+ </TR>
+
+<TR>
+		<TD></TD><TD>
+ 		<table cellpadding=0 cellspacing=0 border=0 width=150>
+		<TR>
+		<TD bgcolor="#B70000" valign=top align=left><img src="img/sl.gif"></td>
+		<TD bgcolor="#B70000">March 2nd 1999</td>
+		<TD bgcolor="#B70000" valign=top align=right><img src="img/sr.gif"></td>
+		</tr></table>
+		</td></tr>
+
+	    <TR><TD></TD><TD VALIGN=TOP><img src="img/sp.gif"></TD></TR>
+            <TD WIDTH="32"><IMG SRC="img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+	    <TD bgcolor="#765223" VALIGN=CENTER><B>
+		Awesome Boxen. 
+            </B></TD>
+          </TR>
+
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	<A HREF="http://www.siamese.co.uk">Siamese Systems</A> had released some <A HREF="http://www.siamese.co.uk/cluster.html">
+	8-pack cases</A> that holds up to 8 Alpha motherboard in one case.
+	<BR><BR>
+	
+ </TR>
+	
+ </TR>
+  </TABLE>
+
+
+	</TD>
+	<TD WIDTH=2><FONT COLOR="#DC9D33">.</FONT></TD>
+
+
+	<TD VALIGN=TOP BGCOLOR="#765223" WIDTH=215 ALIGN=CENTER>
+
+
+		<table cellpadding=0 cellspacing=0 border=0 width=215>
+			<TR>
+			<TD bgcolor="#000000" valign=top align=left><img src="img/slb.gif"></td>
+			<TD bgcolor="#000000"><b><font color="#FFFFFF">AlphaLinux Shortcuts</b></font></td>
+			<TD bgcolor="#000000" valign=top align=right><img src="img/srb.gif"></td>
+		</tr></table>
+
+	<BR>
+
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="img/slg.gif"></TD>
+			<TD WIDTH=190>Alpha Related Sites</TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="img/srg.gif"></TD>
+		</TR></TABLE>
+
+		</TD></TR>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<A HREF="http://www.alphalinux.org/hardware/vendors.shtml">Vendor List</A><BR>
+		<A HREF="http://www.digital.com">Digital Equipment Co.</a> (DEC)<BR>
+		<A HREF="http://www.compaq.com">Compaq Computer Co.</a><BR>
+		<A HREF="http://www.alpha-processor.com">Alpha Processor, Inc.</A> (API)<BR>
+		<A HREF="http://www.samsung.com">Samsung Semiconductor</a><BR>
+	</TD></TR></TABLE>
+
+			
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="img/sl.gif"></TD>
+			<TD WIDTH=190>AlphaLinux Docs</TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TD></TR>
+		
+		<TR><TD BGCOLOR="#DC9D33">
+		<A HREF="http://www.alphalinux.org/faq/FAQ.html">AlphaLinux FAQ</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/alpha-howto.html">AlphaLinux Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/milo.shtml">MILO Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/srm.html">SRM Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/docs/fbcon_faq.shtml">Frame Buffer Howto</A><BR>
+	</TD></TR></TABLE>
+
+
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="img/sl.gif"></TD>
+			<TD WIDTH=190>Software Releases</TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<A HREF="ftp://ftp.alphalinux.org/pub/AXP/patches">Kernel Patches</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/AXP/kernel">Latest Kernel</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/AXP/gnome">Gnome 1.0</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/AXP/kde">KDE 1.1</A><BR>
+		<A HREF="http://www.unix/digital.com/linux/cpml.html">Compaq Math Library</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/AXP/DIR_LISTING"> FTP Site Listing</A><BR>	
+	</TD></TR></TABLE>
+
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="img/sl.gif"></TD>
+			<TD WIDTH=190>AlphaLinux Distributions</TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<A HREF="http://www.redhat.com">RedHat</A><BR>
+		<A HREF="http://www.debian.org">Debian</A><BR>
+		<A HREF="http://www.stampede.org">Stampede</A><BR>
+	</TD></TR></TABLE>
+
+	<BR>
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0 HEIGHT=100%>
+		<TR><TD BGCOLOR="#DC9D33" ALIGN=LEFT HEIGHT=0 VALIGN=TOP>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%  VALIGN=TOP><TR>
+			<TD BGCOLOR="#B70000" VALIGN=TOP ALIGN=LEFT><IMG SRC="img/slg.gif"></TD>
+			<TD BGCOLOR="#B70000" WIDTH=190>Put something here</TD>
+			<TD BGCOLOR="#B70000" VALIGN=TOP ALIGN=RIGHT><IMG SRC="img/srg.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<BR>
+	</TD></TR></TABLE>
+
+
+
+	
+	</TD>
+</TR>
+</TABLE>
+<!-- End of Sidebar. -->
+
+
+        </TABLE>
+        
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+          <FONT COLOR="#DC9D33" FACE="helvetica,sans-serif" SIZE="-1">
+
+	<CENTER>Powered  by Alpha / Linux® is a registered trademark of Linus Torvalds</CENTER>
+
+           </FONT>
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>
+ 

@@ -1,0 +1,475 @@
+<HTML
+><HEAD
+><TITLE
+>MILO's User Interface</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.57"><LINK
+REL="HOME"
+TITLE="Alpha Miniloader Howto"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="How To Load MILO"
+HREF="load-section.html"><LINK
+REL="NEXT"
+TITLE="Running the Flash Management Utility "
+HREF="milo-fmu-section.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Alpha Miniloader Howto</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="load-section.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="milo-fmu-section.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MILO-IF-SECTION"
+>6. MILO's User Interface</A
+></H1
+><P
+>Once you have correctly installed/loaded/run MILO you will see 
+the MILO (for MIniLOader) prompt displayed on your screen.  There is a very
+simple interface that you must use in order to boot a particular Linux 
+kernel image.  Typing "help" is a good idea as it gives a useful summary
+of the commands.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="MILO-HELP-SECTION"
+>6.1. The ''help'' Command</A
+></H2
+><P
+>Probably the most useful command that MILO has:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;MILO&#62; help
+MILO command summary:
+
+ls [-t fs] [dev:[dir]] 
+                    - List files in directory on device
+boot [-t fs] [dev:file] [boot string] 
+                    - Boot Linux from the specified device and file
+run [-t fs] dev:file 
+                    - Run the standalone program dev:file
+show                - Display all known devices and file systems
+set VAR VALUE       - Set the variable VAR to the specified VALUE
+unset VAR           - Delete the specified variable
+reset               - Delete all variables
+print               - Display current variable settings
+help [var]          - Print this help text
+
+Devices are specified as: fd0, hda1, hda2, sda1...
+Use the '-t filesystem-name' option if you want to use
+  anything but the default filesystem  ('ext2').
+Use the 'show' command to show known devices and filesystems.
+Type 'help var' for a list of variables.&#13;</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+><I
+CLASS="EMPHASIS"
+>Note</I
+> that the <TT
+CLASS="LITERAL"
+>bootopt</TT
+> command only appears on AlphaPC64 
+(and similar) systems.  
+Refer to the board's dcoumentation to find out just what it means.</P
+><P
+><I
+CLASS="EMPHASIS"
+>Devices.</I
+>  Until you
+use a command that needs to make use of a device, no device
+inititalisation will take place.   The first <TT
+CLASS="LITERAL"
+>show</TT
+>, 
+<TT
+CLASS="LITERAL"
+>ls</TT
+>, <TT
+CLASS="LITERAL"
+>boot</TT
+> or <TT
+CLASS="LITERAL"
+>run</TT
+>
+commands all cause the devices within MILO to be initialised.
+Devices are named
+in the same way (exactly) that Linux itself will name them.  So, the
+first IDE disk will be called 'hda' and it's first partition will be 'hda1'.
+Use the <TT
+CLASS="LITERAL"
+>show</TT
+> command to show what devices are available.</P
+><P
+><I
+CLASS="EMPHASIS"
+>File Systems.</I
+>   MILO supports three file systems, 
+MSDOS, EXT2 and ISO9660.  So long as a device is available to it, 
+MILO can <TT
+CLASS="LITERAL"
+>list</TT
+><TT
+CLASS="LITERAL"
+>boot</TT
+> or <TT
+CLASS="LITERAL"
+>run</TT
+> an image stored on 
+one of these file systems.
+MILO's default file system is <TT
+CLASS="LITERAL"
+>EXT2</TT
+> and so you have tell MILO that
+the file system is something other than that.
+All of the commands that use filenames 
+allow you to pass the file system using the <TT
+CLASS="LITERAL"
+>-t [filesystem]</TT
+>option.
+So, if you wanted to list the contents of a SCSI CD ROM, you might type the
+following:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     MILO&#62; ls -t iso9660 scd0:</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+><I
+CLASS="EMPHASIS"
+>Variables.</I
+>  MILO contains some settable variables that help
+the boot process.  If you are loading via the Windows NT ARC firmware, then
+MILO makes use of the boot option environment variables set up by that
+firmware.  
+For some systems, MILO (for example, the AlphaPC64) maintains
+its own set of environment variables that do not change from boot to boot.
+These variables are:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;MILO&#62; help var
+Variables that MILO cares about:
+  MEMORY_SIZE      - System memory size in megabytes
+  BOOT_DEV         - Specifies the default boot device
+  BOOT_FILE        - Specifies the default boot file
+  BOOT_STRING      - Specifies the boot string to pass to the kernel
+  SCSIn_HOSTID     - Specifies the host id of the n-th SCSI controller.
+  AUTOBOOT         - If set, MILO attempts to boot on powerup
+                     and enters command loop only on failure.
+  AUTOBOOT_TIMEOUT - Seconds to wait before auto-booting on powerup.&#13;</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="MILO-BOOT-SECTION"
+>6.2. Booting Linux</A
+></H2
+><P
+>The <TT
+CLASS="LITERAL"
+>boot</TT
+> command boots a linux kernel from a device.
+You will need to have a linux kernel image on
+an EXT2 formated disk (SCSI, IDE or floppy) or an ISO9660 formatted CD 
+available to MILO.  
+The image can be gzip'd and in this case 
+MILO will recognise that it is gzip'd by the .gz suffix.</P
+><P
+>You should note that the version of MILO does not usually have to match
+the version of the Linux kernel that you are loading.
+You boot Linux using the following command syntax:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     MILO&#62; boot [-t file-system] device-name:file-name [[boot-option] [boot-option] ...]</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>Where <TT
+CLASS="LITERAL"
+>device-name</TT
+> is the name of the device that you wish to
+use and <TT
+CLASS="LITERAL"
+>file-name</TT
+> is the name of the file containing the Linux
+kernel.   All arguments supplied after the file name are passed directly
+to the Linux kernel. </P
+><P
+>If you are installing Red Hat, then you will need to specify a root
+device and so on.  So you would use:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     MILO&#62; boot fd0:vmlinux.gz root=/dev/fd0 load_ramdisk=1</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+> MILO will automatically contain the block devices that
+you configure into your vmlinux.  I have tested the floppy driver, the IDE
+driver and a number of SCSI drivers (for example, the NCR 810), and these work fine.  
+Also, it is important to set the host id of the SCSI controller
+to a reasonable value.  By default, MILO will initialize it to the
+highest possible value (7) which should normally work just fine.
+However, if you wish, you can explicitly set the host id of the
+<I
+CLASS="EMPHASIS"
+>n</I
+>-th SCSI controller in the system by setting environment
+variable <TT
+CLASS="LITERAL"
+>SCSI</TT
+><I
+CLASS="EMPHASIS"
+>n</I
+><TT
+CLASS="LITERAL"
+>_HOSTID</TT
+> to the appropriate
+value.  For example, to set the hostid of the first SCSI controller to
+7, you can issue the following command at the MILO prompt:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     setenv SCSI0_HOSTID 7</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="MILO-REBOOT-SECTION"
+>6.3. Rebooting Linux</A
+></H2
+><P
+>You may want to reboot a running Linux system using the
+<TT
+CLASS="LITERAL"
+>shutdown -r now</TT
+> command.  In this case, the Linux kernel
+returns control to MILO (via the HALT CallPAL entrypoint).
+MILO leaves a compressed copy of itself in memory for just this
+reason and detects that the system is being rebooted from information
+held in the HWRPB (Hardware Restart Parameter Block).
+In this case it starts to reboot using exactly the same command that
+was used to boot the Linux kernel the last time.
+There is a 30 second timeout that allows you to interrupt this 
+process and boot whatever kernel you wish in whatever way you wish.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="MILO-BOOTOPT-SECTION"
+>6.4. The ''bootopt'' command</A
+></H2
+><P
+>For flash based systems such as the AlphaPC64, EB164 and the EB66+, there
+are a number of possible boot options and these are changed using the 
+<TT
+CLASS="LITERAL"
+>bootopt</TT
+> command.  
+This has one argument, a decimal number which is the type of the
+image to be booted the next time the system is power cycled or reset:</P
+><P
+><I
+CLASS="EMPHASIS"
+>0</I
+> Boot the Evaluation Board Debug Monitor,</P
+><P
+><I
+CLASS="EMPHASIS"
+>1</I
+> Boot the Windows NT ARC firmware.</P
+><P
+>In order to tell the boot code to boot the MILO firmware from flash
+then you need a boot option that means boot the N'th image.  
+For this, you need to 128 plus N, so if MILO is the third image, you 
+would use the command:</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     MILO&#62; bootopt 131</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+><TT
+CLASS="LITERAL"
+>Note:</TT
+> Be very careful with this command.   A good rule is never to
+set bootopt to 0 (the Evaluation Board Debug Monitor), but instead use the 
+system's jumpers to achieve the same thing.  </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="load-section.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="milo-fmu-section.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How To Load MILO</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Running the Flash Management Utility</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

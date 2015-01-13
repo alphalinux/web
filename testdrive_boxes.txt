@@ -1,0 +1,43 @@
+Mike Waite of Compaq Solutions Alliance the other day sent me an updated
+list of systems available to 'testdrivers' participating in the free 
+CSA Test Drive program (www.testdrive.compaq.com).  Sounds like it
+has really taken off; the number of systems available has doubled in 
+~1 month, and it sounds like they plan to continue adding boxes. 
+
+If you're thinking about jumping on the AlphaLinux bandwagon, I encourage
+you to check out one or all of these systems - you can't beat the price.
+
+Oh yes, I need to note that Compaq is not paying me to say any of this
+and this is not an official solicitation from Compaq Solutions Alliance.
+
+OpenVMS
+-------
+qty	sys	config
+1	AS1200	2x533Mhz ev56
+
+Tru64
+-----
+qty	sys	config
+8	ES40	4x500Mhz ev6 (2GB/4GB configs)
+1	DS20	2x500Mhz ev6
+2	AS1200	2x533Mhz ev56
+
+Linux
+-----
+qty	sys	config
+2	DS20	2x500Mhz ev6
+1	AS1200	2x533Mhz ev56
+2	x86	2x450Mhz P6
+
+Coming soon
+===========
+Linux cluster
+-------------
+qty	sys	config
+8	XP1000	667Mhz ev6
+
+FreeBSD
+-------
+(qty and configs unspecified)
+FreeBSD 4.0-CURRENT on Alpha
+FreeBSD 3.3-STABLE  on x86

@@ -1,0 +1,910 @@
+<HTML>
+<HEAD>
+<TITLE>The AlphaLinux Homepage</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="description" content="Information on the Alpha port of Linux">
+<meta name="keywords" content="alpha linux axp multia as200 jensen ruffian alphastation alphaserver 21064 21164 21264 064 64-bit 164 264 sx lx">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+
+
+<TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD><CENTER> <!--#exec cgi="/cgi-bin/banmat1.cgi"-->
+  
+	</CENTER>
+	</TD>
+
+</TR>  
+<TR>
+
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD WIDTH=700 BGCOLOR="#B70000" ALIGN="CENTER">
+	<A HREF="intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A>
+	<A HREF="docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A>
+	<A HREF="software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A>
+	<A HREF="hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A>
+	<A HREF="otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A>
+	<A HREF="about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A>
+	</TD>
+	<TD WIDTH=16>&nbsp;</TD>
+
+</TR>
+<TR>
+
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+</TR>
+<TR VALIGN="top">
+	<TD><IMG SRC="../img/penguinedge.gif" WIDTH="16" HEIGHT="77" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD BGCOLOR="#DC9D33">
+	<P>
+	<IMG SRC="../img/penguincircle.gif" WIDTH="92" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="">
+	<IMG SRC="../img/logo.gif" WIDTH="498" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="AlphaLinux">
+	</P>
+<TABLE BORDER=0 HSPACE=8>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+	<TD WIDTH=500 VALIGN=TOP>
+	<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Compaq C++ for AlphaLinux Enters Public Beta
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Fri Mar 31 16:42:08 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+The <A HREF="http://www.compaq.com">Compaq</A> C++ compiler for AlphaLinux has entered the public beta
+period. Users can register and download the package from
+<A HREF="http://www.unix.digital.com/linux/compaq_cxx/">
+www.unix.digital.com/linux/compaq_cxx</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Security Updates for RedHat and SuSE
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Fri Mar 31 16:38:04 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+RedHat<BR>
+ircii for 5.2 <A HREF="ftp://updates.redhat.com/5.2/alpha/ircii-4.4M-0.5.2.alpha.rpm">
+ftp://updates.redhat.com/5.2/alpha/ircii-4.4M-0.5.2.alpha.rpm</A>, 6.0 and 6.1
+are also vulnerable but no update has been released for Alpha.<P>
+
+SuSE<BR>
+ircii for 6.1 <A HREF="ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/ircii-4.4M-0.alpha.rpm">
+ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/ircii-4.4M-0.alpha.rpm</A> and 6.3
+<A HREF="ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/irciihlp-4.4M-0.alpha.rpm">
+ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/irciihlp-4.4M-0.alpha.rpm</A>
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Spike coming to AlphaLinux
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Mon Mar 27 10:28:21 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Spike is coming to Linux/Alpha!
+<P>
+Spike is a post-link optimizer originally developed for AlphaNT
+which is currently being ported to Linux/Alpha.
+<P>
+Spike is described at:
+      <A HREF=" http://www.digital.com/info/hpc/ref/ref_performance.html">
+        www.digital.com/info/hpc/ref/ref_performance.html</A>
+        
+<P>
+Expect a development release soon.
+
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+RedHat 6.2 released...but not for Alpha
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Mon Mar 27 09:28:33 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.redhat.com">RedHat</A> has released RedHat 6.2
+but yet again there's no Alpha release along with the i386 and SPARC.
+RedHat's <A HREF="https://www.redhat.com/commerce/">web page
+on 6.2</A> states "Intel and SPARC® products shipping April 10; 
+Alpha not yet available."
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32"
+HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img
+src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"
+FACE="Arial, Helvetica, sans-serif"><B> 
+Compaq offering Linux Integration and Performance course
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img
+src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100%
+HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"
+FACE="Arial, Helvetica, sans-serif"><B>
+Thu Mar 23 11:35:16 2000 
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Compaq has developed a Linux Integration and Performance course for both
+Intel/Linux and Intel/Alpha. A full description of the Alpha course can
+be found <A HREF="http://www.compaq.com/training/802.html">here</A>. The
+courses will be held at the end of <A
+HREF="http://www.compaq.com/training/2072tech3.html#Compaq Alpha/Linux
+Integration and Performance">April</A>.
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+LWN Feature on 'Jet'
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Thu Mar 23 09:43:44 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://lwn.net">LWN</A> is running a <A HREF="http://lwn.net/2000/features/FSLCluster/">
+feature article </A> on the new 'Jet' cluster at the NOAA Forecast Systems Laboratory.
+The cluster currently consists of 276 Compaq XP1000 systems with plans
+to double the nodes by late summer.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+New SRM Howto Released
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Thu Mar 23 09:40:55 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+A new version of the <A HREF="http://www.alphalinux.org/faq/srm.html">
+SRM Howto</A> has been released. Updates include:<BR>
+<UL>    
+<LI>Made the installation hints a new chapter </LI>
+<LI>     Added information on Netbooting </LI>
+ <LI>    Added to the new section on RedHat 6.1 and BSD disklabels </LI>
+ <LI>    Removed David Mosberger-Tang's name from the authors list </LI>
+<LI>     Marked a few of the feature as being in 0.6 only </LI>
+ <LI>    Added info for SuSE 6.3 and RedHat 6.1 </LI>
+<LI>     Moved the notes on MILO vs. SRM to an "About this document" section  </LI>
+<LI>     Added sections on switching to SRM, and basic SRM usage  </LI>
+<LI>     Added section on the new interactive use of aboot  </LI>
+ <LI>    Updated the note on DOS partition tables to mention the Red Hat 6.1 installer's behavior. </LI>
+ <LI>    Normalized the markup, and codified the conventions used for user-entered commands. </LI>
+<LI>      Corrected the notes on BSD disklabels (SRM does not read BSD disklabels, it's just that they don't conflict with the boot block). </LI>
+</UL>
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Seti at Home Update
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Thu Mar 23 09:34:28 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://setiathome.ssl.berkeley.edu/">Seti At Home</A> has released
+version 2.4 of the client for AlphaLinux. It's available from
+<A HREF="http://setiathome.ssl.berkeley.edu/unix.html">setiathome.ssl.berkeley.edu/unix.html</A>
+and has now been compiled using the Compaq ccc compiler.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+MILO Enters SourceForge
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Tue Mar 21 13:05:51 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Stefan Reinauer has entered MILO-2.2 into <A HREF="http://www.sourceforge.net">
+SourceForge</A>. It's available through either <A HREF="http://milo.sourceforge.net">
+milo.sourceforge.net</A> or through <A HREF="https://sourceforge.net/project/?group_id=3791">
+SourceForge</A> itself.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+1U Testdrive Program at Compaq
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Sat Mar 18 07:36:31 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.testdrive.compaq.com/">Compaq's TestDrive</A>
+program has added some Slates (or 1U machines) to the available systems.
+Currently there are four machines running Tru64 V5.0, FreeBSD 4.0, RedHat
+Linux 6.1 and SuSE 6.3, with Debian and NetBSD on the way.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Slackware Port for AlphaLinux?
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Sat Mar 18 07:28:17 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://slashdot.org">Slashdot</A> is running an interview
+with Patrick Volkerding, the founder of <A HREF="http://www.slackware.com">
+Slackware</A> According to <A HREF="http://slashdot.org/interviews/00/03/17/1120205.shtml">
+the interview</A>  they have several Alphas on site for development work,
+including a dual CPU machine from  <A HREF="http://www.alpha-processor.com">
+API</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+New MILO Available
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Tue Mar 14 09:22:59 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+MILO version 2.2-16 has been released. Changes include:<BR>
+<UL>
+  <LI>Cleaned up much unneccesary stuff. Should not break that easy when changing
+    2.2.x kernels now.</LI>
+    milo is about 20k smaller than the -15 release
+  <LI> Made free bios emulation work with Milo-2.2 again. (to be replaced soon)</LI>
+  <LI>fmu compiles again. Use with care!</LI></UL>
+The new version can be obtained from either <A HREF="http://www.freiburg.linux.de/~stepan/Milo/">
+http://www.freiburg.linux.de/~stepan/Milo/</A> or <A HREF="ftp://ftp.alphalinux.org/pub/Linux-Alpha/Miniloader/v2.2/2.2-16">
+ftp://ftp.alphalinux.org</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Alpha 21364: A Scalable Single-chip SMP
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Tue Mar 14 09:15:48 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.compaq.com">Compaq</A> has posted
+<A HREF="http://www.intercontent.com/compaq/article.cfm?ArticleID=35">
+this article</A> on the design of the IA-64 chip versus Alpha, the
+current state of the 21264 CPU and what the future holds with the
+21364 CPU (EV7).
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B> 
+Quick updates
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Sun Mar 12 19:50 2000
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Here come the quick updates, quickly! We have the beginnings of an AlphaLinux
+<A HREF="http://www.alphalinux.org/jobs/">jobs section</A>, submissions welcome.  This past week saw the addition of Philip Ezolt to our hovel on the web.  
+Phil is spear-heading the efforts of a central location for games and cool demos on AlphaLinux.  Welcome, Phil!
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+RTLinux for Alpha
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Wed Mar  8 16:29:05 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.linuxdevices.com">LinuxDevices.com</A> is
+<A HREF="http://www.linuxdevices.com/cgi-bin/news_view.cgi?newsid=NS9643634806">
+reporting</A> that <A HREF="http://www.fsmlabs.com">fsmlabs</A>
+and <A HREF="http://www.compaq.com">Compaq</A> have signed an
+agreement to port the RTLinux operating system over to Alpha.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+C++ for AlphaLinux enter pre-beta
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Mon Mar  6 21:47:33 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+According to <A HREF="http://www.unix.digital.com/linux/compaq_cxx/index.html">
+this page</A> at Compaq the C++ compiler for AlphaLinux is entering
+a pre-beta period. The files are not yet available, but
+you can register to be notified of their release.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+New Milo Released
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Thu Mar  2 15:29:48 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Stefan Reinauer has released a new version on MILO, version 2.2-15.
+It compiles with new binutils and kernel 2.2.14 or newer and the code
+has been cleaned up a bit. It's available from
+<A HREF="http://www.freiburg.linux.de/~stepan/Milo/">http://www.freiburg.linux.de/~stepan/Milo/</A>
+and from <A HREF="ftp://ftp.alphalinux.org/pub/Linux-Alpha/Miniloader/v2.2/">
+ftp.alphalinux.org</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+Slate Makes First Appearance
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Thu Mar  2 15:22:36 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.compaq.com/solutions/customsystems/">
+Compaq Custom Systems</A> has posted information on
+<A HREF="http://www.compaq.com/solutions/customsystems/hps/linux-1u.html">
+ AlphaServer "1U form factor" Server Platforms</A> that appear to be
+racks of 1U DS10s (also known as Slate). However there still seems
+to be no info on Slate from the products page. 
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<P>
+<TR>
+<TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"ALT="*"></TD>
+<TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+<TD bgcolor="B70000"> <FONT COLOR="#000000" SIZE="+1"  FACE="Arial, Helvetica, sans-serif"><B>
+SuSE Security Update to htdig
+<FONT></TD>
+<TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD></TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1"  FACE="Arial, Helvetica, sans-serif"><B>
+Wed Mar  1 09:33:31 2000
+</B></td>
+</tr>
+<TR>
+<TD>&nbsp;</TD>
+<TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.suse.com">SuSE</A> has released an updated
+htdig package due to a potential remote compromise on versions
+3.1.5 and earlier. Updates are available for both
+<A HREF="ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/htdig-3.1.5-0.alpha.rpm">
+SuSE AXP 6.1</A> and 
+<A HREF="ftp://ftp.suse.com/pub/suse/axp/update/6.3/n1/htdig-3.1.5-0.alpha.rpm">
+SuSE AXP 6.3</A> from <A HREF="ftp://ftp.suse.com">ftp.suse.com</A>.
+<P>
+</TD>
+</TR>
+</TABLE>
+<P>
+
+
+<!--Begin sidebar--> 
+
+	
+	</TD>
+	<TD WIDTH=2><FONT COLOR="#DC9D33" FACE="Arial, Helvetica, sans-serif"></FONT></TD>
+	<TD VALIGN=TOP BGCOLOR="#DC9D33" WIDTH=250 ALIGN=CENTER>
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220>
+			<FONT  FACE="Arial, Helvetica, sans-serif"><B>Alpha Related Sites</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TD></TR>
+
+		<TR><TD BGCOLOR="#DC9D33"><FONT  FACE="Arial, Helvetica, sans-serif">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="http://www.alphalinux.org/hardware/vendors.shtml">Vendor List</A><BR>
+		<A HREF="http://www.alpha-processor.com">Alpha Processor, Inc.</A> (API)<BR>
+		<A HREF="http://www.compaq.com">Compaq Computer Co.</a><BR>
+		<A HREF="http://www.digital.com">Compaq Digital Products</a> (DEC)<BR>
+		<A HREF="http://www.sec.samsung.com">Samsung Semiconductor</a><BR>
+	</TD></TR></FONT></TABLE>
+	<P>
+			
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220>
+			<FONT FACE="Arial, Helvetica, sans-serif"><B>AlphaLinux Docs</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TD></TR>
+		
+		<TR><TD BGCOLOR="#DC9D33"><FONT FACE="Arial, Helvetica, sans-serif">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="http://www.alphalinux.org/faq/FAQ.html">AlphaLinux FAQ</A><BR>
+		<A HREF="http://www.alphalinux.org/docs/alpha-howto.html">AlphaLinux Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/kernel">AlphaLinux Kernel Page</A><BR>
+                <A HREF="http://www.alphalinux.org/faq/milo.html">MILO Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/srm.html">SRM Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/faq/alphabios-howto.html">AlphaBIOS Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/docs/fbcon_faq.shtml">Frame Buffer Howto</A><BR>
+		<A HREF="http://www.alphalinux.org/docs/MVI-full.html">MVI Programming</A><BR>
+		<A HREF="http://www.alphalinux.org/archives">Mailing List Archives</A><BR>
+	</TD></TR></FONT></TABLE>
+	<P>
+
+
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220><FONT FACE="Arial, Helvetica, sans-serif">
+			<B>Software Releases</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33"><FONT FACE="Arial, Helvetica, sans-serif">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/patches">Kernel Patches</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/kernel">Latest Kernel</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/gnome">Gnome 1.0</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/pub/kde">KDE 1.1.2</A><BR>
+		<A HREF="http://www.compaq.com/math/">Compaq Math Library</A><BR>
+		<A HREF="ftp://ftp.alphalinux.org/DIR_LISTING"> FTP Site Listing</A><BR>	
+	</TD></TR></FONT></TABLE>
+	<P>
+
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220><FONT FACE="Arial, Helvetica, sans-serif">
+			<B>AlphaLinux Distributions</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33"><FONT FACE="Arial, Helvetica, sans-serif">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<A HREF="http://www.debian.org">Debian</A><BR>
+		<A HREF="http://www.linux-mandrake.com">Mandrake</A><BR>
+		<A HREF="http://www.redhat.com">RedHat</A><BR>
+		<A HREF="http://www.suse.com">SuSE</A><BR>
+
+	</TD></TR></FONT></TABLE>
+	<P>
+	
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220>
+			<FONT FACE="Arial, Helvetica, sans-serif"><B>Press Releases</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<FONT FACE="Arial, Helvetica, sans-serif">
+		<A HREF="press/Feb16_totalview.shtml">TotalView Debugger</A> February 16th</BR>
+		<A HREF="press/Feb1_CommunigatePro.shtml">Clustered CommuniGate Pro</A>February 1st</BR>
+		<A HREF="press/Dec17_UP2000Debian.shtml">UP2000 for Debian</A> December 17th</BR>
+		<A HREF="press/Dec10_AlphaData.shtml">AlphaNode</A> December 10th<BR>
+		<A HREF="http://www.alpha-processor.com/pressreleases/pr112299.asp">API PowerRAC Chassis</A> December 1st<BR>
+		<A HREF="press/Nov23_Microway.shtml">Microway Top Channel Partner</A> Nov 23rd<BR>
+		<A HREF="http://lwn.net/daily/alta/alta.html">Alta Linux Cluster Modules</A> Nov 8th<BR>
+		<A HREf="http://linuxpr.com/releases/629.html">Motif 2.1.20</A> Nov 8th<BR>
+		<A HREF="press/Nov04_CommuniGatePro.shtml">CommuniGate Pro</A> Nov 4th
+		
+	</TD></TR></FONT></TABLE>
+	<P>
+	<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR><TD BGCOLOR="#B70000" ALIGN=LEFT>
+
+		<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=100%><TR>
+			<TD VALIGN=TOP ALIGN=LEFT><IMG SRC="../img/sl.gif"></TD>
+			<TD WIDTH=220>
+			<FONT FACE="Arial, Helvetica, sans-serif"><B>Contact Us</B></FONT></TD>
+			<TD VALIGN=TOP ALIGN=RIGHT><IMG SRC="../img/sr.gif"></TD>
+		</TR></TABLE>
+
+		</TR></TD>
+
+		<TR><TD BGCOLOR="#DC9D33">
+		<img src="../img/sp.gif" VALIGN=TOP WIDTH=100%><BR>
+		<FONT FACE="Arial, Helvetica, sans-serif">
+		<A HREF="mailto:news@alphalinux.org">News Items</A><BR>
+		<A HREF="mailto:webmaster@alphalinux.org">Webmaster</A><BR>
+		<A HREF="mailto:ftpadmin@alphalinux.org">FTP Admin</A><BR>
+		<P>
+		<A HREF="oldnews/">Old News...</A><BR>
+	</TD></TR></FONT></TABLE>
+	<P>
+
+
+	    
+	</TD>
+	</TR>
+	</TABLE>
+	
+
+
+<!-- End of Sidebar. -->
+
+
+        </TABLE>
+        
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+          <FONT COLOR="#DC9D33" FACE="helvetica,sans-serif" SIZE="-1">
+
+	<CENTER><B>Powered  by Alpha / Linux® is a registered trademark of Linus Torvalds<br>Hosted by <a href="http://www.theshell.com">TheShell.com</A></B></CENTER>
+
+           </FONT>
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>
+ 

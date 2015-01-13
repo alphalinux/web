@@ -1,0 +1,8 @@
+#Options FollowSymLinks Includes Indexes
+AuthUserFile /home/petrakis/htpasswd-admin
+AuthType Basic 
+AuthName "Approve ALO News" 
+satisfy any
+<Limit GET>
+require valid-user
+</Limit>

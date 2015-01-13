@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation - RedHat 5.2 Problems</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            RedHat 5.2 Problems 
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+	   This is a list of known problems with RedHat 5.2 for Alpha. This includes the
+	contents of the RedHat errata and other problems that RedHat has yet to fix. The
+	list is broken down into two seperate sections. The first being functionality/updates,
+	 the second being security problems.
+      <P>
+	<FONT SIZE="+2"><B>
+	<U><FONT COLOR="B70000">Functionality</FONT></U>
+	</B></FONT><P>
+
+              <!-- Subtitle --> 
+	
+	  <FONT SIZE="+1"><B>
+	  Signal 11 during install:
+              </B></FONT><BR> 
+	  <P>
+	<B>Symptom:</B> User receives a signal 11 when trying to select individual packages during installation.
+	<BR>
+	<B>Solution:</B> Download the updated <A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/images/ramdisk.img">ramdisk.img file</A>
+	and rawrite (or dd) the file to a floppy and use this as your ramdisk floppy.
+	<P>	   
+
+	<FONT SIZE="+1"><B>
+	ipfwadm:  
+              </B></FONT><BR> 
+	  <P>
+	<B>Symptom:</B> When trying to configure ipfwadm this error is reported: <I>setsockopt, invalid argument. </I>
+	<BR>
+	<B>Solution:</B> The ipfwadm package shipped with RedHat 5.2 (and 5.1) is defective, as is the source rpm.
+	Download the <A HREF="ftp://ftp.redhat.com/pub/redhat/old-releases/redhat-5.0/alpha/RedHat/RPMS/ipfwadm-2.3.0-5.alpha.rpm ">
+	ipfwadm rpm</A> from RedHat 5.0 for Alpha and install this. NOTE: If you are now using a 2.1.x or 2.2.x kernel you should upgrade to
+	ipchains instead of ipfwadm.
+	<P>	   
+	
+	<FONT SIZE="+1"><B>
+	mt:  
+              </B></FONT><BR> 
+	  <P>
+	<B>Symptom:</B> File searching/spacing command do not work correctly.
+	<BR>
+	<B>Solution:</B>  Download a <A HREF="ftp://rpmfind.net/linux/rawhide/1.0/i386/RedHat/RPMS/mt-st-0.5-2.i386.rpm">
+	later version</A> of mt from rpmfind.net.
+	<P>	
+
+	<FONT SIZE="+1"><B>
+	dhcpd:  
+              </B></FONT><BR> 
+	  <P>
+	<B>Symptom:</B> After upgrading to a 2.2.x (or 2.1) kernel dhcpd no longer works.
+	<BR>
+	<B>Solution:</B> Download an updated <A HREF="ftp://rawhide.redhat.com/SRPMS/SRPMS/dhcpcd-1.3.16-2.src.rpm">
+	 dhcpd rpm</A> for the latest kernel series.
+	<P>	
+
+	<FONT SIZE="+1"><B>
+	dump:
+	</B></FONT><BR>
+	<P>
+	Updated to maintain same version as SPARC. 
+		<A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/dump-0.3-17.alpha.rpm">dump-0.3-17.alpha.rpm</A>
+	<P>
+	
+	<FONT SIZE="+1"><B>
+	perl:
+	</B></FONT><BR>
+	<P>
+	Fixes several bugs in the original perl version released with 5.2 that caused problems with Majordomo and CGI.
+		<A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/perl-5.004m7-1.alpha.rpm">perl-5.004m7-1.alpha.rpm </A>
+	<P>
+
+	<FONT SIZE="+1"><B>
+	X-windows and Xconfigurator:
+	</B></FONT><BR>
+	<P>
+	Updates X-windows to version 3.3.3.1 (if you're using FVWM2 and you update your X-server you'll also
+	need the FVWM updates below). All filesets are available from 
+	<A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/">ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/</A>
+	<P>
+	
+	<FONT SIZE="+1"><B>
+	FVWM2:
+	</B></FONT><BR>
+	<P>
+	Updates for FVWM2 (AnotherLevel) to work with X-windows 3.3.1. <BR>
+	<A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/fvwm2-2.0.46-12.alpha.rpm"> fvwm2-2.0.46-12.alpha.rpm</A><BR>
+	<A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/fvwm2-icons-2.0.46-12.alpha.rpm">fvwm2-icons-2.0.46-12.alpha.rpm</A>
+	<P>
+	
+	
+	<FONT SIZE="+2"><B>
+	<U><FONT COLOR="B70000">Security</FONT></U>
+	</B></FONT><P>
+	<UL>19-Feb-1999: lsof
+		<LI><A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/lsof-4.40-1.alpha.rpm">lsof-4.40-1.alpha.rpm</A>
+		</LI>
+	</UL>
+	<UL>09-Feb-1999: wu-ftpd 
+		<LI><A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/wu-ftpd-2.4.2b18-2.1.alpha.rpm"> 
+		wu-ftpd-2.4.2b18-2.1.alpha.rpm</A></LI>
+	</UL>
+
+	<UL>09-Feb-1999: minicom 
+		<LI><A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/minicom-1.82-3.alpha.rpm">
+		 minicom-1.82-3.alpha.rpm</A></LI>
+	</UL>
+	
+	<UL>03-Jan-1999: pam 
+		<LI><A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/pam-0.64-4.alpha.rpm">
+		pam-0.64-4.alpha.rpm</A></LI>
+	</UL>
+
+	<UL>22-Dec-1998: ftp client 
+		<LI><A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/ftp-0.10-4.alpha.rpm">
+		ftp-0.10-4.alpha.rpm </A></LI>
+	</UL>
+
+	<UL>17-Nov-1998: samba 
+		<LI><A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/samba-1.9.18p10-5.alpha.rpm"> 
+		samba-1.9.18p10-5.alpha.rpm</A></LI>
+	</UL>
+
+	<UL>17-Nov-1998: sysklogd 
+		<LI><A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/sysklogd-1.3-26.alpha.rpm">
+		 sysklogd-1.3-26.alpha.rpm</A></LI>
+	</UL>
+
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+     
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,165 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation - FrontPage on AlphaLinux</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ 
+  <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Setting up the FrontPage extensions on AlphaLinux
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+- this is not an HOW-TO, but is almost an HOW-I-DID-IT<BR>
+- this description is part of a build of an Apache Web server v. 1.3.4 with
+  the following features/modules:<P>
+<UL>
+  <LI>ApacheSSL</LI>
+  <LI>Microsoft FrontPage Extensions</LI>
+  <LI>PHP/FI</LI>
+  <LI>POSTGRES/SQL</LI>
+</UL>
+<P>
+  My document doesn't cover the above mentioned, though I'm disposable to
+  describe the entire build.<P>
+
+- my build was possibly the most conservative and non intrusive for the
+  Microsoft FrontPage Extensions OSF/3.2, downloaded from <A HREF="http://www.rtr.com">www.rtr.com</A>.<P>
+
+<FONT SIZE="+1"><B>Now the build.<BR>
+FUNDAMENTAL PREREQUISITES:</B></FONT><P>
+
+<OL>
+<LI> an OSF/3.2 license, two OSF libraries used here.</LI>
+
+<LI> operate as "root" (of course)</LI>
+
+<LI> I installed the following OSF/3.2 required libraries:
+    <UL>
+     <LI>-rw-r--r--   1 root     root      1277952 Apr 24  1997 /usr/shlib/libc.so</LI>
+     <LI>-rw-r--r--   1 root     root      1253376 Apr 24  1997 /usr/shlib/libm.so</LI>
+     </UL>
+     I installed the following OSF/3.2 required program:
+     <UL>
+         <LI>    -r-xr-xr-x 1 root root 114688 Jul 12 12:25 /sbin/loader</LI>
+    </UL>
+</LI>
+
+<LI>I builded the Apache 1.3.4 web server:
+  <UL>
+    <LI>cd apache_1.3.4</LI>
+    <LI>patch -p0 < fp-patch-apache_1.3.3</LI>
+    <LI>mv mod_frontpage.c src/modules/extra/mod_frontpage.c</LI>
+
+    <LI>./configure --add-module=src/modules/extra/mod_frontpage.c
+--enable-module=most --enable-shared=max --disable-shared=frontpage</LI>
+
+     <LI>make</LI>
+
+     <LI>make install</LI>
+
+     <LI>cp src/modules/ssl/gcache /usr/local/apache/bin</LI>
+ </UL>
+
+ <LI>I declared necessary modules to load in httpd configuration file, except
+    FrontPage Module, which is not a shared module</LI>
+
+ <LI>I copied/renamed fp30.alpha.tar.gz (Microsoft FrontPage Extensions for OSF)<BR>
+  <UL>
+    <LI>cp fp30.alpha.tar.gz /usr/local/fp30.linux.tar.gz</LI>
+  </UL> 
+ </LI>
+
+<LI>I copied the installation shell file
+ <UL>
+    <LI>cp fp_install.sh /usr/local</LI>
+ </UL>
+</LI>
+
+<LI>I started the script and installed my root web only
+ <UL>
+    <LI>cd /usr/local</LI>
+
+    <LI>./fp_install.sh</LI>
+ </UL>
+    Ignore the message saying that root web won't work until partition
+    is mounted SUID.<BR>
+</LI>
+
+<LI>I recompiled/substituted fpexe
+ <UL>
+    <LI>cd /usr/local/frontpage/currentversion/apache-fp</LI>
+    <LI>mv _vti_bin/fpexe _vti_bin/fpexe.orig</LI>
+    <LI>gcc -Dbsdi fpexe.c -o _vti_bin/fpexe</LI>
+    <LI>chmod u+s _vti_bin/fpex</LI>
+ </UL>
+</LI>
+</OL>
+
+Last suggestion: put the following in httpd configuration file, for each
+directory involved in web serving (root webs, virtual webs...)<P>
+
+<PRE>
+< Directory /dir/tothisweb/site>
+    Options Indexes FollowSymLinks Includes ExecCGI
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+< /Directory>
+</PRE>
+<P>
+
+This worked for me, on my alphalinux test box (AlphaStation 200 4/166, 48Mb
+RAM, 4Gb H.D., RedHat 5.2, Kernel 2.6). <P>
+
+ Franco Tassone < franco @ dns.rgn.it>
+
+	     
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+     
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

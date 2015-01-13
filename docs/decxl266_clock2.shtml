@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+    <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+	    Reseting the Clock on an XL-266            
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+	Erasing the contains of the DS1225 doesn't make sense, this IC holds setup
+information like bootselections. The only thing I could do to get the
+clock to a legal value is by reprogramming the DS12887A chip. Maybe this
+is possible by placing this chip in a Pentium PC and reprogram it, but I
+hadn't one. 
+<P>
+
+What I did was (the story):
+<P>
+
+Place this IC in a 'bread-board'. Connect Vcc, GND to a 5V power supply.
+Pull every input pin of the chip to +5V with 47k resistors.  Reset it by
+connect pin 18 to GND. Erase contents of user RAM by connecting pin 21 to
+GND for a few seconds. Now user RAM is erased, but not the time/date data.
+I did this by exactly following the fetched data-sheet from DALLAS
+(<A HREF="http://www.dalsemi.com">www.dalsemi.com</A>).
+<P>
+First program the B register to get the 'SET' bit to '1'. This makes
+permission to modify the time registers possible.
+Now program all 10 date/time registers with legal BCD values.
+At the latest program the B register again with the 'SET' bit to '0', also
+set the 'DM' bit to '0' this indicates BCD values in the date/time
+registers.
+<P>
+This was all done by following the write timing information of the data
+sheet. A '0' is made by connect a pin to GND with a wire. A '1' is made by 
+connect to nothing (because of the 47k pull up resistor).
+<P>
+After two tries the date was somewhere in 1980 (I made some mistakes I
+think). Now modifying date/time was possible in the setup screen. I had
+luck!
+<P>
+If this won't work I had to buy a new chip I think...
+<P>
+
+<I>Leon Hiemstra leon@de-schans.xs4all.nl</I>
+	    
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

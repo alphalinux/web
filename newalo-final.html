@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<title>The AlphaLinux Homepage</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="description" content="Information on the Alpha port of Linux">
+	<meta name="keywords" content="alpha linux axp multia as200 jensen ruffian alphastation alphaserver 21064 21164 21264 064 64-bit 164 264 sx lx">
+</head>
+
+<style type="text/css">
+
+body {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", verdana, lucida, helvetica, sans-serif;
+	background: black;
+    font-size: 80%;
+    width:770px;
+}
+
+h1 {
+   font-size: 2em;
+}
+
+h2 {
+   font-size: 1.4em;
+   text-align:center;
+}
+
+h3 {
+	font-size: 1em;	
+}
+
+h4 {
+	font-size: .6em;	
+}
+
+p {
+   font-size: 1em;
+   }
+
+div#right h2 {
+	font-size: 1.1em;
+	text-align: center;
+}
+
+div#page {
+	background: #DC9D33; /* our favorite orange */
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+/* our navigation bar is made up using a simple unordered list */
+div#menu {
+	background-color: #B70000;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 100%;
+}
+
+div#menu ul {
+	margin-left: 0;
+	padding-left: 0;
+	display: inline;
+}
+
+div#menu ul li {
+    padding: 3px 15px;
+    list-style: none;
+    display: inline;
+}
+
+div#menu ul li a {
+	color: #B70000;
+
+}
+div#menu ul li a:link {
+	background-color:	#B70000;
+	color:	#B70000;
+}
+
+
+
+
+/* the next two setup the two columns */
+
+div#left {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 500px;
+
+}
+
+div#right {
+	position: relative;
+	top: -370px;
+	left: 450px;
+	width: 280px;
+}
+
+ul#newsitems {
+    margin: 16px;	
+	list-style-image: url(img/icon_beak.gif);
+}
+
+div#right ul {
+    margin: 16px;	
+	list-style-type: none;
+}
+
+/* the next two rules make the rounded corners in our headings */
+
+li div {
+	background: url(img/sl.gif) left top;  
+	background-repeat:no-repeat;
+	background-color:	#B70000;
+}
+
+
+div h2 {
+	border-bottom: solid black;
+	background: url(img/sr.gif) right top;  
+	background-repeat:no-repeat;
+}
+
+div#trademark {
+	color: #DC9D33;
+	text-align: center;
+}
+
+a:link	{	
+	text-decoration:	none;
+	font-weight:	bold;
+	font-style:	normal;
+	color:	#DD0000;
+	background-color:	#DC9D33;
+	}
+	
+a:hover	{	
+	text-decoration:	underline;
+	font-weight:	bold;
+	font-style:	normal;
+	}		
+a:visited	{	
+	text-decoration:	none;
+	font-weight:	bold;
+	font-style:	normal;
+	color:	#DD0000;
+	background-color:	#DC9D33;
+	}	
+		
+a:active	{	
+	text-decoration:	none;
+	font-weight:	bold;
+	font-style:	normal;
+	color:	#CC0000;
+	background-color:	#DC9D33;
+	}	
+	 
+</style>
+
+
+<?php
+	$debug=0;
+
+	include ("database.php");
+
+	// This get the main titles
+	$result=mysql_db_query("ALOPage", "SELECT * FROM FrontPage where shown=1 AND Catagory='News' ORDER BY insdate DESC LIMIT 0,7",$alodb)
+		or die ("<P>Can't query db");
+	$num_rows=mysql_num_rows($result);
+	if ($num_rows == 0)
+		die ("<P>DB is empty, exiting");
+
+	// Get the Press items for the page
+	$press_result=mysql_db_query("ALOPage","SELECT indx, hdline FROM FrontPage WHERE shown=1 AND Catagory='Press' ORDER BY insdate DESC LIMIT 0,5",$alodb);
+	$press_rows=mysql_num_rows($press_result);
+	
+
+	// Get the Article items for the page
+	$article_result=mysql_db_query("ALOPage","SELECT indx, hdline FROM FrontPage WHERE shown=1 AND Catagory='Articles' ORDER BY insdate DESC LIMIT 0,5",$alodb);
+	$article_rows=mysql_num_rows($article_result);
+
+	function print_news($rec)
+	{
+		echo "<div><h2>$rec->hdline</h2></div>";
+		echo "<h3>$rec->insdate </h3>";
+		echo "<p>$rec->newstxt</p>";
+	}
+?>
+
+<body>
+<div id="page">
+
+<div id="menu">
+<ul style="position: relative; left:11%">
+	<li id="intro"><a href="intro/"><img src="img/butt_intro.gif"  alt="Intro"></a></li>
+	<li id="software"><a  href="software/"><img src="img/butt_software.gif" alt="Software"></a></li>
+	<li id="hardware"><a  href="hardware/"><img src="img/butt_hardware.gif" alt="Hardware"></a></li>
+	<li id="otherpages"><a  href="otherpages/"><img src="img/butt_otherpages.gif" alt="Other Pages"></a></li>
+	<li id="about"><a  href="about/"><img src="img/butt_about.gif" alt="About"></a></li>
+</ul>
+</div>
+
+
+<div id="logo">
+<img src="img/penguincircle.gif" alt="">
+<img style="position:absolute; left:12px;" src="img/penguinedge.gif" alt="">
+<img src="img/logo.gif" alt="AlphaLinux.org, Is your Penguin 64-bit?">
+</div>
+
+<div id="layout">
+<div id="left">
+<ul id="newsitems">
+
+<?php
+	for ($i=0; $i<$num_rows; $i++)
+	{
+		echo"<li>";
+	 	print_news(mysql_fetch_object($result));
+	 	echo"</li>";
+	}
+?>
+
+
+</ul>
+</div> <!-- end left -->
+
+<div id="right">
+<ul>
+<li>	
+	<div><h2>Latest From AlphaNews.NET</h2></div>
+	<dl>
+		 <?php
+			 $file = fopen("http://www.alphalinux.org/backend.rdf", "r");
+			 $rf = fread($file, 32000); // read 32K  
+			 $grab = eregi("<item>(.*)</item>", $rf, $printing);
+			 $pieces = explode("<item>", $printing[0]);
+			 $count=count($pieces);
+			
+			 for($x=1;$x<=$count-1;$x++)	{
+			 	ereg("<title>(.*)</title>",$pieces[$x],$title );
+			 	ereg("<link>(.*)</link>",$pieces[$x],$links );
+			 	ereg("<description>(.*)</description>",$pieces[$x],$desc );
+				
+			 	echo "<dt><A HREF=\"$links[1]\">$title[1]</A></dt>";
+				}
+ 		?>
+	</dl>
+</li>
+
+
+<li>	
+	<div><h2>Alpha Related Sites</h2></div>
+	<dl>
+		<dt><A HREF="search.shtml">Search  All Of AlphaLinux.Org</A><dt>
+		<dt><A HREF="http://www.alphanews.net">Alpha News Network</A><dt>
+		<dt><A HREF="hardware/vendors.shtml">Vendor List</A><dt>
+		<dt><A HREF="http://www.api-networks.com">API Networks, Inc.</A> (API)<dt>
+		<dt><A HREF="http://www.compaq.com/linux">Compaq Computer Co.</a><dt>
+		<dt><A HREF="http://www.digital.com">Compaq Digital Products</a> (DEC)<dt>
+		<dt><A HREF="http://samsungelectronics.com/semiconductors/Alpha_CPU/alpha_cpu_index.htm">Samsung Semiconductor</a><dt>
+	</dl>
+</li>
+
+
+<li>	
+	<div><h2>AlphaLinux Docs</h2></div>
+	<dl>
+		<dt><A HREF="faq/FAQ.html">AlphaLinux FAQ</A></dt>
+		<dt><A HREF="docs/alpha-howto.html">AlphaLinux Howto</A></dt>
+		<dt><A HREF="kernel">AlphaLinux kernel page</A></dt>
+        <dt><A HREF="faq/MILO-HOWTO/t1.html">MILO Howto</A></dt>
+		<dt><A HREF="faq/SRM-HOWTO/index.html">SRM Howto</A></dt>
+		<dt><A HREF="faq/alphabios-howto.html">AlphaBIOS Howto</A></dt>
+		<dt><A HREF="docs/fbcon_faq.shtml">Frame Buffer Howto</A></dt>
+		<dt><A HREF="archives/">Mailing List Archives</A></dt>
+		<dt><A HREF="http://www.alphalinux.org/ALOHcl">ALO Hardware Database</A></dt>
+	</dl>
+</li>
+
+<li>	
+	<div><h2>AlphaLinux Distributions</h2></div>
+	<dl>
+
+		<dt><A HREF="http://www.debian.org">Debian</A></dt>
+		<dt><A HREF="http://www.gentoo.org">Gentoo</A></dt>
+		<dt><A HREF="http://www.kondara.org">Kondara</A></dt>
+		<dt><A HREF="mandrake/">Mandrake</A></dt>
+		<dt><A HREF="http://www.pld.org.pl">Polish Linux Distribution</A></dt>
+		<dt><a href="http://www.support.compaq.com/alpha-tools/redhat/">RedHat 7.2 (From HP)</a></dt>
+		<dt><A HREF="http://www.redhat.com">RedHat</A></dt>
+		<dt><A HREF="http://www.rocklinux.org/">RockLinux</A></dt>
+		<dt><A HREF="http://www.slackware.com">Slackware</A></dt>
+		<dt><A HREF="http://www.suse.com">SuSE</A></dt>
+		<dt><A HREF="http://talinux.tal.org">TA-Linux</A></dt>
+	</dl>
+</li>
+
+<li>	
+	<div><h2>Articles</h2></div>
+
+	<dl>
+		<?php
+			for ($i=0;$i<$article_rows;$i++) {
+				$article_obj=(mysql_fetch_object($article_result));
+				echo "<dt><A HREF=\"http://www.alphalinux.org/press-articles/index.php?indx=$article_obj->indx&type=Articles\">$article_obj->hdline $article_obj->insdate</A></dt>";
+			}
+		
+		?>		
+
+	</dl>
+	
+</li>
+
+<li>
+	<div><h2>Contact Us</h2></div>
+
+	<dl>
+		<dt><A HREF="http://www.alphalinux.org/user/">Submit News</A></dt>
+		<dt><A HREF="mailto:webmaster@alphalinux.org">Webmaster</A></dt>
+		<dt><A HREF="mailto:ftpadmin@alphalinux.org">FTP Admin</A></dt>
+		<dt><br></dt>
+		<dt><A HREF="http://www.alphalinux.org/oldnews/">Old News...</A></dt>
+	</dl>
+</li>	
+	
+	
+</ul>  <!-- ... -->
+</div> <!-- end right side -->
+
+
+</div>  <!-- column container -->
+
+
+</div> <!-- end of page -->
+
+
+	<div id="trademark">Powered  by Alpha / Linux &copy; is a registered trademark of Linus Torvalds</div>
+
+</body>
+</html>

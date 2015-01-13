@@ -1,0 +1,167 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Linux/Alpha Frame Buffer FAQ
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+              <!-- Subtitle --> 
+	This FAQ assumes basic familiarity with the kernel.  If the kernel is new to you, <A href="http://www.linuxhq.com/guides/TLK/tlk.html">here's a great introduction</A>.
+	 <P>
+	 There is also an official Framebuffer FAQ now available from 
+	 <A HREF="http://www.tahallah.demon.co.uk/programming/Framebuffer-HOWTO-1.0.html">
+	http://www.tahallah.demon.co.uk/programming/Framebuffer-HOWTO-1.0.html</A> (Even though this FAQ only lists the TGA
+	card as working the Matrox cards will also work).
+	<P>
+
+
+
+	<FONT SIZE="+1"><B>
+	Q: What is the Linux frame buffer? 
+             </B></FONT><BR> 
+	A: This is answered in the file <A href="http://www.kernelnotes.org/doc22/fb/framebuffer.txt">Documentation/fb/framebuffer.txt</A> which comes with the kernel source code.  To summarize: "The frame
+	buffer device provides an abstraction for the graphics hardware. It represents the frame buffer of some video hardware and allows
+	application software to access the graphics hardware through a well defined interface, so the software doesn't need to know anything
+	about the low-level (hardware register) stuff."  The frame buffer is one of the new features of the 2.2 Linux kernel. 
+	      <P>
+
+	<FONT SIZE="+1"><B>
+	Q: Why is it helpful? 
+	 </B></FONT><BR> 
+	A: Two reasons: security and performance.  Security is an issue because graphics hardware can copy data to and from memory using
+	direct memory access, so allowing users unfettered access is a potential security hole.  For this reason, only root (system administrator)
+	can directly access the hardware, so graphics programs like X windows can only run as root.  The kernel frame buffer interface prevents
+	abuse of the hardware, so X windows running on the frame buffer can be run as the user, with fewer potential security problems.  A
+	simplistic argument goes like this: the frame buffer subroutines involve a few thousand lines of code, whereas X windows consists of about
+	a million and a half, so it's easier to make the frame buffer code airtight.  Performance is mainly an issue where the frame buffer can be
+	used instead of X windows.  The frame buffer adds about 50K to the size of a compressed alpha kernel, and uses vastly less RAM. 
+	However, there are currently very few programs that run in the frame buffer without X.  (Some of them use <a href="http://ggi.via.ecp.fr/">GGI, the General Graphics
+	Interface</A>.) 
+	<P>
+
+	<FONT SIZE="+1"><B>	
+	Q: Does it work on Alpha? 
+	</B></FONT><BR> 
+	A: Yes, the TGA frame buffer works fine and the Matrox Millennium frame buffer will work under some
+	circumstances (other cards are unknown to the author). 
+	<P>
+
+	<FONT SIZE="+1"><B>	
+	Q: How do I make it work? 	
+	</B></FONT><BR> 
+	A: To use it, you have to build your own kernel, the first step of which is to type make config in the
+	source directory. The Matrox frame buffer drivers are still experimental, you will need to answer `y'
+	to the first question, "Prompt for development and/or incomplete code/drivers?" In the "Console drivers"
+	section, answer `y' to "Support for frame buffer devices" and then answer subsequent questions according to
+	your video hardware. 
+	<P>
+	The kernel with Matrox Millennium frame buffer can not boot in graphics mode on alpha (with the penguin logo); 
+	the reason is currently unknown (it's not a logo drawing problem, and the init flag doesn't work). To
+	boot in text mode, add video=matrox:vesa:0x108 (or any of the other text modes, e.g. 0x10B or 0x10C) to
+	your boot line. You can switch into graphics mode after booting using the fbset program, which can change the
+	resolution, timings, color depth, and acceleration status of the frame buffer. This switch can be made in
+	/etc/rc.d/rc.sysinit if desired. NOTE: the documentation gives a URL for fbset 1.0, which no longer
+	works. You can get the 2.0-pre source <a href="http://www.cs.kuleuven.ac.be/~geert/bin">
+	here</a> (comes with documentation).  Also, there is a bug in the 12/30
+	version (which will be fixed in the next version) such that using the -depth or -mode flags requires
+	you add -accel true to the end of the command, e.g. fbset -depth 24 -accel true. Without this your system will crash. This may
+	be required for other fbset commands as well. 
+	<P>
+	The frame buffer can be built as a kernel module by answering `m' instead of `y' to all of the questions which allow it in the frame buffer section of make config. Start the
+	frame buffer after booting using the modprobe command. 
+	<P>
+
+	<FONT SIZE="+1"><B>	
+	Q: Are there any problems with the frame buffer? 
+	</B></FONT><BR> 
+	  A: Yes, it can not boot with the Matrox frame buffer in graphics mode as mentioned above. (If you get it to
+      work, please let me know!) When you change the screen width, problems can occur in programs which only check
+      the width at startup, like bash (the Bourne Again Shell). You can restart bash after changing the screen width
+      using exec bash -login. When ending an X session, you might get a blank screen or a solid block of color;
+      switching the console a few times (alt-F2 or F3) eventually restores things. The Matrox Millennium II frame
+      buffer does not currently seem to work on UX systems.
+
+	<P>
+
+	<FONT SIZE="+1"><B>		
+	Q: Is there a mailing list? 
+	</B></FONT><BR> 
+	A: Yes, there's a general frame buffer list.  To join, send mail to <a href="mailto:Majordmo@vu.union.edu">Majordmo@vu.union.edu</A> with message body "subscribe linux-fbdev". 
+	<P>
+	
+	<FONT SIZE="+1"><B>
+	Q: Which graphics cards are supported? 
+	</B></FONT><BR> 
+	A: Currently the Matrox family of cards (Millennium, Mystique, G100/200) and the Digital TGA cards are supported for Alpha. 
+	<P>
+
+	<FONT SIZE="+1"><B>	
+	Q: How do I change fonts or start in different fonts? 
+	</B></FONT><BR> 
+	A: Use the setkfont package by Petr Vandrovec which you can get <a href="http://www.ctcms.nist.gov/~powell/setkfont.tar.gz">
+	 here</A>. For Matrox with non-8xY fonts though, such as
+	SUN12x22, you need to add ,fastfont:50000 to your boot line video variable (no spaces), or add fastfont=50000 to your
+	insmod matroxfb command, or your system will hang.
+
+	<P>
+
+	<FONT SIZE="+1"><B>	
+	Q: How do I set up Xwindows with the frame buffer device? 
+	</B></FONT><BR> 
+	A: You need to compile your own XFree86 libraries. Compile XF68_FBDev by enabling it in one of the config files (xc/config/cf/*cf). 
+	<P>
+
+	Please send all updates/corrections to <A href="mailto:adam.powell@nist.gov">Adam C. Powell, IV</A>
+	      
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

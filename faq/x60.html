@@ -1,0 +1,221 @@
+<HTML
+><HEAD
+><TITLE
+>Pre-Built Standard MILO Images.</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.57"><LINK
+REL="HOME"
+TITLE="Alpha Miniloader Howto"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="What is MILO? "
+HREF="what-section.html"><LINK
+REL="NEXT"
+TITLE="How To Build MILO "
+HREF="build-section.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Alpha Miniloader Howto</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="what-section.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="build-section.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN60"
+>3. Pre-Built Standard MILO Images.</A
+></H1
+><P
+>If you are planning to run Linux on a standard Alpha based system, then
+there are pre-built "standard" MILO images that you might use.
+The original images (along with the sources and other interesting stuff)
+can be found in 
+<A
+HREF="ftp://gatekeeper.dec.com/pub/Digital/Linux-Alpha/Miniloader"
+TARGET="_top"
+>gatekeeper.dec.com/pub/Digital/Linux-Alpha/Miniloader</A
+>.</P
+><P
+>The <TT
+CLASS="LITERAL"
+>images</TT
+> subdirectory contains a directory per standard system
+(eg AlphaPC64) with MILO images having the following naming convention:</P
+><P
+>&#13;<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+> <TT
+CLASS="LITERAL"
+>MILO</TT
+> - Miniloader executable image, this image can be loaded in a 
+variety of ways,</P
+></LI
+><LI
+><P
+> <TT
+CLASS="LITERAL"
+>fmu.gz</TT
+> - Flash management utility,</P
+></LI
+><LI
+><P
+> <TT
+CLASS="LITERAL"
+>MILO.dd</TT
+> - Boot block floppy disk image.  
+These should be written using rawrite.exe or <TT
+CLASS="LITERAL"
+>dd</TT
+> on Linux.</P
+></LI
+></OL
+>&#13;</P
+><P
+>The <TT
+CLASS="LITERAL"
+>test-images</TT
+>, like the <TT
+CLASS="LITERAL"
+>images</TT
+> subdirectory 
+contains a directory per standard system.   These images are somewhat
+experimental but tend to contain all the latest features.</P
+><P
+>Digital/Compaq is no longer doing any work on MILO itself. However several people have picked up
+where Compaq left off.</P
+><P
+></P
+><UL
+><LI
+><P
+> Stefan Reinauer has done the work to get MILO to build against the 2.2 series of kernels. His
+          work is available from <A
+HREF="http://www.freiburg.linux.de/~stepan/Milo/"
+TARGET="_top"
+>	  http://www.freiburg.linux.de/~stepan/Milo</A
+> and is mirrored by AlphaLinux.Org at
+	  <A
+HREF="ftp://ftp.alphalinux.org/pub/Linux-Alpha/Miniloader/v2.2/"
+TARGET="_top"
+>	  ftp://ftp.alphalinux.org/pub/Linux-Alpha/Miniloader/v2.2</A
+>.
+  </P
+></LI
+><LI
+><P
+> Nikita Schmidt has updated the existing MILO source to provide support for the changes in the ext2
+         filesystem, as well as adding in many other bug fixes and patches. His version are available from
+	 <A
+HREF="ftp://genie.ucd.ie/pub/alpha/milo/"
+TARGET="_top"
+>ftp://genie.ucd.ie/pub/alpha/milo</A
+>.
+  </P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="what-section.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="build-section.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>What is MILO?</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How To Build MILO</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

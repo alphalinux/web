@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->
+     </CENTER></TD>
+   </TR> 
+
+
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPA
+CE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HS
+PACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0
+ HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            <P></B></FONT>
+
+
+              <!-- Subtitle --> 
+	      <FONT SIZE="+1"><B>
+	      <UL>Archives
+	      </FONT></B>
+	       <LI><A HREF="../archives">Archives of</A> Axp-List, Debian-Alpha and the High Performance Alpha list</LI>
+	       <LI>The Compaq Alpha
+		<A HREF="http://ftp.digital.com/pub/Digital/info/semiconductor/literature/dsc-library.html">Documentation Library</A></LI>
+	       <LI>The Compaq Alpha
+		<A HREF="http://ftp.digital.com/pub/Digital/info/semiconductor/literature/archives.html">Documentation Archives</A></LI> 
+
+<LI>The Compaq Alpha <A HREF="http://h18000.www1.hp.com/products/software/alpha-tools/documentation/current/chip-docs.html"> Technical Documentation Library</A></LI>
+	      </UL>
+	      
+	      <FONT SIZE="+1"><B>
+	      <UL>Howto Docs... 
+              </B></FONT><BR> 
+	       <LI><A HREF="../kernel/">Alpha Linux Kernel</A> Support.</LI> 
+	       <LI><A HREF="../faq/FAQ.html">The Alpha Linux</A> FAQ --Updated Feb 28th 1999</LI>
+	       <LI><A HREF="http://www.linux.or.jp/JF/JFdocs/LinuxAlpha-FAQ.html">Alpha Linux FAQ</A> in Japanese</LI>
+	       <LI><A HREF="alpha-howto.html">The Alpha Linux</A> Howto</LI>
+	       <LI><A HREF="../faq/srm.html">The SRM</A> Howto --Updated Dec 5th 1999</LI>
+	       <LI><A HREF="../faq/milo.html">The MILO</A> Howto</LI>
+	       <LI><A HREF="fbcon_faq.shtml">Frame Buffer</A> for Alpha FAQ</LI>
+	       <LI><A HREF="alphaahb.html">Alpha Architecture Handbook</A></LI>
+	      </UL>
+
+		<FONT SIZE="+1"><B>
+		<UL>RedHat Docs...
+		</B></FONT><BR>
+		<LI><A HREF="redhat6.0-probs.shtml">RedHat 6.0</A> Known problems and errata</LI>
+		<LI><A HREF="redhat-probs.shtml">RedHat 5.2</A> Known problems and errata</LI>
+		<LI><A HREF="alpha-notes/alpha-patches-n-bugfixes.html">RedHat 4.2</A> Notes and fixes from Harvey J. Stein</LI>
+		</UL>
+
+		<FONT SIZE="+1"><B>
+		<UL>Debian Docs...
+		</B></FONT><BR>
+		<LI><A HREF="http://www.debian.org/releases/slink/alpha/release-notes/index">Release notes</A> for slink (2.1)</LI>
+		<LI><A HREF="http://www.debian.org/releases/slink/alpha/install">Install directions</A> for slink (2.1)</LI>
+		<LI><A HREF="http://www.bard.org.il/~marc/html/nano-HOWTO.html/index.html">Debian Alpha</A> nano-Howto</LI>
+		</UL>
+
+		<FONT SIZE="+1"><B>
+		<UL>Suse Docs...
+		</B></FONT><BR>
+		<LI><A HREF="http://www.suse.com/">www.suse.com</A></LI>
+		</UL>
+
+	      <FONT SIZE="+1"><B>
+	      <UL>Machine Specific Information and some Install Directions
+	      </B></FONT><BR> 
+	       <LI><A HREF="http://www.phys.ufl.edu/~prescott/linux_dec3000/">DEC 3000</A> TurboChannel based machines</LI>
+	       <LI><A HREF="udb-multia.shtml">UDB-Multia</A></LI>
+	       <LI><A HREF="as200.shtml">AS200</A>, Mustang, Avanti</LI>
+	       <LI><A HREF="jensen.shtml">Jensen </A></LI>
+	       <LI><A HREF="AXPpci33.shtml">AXPpci33</A></LI>
+	       <LI>Alphabook1 -The only Alpha laptop</LI>
+	       <LI><A HREF="XL.shtml">XL</A></LI>
+	       <LI>Mikasa, Noritake</LI>
+	       <LI>Cabriolet</LI>
+	       <LI>Alcor, Bret</LI>
+	       <LI><A HREF="rawhide/">Rawhide</A> (AS4000, AS4100, AS1200)</LI>
+	       <LI><A HREF="miata.shtml">Miata</A></LI>
+	       <LI><A HREF="164SX.shtml">AlphaPC 164SX</A></LI>
+	       <LI><A HREF="164LX.shtml">AlphaPC 164LX</A></LI>
+	       <LI><A HREF="ruffian/">AlphaPC 164UX</A> -Ruffian</LI>
+	       <LI><A HREF="goldrush/">DP264</A> (DS20, DS20E, DP264, DS10, XP1000, XP900, UP2000[+], ES40)</LI>
+	       <LI><A HREF="up1000/">UP1000,UP1100 and UP1500</A></LI>
+	       <LI>ES45</li>
+	       <LI>Takara</LI>
+	       <LI>Eiger</LI>
+
+	      </UL>
+
+	      <FONT SIZE="+1"><B>
+	      <UL>Other Information
+	      </B></FONT><BR>
+	       <LI><A HREF="frontpage_on_alphalinux.shtml">FrontPage</A> on AlphaLinux</LI>
+	       <LI><A HREF="netscape_du.shtml">Running Tru64 Netscape</A> on AlphaLinux</LI> 
+	       <LI><A HREF="acrobat_du.shtml">Running Tru64 Adobe Acrobat</A> on AlphaLinux</LI>
+	       <LI><A HREF="netscape_em86.shtml">Running i386 Netscape</A> on AlphaLinux</LI> 
+	       <LI><A HREF="acrobat_em86.shtml">Running i386 Adobe Acrobat</A> on AlphaLinux</LI>
+	       <LI><A HREF="high_perf.shtml">High Performance</A> tips and info for AlphaLinux</LI>
+	       <LI><A HREF="bootable_cd.shtml">Making a CD-ROM</A> bootable from SRM console</LI>
+	       <LI><A HREF="ftp://ftp.netbsd.org/pub/NetBSD/misc/dec-docs/index.html">Documentation</A> for writing 
+	       device drivers (including TGA)</LI>
+	      </UL>
+
+	     
+	       
+	      <P><FONT SIZE=3>Once you have got Linux installed it's a good idea to compile your own kernel. 
+	      I've written <A HREF="kernel.shtml"> some directions</A> on how to do this on the Alpha. It's a little different than on 
+	      x86 machines but the idea is the same.</P>
+        
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,50 @@
+Q. When I try to run one of the Iprobe programs, I see
+"couldn't open the counter device: Operation not supported by device"
+What's going on? 
+
+A. Before using the suite, you must insert the iprobe module.  Use the
+following command: 
+
+/sbin/insmod -f iprobe_suite-4.0-driver.o
+
+This will insert the driver into the kernel.
+
+Q. Why I try to insert the driver, I see:
+
+linux_iprobe_driver.o: kernel-module version mismatch
+        linux_iprobe_driver.o was compiled for kernel version 2.2.0-pre4
+        while this kernel is version 2.1.124.   
+
+A. In order to insert the binary driver into kernels different than the
+one that it was compiled for, you must use the -f option when
+insmoding it.  The kernel may whine, but the interface will stay the
+same, so different versions are not a problem.  
+
+Alternately, you could get the source and recompile it against the
+kenrel that you currently have running. 
+
+/sbin/insmod -f iprobe_suite-4.0-driver.o
+
+Q. I am trying to run iprobe against a kernel version < 2.1.132, and I
+see something like 
+"linux_iprobe_driver.o: get_kernel_syms: Function not implemented"
+
+A. You must have a kernel verion> 2.1.132.  Before this handlers for 
+performance counter interrupts could NOT be installed. 
+
+Q. When I try to run iprobe I get "illegal instruction".
+
+A. This is because you are using MILO and the freeware PAL code.  If you
+can, try booting through the Digital SRM.  This is a know problem, and
+is being worked on by the MILO guru, Jay Estabrook. 
+
+Q. I have questions that you haven't answered, what do I do?
+
+A. First, Read the documenation.  It is either in /doc/ in the
+tar file or in /usr/doc/iprobe_suite-X.X if you installed via rpm. 
+(The TUTORIAL is a great way to get started. ) 
+
+If that still doesn't answer your questions, send a message to 
+ezolt@perf.zko.dec.com or Phillip.Ezolt@compaq.com. 
+
+

@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation Tru64 Acrobat on AlphaLinux</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+    <TR> 
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD>
+        <CENTER>
+		 <!--#exec cgi="/cgi-bin/banmat1.cgi"-->    
+        </CENTER>
+      </TD>
+    </TR>
+    <TR> 
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+    </TR>
+    <TR> 
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+    </TR>
+    <TR VALIGN="top"> 
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33"> &nbsp;<BR>
+        <IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"> 
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+          <TR> 
+            <TD WIDTH=10></TD>
+            <TD WIDTH="552"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B> 
+              <!-- Document title goes here. If this is the top-level --> <!-- document in the hierarchy, i.e. /docs/index.html,  --> 
+              <!-- the document title is omitted. --> Running Tru64 (DU) Acrobat Under AlphaLinux </B></FONT>
+              <P> <!-- Actual document --> The Document describes how to setup 
+                <A HREF="http://www.adobe.com">Adobe Acrobat</A> for <A HREF="http://www.compaq.com">Compaq</A> 
+                <A HREF="http://www.unix.digital.com">Tru64Unix</A> under AlphaLinux. 
+                Please note that you must have a legal license of Tru64Unix in 
+                order to do this. 
+            
+        
+<P>
+	1. Requirements.
+
+<P>	Get the following files and libraries from Digital Unix 4.x  and copy them into your system
+according to this tree:
+
+<P>	/etc<BR>
+&nbsp	svc.conf
+
+<P>	/etc/sia<BR>
+	&nbsp	siainitgood
+	&nbsp	matrix.conf
+
+<P>	/sbin<BR>
+&nbsp		loader
+
+<P>	/usr/shlib<BR>
+&nbsp		libICE.so<BR>
+&nbsp		libSM.so<BR>
+&nbsp		libX11.so<BR>
+&nbsp		libXext.so	<BR>
+&nbsp		libXm.so<BR>
+&nbsp		libXmu.so<BR>
+&nbsp		libXt.so<BR>
+&nbsp		libc.so<BR>
+&nbsp		libdnet_stub.so<BR>
+&nbsp		libm.so<BR>
+&nbsp		libcxx.so<BR>
+&nbsp		libexc.so<BR>
+&nbsp		libots.so<BR>
+
+<P>	Add '/usr/shlib' to your /etc/ld.so.conf and run 'ldconfig -v'
+
+<P>	Get Digital Unix Adobe Acrobat Reader 4 (dec-rs-40.tgz, 7.6 MB) from 
+<A HREF="http://www.adobe.com/prodindex/acrobat/readstep.html">http://www.adobe.com</A>
+
+<P>	2.  How-to.
+
+<P>	Untar the file:<BR> 
+	tar -zxvf dec-rs-40.tgz
+	
+<P>	Change to the untarred directory:<BR>
+	cd /AOSFRS.install
+	
+<P>	Run the installation script:<BR>
+	./INSTALL
+
+<P>	Despite the message 'WARNING: The chosen configuration will not run on your current
+platform... Continue installation? [n]', type 'yes'
+	
+<P>	Type "accept" to agree with the terms and conditions of the license <BR>
+	Accept also the defaut installation directory '/usr/local/Acrobat4'<BR>
+	Move the Acrobat 4 libraries files to /usr/shlib:
+<P>
+	mv /usr/local/Acrobat4/Reader/alphaosf/lib/libAGM.so.3.0 /usr/shlib<BR>
+	mv /usr/local/Acrobat4/Reader/alphaosf/lib/libCoolType.so.1.0 /usr/shlib<BR>
+	mv /usr/local/Acrobat4/Reader/alphaosf/lib/libICC.so.1.0 /usr/shlib<BR>
+	mv /usr/local/Acrobat4/Reader/alphaosf/lib/libreadcore.so.4.0 /usr/shlib<BR>
+ 	ln -s /usr/shlib/libc.so /usr/shlib/libpthreads.so
+<P>	
+	Run, once more, 'ldconfig -v'
+
+<P>	Make Acrobat think it's running on the correct system:<BR>
+	mv /usr/local/Acrobat4/Reader/alphaosf /usr/local/Acrobat4/Reader/intellinux
+
+<P>	Link the startup script to an excecutable path file:<BR>
+	ln -s  /usr/local/Acrobat4/bin/acroread /usr/local/bin/acroread
+
+<P>	Finally, run 'acroread'. That's all.
+
+<P>	(Contributed by Juan Diego Blanco, jdblanco@infotelecom.es;
+	tested on one 533 MHz Alpha LX164, Linux Version 2.3.0)
+
+              </FONT>
+              <p><FONT FACE="Arial, Helvetica, sans-serif"><!-- End of actual document --></FONT></p>
+             
+            </TD>
+          </TR>
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

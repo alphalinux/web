@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - About</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+   <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_about.gif" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="About this site">
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B>
+	    So just what is it we all do around here?</FONT></B><P>
+
+	    Below is a list of projects and the people working on them, as well as some
+	    unclaimed projects. If you'd like to help with a project email the maintainer. If
+	    you have a project to suggest or would like to work on one below, please email
+	    the <A HREF="mailto:webmaster@alphalinux.org">webmaster</A>. Peter has also
+	    setup <A HREF="http://voodoo.alphalinux.org/about/mylist.shtml">his own</A> task
+	    list with his current projects.
+	  
+
+	      <!-- Actual document -->
+	      <TABLE BORDER=0 CELLPADDING=10>
+	       <TR>
+	        <TD><B><U><FONT SIZE="+2">Task/Responsibility</U></B></FONT></TD>
+		<TD><B><U><FONT SIZE="+2">Who Does It</FONT></U></B></TD>
+	       </TR>
+
+	       <TR>
+	        <TD>Web page updates</TD>
+		<TD><A HREF="mailto:admin@alphalinux.org">All</A></TD>
+		</TR>
+
+		<TR>
+		<TD>FTP Admin</TD>
+		<TD><A HREF="mailto:ppetrakis@alphalinux.org">Peter</A></TD>
+		</TR>
+
+		<TR>
+		<TD>Banner Sales, Advertising</TD>
+		<TD><A HREF="mailto:rpayne@alphalinux.org">Rich</A></TD>
+		</TR>
+
+		<TR>
+		<TD>Donations, Proposals</TD>
+		<TD><A HREF="mailto:blyon@alphalinux.org">Barrett</A>, <A HREF="mailto:rpayne@alphalinux.org">Rich</A></TD>
+		</TR>
+
+		
+		<TR>
+		<TD>Make archives searchable (HTdig?)</TD>
+		<TD><A HREF="mailto:ppetrakis@alphalinux.org">Peter</A>, others?</TD>
+		</TR>
+
+		<TR>
+		<TD>Go through the main FAQ and REALLY clean it up</TD>
+		<TD><A HREF=""mailto:ppetrakis@alphalinux.org">Peter</A>, <A HREF="mailto:rpayne@alphalinux.org">Rich</A>, others ?</TD>
+		</TR>
+
+		<TR>
+		<TD>Revise SRM FAQ</TD>
+		<TD><A HREF="mailto:rpayne@alphalinux.org">Rich</A></TD>
+		</TR>
+		
+		<TR>
+		<TD>System Admin and Maintenance</TD>
+		<TD><A HREF="mailto:blyon@alphalinux.org">Barrett</A></TD>
+		</TR>
+
+		<TR>
+		<TD>Catalog of FTP archive</TD>
+		<TD><A HREF="mailto:dfrasnel@alphalinux.org">Dan</TD>
+		</TR>
+		
+		<TR>
+		<TD>Setup Database of known Alpha issues and solutions</TD>
+		<TD><A HREF="mailto:blyon@alphalinux.org">Barrett</A></TD>
+		</TR>
+		
+		<TR>
+		<TD><B><U><FONT SIZE="+2">Unassigned Projects</FONT></U></B></TD>
+		<TD></TD>
+		</TR>
+		
+		<TR>
+		<TD>Hardware Compatibility Database</TD?
+		<TD></TD>
+		<TR>
+
+		<TR>
+		<TD>Rebuild .rpms as .debs for Debian users</TD>
+		<TD></TD>
+		</TR>
+		
+		<TR>
+		<TD>Classified section to buy/sell equipment</TD>
+		<TD></TD>
+		</TR>
+		</TABLE>
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,463 @@
+%PDF-1.3%âãÏÓ
+1 0 obj<< /Type /Catalog /Pages 2 0 R /StructTreeRoot 4 0 R /Names 13 0 R /SpiderInfo 61 0 R /Outlines 73 0 R /PageMode /UseOutlines >> endobj2 0 obj<< /Type /Pages /Kids [ 181 0 R 180 0 R 226 0 R 285 0 R ] /Count 21 >> endobj3 0 obj<< /ModDate (D:20000630065821-07'00')/CreationDate (D:20000630065812)/Producer (http://createpdf.adobe.com V3.0)/Title (SRM Firmware Howto)>> endobj4 0 obj<< /Type /StructTreeRoot /ParentTreeNextKey 21 /ParentTree 9 0 R /K [ 5 0 R 76 0 R 96 0 R 133 0 R 154 0 R 224 0 R 255 0 R 283 0 R ] >> endobj5 0 obj<< /S /Article /C /SpdrArt /P 4 0 R /T (SRM Firmware Howto)/Pg 6 0 R /K [ 0 << /Type /MCR /Pg 37 0 R /MCID 0 >> ] >> endobj6 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 181 0 R /Annots 8 0 R /StructParents 0 /Contents 56 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F4 54 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 67 0 R >> endobj7 0 obj<< /Subtype /Link /Rect [ 10 755.00391 37.21558 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 77 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-1.html)>> >> endobj8 0 obj[ 7 0 R 11 0 R 12 0 R 16 0 R 17 0 R 18 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R 26 0 R 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R 35 0 R 36 0 R ]endobj9 0 obj<< /Nums [ 0 10 0 R 1 39 0 R 2 80 0 R 3 100 0 R 4 109 0 R 5 116 0 R 6 137 0 R 7 158 0 R 8 167 0 R 9 175 0 R 10 182 0 R 11 186 0 R 12 188 0 R 13 192 0 R 14 195 0 R 15 229 0 R 16 235 0 R 17 238 0 R 18 259 0 R 19 267 0 R 20 288 0 R ] >> endobj10 0 obj[ 5 0 R ]endobj11 0 obj<< /Subtype /Link /Rect [ 10 649.00391 139.38306 674 ] /A << /S /URI /URI (mailto:rdp@alphalinux.org)>> /Border [ 0 0 0 ] >> endobj12 0 obj<< /Subtype /Link /Rect [ 202.07068 649.00391 456.78027 674 ] /A << /S /URI /URI (mailto:dhuggins@linuxcare.com)>> /Border [ 0 0 0 ] >> endobj13 0 obj<< /Dests 14 0 R /IDS 71 0 R /URLS 72 0 R >> endobj14 0 obj<< /Names [ (\f\237\211\2329o\217\265\013\316d\212\326"\331\336Building Linux)173 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336Network Booting)189 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336aboot)161 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336booting)176 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336device naming)178 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336s4)162 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.1)163 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.2)166 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.3)168 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.4)171 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.5)174 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.6)177 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.7)190 0 R (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.8)193 0 R (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc1)15 0 R (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc2)19 0 R (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc3)25 0 R (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc4)27 0 R (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc5)38 0 R (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc6)44 0 R (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc7)49 0 R (%0\273\2725\365\242\016\331\031F\241\263O\375\374s7)290 0 R (&+\323\275\242\244\001^\257\331\254>\233\203\371~s5)232 0 R (&+\323\275\242\244\001^\257\331\254>\233\203\371~ss5.1)233 0 R (&+\323\275\242\244\001^\257\331\254>\233\203\371~ss5.2)236 0 R (=\225;\246\265\334\006\3258\216\223h\361\335\211\224s1)82 0 R (=\225;\246\265\334\006\3258\216\223h\361\335\211\224ss1.1)83 0 R (=\225;\246\265\334\006\3258\216\223h\361\335\211\224ss1.2)85 0 R (p\357\263\212\233\035\306\232\270\240x3Q\253\310>s3)140 0 R (\206\\\007\234\260[\346qZ\270\307\367\2143o=;how-srm-boots)112 0 R (\206\\\007\234\260[\346qZ\270\307\367\2143o=;s2)103 0 R (\206\\\007\234\260[\346qZ\270\307\367\2143o=;ss2.1)104 0 R (\206\\\007\234\260[\346qZ\270\307\367\2143o=;ss2.2)107 0 R (\206\\\007\234\260[\346qZ\270\307\367\2143o=;ss2.3)113 0 R (\206\\\007\234\260[\346qZ\270\307\367\2143o=;ss2.4)115 0 R (\363\214f{\021\344\253f\034{v\360{\347\025ys6)262 0 R (\363\214f{\021\344\253f\034{v\360{\347\025yss6.1)263 0 R (\363\214f{\021\344\253f\034{v\360{\347\025yss6.2)265 0 R (\363\214f{\021\344\253f\034{v\360{\347\025yss6.3)268 0 R ] >> endobj15 0 obj[ 6 0 R /XYZ 0 538 null ]endobj16 0 obj<< /Subtype /Link /Rect [ 36.68799 513.00391 246.03796 538 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 77 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-1.html)>> >> endobj17 0 obj<< /Subtype /Link /Rect [ 46 479.00391 231.09262 494 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (=\225;\246\265\334\006\3258\216\223h\361\335\211\224ss1.1)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-1.html#ss1.1)>> >> endobj18 0 obj<< /Subtype /Link /Rect [ 46 457.00391 137.78357 472 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (=\225;\246\265\334\006\3258\216\223h\361\335\211\224ss1.2)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-1.html#ss1.2)>> >> endobj19 0 obj[ 6 0 R /XYZ 0 438 null ]endobj20 0 obj<< /Subtype /Link /Rect [ 36.68799 413.00391 196.69434 438 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 97 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html)>> >> endobj21 0 obj<< /Subtype /Link /Rect [ 46 379.00391 156.45935 394 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\206\\\007\234\260[\346qZ\270\307\367\2143o=;ss2.1)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html#ss2.1)>> >> endobj22 0 obj<< /Subtype /Link /Rect [ 46 357.00391 200.39072 372 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\206\\\007\234\260[\346qZ\270\307\367\2143o=;ss2.2)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html#ss2.2)>> >> endobj23 0 obj<< /Subtype /Link /Rect [ 46 335.00391 234.60608 350 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\206\\\007\234\260[\346qZ\270\307\367\2143o=;ss2.3)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html#ss2.3)>> >> endobj24 0 obj<< /Subtype /Link /Rect [ 46 313.00391 302.61746 328 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\206\\\007\234\260[\346qZ\270\307\367\2143o=;ss2.4)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html#ss2.4)>> >> endobj25 0 obj[ 6 0 R /XYZ 0 294 null ]endobj26 0 obj<< /Subtype /Link /Rect [ 36.68799 269.00391 222.0625 294 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 134 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-3.html)>> >> endobj27 0 obj[ 6 0 R /XYZ 0 250 null ]endobj28 0 obj<< /Subtype /Link /Rect [ 36.68799 225.00391 238.04614 250 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 155 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html)>> >> endobj29 0 obj<< /Subtype /Link /Rect [ 46 191.00391 219.83704 206 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.1)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#ss4.1)>> >> endobj30 0 obj<< /Subtype /Link /Rect [ 46 169.00391 173.17535 184 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.2)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#ss4.2)>> >> endobj31 0 obj<< /Subtype /Link /Rect [ 46 147.00391 184.82272 162 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.3)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#ss4.3)>> >> endobj32 0 obj<< /Subtype /Link /Rect [ 46 125.00391 189.4985 140 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.4)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#ss4.4)>> >> endobj33 0 obj<< /Subtype /Link /Rect [ 46 103.00391 215.16083 118 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.5)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#ss4.5)>> >> endobj34 0 obj<< /Subtype /Link /Rect [ 46 81.00391 149.06778 96 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.6)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#ss4.6)>> >> endobj35 0 obj<< /Subtype /Link /Rect [ 46 59.00391 216.70041 74 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.7)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#ss4.7)>> >> endobj36 0 obj<< /Subtype /Link /Rect [ 46 37.00391 168.51324 52 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336ss4.8)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#ss4.8)>> >> endobj37 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 181 0 R /StructParents 1 /Annots 41 0 R /Contents 59 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R /F4 54 0 R >> /ProcSet [ /PDF /Text ] >> /ID 67 0 R >> endobj38 0 obj[ 37 0 R /XYZ 0 770 null ]endobj39 0 obj[ 5 0 R ]endobj40 0 obj<< /Subtype /Link /Rect [ 36.68799 745.00391 378.08447 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 225 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-5.html)>> >> endobj41 0 obj[ 40 0 R 42 0 R 43 0 R 45 0 R 46 0 R 47 0 R 48 0 R 50 0 R 51 0 R ]endobj42 0 obj<< /Subtype /Link /Rect [ 46 711.00391 180.56735 726 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (&+\323\275\242\244\001^\257\331\254>\233\203\371~ss5.1)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-5.html#ss5.1)>> >> endobj43 0 obj<< /Subtype /Link /Rect [ 46 688.93359 165.39093 704 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (&+\323\275\242\244\001^\257\331\254>\233\203\371~ss5.2)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-5.html#ss5.2)>> >> endobj44 0 obj[ 37 0 R /XYZ 0 669.93359 null ]endobj45 0 obj<< /Subtype /Link /Rect [ 36.68799 644.9375 347.38904 669.93359 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 256 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-6.html)>> >> endobj46 0 obj<< /Subtype /Link /Rect [ 46 610.9375 175.48505 625.93359 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\363\214f{\021\344\253f\034{v\360{\347\025yss6.1)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-6.html#ss6.1)>> >> endobj47 0 obj<< /Subtype /Link /Rect [ 46 588.9375 119.12189 603.93359 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\363\214f{\021\344\253f\034{v\360{\347\025yss6.2)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-6.html#ss6.2)>> >> endobj48 0 obj<< /Subtype /Link /Rect [ 46 566.9375 119.12189 581.93359 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\363\214f{\021\344\253f\034{v\360{\347\025yss6.3)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-6.html#ss6.3)>> >> endobj49 0 obj[ 37 0 R /XYZ 0 547.93359 null ]endobj50 0 obj<< /Subtype /Link /Rect [ 36.68799 522.9375 243.37378 547.93359 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 284 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-7.html)>> >> endobj51 0 obj<< /Subtype /Link /Rect [ 10 480.9375 37.21558 495.93359 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 77 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-1.html)>> >> endobj52 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman /Encoding /WinAnsiEncoding >> endobj53 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >> endobj54 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /ZapfDingbats >> endobj55 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Times-Italic /Encoding /WinAnsiEncoding >> endobj56 0 obj<< /Filter /FlateDecode /Length 57 0 R >> stream
+H‰¤WÛrÓHýýC?ÂQæ.©Š‚"6v1a³<löAX"‘5A’ãäï·G’5#¯íØKª"·[3Ýgúôe|ú¦¬³Yž¾|y:}W¯àl<ò~z” W #P¦Þ×ß ð.¡pù…ˆ¯¢(„àÚ	¾øÿ¿ÃßÿHÀ;½Ló¸ÎîÓ‘Îu™-ÒºÌfPfÆp Ÿ…”ÃÂã(Q©¬*÷®¼³iç¨¼ñNÏ)
+Óïø}:3•y”àQÍ"ÅÈçAÁtá=û”>ÔÏ§?ÄØ ~$Ìêiâ=ƒÏezŸée#]ÔiQWfé[ôˆ$¸O³M‹ q6B„èa½DQ
+Q¢ÿæÞw46¦ì®·/:)0»ÈZXo·¦­dLv!]`X·Jü0¦ñŠ[L(®.'pž•‹U\¦ð^¯jÝ–ù„*¤Î8WƒÇ3Çä(†œZáƒ\À])¤òƒðáJ—9ÖÄ‚””S< Au™Íæð9~,ÒM¸"¢M/ .X¿níù
+OÜ¾Ç÷Yï—77YQŒã¬H«­>m†y¢¨“'÷˜À>}&q‰ˆ!ä‰dQÔ&ƒá¥M†µ„1#¤%qCØ›fc›Æv¾vâl·¦­´%‚mç•¡´çÎ³
+=[.0í!I«Y™}K+˜ëÔ¾i]ÃÇ¬X>œ¾Éïæ1,«¬¸zž‚I£™.*§/`uíÍhÌ¼ëôð½K³–†êSÁÐïØ{ç•FciÒ{éÅ]üËx©|)²¸nWÝzU@\Á8»Éê8o_šT¸¸:¿öNéõóöÛ]Zü5¹òŸ¢KvtIµ¦k-Q”:–6„½t™í]rM—ŒÜíÖ´•ŒI®|† )_—Ê'ÜQ9´Yâƒb’MwÅDýa™`àû2yóM/kd	©ZÄÅ2ÎûxuÛ
+DH×Ý˜qê“ˆ9ºÒ¶rj¶r›^è¾Î5Ts½Ìq²éÚ9™èìáIð¯Ñw"Ç€s.‡Æs èÀ¿Øî;È'HrG·s‚l`WÔÅÎÌ<¸ÇÂÈ0ŸÇês°öm¶c_Xöi„ªHp«³±ÞÊºpYg{Xÿ:kSXµ¯·Î-á8z}œ°ºý„s—†„¿KëºéÚ¸;:n|7ÇÜrŒGÎ~$ÇÜ¥…!Ç_¶µ´ãQï`Ûxä-&á+‚ý¢×ŠšG.jn7ŒuÚ0
+g¦Æ6Ä×Çw-o §²¿“3j±çõºCÓÀ.à£Žð©	xŠáNâò±9AU—ñ]ó>-?†ëgOµ1Õ_WÃ—ŠI«{¢ÚXà\Xøžj3g»ŒWÎYÉ “= úÛ„Õmvû¡{N­{ñ„û¸Ý.€AÁÓˆ÷I‰M$äUí¯w9÷áÔ»ÂgË,oèmüÍâÀö0i`;TÀ}ÌEau&£Ùè@gpžë»»GøPTx±0¿Mtq<æ`g¿¢ÂÎ¤Pø!cÕŠYR3V~\&IVÝþ"j¹³_QXÔ‘/¢PZÝ¡¨Yä¢0Ÿ\^L~3ÛÙª(‘6¥O	­îPÌ$p1K›Ìf84·`ø#-‹ôø{ËÀôyØ×¡É¢‚°Wˆ;Ô£jz©AÝ >j¸³•½Rü¡GˆèU"Uƒòz¤÷iÙùSZ¯ty{4hµûÊ`+P…>^«Y¯:ôR8¨¿¤–ufò× c!þ«áöÚ{;y‚÷¯  À\å©endstreamendobj57 0 obj1320 endobj58 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >> endobj59 0 obj<< /Filter /FlateDecode /Length 60 0 R >> stream
+H‰œTÛNÛ@ý‚ý‡y¤}Xö~‘RIÒB%*JRñPõÁ$†˜:¶ê8@ÿ¾³Î:¶S”B#e×3Þ9sfæ¬?Tu6ÏÓ““ãËÑÅœžÂÙxD~Î@Ð^€•
+ª”Ü¼‡‚0<Âáú>d (ãž ^¢ÿÿŸáû Ç×ižÔÙc:*ó²ÊVi]es¨2"5ÎUšJ¡¬ˆ´Ž2§tçËÉ”œÍšdª{rü‘L;»Cs6ËSX* B5gpCVs*-Çƒ+r¤)¼›=DÂˆÁ)GŒZ£é2©²âgëŸp“ÕKOFð­ÈžCÐsSã½Ãâˆ2`¹¤Âq‰d¹cT«:_$‹·	ßrÂ­	Åš¬ó‘‡«[^geÔËH¡e«UÉS‰¿Æ%£NJ=„Í ÒÆŒÆs*8ó¬TzÞó²Œb‹±°Þ[œ¤f.DÄõxpçëÍ‚ÇY¼T§ñÆœ‰u
+¸(Öu’ç¡ÊÀÃXŒÓT'‘Ü–eýæêÉzÕ·‚lEfPPBÛP˜T–Jì×ÎÕ-Jk¨%´Ä”mR˜ZŠu&a¤PÞE¡Ôo7Á^¿$&„ÃUÓm«©rºsÖ’	CçBGNxÓÅyRƒ¡’b;{+û˜C!éF4[¢ÜS.¸ï|¯”…“ê(˜n¦“ÿ":@Ú#jüßD[ßk‰ZÞ'*[¢òíDûHÄ©ñúEq
+…µYÙóýCZøNö€:Çå|³J‹ÎQ–eõ{'Hi5ô×Ç@yG½Äïþ*Xš±­•ÃÄÐäxÖ·&?`-É¦sM¢nÅtÈUcîÒç2û{Ù÷ÌmÂöÂ·»pÒâ“6ë5êh z·äKú<üdqê•Š‡«*}ÌÊÍFeQcçÛoÀärD¾ù#À É-šÿendstreamendobj60 0 obj689 endobj61 0 obj<< /V 1 /C 65 0 R >> endobj62 0 obj<< /URL (http://www.alphalinux.org/faq/srm.html)/L 2 /F 3 /S 63 0 R >> endobj63 0 obj<< /G 64 0 R >> endobj64 0 obj<< /CB 0 /AH 1 /PO 0 /S 0 /AL 0 /AT 70 /AS 1 /SU 1 /PS [ 792 612 ] /M [ 10.08 10.08 21.60001 36 ] >> endobj65 0 obj[ 62 0 R ]endobj66 0 obj(http://www.alphalinux.org/faq/srm.html)endobj67 0 obj(\021\007*\023\273\340\342\341\317\275a0]}\254\244)endobj68 0 obj<< /S /SPS /ID 67 0 R /TID 70 0 R /T (SRM Firmware Howto)/CT (text/html)/TS (D:20000630135814)/O [ 6 0 R 37 0 R ] /SI 69 0 R >> endobj69 0 obj<< /AU 66 0 R /TS (D:20000630135814)>> endobj70 0 obj(\350\312\325\031\261\273\364yO\337D\377\(a8\t)endobj71 0 obj<< /Names [ 219 0 R 220 0 R 67 0 R 68 0 R 296 0 R 297 0 R 250 0 R 251 0 R 91 0 R 92 0 R 149 0 R 150 0 R 128 0 R 129 0 R 278 0 R 279 0 R ] >> endobj72 0 obj<< /Names [ 90 0 R 92 0 R 127 0 R 129 0 R 148 0 R 150 0 R 218 0 R 220 0 R 249 0 R 251 0 R 277 0 R 279 0 R 295 0 R 297 0 R 66 0 R 68 0 R ] >> endobj73 0 obj<< /Count 9 /Type /Outlines /First 74 0 R /Last 74 0 R >> endobj74 0 obj<< /Title (alphalinux.org)/Parent 73 0 R /First 75 0 R /Last 300 0 R /Count 8 >> endobj75 0 obj<< /Title (SRM Firmware Howto)/Dest [ 6 0 R /XYZ 0 792 null ] /SE 5 0 R /Parent 74 0 R /Next 95 0 R >> endobj76 0 obj<< /S /Article /C /SpdrArt /P 4 0 R /T (SRM Firmware Howto: About this manual)/Pg 77 0 R /K 0 >> endobj77 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 181 0 R /Annots 79 0 R /StructParents 2 /Contents 88 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R >> /ProcSet [ /PDF /Text ] >> /ID 91 0 R >> endobj78 0 obj<< /Subtype /Link /Rect [ 10 755.00391 37.21558 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 97 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html)>> >> endobj79 0 obj[ 78 0 R 81 0 R 84 0 R 86 0 R 87 0 R ]endobj80 0 obj[ 76 0 R ]endobj81 0 obj<< /Subtype /Link /Rect [ 93.21515 755.00391 142.99872 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc1)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc1)>> >> endobj82 0 obj[ 77 0 R /XYZ 0 726 null ]endobj83 0 obj[ 77 0 R /XYZ 0 684 null ]endobj84 0 obj<< /Subtype /Link /Rect [ 10 447.00391 239.0665 462 ] /A << /S /URI /URI (http://www.alphalinux.org/faq/milo.html)>> /Border [ 0 0 0 ] >> endobj85 0 obj[ 77 0 R /XYZ 0 428 null ]endobj86 0 obj<< /Subtype /Link /Rect [ 10 104.9375 37.21558 119.93359 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 97 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html)>> >> endobj87 0 obj<< /Subtype /Link /Rect [ 93.21515 104.9375 142.99872 119.93359 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc1)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc1)>> >> endobj88 0 obj<< /Filter /FlateDecode /Length 89 0 R >> stream
+H‰¬VínÛ6}½ÃE;ÀíàÈú²lm€|´[‡¦íÁ0-Ñ[ItIÙŠûô»—’,ËN“ýØ¤uyîá¹‡W©RÄýztuñþ8=…óËë›å:à‡0Ž<˜ø(nÝþ…å`ˆ×¿à@€c‡Q4…
+0ö
+_|Áßoð×ß$`®yÆJ±á2“Jä¼T"%x2žØÞÔõ!·|¹ã°û+³n¬È§?Ýý87ðlL6éžÏFêÎ½sq0[â|Ó£¢‡\
+&( “:²ýÉ4‚Yn½øÈïË—³/Ã!×ŽŠž%Öø¬øFÈµ†6Ä¤i__È¢äE©éå[¤¨cØæ&ÄžRo7ÂýS¹GƒÔZ"àÔ@uOl—çÍhB«œvÐ.ï »A6j9Z^-—åÕúxµ>ÎÙ#éãÚp¶ëÊThÈY±fY-Æ‰k#£Ù%Å¸p›JÐ©\g	…%‡á»ÊôKúnWŠ?åúG –°Å×Lq….Y–‰â>ˆb}² ¯à,[¥ôÜÚê’ç¸ž•³²-,¤,a©d¾c~Šÿ2åps}±,´Ìø¤z2!¢f	WmN“qnu9×šÃîqbV$P	B)Í
+Æ¡¡ŠÙU“¯!€GIöe:ž¸åœÇ¬]ŠQV³ãŠmwh;â¹DÖE¶YÌ­H”°Rr#nÐŽyãÛîH
+uáÅF(Yäx`‰êýQˆ{Jƒ“L|å{ÁMV˜¿˜[z§ÀtÍoþrH¹Å²*ËS$<1{“K³·^]ê}U)Çm˜ÈØ"ãHv#±aCÒmÂ•âKä‡Ñm-HÆ³ë‹!=nÎßº1¶0ø4«‹:·È.í&Ï¤lÃóÏYœŠ‚ªTàš¦bhÇvØÂ´ÆHÐÿ'¦ˆ•(S¸s«Hd¥áãÌüC‡Sã€ÀïŽ³6æÓû®6S¦’Šüm<ÛÐÐëÕJª^l‰žŸ
+’Bs4w³„ªùe”Û•ˆÑ›ÛãÄ$âÕûŸú´áòÈ¥9W¨Dn\=£?…’îfÙ¯²*%ZsnµÒìŽ/6[lAµŸÏl'ÇÝ‡Ÿ†^Û	Æ{m'-ËÕ«Ñ¨ª*›Qu3CSª»Ñ’}å"“vZæYÿ#Ú~èFÍwÀn:ÜƒÝ4p¢ýnê~56xNp×ú‘ÎˆŸŽâ,Ur}—´á!T¼®Bë×¥Ì2YÑˆ»$ÆotrX1·mÊÁñÄ–\Õe¦•ˆ ^=pNºîÕ@ €I‰Ø««¢6%AÄh(#ªÐx¡0Þœžž¨—Ì­|UÁ4ÚIåÙ˜& |7’h¶|•—Ä\krÊ±ç4ç0øì8M?ÆÛ+©µX`ßÓ;16$¥ Xç®ŽÝ™ðv’
+»F}»¤Í¹Të¢Àˆ¶¼NS'"êa`€p‹µ½“Ã7Kµî¾ã$ƒg
+ß½%|3Z&d’%ÿ(–'B}ã>ëà¤S¤® *b:éSÒžÚÚjM'ßlÍŒ*NŠà~¨MlÇ÷í©‡·ªÚËD·ÏÊ³ÛûŽ‘yðÓ §¸?´=Z^‹[—±MZ§D‹á÷™Žºqª:ôÁ—V€V_ÄzŽÍM‰’O–>-uÂ`D™Gvÿˆ^-ä™xRIFa§‡rîQž[ÿtk’›œLñ:3¤	Ÿ¸7ºÞw}¼çõ,¨gõ²7Å}{~;u™=z«ÜAæÍÔÛ8½Yò ûÁ”Òj‡îøxínû»¿öoû{q»Û~/ðÁÛ~¿sºÔp]oü_ïß^]X¿ƒõ¯  -2µ1endstreamendobj89 0 obj1393 endobj90 0 obj(http://www.alphalinux.org/faq/srm-1.html)endobj91 0 obj(=\225;\246\265\334\006\3258\216\223h\361\335\211\224)endobj92 0 obj<< /S /SPS /ID 91 0 R /TID 94 0 R /T (SRM Firmware Howto: About this manual)/CT (text/html)/TS (D:20000630135815)/O [ 77 0 R ] /SI 93 0 R >> endobj93 0 obj<< /AU 90 0 R /TS (D:20000630135815)>> endobj94 0 obj(\022\352\266K\304\251\020\303\017S\017\256f\357]\371)endobj95 0 obj<< /Title (SRM Firmware Howto: About this manual)/Dest [ 77 0 R /XYZ 0 792 null ] /SE 76 0 R /Parent 74 0 R /Prev 75 0 R /Next 132 0 R >> endobj96 0 obj<< /S /Article /C /SpdrArt /P 4 0 R /T (SRM Firmware Howto: What is SRM?)/Pg 97 0 R /K [ 0 << /Type /MCR /Pg 108 0 R /MCID 0 >> << /Type /MCR /Pg 114 0 R /MCID 0 >> ] >> endobj97 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 181 0 R /Annots 99 0 R /StructParents 3 /Contents 121 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R >> /ProcSet [ /PDF /Text ] >> /ID 128 0 R >> endobj98 0 obj<< /Subtype /Link /Rect [ 10 755.00391 37.21558 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 134 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-3.html)>> >> endobj99 0 obj[ 98 0 R 101 0 R 102 0 R 105 0 R 106 0 R ]endobj100 0 obj[ 96 0 R ]endobj101 0 obj<< /Subtype /Link /Rect [ 40.71558 755.00391 89.71515 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 77 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-1.html)>> >> endobj102 0 obj<< /Subtype /Link /Rect [ 93.21515 755.00391 142.99872 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc2)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc2)>> >> endobj103 0 obj[ 97 0 R /XYZ 0 726 null ]endobj104 0 obj[ 97 0 R /XYZ 0 620 null ]endobj105 0 obj<< /Subtype /Link /Rect [ 239.38736 362.87109 509.27701 377.86719 ] /A << /S /URI /URI (http://ftp.digital.com/pub/DEC/Alpha/firmware/)>> /Border [ 0 0 0 ] >> endobj106 0 obj<< /Subtype /Link /Rect [ 113.05304 270.87109 382.94269 285.86719 ] /A << /S /URI /URI (http://ftp.digital.com/pub/DEC/Alpha/firmware/)>> /Border [ 0 0 0 ] >> endobj107 0 obj[ 97 0 R /XYZ 0 203.73438 null ]endobj108 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 181 0 R /StructParents 4 /Annots 111 0 R /Contents 123 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 128 0 R >> endobj109 0 obj[ 96 0 R ]endobj110 0 obj<< /Subtype /Link /Rect [ 511.43182 502.13672 593.47098 517.13281 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336device naming)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#device naming)>> >> endobj111 0 obj[ 110 0 R ]endobj112 0 obj[ 108 0 R /XYZ 0 328.80469 null ]endobj113 0 obj[ 108 0 R /XYZ 0 328.80469 null ]endobj114 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 180 0 R /StructParents 5 /Annots 118 0 R /Contents 125 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 128 0 R >> endobj115 0 obj[ 114 0 R /XYZ 0 770 null ]endobj116 0 obj[ 96 0 R ]endobj117 0 obj<< /Subtype /Link /Rect [ 10 534.87109 37.21558 549.86719 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 134 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-3.html)>> >> endobj118 0 obj[ 117 0 R 119 0 R 120 0 R ]endobj119 0 obj<< /Subtype /Link /Rect [ 40.71558 534.87109 89.71515 549.86719 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 77 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-1.html)>> >> endobj120 0 obj<< /Subtype /Link /Rect [ 93.21515 534.87109 142.99872 549.86719 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc2)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc2)>> >> endobj121 0 obj<< /Filter /FlateDecode /Length 122 0 R >> stream
+H‰¬Wk¯Û¸ýúÊ6­‡-É‹EŠ››t7ÅÞd{í}uQÐmq#‰*IÙqÑ¿3”dùq›n~ˆ/#É3gÎ<4}ÐVnñÍ7Ó§Ç÷oÁ‡×¯áÍÛGïŸ^àCÃ|BÍ@ïç?@åùhÀó·¸à³x±Háhû„/~Å†¿ýÝ‡¼é³(¸•ñ¨
+¥e)¬–[Ð’Næ	Ó ‚Ò‹pÌãáQá-½™Ï’«‡¥—.èQpm·ˆhspiÌB† ’kÃ7«¹Þ{Ó?¸Xíðÿ«-ýéGng4qÁ¢$]Àªô^}ŸíW«_Ý>°ÅŒ¬W™÷
+ú7îtŸ…óîÅZ¤jÌÕÎˆÍÿÛ¾GUYQY·ïGøêâ—  ÂYBþÒbNÆ~x^!#³WÁÝ"÷vx`êŽ~ñÀ~{Ù­Úå÷‹~ûpô°¢#;~ýŽß°%Ø[FÃ–Q?Aôx12ø9ç¤åóÓÉÕs\®'Ñ´…­ªŒ*mmŒÈ`s‚‡¢Î9˜“±¢4ÀüXÉÏcOh¶QÊÂNêòÈµ`è&žÁÚ#àUkQýô´„Là"kc2	ê¯|ë½RHë,¿—Uó¶¼êÎÔªÄWþª÷T‹­ÚWò_.a"›¢Y{ÌVQÁQÚÖx@mÁ¶<Üß\kaPè¢UpÂKJ­ŽBOššuŒ½È4Ææ’é ¾ÖÊjOç ´/=“ì'eìµ9?£ßæ­›DÌÃóãÔÙ½yÿq9Ä§"#©‘ìþz!@íîÝEc# äÛ\VÂŒAîÈiÝ?c¹¶óºåïúRA&v¼)ìxí9²("-·ù…Û·7jÕì[_Fì¥(ÄÖJU@Õô·s²¯¶Ç'¼p),")EÕ0tp¥æ'áì¶9¯öââ¶¤§Ð%¯0 c‡Ïäª)20Âº]]Pü>*!CÑUeþaOµ¸ÜŒ‹Eo¢:H­*dáÀµä›6#ôÔÉÒ0"ñÆPÈOîÌI³Yè§9±;ÑæÒ|}ƒ*dó…2¡¿˜EdöùÐAt™wsÒï
+X:·ëFPh'…£,
+8*ý‰`ºÄryÆà;”úAè^èVE—YÃ‹‰3]{}ú*
+–„N-Žãû”JšàÞ8†UÛÍï&û’P¨ÄiDqÓÊÐ­®$:Ty˜²Eê'ÿ8l”‹(ž_nôa5bg×SäÞ¹¾T%æ]‘!í}6—ü²8dõEF“xú¼¥"frY×"c˜^]B`²vÉÆnFØ7Ód†ÃÃ1¥3ì(sÁÂ$u-ùªôDXzÂYÜ-'
+ilê½æ™h«ÁPJ–B\·PTq”bKj)Ê­­¿žNw¶f™ÜKË¶Uå´n6Ó·ïº¸LûÓ¦×ÝÝÁí‚¦¥(Ž3Â¸9`ÍY#ßHpˆ;»3YM‘¥#RVÆêÆÕóBP`'Ž7QYcá—%¦pqqàEÃ]Ú(®3CƒÃA€‚x¶üÅ]³Fçgßÿ²þ
+À(çÅn²+¸ÉG÷Uï´c®0†gØ$Í¡8 ËÊÝ4Ö	…4Âà}›kÏ¨-çpS½ï¯¥-WaÕÂ!¼k[ÛûæÒ·’Æ¸îEE¸X{}Í¿!¼`DÌŸGâÜÐé/Jq&œ…Éðì%†É|`ce!í‰ÁÃžËjŒ9{#6ì“ñ¹>ÿµvöU°ÿO:š„1‹£4½’`™£4ùM%:7JUÝ†Êm¡R …nÚV7tìŽ[èøh‡~_Xw…ªëSßp†xÝ¶5ŸýÜ¼;q»,sÉE™C±gfÃŒÅ£ÚIàÂ§tÎ—ßÜ=	fX,ñìw[,¹ÞÞŒC,½½üK£VbIóçónÔ
+áÇ³ëþÂÄ…Ÿ/%¹V7º§¶h ›Ë	JÊ{jØè¨›]Q(}ï3¹(
+ÌKìüRœÖåÔ‡ŸžÚržá‡ÈV˜û°¹á´6¢ÉÔd'ÑÖ†n’½k«]Æû¥°†!¦\Ð·¯ÂÜRÞÅóã8¦Á]µ˜a„cÇ¥ÆšWp½íL±k•Ž_ytúe“Ë$ßW8ŸÊ-å&ŽbãÎÑM³ßSZÁJÒ7ÎÞRªTÇ\R	Emo1E3EN³¹ª»J†þfjÛÐ,…H_ ­›]ùCs¯eÝR¤[7äƒ«ã”‹ôRVîæÂV4µøiå¾løÝ„’²8]ô—JßˆjÒ\²t¾•>1Z1Qo*'¤³?Œì‘sCƒEºÆ}1 |~àkOn ìDR±TüÎéù©áßÐCÆýîéÑûx¿	0 ‘å¯øendstreamendobj122 0 obj1795 endobj123 0 obj<< /Filter /FlateDecode /Length 124 0 R >> stream
+H‰”WkÛ6ýúù4)lF’-Ë
+Š,æ‘nSt’ìŒ·‹Åzplz¬Ž$ª¤dÇýõ{.%ù!;Á6AA"/Ï}sùæÚTé"S?þøæþöÃùôîÝÜÝzxO£	EIHñhLFyÿú
+ïfæùÄÍ3RòÞ<¨LVéFÝêL›4W•IdRïÍO4[aílÁ?[þ1äcg ÿáˆ8šŠdêG4Ë½«kK[•ez|¸§µ´¤ŠMjt‘«¢¢4©|Ê”¤¢ÎŸ”!½¢í:]¬IE¥QÃ¥Z¥…š{K’Å’ÚeKÇJS¦ ªûzö;°Œã„fwÞUZÐÇß®ïý[×´mRµ¥j­ ¡Ja<KmÅÇ]DäÃâtî¼Íj¼Ú¦ÕÚàÓ¿	†7šˆiM8KïÊ®õ¶]Ð~v|·l¡óœÏ˜_Á"Ð°»Ôi…'Z(€áC> «i¶i–!ú	ðv´• ‹ ”ÀW*J+Kº®ÊÚ½ìÃ‹D8Žâ^®:…Šqûmþz-^2ÅbÂ;qË€ØÇ£Xå²Z¬ÓâÐ_=gúé•²ª”)hH+mH}•y™©AY8‘¿GæŒ>i]ýpŠ/	þ´‹š8¸¥œ=Ž³Ï6ÛX‡f[Iôð¡(^ñ	¯Ä¾`¦Q¸‚y¹Ô˜zF#ü©Pƒ¨à”3Öù·(ƒD„qÐùb”\u‘íN]‰étÚ.ô- xûi+MN….†Í˜õ‹ÑÄOöfô9MGí÷…Î–ß±…ÊôÇ-A³µj¢˜ˆ±?í¢˜¸¯«ç¦áH¢<Í¹<
+Xji©*‰ƒ–nNÐuV®%]ÔH¥ÕÜ«ÔµBÙE÷²¨eæÎ¦\Ûê¼—k«pøÉ—›–‹O,kSj‹€ÉùfÄ¿¦Nþê2Úï@$~ÒåŽ7à˜/KµéÇ*:â gc8š¢ð’Ó&gS_VgAÄèÈPÍ¡ší™|¶ßéˆ£ª~g‰ éºZÖ•þ"Ì“ßóÇõÓ	ûž•Žëšaè‹I2r¬0MmÌÀ	ªú¹#—x3ˆ€2èúûOáÁ|×ô-YP~/l*µoûáÆbúc†"Š'¡Û÷ÊÇ°]ÑòEú=zæ.Gaàv~X9ÒåÍPŽºè×ù ”ÛPÑâ„n¯ð‘«»vRPDŠZoVº¢RË’#F[ùeXÖÅô}#Á=üÝãè&SÚ²”Þãåïø÷ýç¿>-‘ù ãbùð7”{Q2cØþUæ=²¨Ÿˆrä#Û‚Eyv!‚û¯4À>dKµHW)Ú“Œ])ºzŽ®å¶ûíþ‘
+™óãBÖ^è5„ÁªDã8f0ü=ƒ¶fš­Ý:7£!hÓ`â:-LxÎ`rBì‘)õµÌdáf‚VA­š¿nkºËûÇé2:§t…Üt˜Á]s¯ófIº¸¨öc.°ÉQ¬¾%§]Ù6Œ:I<9¥‡5åøD	ðÜ¨RÌZlµ!Ä~šF ö 9á‡ïÓË!M?x¹h²Ä»[ÅóB’i¹„ÇO;þèð<Ä¡ÐŽñZKiv ÛcÜì(4(
+“¿Bd€²Ø!“•Á$Ä{Ä™q_„Á~ßÿÇo§UÚ¤d,Fqxš’ÆN[0(€²š‹|­kÐa%A@XP¢ÅÍ°.ÝìP>+Yg•#Ô³ÆÜ;ÄÂDŒ¦ûqççë_gßªœåJÜ3ÕZVÀˆ§Ý<ÖÎ6¹äÑKµs:T—òòÐÝ: è‹-³ÚZnœ_«ôJ¼äw€9í†ßs%æ5CÃ×ƒcÑ8³<c³ëé¥!\ÇãŽÐo>}ú¦ïŒ]FÁ¥‰ó}…Ú¿«Ô€M;þž4zôSZðâU[Mk••<?t©|Q;[ý‚Rp$ßdö¥à™²w‹24:Þ¢´çÂ€Ç¾6¤ví®3k™aæ–G
+›us=–cZÆe¤rekÖT{Þåó×~w‡~´µ7÷@M©µuÇT|¸tñ€Ý¼¬Îž_J´N/u*ó 	CwÖz	7ªª1²ï4Æ$Ž}¿€Ú„…ûáÝrèäe„–pñsòŠýŒ`ÞiD˜-Ü¸,ôéño=‰?–¨0žˆ`Šª»7è†“ÅLî€À„€‹ÇãíãZ¦öeW;l`50j± C*¼ÈQ¦].ÖöGí[ÝÀúX5WËÞ±«L—å®;¸¹Ý
+ú¨Phæ¥I©Ç»Iå™r@§“Éñ˜Yö®û ‰Ôe©ÚLtòáö·þGÈXCÔDŽÑ>ó+Ìî®È‘Ñ`ˆn8þEV¨8ÆsÉÓÜ»èpyÛ«ïq¥¹µîÞ·ÂiO s‡
+zˆ<ÐÜ=†þ€îþýNÆúçç¹ú¾OªZËçù¥ìæ0¼ctßâæå¼ÄqÒµ¶­TÉý ö-DÍX°0¯àºnÃÈÂÎ=Ü6¬StYWÝû.9÷ÐÍfØZ6Òhœ§»¨¿ˆéÏ2ýò²fž{Í4ÌÁwNˆï†¿(S¨ìüð4—ÏªIˆt¹prmÁZ*w>­zk|ë{æŽ¹ËÛÚàÂU9VG(Gv.ˆßtÈp¿=ž…º‹&F6?<\zå¶?ÁGQ7(u!rõ
+’DÑ¸t²Uw@s·À%*ŽãC_bg¥K·Ì»ãýŒ!ÏG±}?5”ÊWSà&}ª¹L­*¥e;—\Û£sœƒ³TvÕÍM6×fî©ör‹™)ÓÛnvëýƒ¼ÿ	0 X§»@endstreamendobj124 0 obj2114 endobj125 0 obj<< /Filter /FlateDecode /Length 126 0 R >> stream
+H‰”VÛnã6ýþÃ<f‹Xu°X I¶EŠfÑ&úPï-Q6ItI:Žûõ’’c9Én7AQâœsfæÔÅÏÊˆªå?^Ü^Ý\CŸ>Áåõù‡ÐâÒ2‚<N@qò×OÐ“Ë9	ÁþªÞ w¼eF<ñ+ÙJ%:n”¨@	rñ€Â¼ÁÉóÊ^vö¢€D‰CÀÈ‘§4ˆsŠ;r	ü.Y-úÌ×îy%ûš©=\Ji´QlãÞsõaþ`<¡‘zDš#bQ:Äû»[xìåNC/ÍÚâ²¥ÜhDËõ^Þi
+j¡g†Å0Bö:€Zt›vüyÃ+³ Ìš¼pÐYËQ–ÕÂŒ4‰ùšœµN'ÈªÚn×À ƒ0rk‹Šõ+²Íz¯EÅZ'Á"©ÎA«Õ6jAd‡Á+Œê1 ÑÜ®8¢o¤ê˜üš]ö^©ø×±¼£‘¬¯Ýo„ÑX#¥Ä+¡Q›T¼Fzb'HiôZÃroøÀ=VQ46Óvî"[‰ù‰Þð•U`Fò¤=…v³†FçC§£4(³<·NªÉ™MïÄ	A:¼û~Ú6råAbÂ1tq†ÉaJ3—Á²•Õ£^|8TÉ	?\¸î¼­7
+²8-F½¾ˆý¶[žZ8ò=;hGôÝZTëoÙmA\$SéCC´÷‰ïÐ@ÍZ-Çò2hZ¶ší¤ªÓ)3ä^ËŽÝfíŽí5ê²Ù£‡×‹±EGš7LçÒ0ñÌ‡ÉÖ5~5¹|ðÉÐ¯-‹'f@ÓMÝ5xè@X¤9u„7å…çu”å®¤R88»¬¤M}ÍYíRRxc	ßè]b}iö¼æ¹ôñºÅU‹˜®Q1J¶@®Vyyl¿¬Ý'üy…eù£Öio}j›–UÞ•®2'è4Â4Ãž„2[ÖNÑ»Ù¸Ô ãD¢QX]£}ô³‹c¼ð9
+ýÏ©Ö²<ä„Ûlã
+”„ãt(Pæ^Ú‚ØæØjVÍÃ&£·æ¤›­ÛFl?7\Ù}ÐÚùaÛmÀÈ÷âR/i”ÿBûî3žyx¢`³®xþ!pšFA‘åt~”øQK²0š)ãqH¿1Z“é
+GôrEº	d7£H8M OØO†ŽÐžžp÷+2geYÀÎ¤·øðÿ~ƒ¿¿†PƒãˆslQ‘  ¼‹hš½<jÉ=ÁNæ“‡)JûˆNç•±¦ÇópÁÒùtâðÁA]ÁyôZ%™ÿpøÂŸ‡ýhø6¡A™$£uÇ7$¢qÙþ¡ø“[=‰Œ_Võ{qW7ªÞèÁŸo¯ÈŸ@þ` ”ôendstreamendobj126 0 obj1008 endobj127 0 obj(http://www.alphalinux.org/faq/srm-2.html)endobj128 0 obj(\206.\234\260[\346qZ\270\307\367\2143o=;)endobj129 0 obj<< /S /SPS /ID 128 0 R /TID 131 0 R /T (SRM Firmware Howto: What is SRM?)/CT (text/html)/TS (D:20000630135816)/O [ 97 0 R 108 0 R 114 0 R ] /SI 130 0 R >> endobj130 0 obj<< /AU 127 0 R /TS (D:20000630135816)>> endobj131 0 obj(\351\020K\301\213\371\250/\b\312\373\367\354\267\364T)endobj132 0 obj<< /Title (SRM Firmware Howto: What is SRM?)/Dest [ 97 0 R /XYZ 0 792 null ] /SE 96 0 R /Parent 74 0 R /Prev 95 0 R /Next 153 0 R >> endobj133 0 obj<< /S /Article /C /SpdrArt /P 4 0 R /T (SRM Firmware Howto: The Raw Loader)/Pg 134 0 R /K 0 >> endobj134 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 180 0 R /Annots 136 0 R /StructParents 6 /Contents 146 0 R /Resources << /Font << /F1 52 0 R /F8 144 0 R /F18 145 0 R /F12 53 0 R /F10 58 0 R >> /ProcSet [ /PDF /Text ] >> /ID 149 0 R >> endobj135 0 obj<< /Subtype /Link /Rect [ 10 755.00391 37.21558 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 155 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html)>> >> endobj136 0 obj[ 135 0 R 138 0 R 139 0 R 141 0 R 142 0 R 143 0 R ]endobj137 0 obj[ 133 0 R ]endobj138 0 obj<< /Subtype /Link /Rect [ 40.71558 755.00391 89.71515 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 97 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html)>> >> endobj139 0 obj<< /Subtype /Link /Rect [ 93.21515 755.00391 142.99872 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc3)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc3)>> >> endobj140 0 obj[ 134 0 R /XYZ 0 726 null ]endobj141 0 obj<< /Subtype /Link /Rect [ 10 183.875 37.21558 198.87109 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 155 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html)>> >> endobj142 0 obj<< /Subtype /Link /Rect [ 40.71558 183.875 89.71515 198.87109 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 97 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html)>> >> endobj143 0 obj<< /Subtype /Link /Rect [ 93.21515 183.875 142.99872 198.87109 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc3)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc3)>> >> endobj144 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Times-Bold /Encoding /WinAnsiEncoding >> endobj145 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold /Encoding /WinAnsiEncoding >> endobj146 0 obj<< /Filter /FlateDecode /Length 147 0 R >> stream
+H‰ÌWmÛ¸þúúe¯Ý¥õþÜnrEÚKîš5P´uQÐ½b"‰>Š²×ýõ!)Y’7×ýÒë¥DrøÌÌ3ÏP«”»šÿýêýÃ»7Ä'¯_“û7Þ¯^à“(%I’,Š‰âÞ_OZÏ‡%ùøGâÓ´(rr"°ö=L|‚¿?‘üÓ'%ñVyÍ´8òYK%®•Ø%Ðp–d4Ìƒˆ4^£ I/¯jïÑ‹}šÍ^6^^à«`¾®ˆps0]Ä!PÙ|áýÚ!WOÞêÇ ë=<¯wøsÂE`+1‹bb 4Êò‚¬ïæÖß­?>ÚhãêuéÝaÆX÷i˜¸‰_?
+Ùw³MþÛ¾ÙjÞj³ï- 05ùE €0ÎÐ_àdê‡ã"ç0
+®•·ƒ¹1uùƒÃöÆ2ÜåƒaûÅôe„&]|}ßÐØmDCQ?ô`
+#Q²®8ùÈNä'ÉJ®ÐÙ13óT¤YD#?OÍFÜÕÉ^íxGöR]‰ŽÔÆÙ±–l9¼îÛ’ˆ–”Bñ–êLœuÀ oÒÜÅ›©]µbõ¡b«­”zŽ$6Å2¹‡9ùI´ý3ùÌUËk‡wÝE>ÚMÉ]@ƒ8KÍžRtÀüm¯…l)y§ØîÚÌöEÆJÑ>-ÑÔY8`x\ÿðqý¯Çw;šÌ€nÏÔiõ™†`tŸÿ¾ãzaÿ.Lð€|ûþçŸí)H‚p~RF³ÉI›VwÃmÎÜ|g3»“-œ,¾ò&¤Á·zÃ ŸK3“
+±.mDSŠ“’ïEË‘ËD@±h‘¹Ó³í®îK¾b]sgIÒ;ÍZ-([€_EæŽ£K¼þX÷_çrÓwÉ™«9ƒ1ëÈV<á?¤Ž%!É^1‡.öÄ!5‚rzk6tâß| ï2”€-÷‡“©vbwA¹©Û/;EK¦Ù—v½>$Á>ºíºùÖŽâÚñ§Åyõ(Q3UŸ¯€Ô³â[èp‰¯­Ü”~è‚ºü¿wXGê…ŠÎN„(¹—ºšÐ¿«6žìëÒÖõ4­júZ‹C=Ø²½À¦zÎï¦3ÒeòvKN•ØU”ŠÑÖ™­2 4CäÈêê9¾ë•‚€Õg¾¿-Üxê*øÐÚ’8ýæÒ?£EuU<‰µ÷¢~üF(ù 5÷äbOÎ²''ˆÑÒ„•ì•l#ct¥–‡ÃÙèØ­Y[±#Çµjãñ²·<…åÎš¢ú:_Áfû>8‹^7ì3”O¯ÐKõ]†µé‚Ö¯‚„ã&j8æ<yæ¨5¬îƒ2Y
+ÝBÒ›$PŸ×ÅS?‰¨ì¼î[ªÑè‘hn-“¦(MÈ1:çÚÑŠÛ^†=2‰æMasÄŽÕõUKXùPñ«¾S«NíVÆò²ŸN`›…À"1%rPi°îe]Ë6¯½¨ÛàÂ2Í“ÑÖ×wñWn.ùõÛâ£(2‹´”u·ªŸ/¶ò—"ûj~Î]LÓ0MŽ“Ôå
+¤Ä•´´É@"›h…f¢µc;´!ÞT²[þ¼ñ´	ÅL(Äû:ïvp¿àåDBB+!l+œ.½i’±s68‹®ÖÏÿ»³ƒ,×2S6'Q×æ…ÅŽ~l9$økàC$ÚVspÉKY“Jã0OæÕæÀ¹òµZŽJW4$ÚÚcîeùÿw{°Ëí' ÙÀ“«‹^J‹$Èf5=/Ö•‹õân!Æ˜Öaà9yU–)ò±9MÑü"J%h	ÞS°‚à3:j}¹ÃWƒ"ålÖ£+nš®™ù
+ÆŒC‚ñ”–áÜÅ©C¥sÚâä:ôI	kQÑ‡Å6´ñ×ƒ—šOÉ¶!Î»7f áÐ¹½Ì6±[ð½ã
+Ëœðæ ÏÓæsÐØõ%'„Úx$âªäÇÕ¾ôçágwsd¸ÑšNòêŠDÄ.Í–ßÁGúv?2âèA^¿|üK9øDlg! éª^—òdÌ^¤ÊKŒŒ<ØhÀ'‘èºKÞn<HeÓ¼P-QLãt¤§1UÙÚüæsoá£¾H¡F'¿ðvCÀoÕÆ>Eö	?{Ãùc áðüÆSåíá¸Ütù…ãf&÷ŒFüÙÓÌäâôÅ#ˆ!Êáj›„˜Ž€@A’^^ÕÞ£û4›½l¼¼ÀWÁ|]áæ`ºª8Ïæï!¬Sƒ¡D¡‚qL’®dÝx7œˆúfN>çÈ0cLø¸ÇNü¢øQÈ¾›íŒF‘ýâ¾h°(’.éoß?x!Þ Úòïiendstreamendobj147 0 obj1790 endobj148 0 obj(http://www.alphalinux.org/faq/srm-3.html)endobj149 0 obj(p\357\263\212\233\035\306\232\270\240x3Q\253\310>)endobj150 0 obj<< /S /SPS /ID 149 0 R /TID 152 0 R /T (SRM Firmware Howto: The Raw Loader)/CT (text/html)/TS (D:20000630135816)/O [ 134 0 R ] /SI 151 0 R >> endobj151 0 obj<< /AU 148 0 R /TS (D:20000630135816)>> endobj152 0 obj( \)x<\304\365\273\254\025j\263\303q\225\356-)endobj153 0 obj<< /Title (SRM Firmware Howto: The Raw Loader)/Dest [ 134 0 R /XYZ 0 792 null ] /SE 133 0 R /Parent 74 0 R /Prev 132 0 R /Next 223 0 R >> endobj154 0 obj<< /S /Article /C /SpdrArt /P 4 0 R /T (SRM Firmware Howto: The aboot Loader)/Pg 155 0 R /K [ 0 << /Type /MCR /Pg 165 0 R /MCID 0 >> << /Type /MCR /Pg 172 0 R /MCID 0 >> << /Type /MCR /Pg 179 0 R /MCID 0 >> << /Type /MCR /Pg 185 0 R /MCID 0 >> << /Type /MCR /Pg 187 0 R /MCID 0 >> << /Type /MCR /Pg 191 0 R /MCID 0 >> << /Type /MCR /Pg 194 0 R /MCID 0 >> ] >> endobj155 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 180 0 R /PZ 1.09344 /Annots 157 0 R /StructParents 7 /Contents 200 0 R /Resources << /Font << /F1 52 0 R /F8 144 0 R /F12 53 0 R /F10 58 0 R /F4 54 0 R >> /ProcSet [ /PDF /Text ] >> /ID 219 0 R >> endobj156 0 obj<< /Subtype /Link /Rect [ 9.14536 758.16577 34.03496 771.88022 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 225 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-5.html)>> >> endobj157 0 obj[ 156 0 R 159 0 R 160 0 R 164 0 R ]endobj158 0 obj[ 154 0 R ]endobj159 0 obj<< /Subtype /Link /Rect [ 37.23584 758.16577 82.04768 771.88022 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 134 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-3.html)>> >> endobj160 0 obj<< /Subtype /Link /Rect [ 85.24855 758.16577 130.7774 771.88022 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc4)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc4)>> >> endobj161 0 obj[ 155 0 R /XYZ 0 731.64066 null ]endobj162 0 obj[ 155 0 R /XYZ 0 731.64066 null ]endobj163 0 obj[ 155 0 R /XYZ 0 535.80859 null ]endobj164 0 obj<< /Subtype /Link /Rect [ 245.23836 483.61934 330.58569 497.3338 ] /A << /S /URI /URI (ftp://ftp.alphalinux.org/pub/aboot)>> /Border [ 0 0 0 ] >> endobj165 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 180 0 R /PZ 1.09344 /StructParents 8 /Annots 170 0 R /Contents 202 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 219 0 R >> endobj166 0 obj[ 165 0 R /XYZ 0 771.88022 null ]endobj167 0 obj[ 154 0 R ]endobj168 0 obj[ 165 0 R /XYZ 0 583.24298 null ]endobj169 0 obj<< /Subtype /Link /Rect [ 506.27353 314.79823 545.401 328.5127 ] /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#booting)>> /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336booting)>> /Border [ 0 0 0 ] >> endobj170 0 obj[ 169 0 R ]endobj171 0 obj[ 165 0 R /XYZ 0 282.72876 null ]endobj172 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 180 0 R /PZ 1.09344 /StructParents 9 /Contents 205 0 R /Resources << /Font << /F1 52 0 R /F8 144 0 R /F7 204 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 219 0 R >> endobj173 0 obj[ 172 0 R /XYZ 0 771.88022 null ]endobj174 0 obj[ 172 0 R /XYZ 0 771.88022 null ]endobj175 0 obj[ 154 0 R ]endobj176 0 obj[ 172 0 R /XYZ 0 453.5004 null ]endobj177 0 obj[ 172 0 R /XYZ 0 453.5004 null ]endobj178 0 obj[ 172 0 R /XYZ 0 286.87274 null ]endobj179 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 226 0 R /PZ 1.09344 /StructParents 10 /Annots 184 0 R /Contents 207 0 R /Resources << /Font << /F1 52 0 R /F8 144 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 219 0 R >> endobj180 0 obj<< /Type /Pages /Kids [ 114 0 R 134 0 R 155 0 R 165 0 R 172 0 R ] /Count 5 /Parent 2 0 R >> endobj181 0 obj<< /Type /Pages /Kids [ 6 0 R 37 0 R 77 0 R 97 0 R 108 0 R ] /Count 5 /Parent 2 0 R >> endobj182 0 obj[ 154 0 R ]endobj183 0 obj<< /Subtype /Link /Rect [ 398.50835 633.60674 476.03284 647.3212 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\206\\\007\234\260[\346qZ\270\307\367\2143o=;how-srm-boots)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-2.html#how-srm-boots)>> >> endobj184 0 obj[ 183 0 R ]endobj185 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 226 0 R /PZ 1.09344 /StructParents 11 /Contents 210 0 R /Resources << /Font << /F2 209 0 R /F1 52 0 R /F8 144 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 219 0 R >> endobj186 0 obj[ 154 0 R ]endobj187 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 226 0 R /PZ 1.09344 /StructParents 12 /Contents 212 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 219 0 R >> endobj188 0 obj[ 154 0 R ]endobj189 0 obj[ 187 0 R /XYZ 0 255.35342 null ]endobj190 0 obj[ 187 0 R /XYZ 0 255.35342 null ]endobj191 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 226 0 R /PZ 1.09344 /StructParents 13 /Contents 214 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 219 0 R >> endobj192 0 obj[ 154 0 R ]endobj193 0 obj[ 191 0 R /XYZ 0 376.87947 null ]endobj194 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 226 0 R /PZ 1.09344 /StructParents 14 /Annots 197 0 R /Contents 216 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F4 54 0 R >> /ProcSet [ /PDF /Text ] >> /ID 219 0 R >> endobj195 0 obj[ 154 0 R ]endobj196 0 obj<< /Subtype /Link /Rect [ 9.14536 321.1071 34.03496 334.82156 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 225 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-5.html)>> >> endobj197 0 obj[ 196 0 R 198 0 R 199 0 R ]endobj198 0 obj<< /Subtype /Link /Rect [ 37.23584 321.1071 82.04768 334.82156 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 134 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-3.html)>> >> endobj199 0 obj<< /Subtype /Link /Rect [ 85.24855 321.1071 130.7774 334.82156 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc4)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc4)>> >> endobj200 0 obj<< /Filter /FlateDecode /Length 201 0 R >> stream
+H‰ÄWÛrÛ6ýþÞêtl˜÷K§Ó™Ä—L:vÒÚÎô¡ê$AcŠPÐ²þ¾gAR¦dÇ‘žêk(
+Xœ³—³‹Ó÷Ú–“JþúëéõÙ§sæ³ß~cÎÏ¼½‚q³(äEE,)"žùEÄ²(çE’LKï¯ŸYíùØ°›x(™ÏÓ˜­Xà³k¼þ†ÿßÙßÿølÊ¼ÓY	[>Ê3U)].¤Õå„é²?)K}ÆyÂ^s?JžßTÞ­e<Œ’|¸,¹gÙöº<¡çt¸.ˆ|žeY¼½ðÃ]]ß{§—îfø~7¡}hæ!Ï	Š[Ù=oð†<Háˆ»…wôY>ÙwwßœEŸ,¼ˆc22õŽXÿ‹;’î‡?´|,Uc¶vF<ùÑ¾3U[Y[·ï4x”á§Á'–÷(ŸçqRÀ›7!O3òAêƒQ§[¯‚þUÐ½
+ü~ßkoœíÊ›{3ÀÈ€çOÀxqÆbøÊï÷ï¢}õ-p¯½ká–.¸~Ü°®RXòÂýÒ?÷G1Oý¨gÌÙÝ\21VÊ²+%¦R“¯7iòV^¤yÄã±"CÍeÍSÖ÷ÌÂàíÍ5›•z±Z³Î¤ßÛŒ¸ŸDycwöö¡(EüõÉQgr©åLj-§l%ÖLÍí£ó®Êºyâì“e¦Y.•¶æ2w‚câ<ŒÙIÀã•MÆ¦¥–»Ù:ÓjÁ…¦ÜÞJšµ±raØèhsÊ#ƒEîBŽž!¿`ìoRýÓí—"MýíÍ1†›E=Ý5€
+,ú*ûzy»#žoö’§Î/ÎØ×º|0½k·ÄÝ–œ'Q’¹¨vaŽ#òˆ¥iÂ?\T+ÆØó!†<¥P¢4Nyt™U•Æ¹¸õ8tPGl¦ªJ­è³^ŒUi¬ÊúÁ0U3r+\ÿ(µ)ñËÄÈÃ&è©ÔpØrØHÂ(t[û4A²É'9i¬W’©ñ7Ê!ç\ +;gW—ŽÝÅÙ—ËË€O;(t;“- µ@™ƒ"yº–•ÙÉÐÜaH’‚&ÈÝÖZÚ•Ò›
+µ¢@ß—û;fËæp²ˆ§I—ÀK¾o)™\ì+ëAy(½Wór2'!ÿ¡uS”W%Âúáö¼]:òv-Àeè@.IÂ£ÔÝÖ½P‹	M÷RÎMåL4•øzVÞ7ZJCìœãµQDÝÎAv"jTÄ~)Œa•¢ì^:ZcJ}¿wÂlA°Ú£%AŽ1¥.´}”vÃæCSVS÷¥ïhüaŒa'Êc†™ÓYÐì„a'Éhó®vöj^qžñ4ìàS$‰1h!ªÑÙzoGƒsžG~¯Ò?ìZh|L<Š²rš´ÛšqR´à¼_kçH½™]n´r½5'amšôkÛ~=•f¢Ë6n0í,DÝˆŠ‰å²"­µêEÛÍ¸¦o´Ý¤]@€ŽbÖpë†bŸÔr%5gTRÉH²Í+œ¾~J¢qÓ& ™—Ën²@1¼95§<Ì¦jUW66an1Ñh™@‡Ðïó¾eÃ)T K­Æpèš5uM:g„^óÍž<C·çK=‘l­šÍIDJ.4ª |³Ï!·B;1GóªB=0p²ó‘'_tbÜ
+ü"í¼xsñþüúbÛ˜k‡yð²™GæOŸoïÞ_]½1t	é¦ÜJRbë¢,uKÊÚXQU®ðÙ:a0ÕÌIÖ¤©„>fc‰é)‰´ÓoÑ†hôÙèâ.Ñ„§Eu(®á²4Û¡úŠ^da·¤¬'U3•§­Tñù¶µ‚×ç':¾1†Å´ç¶|¡ÚÐkÄW3Y?–ZÕÜ8ûL‚^Uëcû•ª²HXŠ¶b“¹¨ïÝz4CÞ­0°Ž<6îå¦©1û¶³$¼ÕXVZJ8QaÚfeÖf¥`÷JîT
+²>U•ùd.'ðýŒ üwÄÄÌJZ©ŸÏ·dúL¹X"£ízù"Ù¢²ç÷1X oL„ÃÑ!è££r¢ný$BD#?ÝJïð‡£¦¥q…‚JØM`wõ|C
+£’–ÿ6¨_Ã>~þºk%…Ø¤Å~ÜFï\•Ÿ„)ÏHó]±…ûíý}‘i(ñØ9­!ô÷<¤ž_ë&}ßbú,Sf®q¶Â‰³½®˜imä½îÒ…¨swS	óèû&ÁåíYè¦Ô¹£Ý	ÂF`?D?‰÷	Õ`ÂId+œ*êv¢%å§w0úv²À½7L£-t^õô]xpËnÅø5ƒG¹)¿Îƒt5 ú E?fSa…›1F#ï©øÍÉÉ	éµ ª=n;"Á$çÐ¸&ð»ÐŸ!y[ÍìÍ[V§+]Z¹W8¾Ú²*íš*±Óä—IŸä{…J.Ø\è)uÕ‡W|$;¾¶JUæT†ÿÜî÷|ëtÓCŠÌÒªf•Z.i@¡ ¾šDß!Vµúá‰Î.ÒÔß¥Jã5;;?¹ùrý<ü(máå§¦p«¾‰PCë)Ê—ƒÍ¼û°äÝœ}q}æýÉ¼ÿ “Šhendstreamendobj201 0 obj1940 endobj202 0 obj<< /Filter /FlateDecode /Length 203 0 R >> stream
+H‰œWkoÛFýü³ØqÍ÷£(
+Ôv³›nb/úaµÆäPbMrÔÒŠþ}Ïõ lÇ)âØ„4¼ÏsÏ¹sõ£êë¢ßuwóñ–yì‡Øõíó‡“»~G,Ü<Cç¡›zyÈÒ0só8É™Îoÿ`s}ïxŒþ©jæ\}ïë'q#©êVôª.˜ª«~À|v_áð}A¿¶ôK1'ðÝ<Êrcfz¶¤qäfQ±ûÖ¹ˆÜ€}häf³c;Ýó†Éîýýïd|´íø›yalŒMÏ“± t“<ð±ûµ`Röä¥P¬à{¬íŠ’ÉŽqVÞ]w+ÖãëË³Îm”'åQ:"Øªºdõ4¦Äó<·§X!Û–w%[^t²ßÁn­Éÿ»ž"(e'Œs2±2×Ë“”-|¤$ÆÀÏ¢Ó¢cˆ©@À½fU­Ú-Wô®ÐSˆé¡‘N!vóÐ|7H§/™6©zSÊ¸R²µ5X¾wÙ½	ÔF¯ÄC­à¯_óÞÔ¦¬õ#Ã‰néÈžÉ'¡šIÂ§²ûÙ˜Dš_•â«Vt=*Í5²`%ŒIdë¢“Ãjg]_¯9P’ÖÈâÑœÒ½DÂýzéîÉ¼7¡ï&J7æÆÏ»Ni×-_	´£”‚­fÇpz0§aDVûØ€Üû÷5Õãc5÷¹~˜æß‡Š×Fç>ht¾2x¸D}+©Z[Z‹Cª{¯ðwÅëwå^²mÝ¯Ï€™¸Q²O¾*G[Ëùþ•X(©R™Ä£³Å'‰‹/¼Ý4ârŒI6ÜLt/6zy$~äFÑ¯µ ·y$q­‡vš;ûEMnX©@/g~27Ë²)“«R<]U¥wê*rÓC²ßÍ,@mqŽZnœ&9ôw6ÕŽ›ôì@Ë·t¨}A¥_=r„†ý¹‘€¾Ø@‚©¼D‡q’¸G±:Ù¿¸*Mµþ!Æaìzq”sŸŸ<Cr!B¿ÔK´|g NÍ]×«5fëhò)rmP=’Ù„yC>œ­ùÒ±é­Œ¾çÆ¨c`Ò`bÙsqIl‚ó+Ñ	…’ì˜æ¤ñDSÛ7B”Â²A½(¹›¦ÉTýBÁb7?/˜{Jó£Sþy›Ås‚†NèžUbË´(ÀŸ(½¢¢k¡žÐÔ~Ïü›Am¤ÚeKç7aX­„îg\ÿ LC¬Ûc‰ÚplE˜ÕC±žÇ°ÿÜGÒ ¿J‹ž80ð€J-–Ž‰ÓJO#øòñï®éˆÞðB˜ Iô¬tÞAonŸíjp\.—ýJ½Ý(¹!ÝbÇP²ªCÇP]?@^ÆV¦ #•j0ú	éYäÏ!äd:=„a]òWønùþŒñ7²xFxzÆS°zÊS‡·ãÔ(ŒæmÔPï ­fÛµ ¸žÏÀ›b+NM{n²×æÎ”ÂJüX‘’‡ŠcYêD!´æDtâ°Pˆwæ¼ÉPb*O(þØM‹T–”Çæõ@PYàRË¢:[˜öÊÝð•íPò°3žwCû ÞY^ØŒg„ôbMbc?ûjMLø	Ÿk)–dPü›{ÊUøJ_ƒ}_9÷ÎK¶“ÃØ€-ïz*¼™K¦e+XK[™™ÌKËétšv;:¸ŸS_8{ª}f’Ù4æ^ÊÅbÜ]SD?7Ÿ}ú'%±-Cšwøèwüÿ™ýïÿ+Az$1…¦…~‚ j8ŠÝÈó5Îgº©¼"…!öKh¤PCLš’ ¦‡ªª‹ð#@w–òAÖÐ¦FVc"`¨ÿêóÛA]‰ÒoÒ°A)t¡êp>ƒ©'¨ŒåÀE+§kÌôŠ¥ìé€¹‰… Ò.r‡9T"48Í†ä^¼76ôðDÙ{¹@³×NÂõ/u7|±…˜ôë»LÄ”†]e"vs»øôëÝ_[d¬éqä%ãÍNbíx$”Y“”'ºÆˆ~þtGÈÄ»cC.Ÿ_éâ8~#qZ…ƒO‚tŠ&Ä¸×ƒ¹ Œº÷Ì˜/ÇLóõÚ›;i6 )Gb©µÌ“Ä3_ô»¿[ó<CƒeGðùZÇ­)³5ìÆ¤F-<öÙrüQ—û{kœj”‘N5œÑ^H¥°ÎÚG$Sé¹ŒùGá˜¤À>ºµüXõ´âáóKFjlN(Ñb4×EŒr	-7Q<ÔãÒ™Ç~&üÔMãèt¥™@dwüðb]ZœÌ$ðýÎk®pf3içô<Q«!çÈ’32¦€;…óVÍ½'i±®
+Ç›Ó´øÍu{I²ßKî^ã$ÊuÄ^!»%”g€g®¨Ïøè/;èÖ\×P4?ÍãÓV 	È®EZx**ß£¦	ü¸ Ô8Þ¿Cëú¿Y}ùéîÆùsþ` »˜P*endstreamendobj203 0 obj1847 endobj204 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Oblique /Encoding /WinAnsiEncoding >> endobj205 0 obj<< /Filter /FlateDecode /Length 206 0 R >> stream
+H‰¬WÛnÛ8ýýÃ }IŠ˜Ö]Ö¢(ÐÄIlÒî6ÆöÅ@@K´Í$ª¤dÇûõ;¤$_d§‹¶brfÎÜÎŒ‡ŸdÅ“Œ}ø0|¸¾ƒ?ÂÕøÚúaÅÄñ<—Ä®çA{$²c"oDâ ŒA2ëû{(¬«‰eƒþ“|à`¿±ŒV|Å®E&$ÏY%y’[Ã[Ç&s¼<IôÛZ¿I°\‡Äþ(6jºç@ødä{>LrëÜ'\Õ<Ky±€jÉàžõüÎdÁ²‹ÉßÚDcÁr\2²½À¨ìž;•®GÂØuŒÊO0¢¢³¬Söl”AB˜1˜¡µ
+Ö¼Z{s‘eb­­«Š•ŠÀ¸––©Å E`·Ü˜„¡iSë<§ÏQÌùâiH‚8ŽÛ[—Ú¨ª%ƒJ -ÔšI8Û0u¦e^HÜÐaà 'nh$ðžFö£fªâ¢€õ’áÿ6¢†5-*­H»hnµÎ­8…Ço0=Ÿ		“åS«€‡ßä
+/sø¢u%rÌfB³lŠe,©X:½ Ý‰a2¶Î¿ˆ
+Q/i|n¬ëØ¥@aÁ
+¦K 5>=ŸuštèÎ>7Çg@•Á8µhV.)¨Æ8‡jS²éÅå>|K'=[ ÛêK^éË².
+mª.RüN;Ž^¢"ý„‘ r|èÏÐ7Ñ}I
+ÃZÉ¡’É0Órlíô’{ò8eå«g:A¯æ"­3¦0pXZ–fÝŸ^ü—Ä/T…‰;-¹«ÀAç¸CFø`Ÿ`¸3ª*ô*Ïi‘b ¢&¥¦xvTð¶ªíw¥Le²šTµ{ÃUnÂGÿô:5Ð0j¥°~y²4í‡fL&¢ä,…¶ÐS®ž›f°‰oû‡Í0—"o5Õ¿>#pW€¨%Ì3Q–£ØÍKô†ÎÄŠ]šÒŸZ°5ºÊ
+lì··J.j´6LÙj8OmæÅÉ”&%¼™W¥êV{{¼£ÒŸq§|ák¾h¸3„+´¦á¾«ã7ñ¥oÄs\Ï¨ùÞQ¡n£9—ùš"Yééƒ£Iv[]…ï,âdÙñ´¥ÊÒË–‡±oqâÑÒ,mx˜nKRÌ[R–y?CôÁq›šö=`Úˆ)ƒæbt
+¦Ž'¬ 9ëi æ¼§ÅktSœ÷It ž½&žÑ…ê·¦K¼ÈqšÞtw½Ù^ëTà©œFÑ!¾ïwöòµÓoÏO ÑÇÁV\.ê[y“/J=xh†Íe²1ß"¿‚*YÂç\'U—K­XCñ)›Ó:«°ËV4CÇi*$æ—¦³±î¼(n: ?µIV¬¸…6Š2’kSý’C¹pK?W_¿NÆ7·Oã›¿~2oá²¯Ä&Q°§âéëãíÝýÍÏTœ*þ½`vZî?}~<Tg§†€N«Ú á¼•9£fj5U®XCz.qƒQKzQ»¬Å^F°oR¦Ég& HKR\Ó’)n/hH@ÆU³$µ”MP³©¥SÑ™Û³Á}½˜xnØEJ-ÅÚ4éûC‡øõ·˜–QºÖ.‘¬ËJÇý1£‡fJ€±C¥'ìÖ-Fœp4¬©%ôàWÍÆ€²Ûz`I£@>AÇ,[0–*3.0,KZ,0€zSÒØ´E¬Ú£¤ÇÄŽf['l(´}n)Ô|bÇÑÈPèØÐ|¡9¦÷Í,ìú!±ÃÀ5*LX©S¥(ÔMcÕ{cPµ‰_…ÛT¹‡npìM­R'˜IV§¬%ÑQ×	†<]¬6tEí>o·†ÐuMpË%VV7^%×µW:#b¶ƒ¡›—‡ª³ÙÛö†ÖhËòÁØx-Ð†åÓoúþ4¡rwãÜñtÀp)\R™6K.£¸þ0yß!Í¸£}üË”þ~wÏwúøÿÿcFODß‰HhG=ø³_„ï“8ŠÝCøÏo
+ÿãõã]ƒ³ÌMÑÌju	msØÇ¸=äTï lÔ/‡ÝÁ…&8ÄÍÖî›‰uópmý	Ö¿ ¶é$endstreamendobj206 0 obj1530 endobj207 0 obj<< /Filter /FlateDecode /Length 208 0 R >> stream
+H‰¤WÛŽÛÈýþCÁyX;zx'ì°Çv0‹I<øag±h‰-‰^´ìæh”¯Ï©nR×±ãÝÀ°ÍµªO:Uuxõ¦3å¢R?þxõñúæùôú5½}wíýîÍD'1E¡˜…QDÉ,™?‹(‹r1KÒuÊûüWj¼·wžOü§[á¡$ïê“ª¤)Õu[µ]Y+Ó•êJïêC@Ý-qönÁÿlùŸŽ¼ ¹%6Êø‡ÂOó”²4&tW{/§ô¡ì´¡÷f­ºFz§Ë…šÐ«»/Þwñ> ÑïåU¡¯”YûÃ¡áL"¢Ùl<C}S¨ŽþQ6ý›™Hý<¤i rÎ–}h;RO²ÞTŠLKó¶5´ìÚš€†ŠR?4t{}{CeAé„vmOÛ¶¯
+RQÝßÎ@†"É‚˜¦üÛ^ƒ~¶x©x:~!eýÂ]KU	B,Ë…¦Eßu¸°ÚQÙh#«Jx²GôN¼»:§,Dô$Ê>ôºÝrÀS±ÈŽ(“îÚÛOiÑÖµl
+`i” ›¿hL'Xké3%QÆØƒ8Lm Kö€šY—Íjb#n$TiÊ¶¡¦¯ç(ž¤#x8]ê~6ÂO„Ÿ„#ü¦5§Èfã‡´‚6QÛ‹¨]±Ç8Ý¿äÒÕrGZ)‡?Qäçæä žâ Q“\¢Äç‘4m×¸ªë›Ù]Pî‹Y”g€ò)_ èE‰õ¦å¢Y#¸ùŠþu}Cópš‚½wÍÐ§¿{¾€Ê¶„ë?âW_ð÷gúåWŸ
+ò¢Y.?(‘æ³„j/ÎRáG tÿ»Ê»ån®[‡i‘FÜ6`š›uäa$`e‡Ÿ!ï^«e_9ìŠêî_	ú¤jÅg'\›† Ý{êåd\&3‘/âÀ‰oSÝÕSn=ž³ã	$ñž<7(ôúÐ´[}¦ i”Š8MR®qˆ…ÄäžÖ$BØtßó¶7ÉjÂ`©Vr®*Š•¹t
+íØ)Y€×áóª]<XR´B·Ü{…ìvö#YmÜ`ÁG¦wûV€ë%§Å;ÌCµl;õ•BÃ<«z7ÃÊJ±ZÅf86¤®ÐÃóPè„Å¹Îo9Æ‡!ÆYÛ}]*Iœ‰YŽÍÂ! "Yõ\}2òÄ0‘YmÇçaÆaîÆÈ/guôÑ©Ñ8Náø"wÂ¯ßJƒ`øpy”Ë4FžÉéÐýjT¦Y’†`*^+”~¼lVŠ!r'B.†~¾T(ü½Wcp”‹õÉšç3‚ƒYöêc­Æq4;Âçî4k(Àåç‹ ÝOf§&3”Ãm0‰R0AÏ-@I¼Š+;ï
+z¬+ëbõ`¾÷†åh%^å
+ùÙE9Ìˆtâúvâ÷òÿÞž4µ9„WLßX¨¡«í?»ÓÕ¾¬ÚÍfGE‡‚‘owúÑ£ñ|šAi7Ëqñ­Ñ¸M{Ä ‘óêÒø Éb&ÐÕ[òÝgz¥°é”QM¡æ…w¶,y‚5î °î`Œ‹Íž†OÌÔ%ü±ú³°´ö¯³óoghÙYzjîÖÜKU…9mä'A-öªqŒA5olnÔ¢”-¤Eæs`éØåÙ©ß{¥Íé%KÇrb›µh•¶k¾@™ûW#S8f+ê\•8’pæ$ü™—¿³Üqì{(/öX.K˜ˆ<Ø±gJG~ìÂ´îk;KŠ­š‰jl¤Ú•«5²TXg…=wéÿà™¿qí4ÆÐMüaïd®Le-Wp|·=f•¤Jîx.dƒ‹H.Ö¥zÄÕÛãæ™+ƒ\dÙÁrn»Ò¨Ë{““t§y2‹&\G­L¿*â
+2Åƒvî-æ‹²ä‡?C‹0_t!¿áÉ&¶]vPAS6Ïäù€˜¦L`2LˆÐ~ý/tÈ›Æë¬«§ïÃàz;èWŽ&ßnÔ[:ý6X£è©5
+/
+†C¯^ÝÇï½¥’¦‡QSOx³Ðvg´0Ã0—Øg›VërîæÿJ™Ë±íäwxó°ÖÅAD
+yü`ŽF¬<îiô˜+1fògÕhÕÀ~¿5	²\äiœy“J®ô)ƒß0&Aâ‹<
+í×ßìß@–ð’#úv]ªÂ‘¨w
+È\Ç^˜º@/ÚõŒBˆÿ»ÂŸÙã|ÇúfÇz›—t{ÁÚ%œ¬†á0XÕ
+ÃGë§ç0š•l4»nk­3¯9ViqYUN~ˆ5ÁÒÞ`sØð|
+OH^ð©hÿn=¼±ö2pµTÕâá—V@EÆKßmFK_zýŒ¬†V·Z,«ªg“l\·­T£:Lû²Prà>­ÙÁ)"FÕÊâ·NÖ¬³Ÿ‚áõèýÇkïßäýW€ ©²àXendstreamendobj208 0 obj1818 endobj209 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Times-BoldItalic /Encoding /WinAnsiEncoding >> endobj210 0 obj<< /Filter /FlateDecode /Length 211 0 R >> stream
+H‰ŒWkoÛ6ýúé‡¦CMëýèÒiÒvÝÚk=´DÙldQ%¥¸Þ¯ß%)9¶ìqÇ‰Ès_çž{=½’-Ï+vq1ýxýþ\¸¼„×7×Îw'#^…ø$óƒ ¢, ‰›)É¢8Éœ¯¿@í¼ž9.èr‰88ÓÏ¬¢-¿c×¢’¯Y+y’;Ó·x0+ñì,×oý&Áñ|’ºAdP†Ï¡OÜ8!‰=’D~³µs~-š-H!Z(yÅ@mUËÖPJ±
+óó²M³?ƒ‚«[h´+Ÿ¯>Úß¬/µTÎ–×KóØb˜íÝðªz6û†ñL<ÌƒŸÁìÆ9_0è+€×PqÖ(‚ñ§`w<g†+Àÿx°ì*íÃ«VÒ>ðºû¢ž;èmïû†·+üSµÅ76 ($fh¦oS›2gâ“(ñBíPèc^f…ÓÇûÒôûƒñ±L®9€víCo@qIâ{‘FIÎúÂZ5XÎE]òe'±~¢ÖÞ÷×“þ¾‡ÖÃ {Þ#n÷Çþ{q/8@§nä¾O‚0é!0©‡ø.ñýpì}Åò!ÿcw#E;oÐ<¤iÿ¨Ús²G.KŒ=§5²TÃr^rd^¢°¦ß„œ®y-$¬æûu·^0‰„ddIžk£“˜d¡—Y:%™1éþH]“0Eü©*¨ÔÅ_5[J¶Ñ6EÍsZAM×L C¤î¶¸a:$Î –…{oH’,²q„à’hÿ¶vçðzD‚ûëógãú		ü¾º¥öXÅAîY¼«àkÝ?};`kÙ[º$¬Eñ˜>¸]‹ÍÄ¾o½©éqo™¬Y5Á˜Ê·Ê¶/Ç	ñ‚º3|ýç§·ïßýûÇ»›×‡¦bÝ§E·>3†Š_u“3l¨®ªfµëøš±Ba`ºÝjd/+G|—x~˜öšcCw˜£SLr$A#d«³$d¡dß-ÃhW3f‘Ž³üE¬|ùüøº©ØšÕ­éñ{Bi#Fƒ„5ø;««‘‘EsEëIØ4lî í1&ZUbcS§VÚ)ÑÍ@MÀª}ò»÷´G¥-–UµB¾¢’bôR!›à=Þíòf-§ŠÑÓIšC»R­ª‡u4oèR}[Ô¬I áÕdgÔ@Ý£K8ãg¾Úƒ\™¿=™Ÿx‰¶Ÿô¡ÄyãrzŽ ´5®ßÑ0*»¡um=/&aìÅvöŸûÆ6n›	ø·Œá}Èj;’¶u€ÃF³ÌÂ])­4È1¥kç’ø(ïØÕi’=œöÃ€U×h†jYT†hHñõù2ÁM@'¢8JOX(Ì<£í§çÜ	¹Ÿádñws—%“7b ººóD/¦p‘H}w¿«4<Ð´°Yq$]#QáE§†Th/T§é³bõ•/–$8É±[h©\R^™¥B@%(6H/5þ&åñB±d­NT‡’Ûa wd¤ªO‚ÅÚm£ÁÏVgÚâÙ«30é²aÌ¦}1½èŸqh¢¾ÄåÎ§¸¥èHY?öÉ”ø^?ÕsxÇ¯®šŠnmñpD)ºd'n?q_¿ÑªÝ[ÄŒ¶HÖvÒ¬(X' ð&é1Ô!nµ66·Z#F8‰/¢,6S[Ë²vuÚÍ%Y2€E )à¢àòò$>@ÉXp{Î;©Ùl–Z›†˜¸ÐÏ/á‚Ê¥Úa›éi=ÑPý™ùùÄ„-éÆ”ÜÎ…â/Cs´Ñé!¡zs'®»“ìÔuãÐ~¦ì.©OÏÏ+càiõô”S=ýLïÖ•^˜Éò?³•½Ö’ ‹G(¨—¥(y¸öjÉÓûœ±B´ƒ£WgïÑJê%¸3e¡UÒ/¼ÎíÐÑ}Š•0‚†ý[£6|ïx~‹“rû€^âPM´Úoq>ñ2ÿ1CÎŒ_³F¬ä8¶Íž¬Œ^èÊ—’}ï°€hUi±kAdá÷gX/2ø¦fÊLaÓ>yWQùÜÈ¸YÇ
+¾ä»??Çjâf`L¨VoÎ¿RE“$Œ“ÇÎtÓîà¹ÀvPnN:•{…	#p-î~
+;Ê~53ËûÈ\]ÝÝ&7em>½gÀ¡Ké¾K®@Q3ÆF€!~±¦â	¬è <G¬ÑFï&Xº±\O°ô~šú½`Û•õÉq<ég?Vv¨œô=!E' Ü?é­ããÞÏŽïµâ›™óæãµó8ÿ0 šƒzendstreamendobj211 0 obj1723 endobj212 0 obj<< /Filter /FlateDecode /Length 213 0 R >> stream
+H‰œWÛnÛHýþCÁó°ÎÂ¢y§hÌ˜86`27°h‘-«Ç[ÛMJÖ|ýVu“”HÊ‰wÀQDvu]N:uý“ªE^ò¼þr÷ùxp{?Ý9ÿq2×âÂÀÍ‚0„8ÝÔËBHÃ¹›ÅIŠ;_ÿ	•óñÉñ€þ¨gü À¹þƒ—¬;~'K©Ä†×Jä „sýà{àÃÓ
+_~Êé×ž~)püÀ{alÌtŸ£Àõ’yi¸¾Äð´q.ƒ›ðz·)EÕ¼ºß»Ïƒ’²þ×uÁw×º`á‡§¿Ð‹™Þ<}r.Ãã‘ï¾;¿™Þ“Ÿ`¥g%×–øÈ(¶‡®*^Nme7^ïêÄÍ3¶—¹Ül~Å‹Å¸¿ûõáŒ/œ³ægôfÔ&Ô™nœú½2ü®p.¿ŠzõZhÈeµÏÂ²È
+V¢äWø€ã÷›«ŠÖT[§3Eÿ&‘1u‹¸0Ž/ýX•à¿y`õèP.†³•U¡¿²¼.PKs±±ÕÞz-÷°¥Üq·tž	ôAT¬,WÀjstälì¦išŽðFFv‡Ž…í#Ø*Lo}¢ÌÈVj-–%'‡xUs²âTºB‹êåk¦Ðk|¶*Ù³Æ
+]xgv‘]`ðà3·.i¶átëln±uJÌ½|µâyLƒ ãƒ5+`ÉyzËs±¼ QMSƒðá.ü¤¡Z8²>¾´æåjþŠo
+úÚ$ï
+²œUS´°RK4¦­¿lÇDÉ(ú‚¯XSÖC€hØ[äp¸(/:_Ü6¯A›X?q£ÄOlÏ¶Ÿ[Òˆ£Øõ"djÙG^b0£ÆàoÇ s}ÍëüÚÔÌ%†…;Ç	}¼/‹kÿë³(*]#J0h™avUQýr5Fò“è=p©8GØb‘_*¹‡=nÛûŽ_kÎT¾†•TçPéÏÝyÍ[cßŒéºk©7±àMÈ€YÅ¶©…’v1… hG×&n’Äßˆ.ÜµeÙÅqCÚC¿{Ysô¼[KÓ¤·vÌÎâ’»Ïî$÷	¦>é2Òa0´»áÑ¿ÅE•sjÙ½lJê¬4:²ã•À®Å:˜D…žF^2HÔšíLs+Þ&kìNêFþ»ðWCm#‰ªgn2uŒµj6K®¦8‹Ü4ðÖ§•D_¹7ˆ+:Md¹‘…X€à{t…‡q:ý{…Ç´ZÒÉ-±"1qìYuç4¢$óçïÈšh4?‡¨t^à`R#@ù.Á}‚'üKÍ<- ñ4´‡E8FmØñEç›µiœ»¥»›ïÅ /,t@ø¹œÚ¹ü§eiØqEå5ƒ¸ÁQ‰é×¼6T¹<àÚlr#êž=‡¸[8\¹ðDÔ$ôÍ8=aèÆ"cA8Ÿ*ß£\ÍO©ÁrÖ¬ÏP‹¯­U}ê6º©Ë##[Ã…_ppÙÉ7N)*¼4{¤
+É5tmH £{V*ÎŠCËÃFêô’fÄtÁ°9ˆº›<Gv7s§–A“¿ž›œ›Þ¼ïc½W8m§~ÆSZ%!ÇÕÎ¶ÅÉK5ê°ýÉä¢§‡Î~’¤Øüyúv’fQèY@ÜOAÓ9gT•%Ö	Æ£4xG9Ž‹;=eÆ©¨²€8;S¢AÙÏŒÅaN¨Ú	ö–LzÂúÛºc[{Ñ°îÔpˆœ‚dž‘7lpº“~ˆ£Í˜¶p˜G‘×;<
+“Ð>¹C@µO–ÃØŽGjÂ“ÈÖQÏ“ìÍ³˜ö!)˜&[Ë…Ë8ç†ÐO»ÿAP~Æé@ï¢ïÖ–•`˜CÃZûOm”÷Öx¹à:WbÙ	ZTã8HáôØñÆ·wùžMj†z³·MšÿxûòÎØG7žw—­ß:HâæÏâ^„4Ïû!\¶Ó†ñNñ`€OØEx³¾ …Ì÷F‰˜…ØÉ?dm³¨tÍ7¦w4¬p!‚Ç»ÇÏðùøWPJv8¨ÚÂùÿcî4sþÒ+0ã×¡Úì¥5§ÿðòŽ´ñÆt@gˆ
+Ú•Œ{F‰îMººí­§&=ÞVB­‰Ãƒîs»M¨B’¦´M d€h‡øø×]kø^ï¥zy÷~x©™µø´Fßó¾E–Ä^¯xÎµfê€t„apøYTÍ+´üD1 ü‰åh˜{)Bé…S›i1!Ixž)|XÁ¶6FL—?Ýl·R‘Y”|qá‹DIÛ±82~	í[&àO÷±ç!…+ÁÍˆÌq’è«…c™§^××Ø¤1ÂÚ)C?ÞX?Û:-óëVÚ(î_i\êëß”_ŠZÕlv·]8&z3^¬§ä9¯vBÉjCjÇ” ÍöLVÌÖ»l|:K¶ˆKYË\–&‹Ú>ßöÆf‹Ï$}†Ë×48˜ea|UYš¹¯Ü©÷t»Qwæ>Qï‘ÅÝ·Ã‰¤?J>¾gÞ¿{×—Xš…ƒÅ1ÙY| þábøŠÍlûÂÔ.EFK‘'î¨çÏHÝÛÛ[“ò¡7æô›z7
+°#èðc¦¯oS›$
+^.wB6šÂç[^TE#Ž53'­„g‰¹Pïn,Ê»ÜãqÕT¾pË¦&ö´K²ËIà©\T;Yî\¨¸Ž8ÄhžÛLˆI"›Ÿ’îv´­ ¾>á;QÙàXþò¬dƒb+êÊNòu×á×¬×†_Í]5Öôt—.´$xødÌpúdCæ?o0šDÁHLÌ‰RÕ¡Æä8Ç|C^
+nt?kî«¶5LEá›Þè:àÜ€³¢À^}êc·|Sd£+ñt†qïöæ°F&ssí"¦ÿ–syÑLh:>.6Wd›Ic¯ú(ŠÔè¿½lÊ‚Ø˜zŸÛUðþÉ¹ÿrçüÎ §Œ‹cendstreamendobj213 0 obj2218 endobj214 0 obj<< /Filter /FlateDecode /Length 215 0 R >> stream
+H‰”WÛrÛ8ýþj^’lÉï×8[q×ºj½3“h*/zHÈÂš" ”¢ùúíHY"Ï&®È´4ºOŸ>Ý˜PF”5ÿõ×ùãÇ‡;â“÷ïÉíÝGï›WÐ Nb…´£ˆ$ED3¿ˆHå´HÒ‚(î}ýi¼Û…çüQOð ˆ7ÿÌkfÄŽ”µTbË%QÂ›ß>	Èb‹%~ìñC/iîG‰53<Ç!õÓ<%YÓ,ö3²Øzo·‡Ô†–š2%þ’£¼ê®—Ëw‹ÿÂáW8dqç½%ý¿ëMu3W|+Ÿ_¯Ö7»m-šî;]IiÚ¿Ùin¸ÙpÕps½a7~îámð1	îóëMs½ÛÞ¨uøqþºÑÞEH!®´ a_¯ôëŒ¼Æ=€‰ƒÄ»
+i’1ÚÈá,*ïíb#4áQÂ´î¶\³a>8Ù²r#þF“O½“„U•âZØÔÛîñöÂË3„ÌžFrîDFƒ¢(úe„5•;OM~?±»®"ŸF1dÈF¥vÏY¤”,ÀÑ‰{%kÈŠ“µìÀþ^˜gêqž¤yïŠÞÈ=©øN”üÜá”&'—r»E§åÚšüòù¾j´¬9‘jFÄzð;NÒìÌï#)8Õ5hžf?t,ðiš¦Ã‘b¬ÅÓ¹WÀØ©W>›µ–ÏØ§T8—ËZÀ
+RIø¾‘†è–—b}°~	ñäS¿%‚»šÏìöµ€P­½½¨kDyÎ«”RêçÁ ðYYŒ9qŒhH%/„0F&DÙ°²/º10'ü¢ä^*²•ŠƒÕµT[PÙÙ¸,E4Šsv9¬;	ŸÓ"H{Ã6ˆêüäè”(3ÒÖœi"¶æŠiI"-{âÔžŸÓ$H,ØyvÛøw3#«NÔÕôø,é3<~tø€ž%Õ‘Y]G¶
+ZdÁàê–=sÕ35šcùˆu§¸5ýŒ%W;*dGöXq¢²a¨ÁÎ! çÕ€!B½ÖŠ³ê@Éí¹ÊºÚÌ.VD õ?zÈ	ƒF»}PŠþ†€~­˜:m+æ¡hFö®‚úE˜Ÿ4ï´škUÎ-ËçL•›9«Û›£·óýO‘5­Èò-¯„¹ˆ•?”ûiZ *Â °Ö@G¨ÿcøqrGËÌfùÎ)	h)dµnäL¥ÿ$P ˜“’Õ5ŸÒªEñ³j±ßˆrƒl˜h&â¦¯ð&Q&›RÊç|O@‡W6OV×-œ1ìÊ¢ÎÐÁé84#–çÐ"µ—êÙÖ	¨=öõ<CÛ×ïE fU{A“ð§%ò®â:ÍÕŽ+èéG¥ä¡±¯ùw¶Õ"€ÓÔØó¦r> %EcäÒ›TBD£0UB?½âôo`}~T'{­ÜƒTvíi›êg;(Xe°°oY¨Ñæ¤ý/= XkÀsóÃpÎ©{}³¦ZQ:Àm;‡GÝ·:¥ÍépálÇÈHƒß3,MÑi[€®<ˆäZÉ­ÓOçÊ 9–*ê´J-´3z”õë±#ýt‡¿ÓØ®|Ã¶=jêÖåapª¼ ;Ý¯Öb\	C
+É…&Ð"Ž[ën•-6åãÐÑW?øÝ±Úr³ex‡èj¦,Bv!ÓÏ“D„4ŽŽ¤z­Ø!-`ß[n0s…êd1¤Y>š:™z‚á¸¾:Œùç˜„Ó(9&  bLŒ“žEûwáðÑË{_ž‡SRÐ<Ýu%G|ÐtèNègK~˜¾âÔ,àQÿ|¼r%ÐOãÀZøjgCm›ƒ~®ÙŠ×ÿœTëäîÔ[
+‹fU Zú`-kÂYlÏˆa«jíOœÂL×0Ã±Þ°´ ¶á¿æ J¬Æ„l—3®Gûmæ´›TLË›
+vÃÜùÍÈe¢Â}Ð†oO„Öò–Ýýöe|„¶Þà~m€ÓLUŽuÇ$úWÑTr¯)ù€þöaé!wŠ¶0˜Ã„Xç>b,ØÈ%/.!uzÙ ý¶u­y¹ô@Ä‰n	·ªY«ÝˆVõpUc¦NŒ–Íá¬¿˜AvÖ8<_
+Àûƒ-Ù¥Çû‹8yéÛ/w/ôr°™ß1%Xãüý³ßá2Õ”ugs¼P]
+w½/Ÿ—Þãúª–åóË5÷Z”æ8ûNƒ=sF-¸h¬YÙOœç/aòX†Š‡6Y¬UXÿ¼àKZhõFÁŽðºf¡mK]¾s : NS_Ü8vvèEiÇV®)è®mV£Føã5ìƒŽ	œ¦°AŸŒ­’°8í;®Ü!ˆ/$m6vÇ^Uù·â‡‹åƒ‹ÒîYzÂaÎúFj3Ñ­šÆþbõÃhGßJ ¯”Î¹õ‹ýcMZd¡ß[ÚSý3RÖc1}E
+?§~§VÀÎ„ÔNLÈWv¸†P±îOÿoÌ}êû¡µŽÝUœ°€({v°mèXTÐØ”`ƒ757î;G"˜mNÍ°RŽÒÌìÃ0ºA=9Ð>|ÿbæžÂo©T'*‚ÂRò[3l!)m"R×HÊª+‘­;VÃžcÆ@¦-kWÏÐA£<f"ÙÔ‡q÷Ï`Ö}¹¨©%ö­|„Sõ«(¦_d/þãEÁ´$;UÙýà¸l¸¶À-\á.Ç€Yìùš…ó…qKVÜª±UÁAì]l òD»§—?»çl¨ƒôì³ZHîdë	ª…lÜ3xµBQ^ú[šcþ¸ñøOïÓãGïâýO€ –‘¶endstreamendobj215 0 obj2136 endobj216 0 obj<< /Filter /FlateDecode /Length 217 0 R >> stream
+H‰”WÛnÛFýþÃ /r
+e-^$RA ±“^P'il (ª>¬È•É„ä*Ü¥eÿ}Ï,I],¥u„&–»3gÎœ™Y¿il‘–êÕ«ó«‹_/iB¯_ÓÛËï»7~4(Ä<CšÎCOæ!Åa"æÓÙœå}ù‰jïí7!þ×Üâ¥ ïü³*¥-îÔ….uSTÊ6EJMá¿÷É§›öÞ¤üØð£!ÏD2	§ÎÊðÞûg1ŽUÞY%ëV–å5é&SYMK­-ý^Ôíýó›¯ì#èœxþLD3ÖYíß«ÁaÍ#gõ“	¶ÐuQßÒ¦°9Iz{}I—…ùVÊ¥*{»ƒÙ`£@LfÉŒâ‰/’9Èa»×†i•Áéšl®È½?èvÔ(Ju½*nÛ^ÙÁ_lô&óÎ|AÄkn	¢ ¶ùÃE®µQu%¿©g6à¤¤×–#ZœÕjŠîTc°fH¯z0›bá•%eÊªÔ’º/ŒåÐl’uÆ&ÀÄtéÉÖê
+ÉM]Tmá`ç¿Ò™Z<ßE3òà ¤@Lc?rþ SkUdt…ðrÀ1/i›€a¥²pg|c•Ì8žº­–XÓªYxº"ù"ß¢Q:Ë¿#“ëRáÔqTCjÝätû‘ ;DKcÊt=²à½Ms*¬ /y[È$¥²&£VÇ´ðLéÍ^º×²‘¨F!K~YCh9­¹ªÀaÃ ­b°íÉÆ.?^¿ØQ-×ëFË4ß‘ˆ ™ÆŽÓð€l®…~%]®%A­§
+î» °L§*kDš“¾^ç}õ¤jmªu;·&Í	ñÀ`£VªiTæ*÷¡ÏéqJ9°X µ£z´'x†ï[à+]–z{0và¿7}Œâñ	ÃeÊœ,K~;2¨ê¬ûr’éèGL_Ã;Ýá±kÅÒ2eq›[TOV¬À6¦¥Je¯€ž >kÒ\-¼ÊÚnF]ûÎÌF®Ç”ð«º·Áâ¹xÜE¦?ê"_rˆ‹µË	Yuar•iÓïâl´-žsùÓ÷¶`£ïnÁ H›J–GŽf½#¬…ÊÁï¾ÝäŠeÔô¥]TkÝX‰0Rižé”Ã`ªÖXAr#] ^sà¥Å”´¦SïA¯zÉÎû–²ç^'#2¹nË¬K7É¥n-ùWP´5ÔêË¾Î»=ˆÐŒJžÕùc²ÍÃN.Ý7÷e’Vú„ÖÔ½¬Ö%zbßYJ%ï3–jûÀ1šµD×ÃYÇ>›e,n¤ur\œqsYxSoºÞzþ>êGQ"¦!„È“¨áÏ“¢ùT¾Ÿ¸ATR—Ÿ§Í°hÆúN¦îh—> —´loyîº4ž˜)yÖÈEjv­¯ÔšGr¿ð:ª–Åí-mîlÌojûn˜!uÌ`Ù§Í Ù”[XW)‡Ã SÖ’ZgŠJi¶Ò«…·WŠ<oÏÔJ¶¥uÇŽaôvŠôGM&ýÁ£Õšƒ}r¾öIÿŸùò#‡AìŽ¾)7òÙÊ¾r5±®lÞuˆFöÐz)r:Ýèçêèì“êrºð\M^¬×è…n}ÆË/PýLL}Ð'XBú/u â~µ‘±,1ádYi€“T”Df¸Á?{“¦Ê ˜zÀ,G÷áÎ,™ºÃÍàalhÌÐUƒ9oOIÅÝé›jjÕõ¨'¿ÏÞÓˆnÆ3_ÌpÙs'?ÖiwÈQà(ƒìèr6æûdÓvÚå‰åKŽ 7«~
+¢Õ«ãíõ¢kÌr¿-X}?¶w—±í¸D…ñ	Ú;Þ®?_9fÞáÎ.Âqí=qBc1Mªv+sÎ£€Jo6Óhv¸ækÉ°æO†£'—œýÒË½ $Äî	(Çnªýµx0ðòI/øN­õ N5}þ°fm¸»_aé+þÿFý=¡Œv?ŽBá'óÐÂH°6¶+¥wíRN“ým	Š6ŠãÃ}	zu„JÞÛç‡Çqt¸±ÿ©å3?ÿ¦Ì`*üI8e~@íwZé£ùbEýä¦á‹39ÙôOªN·æàd(¦ÿuîGÑ›^dï®.¼?ÈûG€ ZGïendstreamendobj217 0 obj1593 endobj218 0 obj(http://www.alphalinux.org/faq/srm-4.html)endobj219 0 obj(\f\237\211\2329o\217\265\013\316d\212\326"\331\336)endobj220 0 obj<< /S /SPS /ID 219 0 R /TID 222 0 R /T (SRM Firmware Howto: The aboot Loader)/CT (text/html)/TS (D:20000630135818)/O [ 155 0 R 165 0 R 172 0 R 179 0 R 185 0 R 187 0 R 191 0 R 194 0 R ] /SI 221 0 R >> endobj221 0 obj<< /AU 218 0 R /TS (D:20000630135818)>> endobj222 0 obj(\026\250\337\335hd\235\022><\336Ul.\033\352)endobj223 0 obj<< /Title (SRM Firmware Howto: The aboot Loader)/Dest [ 155 0 R /XYZ 0 792 null ] /SE 154 0 R /Parent 74 0 R /Prev 153 0 R /Next 254 0 R >> endobj224 0 obj<< /S /Article /C /SpdrArt /P 4 0 R /T (SRM Firmware Howto: Sharing a Disk With DEC Unix)/Pg 225 0 R /K [ 0 << /Type /MCR /Pg 234 0 R /MCID 0 >> << /Type /MCR /Pg 237 0 R /MCID 0 >> ] >> endobj225 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 285 0 R /Annots 228 0 R /StructParents 15 /Contents 243 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 250 0 R >> endobj226 0 obj<< /Type /Pages /Kids [ 179 0 R 185 0 R 187 0 R 191 0 R 194 0 R ] /Count 5 /Parent 2 0 R >> endobj227 0 obj<< /Subtype /Link /Rect [ 10 755.00391 37.21558 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 256 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-6.html)>> >> endobj228 0 obj[ 227 0 R 230 0 R 231 0 R ]endobj229 0 obj[ 224 0 R ]endobj230 0 obj<< /Subtype /Link /Rect [ 40.71558 755.00391 89.71515 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 155 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html)>> >> endobj231 0 obj<< /Subtype /Link /Rect [ 93.21515 755.00391 142.99872 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc5)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc5)>> >> endobj232 0 obj[ 225 0 R /XYZ 0 726 null ]endobj233 0 obj[ 225 0 R /XYZ 0 619.93359 null ]endobj234 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 285 0 R /StructParents 16 /Contents 245 0 R /Resources << /Font << /F1 52 0 R /F18 145 0 R /F12 53 0 R /F10 58 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 250 0 R >> endobj235 0 obj[ 224 0 R ]endobj236 0 obj[ 234 0 R /XYZ 0 331.46875 null ]endobj237 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 285 0 R /StructParents 17 /Annots 240 0 R /Contents 247 0 R /Resources << /Font << /F1 52 0 R /F10 58 0 R >> /ProcSet [ /PDF /Text ] >> /ID 250 0 R >> endobj238 0 obj[ 224 0 R ]endobj239 0 obj<< /Subtype /Link /Rect [ 10 627.71094 37.21558 642.70703 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 256 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-6.html)>> >> endobj240 0 obj[ 239 0 R 241 0 R 242 0 R ]endobj241 0 obj<< /Subtype /Link /Rect [ 40.71558 627.71094 89.71515 642.70703 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 155 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html)>> >> endobj242 0 obj<< /Subtype /Link /Rect [ 93.21515 627.71094 142.99872 642.70703 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc5)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc5)>> >> endobj243 0 obj<< /Filter /FlateDecode /Length 244 0 R >> stream
+H‰œWÛ’ÛÆýüCWñA»©%÷Ëv*Ú•§"ÛÑ®ËU	ó b,Ã CRtùã}fp!®$*¨"v˜>}ú2Ýû¿Õ’§%ûæ›ûw?<’Eß}G¯Œÿ¶En@~ìPèzT3ã×¿PeXØbÓûï±àd™AGt ì}‡¿á÷úÏ-ÊÈ¸ÏÊDò={¥¨ù†Éš§Tsú¡éD¶KÃÅÊöƒÓ£Òx2<ËG7F«Göx_ì*aû|Ÿí9&H…ã¯Ÿ;æõÚ¸kcñœãÿçTÝêVDIoòHSŒM7ŒbzÞ7?²òöù7a)ÛŒ=µû93n¨£Ñ-Óñ»?×lÏÅ®Iº¦ÿ%¹QIVI-÷ÄÁ¯ÎîŠ z¡²W-bXÎ°‚G¼+ûbQ9 #uº°ßt«PIYý¢?AŸV
+²ó¯Õù×il8­GÖ£Vö€RõMz*’šWkJè‘7èW.z|ó@¿Tü£2}ˆÓ80AèžóK•‹ZîªD²òx7ˆS&XS½’ô¡Jª£,´¦•ØIú'¯vï¨Ô–FƒEÉ(STVL«HŒäA´qšÛ&rj›ŸžXC¼¡JHB¤xí„üÞó¤4éïâÀö¬¾#.ûM	€óœ§»R’L ‚çt»¥AcY«ˆo©”B¦a©ä¢2é¹`gêÃV}÷–’¦ÙmÀH”ÔŒvÊê|gõÎsL×rã.·à!ÇÞuû|çFÁZHQQSÅ¬6»½/F9 ldHQ›~NPN5ÅC¥Üù™XúÎ¨ç8à-¯xªÊ1eÑÈEoKØ	‡fX½)•ròÜ1gxw0{¹æ¢ãNÛsŠÛZ¬ëdÓÐòfêµU$ì¡6¼*“+ÇÚ<3ŒãA<6Å0]·wn~é‰þÕò–T,_ÍuIt‚.äÞ$‹D'SR"oaXF«ãî:M:û.í°|ïkìè|¢”4ÚoM²a'·!}W8'ÑŒ]¤æŽmF>ŠÁ9ãá,NyCT¿@Ç7Ý;ZáÈ‚Ò[¥x#@†W©ØlÑ\V¼)Ö¤["Ò®š(AÇ£¯pCÎËRáªBÑFÅGÍƒ—m<`75|³E¨Y®2O
+JÒ”mÕáŸzoÍ*V£fé(N©†htax=UD¥ŒÉÝštLç®cúö„::š3=<CG;ñÝU«‡D»S¥æL-’½¶0-’jÍ†£ëT=¬*?è¸4Ä®Ö/Lz‹jÛvWoÜ#ò6s ´­¬}ž#É!‘îU‹î¨dòUÓUº6´ªÚiýIEõïÓ5{y“²bÎö÷¯QÐ3”cÖž­CÁÓBË’
+Ù$.K*¯™À0í¿ö<;‚ö˜<¨âCC%ÿÀÚª½¼i–c*wØ4¬.”^Ö{&ÓûNÁ8
+¡iŸB»¼]\ÄÒGì]‡à9?½Myá÷ÿÆMñStÓ*-X#Y½X./u×B¿=œ¶fòÛ§‡§U3óÃE%g¶·¨Ò™ã‡ÖçaD2³Ûdf»¶:‹U2‹ìØYäxb9ÞdW½Øv5sÇö¼ÅjÕ¬®H•rÐ´|ýa±J;áôálæÂŸv°Øf3ßwPÆ«¬È®`³ØC(¼Å– ¬`× äps¹6y‡_ƒ°lXk1NXw ëk Š™–ã)„b¹‘§bPtE‹0ÎS¶>¼:Õ©á˜]kd“j¯9geÖÐP¼/';¶ú¢,&½Ý›¿Ž5[C¹ÓÓÂ´~´/dÛÿó ùN$] :ñ—„u‡V%>è{R­+ä„dlÚn0ÌdS¸žä|"eÅ§„P…r=IÉ¢»uAÑ\m³.;ØPé—·mÕ›¨LËˆŠOêÜ'åm·›¤ÂE
+ˆ<GkêG°S_Y¢âê)WÔŠ´Š#6`žF30]L‰“x^A€ÿÎZ£ñÁ¹c£_`£çªsJø>a—‹ÆkÇÑÙü‚ú½¼ñ–·Ó&>%Ðú6iŸ“~²ëdC7Q-¤Qý4c9¯ZâŽ¥t…£î(0ñ–Év«g×ž}sj®m«ÂŒ¿gwËä¨>~Ú–µ4Î›–jŒ)š)Ày~lŸ®Ž—=2É2¥s†‚ÞãÛ	·SEf…_N˜®ìœÜOºy¡1Æ¦Xþ¨/£ºV}¡£ŒN;[ç—Åñù|®~ó³¿Ÿ]wøAAÕ×é•¾¬ík®kµ­/žŸîêº$òÂñæÙxóîÁø
+0 5œ¨endstreamendobj244 0 obj1751 endobj245 0 obj<< /Filter /FlateDecode /Length 246 0 R >> stream
+H‰ŒWírÛ8|¾Ê÷#Î•DK¤DQÞÍ^­í¤*µ›KÝÚW[W¥?I\ƒ€,3O= ?$Ùrâ8–ÍÁ §§§qõ«¶ùJŠŸ¾úrûùŽØ/¿°›»Ûàï`<bqÂ¦óˆÍâ	Ó"øóŸ¬n‚£zƒ_r\ý!$·ù“¸URé¼Vç+¦óàêÓ˜ÙÃÏ>¬èÇž~hŒ'. >°Äl:ãQš°‡"¸¼ûxËþ[æÏ,/Mn¬avË-«8r´¹*Ùû‡¿(ìÈÇÆQ˜Äó9…Í‚KÞÜmnŽÂ¤¹ÁŒEÃJ­×FX\çeö½àq8ŸDmðÕùà/)QÁDis-X–›Ç}ÅMK”ôæ0š…³4š±á8O¢Ä½JëX­vlÅK†¼v•‹Ó§dùR
+äZ³=¯Ý“2!EQ¨4‰"öp\þ.ì;ÃÌ®ª”îÁ-¬Ãsgòrs~¯Ñ(%³´ÙÒæì^	µ=/-³ŠJd¹”ì÷¼Ü=3Ä<ä4ŒÓ´Er{6ú>·îæ0NÂdš4`Í<Xg£ÇÄ&Äòlì¥  8[\J®7¹Ù.Þ3³çUŸuÈÛ€v›&9@´.%úÌ„±ZÕù"@Wëgð“B¶»Ä'a„\^MÛº"#ðŒ[ç¨Ôu%ÂV2_åVÖ!û_CŒLáÑE€¤–5ãYæ7rŠBŒ™ß®=‹Ã:2ck¥™à«m=MŽ©y€Êç’©F&FØ^P.õµ’Rí)™—‚6EWùR=ù w™ ^V×á)ÝÂéÝ?¤Ïdâk¾®-ÿ°+wFd×vù*tm7€ëÍýÝµÝ~ÐÂè§,½>Þà°ˆ–À/.â¿Õží·5Á‡¬®ß’„è»å†] A)\¸<ƒ¨°ñl£‹±?…”ƒ¾í2%LùÎ²ÇÉ š+ÌÒÓr‡ˆ»6Ú–…æ­*Q¾?âH³[)L*Uf†°ç¬ÜÊ»Ø—;AY¥×±* L§c7Ò*ØM•<ØQÄ-ï¢¡9¶;3À–ûh¦üqÐ¿³.X!H}ŠÐÀß¾›öÜ)äËµ·\gnƒ!sõì¯±]›´C)îªŒ[\î¸EÌ"Ý¡›‹À«®×AnÀp7è2à|eÛ÷·÷ŸYž±©£¸K³åø;¬¢®¿OÚ¸ð’/…dC½gW™xºÒúÛóï[”|Ÿ£m‹?¡rëÚã-ðGtP¤D»×ùfk©ù5ØF×—|õØíŽ–_ÒIÕU…i”¶ªp˜¬ïüæö¡`õ{8NÎçÝ¨Ù¯NV*/›!VðºZ,•²=Wˆ†ÑvZô
+U;•ÐfWÅˆ ê.a8ü8BÇ¡‚k^î'±/d7Y·¤àj1rw(I½î¬ÇŽn¹.|É•†‡Ü+âM»èøc^õ<ë¥]A*–í\_ÑcpÊö>/WÂi©¤’Ö-ÏÁnÎ6Je/38ñ~s³	j¾$Ù•.ŸJ«õŽÛšbåÇLŠíù@1|;6£[S¥úøxõuˆÊìð1ât†ºB4päÃëP¬ UP'×wþþQ9Ücå‰LÌüòàdÄJ^ˆF˜ 9ý²˜ˆSaOÂy’¶ÆÆqÛdËô”ÚqOmÝi8ÁÉIŒèFÒðARYÃs”Ê
+OÐŽ`ÃhÎÆ`ø!ÓI ™Ö
+íTÝmØá©Ê¸Ü óËÓÛ=¯--µ‚xæ+X	dMÁHek­
+<ÀíË
+Í¬ŸèaV[Q×½†JS)Kj/˜œ
+ñÓpñ¾ñQ+—ÞäGÎäÇ°i<OÉŸ†×žz£y/mÞKÂ8nç-'iîÏÚZ¢YN§#÷S®1:–ùMÿ$ø‰¢¸›¿î;þþ/0EºØs} N½T£ª”µûCUBsçúLö.0vp¥1üŸ”Õf¡[gôQtº!˜;•Úˆ±$/a-©˜Î°ƒ!ÏáÂ^õb¨U8+ ^¹•(×Vo³—Ã­ãÂ.…Ý4–¯æ¡À€nKØìÜu—p  ÿŠ#œs°–ªª Vký4‰½»yÙ®'34*Ì ëVLtìHÃ.àíîxòÂÅ¢]“QÒ¶+åPW1nnW¼ršGÖChh2$>oÆ¸¡ÎƒD‘Àz'ÐBåÝ×Ü/rt{mÇN¤Ô.Ë!ÒžÚ·A×1}÷…‹à„®ÇÇ´{'‚g9:£Þ…^·Sá IZœ&át4~¥INP"wÔlÃÀi¡dŽö]âZ”™“²ó®{ˆÀP(½Çlƒœe²é®‹KãŽJ¦Sà€4LGÝù¬€¹;Nàt'Ã–n&Ó®ÕzM%ÍCÆŽZ	Ö@´(„K»é	R?^n„Oî}Þ¶ã¬mGð&ÿæ,òÙ#Á>¤ËŒŸ=P…ð~­µ ÎÃR‘E©v›­ën%_Ž•Dq2ÿ:..Ç_nÆ}%á~ëFti’Lâ8õLû=~õ¡1IRâÙ†B¶J^âŠ& o°,aBMg?Ÿ3ª…"aêpSÓçÎ@”®™çÆù£W;<O_z8Á4O'GõÕÌÛ½:[«=9GR$	Ïòš]žÎˆ7öë˜×žQ,èi ’±Î˜½Î­xíÈQ{î8vÓ7úÑ¿þâDéN±tÓ×4NŽmûŽ:¹‘/·5Î¨1+ICy_¶VRª=Õ6
+óë’o k¯“tyàøC$Ñµct;=Z¤á$¿AŽaûÄ¡f4Ç5oû·xÿC§­I6\ñ?f­sò-³úø|ürü‡ÿ` AgLendstreamendobj246 0 obj2155 endobj247 0 obj<< /Filter /FlateDecode /Length 248 0 R >> stream
+H‰„TmoÓ0þþ÷uì¼I¬hˆ"Ø*!|H·ñæÄÅq›Â¯çì¥,!ÔÖéã»{ž»ë]ƒWÆÊµggÁb~}	ÎÏáârN¾Î J!)BÈ¢Œ ŸžAK.–„{™-~‘@‚¡J+b®•6²ÖÈ5I‚×8,7è»\»£w‡ÂcO€”È’˜²<„eCž,kO—w.’=„Ns–¸¸Š<™mø`}4&hDÙv`ëÒB/ /[VÃF›5"#­l·QÇ4Ï“ÃJk«ŽSþˆ&EQœ$ÄA´¨ ÷Û¤}F•»zikØ•ØG+uœÖáˆfaHYÁ2˜qÊã0õ4kmŒèvº­\Jån§¤è\¢#Šˆºpæâò$Ã\.]odîm)|Ö{è0UA«{X	(WJ¸‚»zo+Ý»<t?:+(Û
+\uðN¶ûãW£ïP—¦ªdwOáº½7¿U1ÛÂ«ŠcÙì”xîÝoo°ÖMã•l½`¥Ñ„iõ>›•xñG“CŠÄ0sÏ4ö8Ç	óùT÷e³„<84Ê%G·?ñBAóË ‡ «V¹£¼Â±£Q†£0:qQ(ša—›y HÊÂ	âˆÒñ‚šlP(÷'
+éš%'6cº©ìy)·pó5Ó¢È¡w+±ÀË;ü¼…/ßTàùÃ‚y¡v”Ñ'éã•"·$f4›\6$/ÜŸú‘æc?ü±)jgSÇaÏ¹«}´qãÕM#œï<)üî¾Gû0?ÃŸ§EŸvçdñtŒ†§•þ`ÄAê}7‰Äµû_Ü\·V´¶Fãj1'ü` Ø4žendstreamendobj248 0 obj638 endobj249 0 obj(http://www.alphalinux.org/faq/srm-5.html)endobj250 0 obj(&+\323\275\242\244\001^\257\331\254>\233\203\371~)endobj251 0 obj<< /S /SPS /ID 250 0 R /TID 253 0 R /T (SRM Firmware Howto: Sharing a Disk With DEC Unix)/CT (text/html)/TS (D:20000630135818)/O [ 225 0 R 234 0 R 237 0 R ] /SI 252 0 R >> endobj252 0 obj<< /AU 249 0 R /TS (D:20000630135818)>> endobj253 0 obj(\340\227\350\356\347C\256\023\346\031\242\2776\317\336)endobj254 0 obj<< /Title (SRM Firmware Howto: Sharing a Disk With DEC Unix)/Dest [ 225 0 R /XYZ 0 792 null ] /SE 224 0 R /Parent 74 0 R /Prev 223 0 R /Next 282 0 R >> endobj255 0 obj<< /S /Article /C /SpdrArt /P 4 0 R /T (SRM Firmware Howto: Installation of Distributions)/Pg 256 0 R /K [ 0 << /Type /MCR /Pg 266 0 R /MCID 0 >> ] >> endobj256 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 285 0 R /PZ 1.03854 /Annots 258 0 R /StructParents 18 /Contents 273 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R >> /ProcSet [ /PDF /Text ] >> /ID 278 0 R >> endobj257 0 obj<< /Subtype /Link /Rect [ 9.62875 756.37738 35.83395 770.81674 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 284 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-7.html)>> >> endobj258 0 obj[ 257 0 R 260 0 R 261 0 R 264 0 R ]endobj259 0 obj[ 255 0 R ]endobj260 0 obj<< /Subtype /Link /Rect [ 39.20403 756.37738 86.38451 770.81674 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 225 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-5.html)>> >> endobj261 0 obj<< /Subtype /Link /Rect [ 89.75456 756.37738 137.68994 770.81674 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc6)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc6)>> >> endobj262 0 obj[ 256 0 R /XYZ 0 728.45023 null ]endobj263 0 obj[ 256 0 R /XYZ 0 688.00946 null ]endobj264 0 obj<< /Subtype /Link /Rect [ 110.71605 411.668 189.70953 426.10736 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\f\237\211\2329o\217\265\013\316d\212\326"\331\336device naming)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-4.html#device naming)>> >> endobj265 0 obj[ 256 0 R /XYZ 0 393.3696 null ]endobj266 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 285 0 R /PZ 1.03854 /StructParents 19 /Annots 270 0 R /Contents 275 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F10 58 0 R >> /ProcSet [ /PDF /Text ] >> /ID 278 0 R >> endobj267 0 obj[ 255 0 R ]endobj268 0 obj[ 266 0 R /XYZ 0 699.56396 null ]endobj269 0 obj<< /Subtype /Link /Rect [ 9.62875 413.59375 35.83395 428.03311 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 284 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-7.html)>> >> endobj270 0 obj[ 269 0 R 271 0 R 272 0 R ]endobj271 0 obj<< /Subtype /Link /Rect [ 39.20403 413.59375 86.38451 428.03311 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 225 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-5.html)>> >> endobj272 0 obj<< /Subtype /Link /Rect [ 89.75456 413.59375 137.68994 428.03311 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc6)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc6)>> >> endobj273 0 obj<< /Filter /FlateDecode /Length 274 0 R >> stream
+H‰”VÛrÛ6ýþÃNúÐ´C¼‹Ì$ži,'u§îÅÖLª>À$$!&¤¤¨_ß]€Ô¥RíäÁ2.öröìY~2,*ñæÍèöêf>\^Â»É•÷ÙËYfD1KÓ($Ù8G)’(#¼?‚ò|¼ÀÝ|à³te°À‡[|ñ	ÿ~¿þö¡ot'*ÞÉµ¸Ò•6²‘9Ä'KÆ~µ%,‹âýIåÝ{QÎB?>´ÊReqrl–ålœÄé¡]Yšåù±á»iŸ»Yx£÷>Lçø}ZÐÇ†>àUg~Ö²ÒM}–ä0­½—¿‰/ÝÓOÖŸOþ–Ç1¹(½—0¼±‘|† º±–zÕÝŒXòÜ½+­:¡:{ï‹`Ñ_|¢ùcœaGüAØLY§1Bú!šáñYÐŸÅùpøƒ³³GÖå-½9¦’Ù$öŸ˜Êi˜úàlH°:Iùl”£üÎõ	R6}ƒý¾Á¡ë°F,ðsû¢"c¼$]KS7ªíxE”Õ
+ô&²EÆ>¬è{ß´‹ ÉÓ	ÙãˆògÞAÊ|àªÄÿYcEAæ(Ô?÷S¯ Èñ(ÜÜèº¥ Ÿ08Õ†|ÂÕ„Üî(ûGSç×`pµäk5/ÊƒºÐ9<hÝñ‡J¸$îïn¡À‚u%(lˆÄTxf©ãq%x+@éŽ<b€niôj±´ùëù\’W8W“‹»ßoA¶Öñê†hfž­KìaknöÃá‚˜:ƒHktkÐ¾n¸r¶ÄÎ£[gRj@M‡ýy€÷+hVÍë—Ê¶¯Û6!˜ëªÒ©¯{ÜýI} ú¬£ —( ”´¦¾(q¾s‰`>
+£DÕŽB	Ô=¶ø_T|Ñ‚Aû·•T«/ýãöÔ‘%a`ÃÜ(›ÐkÄŽ	Í>žâµ°üJ>NçH¡­^™¡3¯4(ÈÀQŠ’Á{mNA¿þÂë«s­æÅR*T*	Ê›É5%±¥™Æ[hPä¹Ù¢uÛaËèâÌÃÆÕ”ÜF¯ª*­¡’„´l¿àò3÷Ÿ…ö…Åv„Œ–%Ñ+f€ƒ>RˆqZ²ÔÏhEÐÚðódÖ¯ˆ¯³8À}•¡Ñ˜ÝG›VN9Ô±’Yœgy¯åûæ ¿ŽzLòÁŒ&pšOÊC=ÀB©Õ÷<*½›:ÑÚN²Ågw‹£0ê/„ûÕýõWÈV„«8gã'dkðô-bù9CõvéL`Ø!ÿ?mbÎÚj2’WÈ8…IÍ<:h£‘²”ÄO©ÖºZ‹3ÚRwÔºv4›WºiPfÜ”!Ÿ(9¸œ'š©Šj…“Cv
+Âæ”¿ã©l[(0'(ëM¥:Ýlø£•¢ª¤Tz·í‡¨nmë]•k.+Âbç*Ãi±®>éª8NÂbÆÁJMï(Ïa$;+¤B]’=ó\7k½RÝE£¥ê¨v‹4ö$xuZE·÷×<_1Òßa8$õ[›äˆÛ„õÜMí¼ôOc_è%ç¿WžP9Ø<‰
+~©7m“kÿ)P3Ïpòƒü»éè`×•:<ÁäõlÖi]µ³Ù%ôŸ/‚z‡Ä^nÛ¤èKÝt­•y©h¥QIŽµv#èU·;µÊÏàn¥fžUß]yZnUš=?ßå½ë–Ä¾]êr‰2òž¶î ¶åÏ°)Ì^4šðQvî÷ƒ¿­†?fžØÛ;ª¸êpi7/Ä9Jâ"ÝKÿõí•÷'xÿ
+0 Š&™Äendstreamendobj274 0 obj1379 endobj275 0 obj<< /Filter /FlateDecode /Length 276 0 R >> stream
+H‰”UÛnã6ýþÃ`ŸÒ"¦IÝUìèÚÞ6Üm}¨‹B–(›IÌR’ôëwHQ±Ý
+Ã4=œËá™§?êNæ•xÿ~ºœÝÎÁÍ|œÏÈW’ÒÈKðE~aêÑ8ðBˆýˆòÐ÷@òÇ÷ÐkÂÀ|ô7Èt%ª¬“1S•Ò²–9hI¦Ÿ8ë•×¹YŽfÑ@¸Oƒ„ùÖÍ¸ê¥žqRÎ#Ö5¹ºA|[¥:(ƒI)+‡º’MÿHwÿ  Êv-¼Ó¨òaZˆÃ´,T*+þÖY]Èöþ÷Ýú‹2 !†1`Âiz(+ÈÕz/[8Êª‚¶ËtÝ^À½Ð¨®áA«ú¡ƒ'ÕC©´=jE®šÂáÂ×á_4Ýg,üWUB»Øžîù”³Ô^ÛmíQÂqEöÒõá®¿[ nŒSßçÉÀ–ÛvHV\ÝA1ªa[(£#˜Í/‰x-£WnržÄÖíúÒÉdõy	H×ÝjiÈ¶˜’ºÏ÷PÉ{aC®DñsÖ¡>³Ä /c·!hÙR0þ¶¢íà˜=A§Ê4frÂ/…õœ\Ñ8\ÆÄ¸hÑ·CœRU•:Êf¹ªkõƒ»!év©6¿Q`Sý\P­®'X02c±·å¶±³­:ˆë^DåÜ4Y-Z[$X,z¤ªÐØx#D!
+
+ŸPaCYý€ÌÉÒº©³|/û¬@Î^²q;_@^ÆÒB½‹SÖ™~Bó¶Cq:*à¨úªÀVP÷cbdûø)¾Ú†{ƒ™ÀÃYaìl…ìRVà-¡í”ieÈRÃÆd¤Ý›Å«ÈN`šÚÕE¶Ý¤öt	9fß\m`ô%9ÅFßTöf)wÐôõ)a'ó©èò©ECŽ;¤Cá±†Ã†dZÚöiA5–1œz¥!V=÷ÒËðò¼ïv½,5Jœ“ÔC8_qfº|FSÇPŸ$MTªHÄ<TÇ±q!ã£Œ2ÎFÓWEÖEö¤D(‰qZÊË0õ¹ŒþùÕ(ø^“9€™9°ú	aáôJàX“K~Áï/ðç_
+xËC'‘ç‡4ñƒ“¤"wÄO©Ç‚s­'U„—jIJã0ˆÎõ¸Ó(IÓKE÷¾qCÐÌÈ 'qÂÜ3õ«xt#Ì=ŒÈ@˜Ç[Æë’Q|T‡ƒß4Õ·–>ß²›©¦M×º*[,gäw ß p¢…endstreamendobj276 0 obj942 endobj277 0 obj(http://www.alphalinux.org/faq/srm-6.html)endobj278 0 obj(\363\214f{\021\344\253f\034{v\360{\347\025y)endobj279 0 obj<< /S /SPS /ID 278 0 R /TID 281 0 R /T (SRM Firmware Howto: Installation of Distributions)/CT (text/html)/TS (D:20000630135819)/O [ 256 0 R 266 0 R ] /SI 280 0 R >> endobj280 0 obj<< /AU 277 0 R /TS (D:20000630135819)>> endobj281 0 obj(DV\372oW\023O\336\263\213\2038\020T\004\377)endobj282 0 obj<< /Title (SRM Firmware Howto: Installation of Distributions)/Dest [ 256 0 R /XYZ 0 792 null ] /SE 255 0 R /Parent 74 0 R /Prev 254 0 R /Next 300 0 R >> endobj283 0 obj<< /S /Article /C /SpdrArt /P 4 0 R /T (SRM Firmware Howto: Document History)/Pg 284 0 R /K 0 >> endobj284 0 obj<< /Type /Page /MediaBox [ 0 0 612 792 ] /Parent 285 0 R /Annots 287 0 R /StructParents 20 /Contents 293 0 R /Resources << /Font << /F1 52 0 R /F12 53 0 R /F4 54 0 R /F17 55 0 R >> /ProcSet [ /PDF /Text ] >> /ID 296 0 R >> endobj285 0 obj<< /Type /Pages /Kids [ 225 0 R 234 0 R 237 0 R 256 0 R 266 0 R 284 0 R ] /Count 6 /Parent 2 0 R >> endobj286 0 obj<< /Subtype /Link /Rect [ 40.71558 755.00391 89.71515 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 256 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-6.html)>> >> endobj287 0 obj[ 286 0 R 289 0 R 291 0 R 292 0 R ]endobj288 0 obj[ 283 0 R ]endobj289 0 obj<< /Subtype /Link /Rect [ 93.21515 755.00391 142.99872 770 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc7)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc7)>> >> endobj290 0 obj[ 284 0 R /XYZ 0 726 null ]endobj291 0 obj<< /Subtype /Link /Rect [ 40.71558 109.00391 89.71515 124 ] /Border [ 0 0 0 ] /A << /S /GoTo /D [ 256 0 R /XYZ 0 792 null ] >> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm-6.html)>> >> endobj292 0 obj<< /Subtype /Link /Rect [ 93.21515 109.00391 142.99872 124 ] /Border [ 0 0 0 ] /A << /S /GoTo /D (\021\007*\023\273\340\342\341\317\275a0]}\254\244toc7)>> /PA << /S /URI /URI (http://www.alphalinux.org/faq/srm.html#toc7)>> >> endobj293 0 obj<< /Filter /FlateDecode /Length 294 0 R >> stream
+H‰”WÛrÛ6ýþÃN^âtbš÷KÇ“‰-9;‘“ZÊô¡êt ’˜„Ê‹l÷ë{ ’’(ÛcÚcÓ ììž½àì¢¨’(åççg“Ñõ˜úð.Ç#í_Í4ÈöÈ-òm‡
+®ýùåš%&Ýþ†AB†î…a@w„µLüÀßïô×ßÅ¤Ýò”UÉ–D*Š$ãU‘DT$šcè¾ézä»¾n¦M™„ò“¹ÿ”jS-´u«÷1ÓLÇÒ¡Ñï/¼œ)X+íì“	|³%Þf‘|ÜÉGAØª–àÀún¨Û~Ò,ÓNnø}Eïf?Ú³Aˆ¥›¡\>‹µ“oß&¢.»J‹­»ít£¡[ÝÄHäÏ+µï
+ ¡SO,—H_žKBÆ3¬Ý'wŒÌGƒµ¶„À@‰Ú?!°Ûžµ#_î2ºA·}/z?’"ìh5†Ô¬ÆrVc9Ãzˆ’–óu‹¨ÎpNúœ”•(äqw>èÝóí½Ñ·àŽn’eÒ„Ñš,Ã0h´fùŠ—´,DF·	>c9§ó"Þ|défÍÒ$¯ïuQ¬>HE–îú}jêŽxÊìsªÖœ’¼¬X*(rZ'ð1ÊùEk¶©xÑ uZ  ~ØvhÃ¨¶í’ç N‰è¹:yöÁÚ‹8æ1`,E‘5(ð{Ã«…U’¯ë·_¡ß|¤¿Êòà%:·<þÌ*’`yL—Ó1ÅIù3ež–ƒ‘™Ã‘¹áÁÚ[ž‰-°Ù6‰i"Ê/V¼8ÁûoKÊYÆ
+Hä¬®Ö¢()¿†"ëi{	Ù!+ÁÅŸ Æh	{‰¥°ä¬ª )iÁá8¸T&>˜1}È ÷IxDÓzz¯ÙÊk{'†1”ËˆV×òûÑJöS¡*r\ù­qìçzµBžŽY’cåy¼ŽçÚGÁ+¸‰ìÙ(VüPÄöBðäúËWÚ–:Mo'’Õ,§7QWX–”·yèMGóÁ61üÁ®qÿØ5­6±¼Kªh-)|€ù^YgÁJÔ=‰º.ÙŠÅÕÓõ.ï9\VÿÈ¼`‘,É€Â%¿™LFƒy¯@ä¬ý¾‰YuàO	jüuJ†æC¡¬Ø"…›a6éÃ¤‚S—¦d:ŸkHè¼x+qŠ‰BŒÝyöCæßHf§É-ü	¢Þ4ŽDœ,“v"ù¶^JãÆ*\1(N¹4;ŸkrC–ac9µõ
+Ô‡<‰¢ Žc¨Ÿçi~"YL¶‚ý®äºAÛÊäGvŠuËï&Ñ²ã
+òž’
+^úQ—2:™|ð(Êß*A§–©û¾ÈGG*90à2M¢ŠDk[r“©ˆ~Îß7ÙÐpVí­ÛKq®n‘Kcñ‰Ì0©‰&é9®Zˆ§ÒÝ´JV4ãé›æ's­”ï›ÆpwÄ±v¢:˜ÓM!"^– /¤¶'{"¶Š×ˆéº6ë}‘Ù³©Ûlk—kÛ
+“É6Âã„²«6†2B[‰Ì~Ÿu`šÁ°Œá°¬à¬1H‡.±M$2÷^¿COî¤±<ûˆ4&œ~ªâ¾ÃBþŽp1¹A	ÛÓh&ÄOEjÜ„PYŠÂÝ-BfƒMë6O–|‹DªüXþú?š¤zÜ_Jš´fÃÍëñÅ¸Á€rƒ­áoV,ë`í§äè¿ß~QõY…o)ê"\ózÒ^ÒlØÇj#m%HKË)PõÈEËZ6qƒÃ˜ÁÁÚë<Jë'ú~iŒ˜/ÿ+š¦ ïêHÛ	ÙCÑõ4¾„Î{|%ýÒ+»¤ž˜"Ä´û#vûtQ¯d5@0xtJ_»(Ø]O^¤š+\K!P^s÷O\Q¥*ËÇ]WBuµv#@³‚æÖ{4W]K‰Ú?!°Ûžµ#_î2ºA·}/z?’"C÷M7Qd€LCZÁ'sÿ)Õ¦î&Vï#àXz~á%Î­Ì*ÏÚ3ðáÅë†ßWÔÔÌÈµ–n†N[¿ˆ}Q—Ý%Ì†KÚâÝÛhèV71èZPðZû_MFÚ¤ý/À ïŸŽ:endstreamendobj294 0 obj1548 endobj295 0 obj(http://www.alphalinux.org/faq/srm-7.html)endobj296 0 obj(%0\273\2725\365\242\016\331\031F\241\263O\375\374)endobj297 0 obj<< /S /SPS /ID 296 0 R /TID 299 0 R /T (SRM Firmware Howto: Document History)/CT (text/html)/TS (D:20000630135819)/O [ 284 0 R ] /SI 298 0 R >> endobj298 0 obj<< /AU 295 0 R /TS (D:20000630135819)>> endobj299 0 obj(\237_y\275\225\351p\002\371\260\213o\264Z%E)endobj300 0 obj<< /Title (SRM Firmware Howto: Document History)/Dest [ 284 0 R /XYZ 0 792 null ] /SE 283 0 R /Parent 74 0 R /Prev 282 0 R >> endobjxref0 301 0000000000 65535 f
+0000000016 00000 n
+0000000169 00000 n
+0000000260 00000 n
+0000000423 00000 n
+0000000579 00000 n
+0000000719 00000 n
+0000000962 00000 n
+0000001172 00000 n
+0000001341 00000 n
+0000001596 00000 n
+0000001624 00000 n
+0000001771 00000 n
+0000001929 00000 n
+0000001995 00000 n
+0000004532 00000 n
+0000004576 00000 n
+0000004794 00000 n
+0000005044 00000 n
+0000005294 00000 n
+0000005338 00000 n
+0000005556 00000 n
+0000005799 00000 n
+0000006042 00000 n
+0000006285 00000 n
+0000006528 00000 n
+0000006572 00000 n
+0000006790 00000 n
+0000006834 00000 n
+0000007053 00000 n
+0000007301 00000 n
+0000007549 00000 n
+0000007797 00000 n
+0000008044 00000 n
+0000008292 00000 n
+0000008538 00000 n
+0000008784 00000 n
+0000009030 00000 n
+0000009275 00000 n
+0000009320 00000 n
+0000009348 00000 n
+0000009567 00000 n
+0000009652 00000 n
+0000009899 00000 n
+0000010146 00000 n
+0000010197 00000 n
+0000010421 00000 n
+0000010667 00000 n
+0000010913 00000 n
+0000011159 00000 n
+0000011210 00000 n
+0000011434 00000 n
+0000011650 00000 n
+0000011756 00000 n
+0000011865 00000 n
+0000011944 00000 n
+0000012051 00000 n
+0000013449 00000 n
+0000013471 00000 n
+0000013573 00000 n
+0000014340 00000 n
+0000014361 00000 n
+0000014402 00000 n
+0000014495 00000 n
+0000014531 00000 n
+0000014660 00000 n
+0000014689 00000 n
+0000014746 00000 n
+0000014814 00000 n
+0000014968 00000 n
+0000015027 00000 n
+0000015091 00000 n
+0000015252 00000 n
+0000015413 00000 n
+0000015493 00000 n
+0000015597 00000 n
+0000015723 00000 n
+0000015844 00000 n
+0000016078 00000 n
+0000016289 00000 n
+0000016346 00000 n
+0000016375 00000 n
+0000016624 00000 n
+0000016669 00000 n
+0000016714 00000 n
+0000016874 00000 n
+0000016919 00000 n
+0000017135 00000 n
+0000017389 00000 n
+0000018860 00000 n
+0000018882 00000 n
+0000018941 00000 n
+0000019012 00000 n
+0000019179 00000 n
+0000019238 00000 n
+0000019309 00000 n
+0000019471 00000 n
+0000019666 00000 n
+0000019902 00000 n
+0000020114 00000 n
+0000020175 00000 n
+0000020205 00000 n
+0000020423 00000 n
+0000020673 00000 n
+0000020719 00000 n
+0000020765 00000 n
+0000020947 00000 n
+0000021129 00000 n
+0000021181 00000 n
+0000021431 00000 n
+0000021461 00000 n
+0000021739 00000 n
+0000021770 00000 n
+0000021823 00000 n
+0000021876 00000 n
+0000022126 00000 n
+0000022173 00000 n
+0000022203 00000 n
+0000022422 00000 n
+0000022469 00000 n
+0000022693 00000 n
+0000022949 00000 n
+0000024824 00000 n
+0000024847 00000 n
+0000027041 00000 n
+0000027064 00000 n
+0000028152 00000 n
+0000028175 00000 n
+0000028235 00000 n
+0000028295 00000 n
+0000028477 00000 n
+0000028538 00000 n
+0000028611 00000 n
+0000028769 00000 n
+0000028889 00000 n
+0000029153 00000 n
+0000029366 00000 n
+0000029437 00000 n
+0000029468 00000 n
+0000029686 00000 n
+0000029936 00000 n
+0000029983 00000 n
+0000030200 00000 n
+0000030422 00000 n
+0000030676 00000 n
+0000030782 00000 n
+0000030890 00000 n
+0000032760 00000 n
+0000032783 00000 n
+0000032843 00000 n
+0000032912 00000 n
+0000033081 00000 n
+0000033142 00000 n
+0000033206 00000 n
+0000033369 00000 n
+0000033757 00000 n
+0000034032 00000 n
+0000034256 00000 n
+0000034311 00000 n
+0000034342 00000 n
+0000034567 00000 n
+0000034822 00000 n
+0000034875 00000 n
+0000034928 00000 n
+0000034981 00000 n
+0000035150 00000 n
+0000035413 00000 n
+0000035466 00000 n
+0000035497 00000 n
+0000035550 00000 n
+0000035813 00000 n
+0000035844 00000 n
+0000035897 00000 n
+0000036168 00000 n
+0000036221 00000 n
+0000036274 00000 n
+0000036305 00000 n
+0000036357 00000 n
+0000036409 00000 n
+0000036462 00000 n
+0000036739 00000 n
+0000036854 00000 n
+0000036964 00000 n
+0000036995 00000 n
+0000037267 00000 n
+0000037298 00000 n
+0000037570 00000 n
+0000037601 00000 n
+0000037848 00000 n
+0000037879 00000 n
+0000037932 00000 n
+0000037985 00000 n
+0000038232 00000 n
+0000038263 00000 n
+0000038316 00000 n
+0000038567 00000 n
+0000038598 00000 n
+0000038821 00000 n
+0000038868 00000 n
+0000039092 00000 n
+0000039346 00000 n
+0000041366 00000 n
+0000041389 00000 n
+0000043316 00000 n
+0000043339 00000 n
+0000043450 00000 n
+0000045060 00000 n
+0000045083 00000 n
+0000046981 00000 n
+0000047004 00000 n
+0000047116 00000 n
+0000048919 00000 n
+0000048942 00000 n
+0000051240 00000 n
+0000051263 00000 n
+0000053479 00000 n
+0000053502 00000 n
+0000055175 00000 n
+0000055198 00000 n
+0000055258 00000 n
+0000055328 00000 n
+0000055555 00000 n
+0000055616 00000 n
+0000055679 00000 n
+0000055844 00000 n
+0000056057 00000 n
+0000056308 00000 n
+0000056423 00000 n
+0000056636 00000 n
+0000056683 00000 n
+0000056714 00000 n
+0000056933 00000 n
+0000057183 00000 n
+0000057230 00000 n
+0000057283 00000 n
+0000057531 00000 n
+0000057562 00000 n
+0000057615 00000 n
+0000057842 00000 n
+0000057873 00000 n
+0000058092 00000 n
+0000058139 00000 n
+0000058364 00000 n
+0000058620 00000 n
+0000060451 00000 n
+0000060474 00000 n
+0000062709 00000 n
+0000062732 00000 n
+0000063450 00000 n
+0000063472 00000 n
+0000063532 00000 n
+0000063601 00000 n
+0000063800 00000 n
+0000063861 00000 n
+0000063936 00000 n
+0000064113 00000 n
+0000064289 00000 n
+0000064541 00000 n
+0000064765 00000 n
+0000064820 00000 n
+0000064851 00000 n
+0000065076 00000 n
+0000065332 00000 n
+0000065385 00000 n
+0000065438 00000 n
+0000065714 00000 n
+0000065766 00000 n
+0000066018 00000 n
+0000066049 00000 n
+0000066102 00000 n
+0000066326 00000 n
+0000066373 00000 n
+0000066598 00000 n
+0000066854 00000 n
+0000068313 00000 n
+0000068336 00000 n
+0000069358 00000 n
+0000069380 00000 n
+0000069440 00000 n
+0000069503 00000 n
+0000069695 00000 n
+0000069756 00000 n
+0000069819 00000 n
+0000069997 00000 n
+0000070119 00000 n
+0000070369 00000 n
+0000070492 00000 n
+0000070711 00000 n
+0000070766 00000 n
+0000070797 00000 n
+0000071047 00000 n
+0000071094 00000 n
+0000071313 00000 n
+0000071563 00000 n
+0000073191 00000 n
+0000073214 00000 n
+0000073274 00000 n
+0000073343 00000 n
+0000073514 00000 n
+0000073575 00000 n
+0000073638 00000 n
+trailer<</Size 301/Info 3 0 R /Root 1 0 R /ID[<999d698d7c5a16cad2dadba8694d400b><999d698d7c5a16cad2dadba8694d400b>]>>startxref73789%%EOF

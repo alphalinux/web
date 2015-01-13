@@ -1,0 +1,112 @@
+Path: ctnhnews.timken.com!newsjunkie.ans.net!newsfeeds.ans.net!news-was.dfn.de!nntp-out.monmouth.com!newspeer.monmouth.com!newsfeed.wli.net!su-news-hub1.bbnplanet.com!su-news-feed2.bbnplanet.com!news.gtei.net!news1.digital.com!pa.dec.com!src.dec.com!liszt.amt.tay1.dec.com!gorton
+From: gorton@liszt.amt.tay1.dec.com (Richard Gorton)
+Newsgroups: comp.os.linux.alpha
+Subject: 21264-specific programming hints
+Date: 15 Dec 1998 14:14:44 GMT
+Organization: Digital Equipment Corporation
+Lines: 98
+Distribution: world
+Message-ID: <755qsk$me5@src-news.pa.dec.com>
+Reply-To: gorton@liszt.amt.tay1.dec.com (Richard Gorton)
+NNTP-Posting-Host: liszt.amt.tay1.dec.com
+Keywords: really fast code
+X-Newsreader: mxrn 6.18-26
+
+
+
+
+Now that the first 21264 based systems have shipped, I'm allowed to
+talk about this stuff.
+
+Compiler/Assembly Language programming hints specific to the 21264
+(also known as 'ev6').
+------------------
+The chip manual has not yet been externally released (no, I don't
+know what part number it will appear under), but I expect it to be
+released relatively soon.
+
+These hints fall into roughly two areas, which aren't well documented
+in the existing revs of the (limited distribution) manuals.  Richard
+Henderson (rth@cygnus.com) has a copy of the 21264 spec, and has added
+support to egcs/gcc for those features which are well described.
+
+Caveat:
+	I don't personally pretend to fully understand the microarchitecture
+	of the 21264, so I may not be able to fully answer questions about
+	it (even though I have a manual).
+
+Overview:
+	The 21264 is an out-of-order cpu, with 32 integer and 32 floating
+	point architectural registers.  The 21264 implementation has
+	more internal (to the cpu) registers which permits the cpu
+	itself to perform register renaming.  Additionally, it has a
+	trainable, multi-level branch prediction mechanism.
+
+	The implication of being an out-of-order implementation is that
+	the results of some instructions as seen in the program may be
+	computed well before other the results of physically adjacent
+	instructions.  From a programming perspective, this makes the
+	CPU somewhat non-deterministic.
+
+Quadpacks, Branch prediction, and [F]CMOVxx:
+	The instruction issuer in the 21264 grabs four instructions at
+	a time, thus the 'quadpack' name.  The branch predictor can only
+	learn/predict from one control flow instruction per quadpack.
+	The issue queue will stall if there is a mis-predicted control-flow
+	change in a quadpack.  This means that for maximal performance:
+		- Only put one control-flow instruction per quadpack
+		- Control-flow instructions need to be the last ones in
+		  a quadpack
+	CMOVxx/FCMOVxx - Internally to the chip, this is handled as two
+	separate operations.  In the case of highly consistent or
+	predictable data, a sequence written to use branches instead
+	of CMOVxx could be faster.  For unpredictable/inconsistent data,
+	The CMOVxx sequence will be faster.
+
+Replay Traps
+	There are a number of these.  If the CPU encounters a situation
+	which requires a replay trap (i.e. out-of-order state must be
+	unwound and performed in-order), there is a significant penalty
+	(13 cycles) incurred.  Additionally, (I believe) all operations
+	which were in-flight will re-issue once the replay trap has
+	completed.  The following replay traps exist:
+
+	Load-Load: I don't understand the circumstances under which this
+		will occur particularly well, so I'm not going to attempt
+		to describe how it can happen.
+	Load-Store: This is the situation in which one member of a
+		load/store pair (to the same memory location) executes
+		before the other member of the pair does.  For example,
+			ldq	$0, 0($16)
+			stq	$1, 0($17)
+		If the STQ executes prior to the execution of the LDQ,
+		and both the LDQ and STQ are pointing at the same address,
+		this replay trap will occur, and the CPU is required to
+		unwind its internal state to generate correct results.
+
+	Size:	For purposes of memory access and this particular trap,
+		pretend the 21264 cpu only operates on 4 and 8-byte
+		quantities.  If there are two (or more) operations which
+		occur on the same longword or quadword in memory, but of
+		differing size, this trap will happen.  The most frequent
+		occurance of this is probably going to be in the context
+		of code which is performing IEEE aware activities.
+		That is, code which might perform:
+				stq	$f16, 0(sp)
+				ldl	$0, 0(sp)
+				srl	$0, N, $1
+		to look at the exponent or some specific bits of the mantissa
+		of a floating point number, and performing scaling to do a
+		table lookup.  This occurs in various trigonometric functions.
+
+		The other place where this may occur is in a field-merging
+		optimization situation, but I don't think gcc/egcs for alpha
+		are capable of doing this.
+
+----------------------
+Richard Gorton			http://www.digital.com/amt	
+Compaq Computer Corporation	All standard disclaimers apply.
+Reply-to: gorton@tallis.enet.dec.com
+"A committee is a cul-de-sac down which ideas are lured and then quietly
+strangled."
+     --Sir Barnett Cocks

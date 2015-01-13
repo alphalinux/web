@@ -1,0 +1,87 @@
+{\rtf1\ansi
+{\fonttbl
+{\f0\fswiss Helvetica;}
+{\f1\fmodern Courier;}
+{\f2\froman Times;}
+{\f3\froman Symbol;}
+}
+{\info{\comment Translated from SGML to RTF w/ Linuxdoc-SGML}}
++{\footnote browse}
+
+{\pard\plain\f0\sb200\fs36\b\tx576{Linux/Alpha Frequently Asked Questions}}
+{}K{\footnote Linux/Alpha Frequently Asked Questions}\par\pard\plain\li500\sb200\fi0
+
+\par\pard\plain
+\li500{}
+\sb200\fi0
+{\b \url{Rich Payne}}
+\par\pard\plain
+\li500{}
+\sb200\fi0
+{ v1.6, 3 Nov 2000}
+\par\par
+This document attempts to answer the most common Linux/Alpha related 
+questions.  It also contains various pointers to other information 
+sources that may help you get started in the Alpha world.  The latest 
+version of this FAQ can always be found via the \url{Linux/Alpha home page}. 
+It can also be downloaded, in .html or a number of other formats, from the \url{AlphaLinux.Org} home page.\par\par\pard\plain
+\li500\fi-200{\f3\'B7} 1 {\uldb What State Is Linux/Alpha In?}{\v TOC_0}\par
+\li1000\fi-200{\f3\'B7} 1.1 {\uldb Supported Drivers}{\v TOC_1}\par
+\li1000\fi-200{\f3\'B7} 1.2 {\uldb Known Bugs And Workarounds}{\v TOC_2}\par
+\li1000\fi-200{\f3\'B7} 1.3 {\uldb Porting to Alpha: the {\f1 long} and {\f1 short} of it}{\v TOC_3}\par
+\li500\fi-200{\f3\'B7} 2 {\uldb Are There Any Mailing Lists I Should Join?}{\v TOC_4}\par
+\li1000\fi-200{\f3\'B7} 2.1 {\uldb And How About NewsGroups?}{\v TOC_5}\par
+\li500\fi-200{\f3\'B7} 3 {\uldb What's The Minimum Configuration To Run Linux/Alpha?}{\v TOC_6}\par
+\li500\fi-200{\f3\'B7} 4 {\uldb How fast is the Alpha ?}{\v TOC_7}\par
+\li500\fi-200{\f3\'B7} 5 {\uldb What Systems Does Linux/Alpha Run On?}{\v TOC_8}\par
+\li1000\fi-200{\f3\'B7} 5.1 {\uldb Unsupported Systems}{\v TOC_9}\par
+\li1000\fi-200{\f3\'B7} 5.2 {\uldb Table}{\v TOC_10}\par
+\li500\fi-200{\f3\'B7} 6 {\uldb So, what should I buy?}{\v TOC_11}\par
+\li1000\fi-200{\f3\'B7} 6.1 {\uldb Boards}{\v TOC_12}\par
+\li1000\fi-200{\f3\'B7} 6.2 {\uldb Systems}{\v TOC_13}\par
+\li1000\fi-200{\f3\'B7} 6.3 {\uldb Brief Alpha Systems Overview}{\v TOC_14}\par
+\li500\fi-200{\f3\'B7} 7 {\uldb Where Do I Get Alpha Hardware?}{\v TOC_15}\par
+\li500\fi-200{\f3\'B7} 8 {\uldb Noname (AXPpci33) and Multia (UDB)}{\v TOC_16}\par
+\li1000\fi-200{\f3\'B7} 8.1 {\uldb Which Firmware Does Linux/Alpha Require?}{\v TOC_17}\par
+\li1000\fi-200{\f3\'B7} 8.2 {\uldb What Do I Need To Watch Out For?}{\v TOC_18}\par
+\li1000\fi-200{\f3\'B7} 8.3 {\uldb Will Normal ISA Cards Work?}{\v TOC_19}\par
+\li1000\fi-200{\f3\'B7} 8.4 {\uldb What's Performance Like?}{\v TOC_20}\par
+\li1000\fi-200{\f3\'B7} 8.5 {\uldb To Probe Further}{\v TOC_21}\par
+\li500\fi-200{\f3\'B7} 9 {\uldb Jensen (DEC 2000/DECpc 150/Highscreen AXP)}{\v TOC_22}\par
+\li1000\fi-200{\f3\'B7} 9.1 {\uldb Installation}{\v TOC_23}\par
+\li1000\fi-200{\f3\'B7} 9.2 {\uldb The Jensen is different}{\v TOC_24}\par
+\li1000\fi-200{\f3\'B7} 9.3 {\uldb Known Problems}{\v TOC_25}\par
+\li1000\fi-200{\f3\'B7} 9.4 {\uldb Hardware Issues}{\v TOC_26}\par
+\li1000\fi-200{\f3\'B7} 9.5 {\uldb Miscellaneous Information}{\v TOC_27}\par
+\li500\fi-200{\f3\'B7} 10 {\uldb AlphaStation 200}{\v TOC_28}\par
+\li500\fi-200{\f3\'B7} 11 {\uldb Samsung APC164UX (Ruffian)}{\v TOC_29}\par
+\li1000\fi-200{\f3\'B7} 11.1 {\uldb Ruffian Links}{\v TOC_30}\par
+\li1000\fi-200{\f3\'B7} 11.2 {\uldb Introduction}{\v TOC_31}\par
+\li1000\fi-200{\f3\'B7} 11.3 {\uldb Hardware Issues with the Ruffian }{\v TOC_32}\par
+\li1000\fi-200{\f3\'B7} 11.4 {\uldb The Red Hat Release CDs and the Ruffian }{\v TOC_33}\par
+\li1000\fi-200{\f3\'B7} 11.5 {\uldb Red Hat 5.1 }{\v TOC_34}\par
+\li1000\fi-200{\f3\'B7} 11.6 {\uldb Red Hat 5.2 }{\v TOC_35}\par
+\li500\fi-200{\f3\'B7} 12 {\uldb Which Graphics Cards Work With Linux/Alpha?}{\v TOC_36}\par
+\li1000\fi-200{\f3\'B7} 12.1 {\uldb TGA Card}{\v TOC_37}\par
+\li1000\fi-200{\f3\'B7} 12.2 {\uldb VGA Cards}{\v TOC_38}\par
+\li1000\fi-200{\f3\'B7} 12.3 {\uldb Cards Supported by the X Windowing System}{\v TOC_39}\par
+\li1000\fi-200{\f3\'B7} 12.4 {\uldb Can Linux/Alpha Run Without Graphics Card?}{\v TOC_40}\par
+\li500\fi-200{\f3\'B7} 13 {\uldb Where Do I Get Linux Software?}{\v TOC_41}\par
+\li1000\fi-200{\f3\'B7} 13.1 {\uldb Red Hat}{\v TOC_42}\par
+\li1000\fi-200{\f3\'B7} 13.2 {\uldb Debian GNU/Linux}{\v TOC_43}\par
+\li1000\fi-200{\f3\'B7} 13.3 {\uldb Stampede}{\v TOC_44}\par
+\li1000\fi-200{\f3\'B7} 13.4 {\uldb Sources}{\v TOC_45}\par
+\li1000\fi-200{\f3\'B7} 13.5 {\uldb Building a Kernel}{\v TOC_46}\par
+\li500\fi-200{\f3\'B7} 14 {\uldb Commercial Applications}{\v TOC_47}\par
+\li500\fi-200{\f3\'B7} 15 {\uldb How To Boot Linux/Alpha?}{\v TOC_48}\par
+\li500\fi-200{\f3\'B7} 16 {\uldb EM86: How To Run Linux/x86 Apps on Linux/Alpha}{\v TOC_49}\par
+\li1000\fi-200{\f3\'B7} 16.1 {\uldb Two quotes from the README}{\v TOC_50}\par
+\li500\fi-200{\f3\'B7} 17 {\uldb How To Run DEC Unix Netscape on Linux/Alpha}{\v TOC_51}\par
+\li1000\fi-200{\f3\'B7} 17.1 {\uldb Requirements}{\v TOC_52}\par
+\li1000\fi-200{\f3\'B7} 17.2 {\uldb How-To}{\v TOC_53}\par
+\li1000\fi-200{\f3\'B7} 17.3 {\uldb Conclusion}{\v TOC_54}\par
+\li1000\fi-200{\f3\'B7} 17.4 {\uldb Mail}{\v TOC_55}\par
+\li1000\fi-200{\f3\'B7} 17.5 {\uldb Threads}{\v TOC_56}\par
+\li500\fi-200{\f3\'B7} 18 {\uldb Change Log}{\v TOC_57}\par
+
+}

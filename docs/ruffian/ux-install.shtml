@@ -1,0 +1,140 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+      <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../../"><IMG SRC="../../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../../intro/"><IMG SRC="../../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../../software/"><IMG SRC="../../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../../hardware/"><IMG SRC="../../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../../otherpages/"><IMG SRC="../../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../../about/"><IMG SRC="../../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Ruffian Install Directions
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+	      <FONT SIZE="+1"><B>Floppy images for installation of Redhat 5.2 
+	      on UX systems</FONT></B>(see disclaimer below)
+
+	      <UL>
+	      <LI>Milo disk image: <A HREF="milo.img">milo.img</A></LI>
+	      <LI>Kernel disk image: <A HREF="kernel.img">kernel.img</A></LI>
+	      <LI>Ramdisk disk image: <A HREF="ramdisk.img">ramdisk.img</A></LI>
+	      <LI>Arcinst disk image: <A HREF="arcinst.img">arcinst.img</A></LI>
+	      <LI>Download all four images as <A HREF="uximages.tar.gz">one gziped tar</A> file</LI>
+	      </UL>
+	      <P>
+
+
+	      <FONT SIZE="+1"><B>Installation outline </FONT></B>(see disclaimer below)<BR>
+	      <UL>
+	      <LI>This procedure applies for a UX-based Alpha system with a
+	      single SCSI hard disk. If your configuration is different, you
+	      may need to adjust the commands appropriately.</LI>
+	      <LI>Create floppies: prepare 4 DOS formatted diskettes. Use the
+	      command <STRONG>dd if=&lt;filename&gt; of=/dev/fd0 bs=1440k</STRONG> 
+	      on the Unix-like machines or
+	      <STRONG>rawrite</STRONG> on PC. Please note, that there is an
+	      unconfirmed information, that for successful installation the
+	      floppies should be created on the Alpha, so floppies created on
+	      PC or other machines may not work correctly. Sounds weird, but 
+	      I have an indirect evidence for that.
+	      <LI>Turn on computer, wait for devices detection.</LI>
+	      <LI>Insert milo disk and choose Run Command from ARCBIOS menu.
+	      Type the name of the command: <STRONG>a:ldmilo.exe</STRONG>. The milo
+	      image should load and dump you to the MILO prompt.</LI>
+	      <LI>Insert kernel disk and at the milo prompt type <STRONG>boot floppy</STRONG>.</LI>
+	      <LI>After some time the system will prompt you for ramdisk.
+	      Insert it, press ENTER.</LI>
+	      <LI>This should bring you to the Redhat installation screen. Create
+	      the following disk partitions:<BR>
+	      a) Primary, with size 4MB and type "DOS >= 32MB", /dev/sda1<BR>
+	      b) Extended, over the rest of the disk, /dev/sda2<BR>
+	      c) Logical, with size 1-3 times RAM and type "Linux Swap", /dev/sda5<BR>
+	      d) Logical, over the rest of /dev/sda2 and type "Linux Native", /dev/sda6</LI>
+	      <LI>Install Redhat. After the installation ends it will prompt you to
+	      insert the kernel disk to copy the kernel. Wait till reboot.</LI>
+	      <LI>After everything stops, make a cold reboot.</LI>
+	      <LI>Insert arcinst disk, choose "Run Command" -> <STRONG>a:arcinst.exe</STRONG>
+	      from ARCBIOS menu.</LI>
+	      <LI>Use arcinst to format your small 4MB partition as DOS. After you are
+	      done, return to ARCBIOS.</LI>
+	      <LI>Make a cold reboot.</LI>
+	      <LI>Load MILO from floppy as before.</LI>
+	      <LI>At the MILO prompt type: <STRONG>boot sda6:vmlinux.gz root=/dev/sda6</STRONG>. The Linux should load from the hard disk now.
+	      <LI>Login as root.</LI>
+	      <LI>Insert MILO floppy.</LI>
+	      <LI>Mount floppy: <STRONG>mount -t msdos /dev/fd0 /mnt/floppy</STRONG>
+	      <LI>Mount /dev/sda1: <STRONG>mount -t msdos /dev/sda1 /msdos</STRONG></LI>
+	      <LI>Copy all files from floppy to partition:
+	         <STRONG>cp /mnt/floppy/* /msdos/</STRONG>
+		 <LI>Unmount everything.</LI>
+		 <LI>Shutdown and make a cold reboot.</LI>
+		 <LI>In the ARCBIOS menu Create Environment Variable Set with 
+		 System Partition -> "FAT File System" and type "Windows NT Workstation 4.00"
+		 Edit Environment variable set to contain something like<BR>
+		 LoadIdentifier = Linux<BR>
+		 OsLoader = scsi(0)disk(0)rdisk(0)partition(1)ldmilo.exe<BR>
+		 OsLoadFileName=\<BR>
+		 OsLoadOptions = boot sda6:vmlinux.gz root=/dev/sda6<BR>
+		 Return to boot options menu.</LI>
+		 <LI>Reboot and load Linux from your hard disk.</LI>
+		 </UL>
+		 <P>
+<FONT SIZE="+1"><B>Disclaimer:</FONT></B>
+I GIVE ABSOLUTELY NO GUARANTEES. I CANNOT BE HELD RESPONSIBLE FOR ANY
+DAMAGE OR LOSS CAUSED OR RELATED TO THIS PROCEDURE OR DISK IMAGES.
+EVERYTHING YOU DO, YOU DO ON YOUR OWN RISK. YOU'D BETTER KNOW, WHAT
+YOU'RE DOING.
+<P>
+You are welcome to send 
+<A HREF="mailto:jurijus@theophys.kth.se">me</A> your comments, 
+improvements, suggestions, corrections and failure reports. 
+Keep flames to yourself :-).
+
+	   
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+      
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

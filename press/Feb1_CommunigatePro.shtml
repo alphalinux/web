@@ -1,0 +1,196 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Press Release</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>     
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+       
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+<FONT SIZE="+1"><B>
+FOR IMMEDIATE RELEASE
+</FONT></B>
+<P><B>
+Stalker Announces Super-Symmetric Dynamic Cluster Version of CommuniGate Pro
+
+</B>
+<P>
+<UL>Key Features: 
+              <LI>Cluster Support - Full Redundancy, Load Balancing</LI>
+              <LI>Multi-platform Support </LI>
+              <LI>Industry-strength, highly scalable </LI> 
+              <LI>Administration via the Web</LI>
+              <LI>Extensive multi-domain support </LI>
+              <LI>Unique IMAP multi-mailbox features</LI> 
+              <LI> HTTP access to E-mail, built-in Web Mailer</LI> 
+              <LI> Extensive Anti-Spam techniques </LI>
+              <LI> Mailing Lists with Web Access and Interactive Archive Search</LI>
+              <LI> LDAP and ACAP Support</LI>
+              <LI> Personal Web Pages with automated publishing</LI>
+ 
+</UL>
+<P>
+MILL VALLEY, CA - February 1, 2000 - Stalker Software, Inc. today announced
+the Super-Symmetric Dynamic Cluster version of CommuniGate Pro. The high-end
+CommuniGate Pro messaging system is available for Unix, Linux and NT platforms
+and can serve 200,000 accounts on single server installations and can now
+support several million accounts on heterogeneous multi-server Clusters.
+<P>
+In 1999 over 4.5 million CommuniGate Pro accounts were licensed to small and
+mid-size ISPs migrating to the CommuniGate Pro platform to benefit from its
+unmatched stability and performance.
+<P>
+In the same period of time, over 1500 CommuniGate Pro servers were installed
+at corporate, government, and educational sites that chose CommuniGate Pro for
+its standards-compliance and extremely rich feature set.
+<P>
+The combined power and performance of CommuniGate Pro is now brought to the
+carrier-grade level with the Dynamic Cluster release.
+
+<P>
+Super-Symmetric Dynamic Clustering
+<P>
+CommuniGate Pro is the first product on the market providing true message
+clustering based on account-level synchronization. Before the CommuniGate Pro
+Dynamic Cluster release, large ISPs had to use the solutions that relied
+completely on OS and FileSystem-level locking. Those solutions were advertised
+as scalable and reliable, but suffered from instability and performance drops
+inevitable for that type of design.
+<P>
+While Web Interface to E-mail became more and more popular, lock-based
+messaging servers either failed to provide any Web Interface at all or
+provided limited versions of non-native Web Interface at a cost of serious
+performance degradation.
+<P>
+The innovative account-level synchronization scheme used in CommuniGate Pro
+Cluster is based on a TCP/IP protocol and provides non-locking multi-access to
+all mailboxes served by the Cluster.
+<P>
+Released from file-locking duties, the same storage devices (file servers) can
+now be used to handle much larger number of accounts than they could process
+with older solutions, with increased stability and performance.
+<P>
+Frontend-Backend Topology
+<P>
+The CommuniGate Pro Cluster can include a set of front-end servers taking the
+load off the back-end servers by performing all mail relaying operations,
+SSL encryption/decryption, and some other operations. Since only front-end
+servers are exposed to the Internet, they protect the back-end servers from
+all possible types of TCP/IP attacks (including DoS attacks).
+<P>
+Front-end servers have no access to the account information and protect the
+site from any type of server OS exploits.
+<P>
+Frontend Load Balancing and Redundancy
+<P>
+While the frontend servers are at a higher risk of failure, the site survives
+till at least one front-end server is in operation. Front-end servers can be
+added and removed from the cluster at any moment, with no switch-off/recovery
+operations required.
+<P>
+The load can be balanced between frontend servers using traditional traffic-
+based method (as Layer4 Switches) or using DNS round-robin mechanisms.
+<P>
+Back-end Load Balancing and Redundancy
+<P>
+Sophisticated mail servers can experience heavy load without producing a lot
+of traffic (for example, there can be many search operations in progress). To
+provide the best site performance, front-end servers distribute operations
+between back-end servers based on the real load, not on the traffic volume.
+<P>
+All back-end servers provide access to the same domains and accounts, and any
+back-end server can be switched off at any time and a back-end server can be
+added to the Cluster at any time, too - without stopping the site.
+<P>
+The CommuniGate Pro Dynamic Cluster synchronization protocol provides the
+auto-cleanup methods, so if a back-end server fails, there is not need to
+manually clean any resources it could lock at the time of the failure.
+<P>
+Transparency
+<P>
+CommuniGate Pro is well known for its clean and clear WebAdmin interface for
+both server and domain (delegated) administration. The CommuniGate Pro Cluster
+is completely transparent for both users and administrators, and presents
+exactly the same interfaces as it does on single-server sites. Administration
+commands are automatically directed to the proper server and updates are
+automatically propagated to all servers in the Cluster.
+<P>
+
+Try Before You Buy
+<P>
+The CommuniGate Pro Free Trial Version is available at
+    <A HREF="http://www.stalker.com/CommuniGatePro/">http://www.stalker.com/CommuniGatePro</A>.<BR>
+See <A HREF="http://www.stalker.com/CommuniGatePro/Licensing.html">http://www.stalker.com/CommuniGatePro/Licensing.htm</A> for the details.
+<P>
+The updated versions (both betas and finals) are posted on a regular basis.
+<P>
+Discuss the Communigate Pro-related issues at
+    <A HREF="http://mail.stalker.com/Lists/CGatePro.html">http://mail.stalker.com/Lists/CGatePro.htm</A>.
+<P>
+The Dynamic Cluster support requires the Site and Cluster License Keys.
+Contact Stalker at 800-262-4722 or <A HREF="mailto:sales@stalker.com">sales@stalker.com</A> to learn more about
+the licensing policies.
+<P>
+
+                                         ###
+Stalker Software, Inc. develops and distributes mail servers, networking and
+communication software. The company was founded in Europe in 1991 and opened
+its U.S. offices in 1993 at 655 Redwood Highway, Suite 275, Mill Valley,
+Calif. 94941. For more information about Stalker Software, Inc. and its
+products, please contact Alice Liptrot, director of sales and marketing,
+at (800) 262-4722 or (415) 383-7164. She can also be contacted by fax
+at (415) 383-7461 or E-mail at <A HREF="mailto:ali@stalker.com">ali@stalker.com</A>.
+Visit the Stalker Software web site at <A HREF="http://www.stalker.com">http://www.stalker.com</A>. 
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

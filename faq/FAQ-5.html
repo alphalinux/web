@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.9">
+ <TITLE>Linux/Alpha Frequently Asked Questions: What Systems Does Linux/Alpha Run On?</TITLE>
+ <LINK HREF="FAQ-6.html" REL=next>
+ <LINK HREF="FAQ-4.html" REL=previous>
+ <LINK HREF="FAQ.html#toc5" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="FAQ-6.html">Next</A>
+<A HREF="FAQ-4.html">Previous</A>
+<A HREF="FAQ.html#toc5">Contents</A>
+<HR>
+<H2><A NAME="Supported Systems"></A> <A NAME="s5">5. What Systems Does Linux/Alpha Run On?</A></H2>
+
+<P> The number of Alpha platforms that are supported by Linux is
+quickly increasing. The following is a list of workstations and
+motherboards that are known to work with Linux.
+If you have any corrections to the list, please send 
+<A HREF="mailto:docs@alphalinux.org">us</A> mail.
+More information on these system types is also available at
+the 
+<A HREF="http://www.alphalinux.org/docs">AlphaLinux.org documentation archives</A>.
+<P>
+<UL>
+<LI> <P><B>
+<A HREF="http://www.compaq.com/alphaserver/es40/index.html">ES40</A></B> The ES40 is
+currently one of the largest Alpha machines that runs Linux. It's available with 1-4 500MHz CPUs with
+4MB of cache or 1-4 667MHz CPUs with 8MB of DDR cache, and supports up to 32Gig of memory.
+Linux kernels for these machines should be compiled as either Generic or DP264.
+<P>
+</LI>
+<LI><P><B>
+<A HREF="http://www.compaq.com/alphaserver/ds10/index.html">DS10</A> 
+<A HREF="       http://www5.compaq.com/alphaserver/ds10l/index.html">DS10L</A></B> The difference between the
+DS10 and the DS10L is that the L version is a 1U rack-mountable unit, whereas the standard DS10 is
+a desktop box. These are based on the Tsunami chipset and have CPUs at either 466 or 600MHz, with
+2MB of cache.
+Linux kernels for these machines should be compiled as either Generic or DP264.
+<P>
+</LI>
+<LI> <P><B>
+<A HREF="http://www.digital.com/alphaserver/workstations/">XP1000 and XP900</A></B> These
+are the last true workstation products to come out of Digital/Compaq. From now on all the workstations
+will use the same parts as the servers. The XP1000 is sold with either a 500MHz (Monet) or
+667MHz (Brisbane) CPU and both are based on the Tsunami chipset.. The XP900 is sold as a VMS workstation.
+Linux kernels for these machines should be compiled as either Generic or DP264.
+<P>
+</LI>
+<LI> <P><B>
+<A HREF="http://www.api-networks.com/products/up1000-board.shtml">UP1000</A> and
+<A HREF="http://www.api-networks.com/products/up1100-board.shtml">UP1100</A></B> Products
+of Alpha Processor Inc (now API NetWorks Inc). Both are based around the AMD Irongate system
+controller and can take up 768MB of memory (3slots, PC100 Unbuffered ECC 168Pin DIMMs). The UP1000
+uses API's slot B and can accommodate either a 600MHz 2MB or 700MHz 4MB slotB. The UP1100 has a 600MHz
+processor soldered to the board and a 2MB cache (all the CPUs uses in both boards are EV67). 
+The UP1100 also has UDMA66 support (UP1000 has
+UDMA33), onboard sound (use the trident driver is 2.2.16 or later) and an onboard 21143 (tulip) ethernet
+controller. Both boards also have dual serial, parallel and dual USB (yes, the USB does work under Linux).
+Linux kernels for these machines should be compiled as either Generic or Nautilus.
+<P>
+</LI>
+<LI> <P><B>
+<A HREF="http://www.api-networks.com/products/up2000-board.shtml">UP2000 and UP2000+</A></B> Another product of Alpha Processor Inc, now API NetWorks Inc. They are very similar
+to the DP264 series except that they can only take 2Gig of RAM (8 Slots, uses PC100 Registered ECC
+168Pim DIMMs) and have a different SCSI controller (Adaptec Ultra2Wide). Instead of using the
+daugthercard approach that the DP264 uses, the UP2000 and UP2000+ use the API SlotB which contains
+the processor, cache and VRM. SlotBs for these boards are available in the following configs:
+600MHz 2MB, 667MHz 2MB, 667MHz 4MB, 750MHz 4MB, 750MHz 8MB and 833MHz 4MB (DDR cache, UP2000+ only).
+Linux kernels for these machines should be compiled as either Generic or DP264.
+<P>
+</LI>
+<LI> <P><B>
+<A HREF="http://www.api-networks.com/products/264dp-board.shtml">DP264</A> and
+<A HREF="http://www5.compaq.com/alphaserver/ds20e/index.html">DS20/DS20E</A></B> The DP264
+and DS20 are dual EV6 (or EV67) machines based on Tsunami. The DP264 is the OEM version and
+is almost functionally the same. They support up to 4Gig of memory using PC100 Registered
+ECC 200 Pin DIMMs with 16 slots. They also have onboard Adaptec SCSI (Ultra Wide) and support
+speeds of 500 or 667 (500s have either 2 or 4MB or cache, 667 has either 4MB (Samsung) or
+8MB of DDR cache (Compaq)).
+Linux kernels for these machines should be compiled as either Generic or DP264.
+<P>
+</LI>
+<LI> <P><B>
+<A HREF="http://www.api-networks.com/products/164ux-board.shtml">AlphaPC 164UX</A></B> Interestingly,
+this is not a Digital product. It was developed by Deskstation,
+(called RUFFIAN then), and is now being sold by Samsung. It supports
+speeds up to 800 MHz, and comes with on-board Ultra Wide SCSI
+(Symbios Logic 53C875), and 10/100 Mb Ethernet (Digital 21143).
+Like the 164SX an LX, it uses DIMMs (SDRAM) for memory, but
+it has 6 slots rather then 4.
+<P>
+</LI>
+<LI> <P><B>
+<A HREF="http://www.dec.com/semiconductor/alpha/dsc-pc164lx.html">AlphaPC 164LX</A></B> is Digital's best bet. It's based on the
+<B>AlphaPC 164</B>, but with speeds up to 600 MHz, and using
+DIMMs rather than SIMMs. (i.e. SDRAM rather then DRAM.)
+<P>
+</LI>
+<LI> <P>The low end of the EV5  generation is the <B>
+<A HREF="http://www.digital.com/semiconductor/alpha/dsc-pc164sx.html">AlphaPC 164SX</A></B>. It uses the 21164PC variant of the
+Alpha microprocessor, at 400 or 533 MHz. This board is targeted
+at the NT Workstation market, but it will run Linux just fine.
+<P>
+</LI>
+<LI> <P>For a complete Workstation you may want to look at <B>Miata</B> (Personal Workstation). This comes with a Graphics
+Card (Powerstorm) for which X11 support does not (yet) exist,
+but Matrox Millennium is a popular replacement.
+<P>
+</LI>
+<LI>  <P><B>Alcor (AS600), Bret (AS500)</B>.  The Alcor kernel
+is supposed to work fine with the AlphaStation 500 as
+well.  If you can confirm this, please let us know.
+<P>
+</LI>
+<LI>  <P><B>EB164</B>.  The Aspen Timberline and Summit machines are
+similar to this machine/motherboard.  The EB164 has been replaced
+by the PC164 and it's successors (see above).
+<P>
+</LI>
+<LI> <P><B>Cabriolet (aka AlphaPC64):</B>
+This is a PCI-bus based motherboards using the 21064 Alpha CPU.  
+It is more pricey than the 21066 systems but it does make for a
+real nice system and many third-party products are based on this
+design.  This board typically runs at 275MHz but some vendors sell
+an (overclocked) 300MHz version. It really is historical now, but
+you may be able to find them at very attractive prices.
+<P>
+</LI>
+<LI> <P><B>Mikasa</B> (AlphaServer 1000).  Noritake (AlphaServer 1000a)
+is supported as well, if you use kernels 2.0.30 or higher, with the
+appropriate patches. However, the builtin Cirrus graphics card
+is not (or very poorly) supported by X11.
+<P>
+</LI>
+<LI> <P><B>Mustang (AS200),M3 (AS250),(AS255),Avanti (AS400)
+:</B> Linux now runs on all of these AlphaStations.
+The reason for clumping all these machines together is that they are
+all very similar to program.  In particular, they all can run one
+and the same kernel when booted using the same firmware.  Thus,
+when configuring a kernel, simply pick "Avanti" as the system type
+since that covers all of the above machines.
+<P>
+</LI>
+<LI> <P><B>XL</B>
+The XL machine is also know as the "Windows NT Dream Machine."
+Well, for what it's worth, (most of them) are perfectly happy
+running Linux.
+<P>The regular XL is based on the 21064 CPU and runs either at 233
+or 266MHz with 512KB or 2MB of second level cache, respectively.
+<P>The newer 
+<A HREF="http://www.digital.com/info/CU3102/">XL Turbo</A>
+is based on the 21164A CPU and runs either at
+300 or 366MHz.  The Turbo always comes with 2MB of
+second-level cache.
+<P>
+</LI>
+<LI> <P><B>ALPHAbook 1</B>
+The ALPHAbook 1 is a 21066A based notebook (the first and only
+portable Alpha, so far).  Linux works fine on this machine with
+a few extra patches.  An X server is available for this machine
+as well.
+<P>
+</LI>
+<LI> <P><B>
+<A HREF="http://www.alphalinux.org/docs/jensen.shtml">Jensen</A> (aka DEC 2000 aka DECpc AXP 150):</B>
+This is the oldest of all Alpha PCs and comes with an EISA bus.
+You probably don't want to buy such a machine new anymore since
+you can now get faster machines for less money.  However, it is
+not uncommon to get really amazing deals for these machines and
+a Jensen definitively would make a nice home box.  The
+firmware seems a little picky about what graphics card and SCSI
+controllers
+it wants, but if you're just looking for an affordable Alpha box,
+it might be worthwhile to look into it.
+<P>
+</LI>
+<LI> <P><B>Noname (aka AXPpci33):</B>
+This is a PCI-bus based motherboard using the 21066 Alpha CPU
+(Low-Cost Alpha).  The core of the 21066 is the same as the 21064.
+The only difference is that the 21066 also has a memory and I/O
+controller integrated into the chip (which has the effect that the
+external interface is much simpler and therefore much cheaper).
+This board is available in a 166 and a 233MHz version.
+<P>
+</LI>
+<LI> <P><B>
+<A HREF="http://www.alphalinux.org/docs/udb-multia.shtml">UDB</A>:</B>
+Linux/Alpha also runs well on the Universal Desktop Box.
+(That's the box that's called "Multia" when it's running Windows NT.)
+The TGA graphics card and the builtin soundcard
+are supported.  The UDB is basically a Noname board with more
+hardware builtin and wrapped into a neat little box.  So when
+configuring a kernel for it, simply select the "Noname" system
+type.  The UDB currently provides the lowest-cost entry point
+into the Alpha world.
+<P>
+</LI>
+<LI> <P><B>EB*:</B>
+Digital used to sell various other evaluation boards (e.g.,
+EB66, EB64+, etc.). Reportedly, Linux/Alpha may run on some of
+these.  But they were relatively pricey and should now be
+considered obsolete.
+</LI>
+</UL>
+<P>
+<H2><A NAME="ss5.1">5.1 Unsupported Systems</A>
+</H2>
+
+<P> Linux/Alpha is unlikely to support the TURBOchannel-based Alpha
+systems in the near (or any) future (this is the DEC 3000 series of
+workstations).  The reason for this is two-fold: first, these machines
+have an I/O system that is very different from PCI-based machines and
+therefore do not look anything like PCs (e.g., pretty much all drivers
+would have to be written from scratch).  Second, with the advent of
+PCI, the TURBOchannel is pretty much dead technology (for better or
+worse) and it just isn't all that much fun to develop software for
+dead technology (on the other hand, it may soon be possible to buy
+such systems cheaply, which would make them more interesting to Linux
+users, I suppose).
+<P>If you have such a machine and want to run a free OS, look for the
+*BSD's. At least one of them supports the 3000 series.
+<P>
+<H2><A NAME="ss5.2">5.2 Table</A>
+</H2>
+
+<P>The table below (one of Jay Estabrook's many invaluable contributions)
+may prove useful to select the right MILO/Kernel/bootfloppy for your
+system.
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+The following table may be useful; sorry, but I haven't put in the "family" designations
+explicitly, but the groupings and MILOs are indicative, mostly.
+
+--Jay++
+
+------------------------------------------------------------------------------- 
+Note: "AS" can equally stand for "AlphaStation" and "AlphaServer", though
+      both may *not* be available for a given platform.
+
+Hardware Type           Aliases                 MILO image
+=============           =======                 ==========
+
+DECpc 150               JENSEN                  N/A     
+DEC 2000 Model 300(S)   JENSEN
+DEC 2000 Model 500      CULZEAN
+
+AS 600                  ALCOR                   xlt-alcor
+
+AS 500                  MAVERICK,BRET           xlt-alcor
+XL-300                  XLT
+XL-366                  XLT
+XL-433                  XLT
+
+AS 200 4/*              MUSTANG                 avanti
+AS 205 4/*              LX3
+AS 250 4/*              M3
+AS 255 4/*              LX3+
+AS 300 4/*              MELMAC
+AS 400 4/*              AVANTI
+
+XL-233                  XL                      xl
+XL-266                  XL                      xl
+
+Personal Workstation    MIATA                   miata
+PWS 433a(u)
+PWS 500a(u)
+PWS 600a(u)
+
+AS 2100 (EV4)           SABLE                   N/A
+AS 2100 (EV5)           GAMMA-SABLE             N/A
+AS 2000 (EV4)           DEMI-SABLE
+AS 2000 (EV5)           DEMI-GAMMA-SABLE
+
+AS 1000 (EV4)           MIKASA                  N/A
+AS 1000 (EV5)           MIKASA-PRIMO            N/A
+
+AS 1000A (EV4)          NORITAKE                N/A
+AS 1000A (EV5)          NORITAKE-PRIMO          N/A
+AS 600A                 ALCOR-PRIMO
+AS 800                  CORELLE
+
+AXPpci33                NONAME                  udb-noname
+UDB                     MULTIA
+
+AlphaBook1 (laptop)     ALPHABOOK1              N/A
+
+AlphaPC64               CABRIOLET               cabrio
+AlphaPCI64
+
+AlphaPC164              PC164                   pc164
+
+AlphaPC164-LX           LX164                   lx164
+
+AlphaPC164-SX           SX164                   sx164
+
+EB164                   EB164                   eb164
+
+EB64+                   EB64+                   eb64p
+
+EB66+                   EB66+                   eb66p
+
+EB66                    EB66                    eb66
+
+AS 4100                 RAWHIDE                 N/A
+AS 4000                 RAWHIDE                 N/A
+AS 1200                 TINCUP                  N/A
+
+-------------------------------------------------------------------------------
+</PRE>
+</CODE></BLOCKQUOTE>
+<P>
+<P>
+<HR>
+<A HREF="FAQ-6.html">Next</A>
+<A HREF="FAQ-4.html">Previous</A>
+<A HREF="FAQ.html#toc5">Contents</A>
+</BODY>
+</HTML>

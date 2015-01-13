@@ -1,0 +1,38 @@
+<HTML>
+<head>
+</head>
+<center>
+<body>
+<p>
+staging area for development debs. these are not official packages from the
+debian project do not contact them
+for support. email me  <a href="mailto:voodoo@alphadriven.org">instead</a>
+<ul>
+<li><a
+href="001e-02_ALPHA_programs_Xserver_hw_xfree86_vga256_drivers_pvga1.diff">001e-02_ALPHA_programs_Xserver_hw_xfree86_vga256_drivers_pvga1.diff</a></li>
+<li><a href="000b_xfree86.cf.diff">000b_xfree86.cf.diff</a></li>
+<li><a
+href="xserver-vga16_3.3.6-45A_alpha.deb">xserver-vga16_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-tga_3.3.6-45A_alpha.deb">xserver-tga_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-s3v_3.3.6-45A_alpha.deb">xserver-s3v_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-s3_3.3.6-45A_alpha.deb">xserver-s3_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-p9000_3.3.6-45A_alpha.deb">xserver-p9000_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-mono_3.3.6-45A_alpha.deb">xserver-mono_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-mach64_3.3.6-45A_alpha.deb">xserver-mach64_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-i128_3.3.6-45A_alpha.deb">xserver-i128_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-fbdev_3.3.6-45A_alpha.deb">xserver-fbdev_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-common-v3_3.3.6-45A_alpha.deb">xserver-common-v3_3.3.6-45A_alpha.deb</a></li>
+<li><a
+href="xserver-3dlabs_3.3.6-45A_alpha.deb">xserver-3dlabs_3.3.6-45A_alpha.deb</a></li>
+<li><a href="xext_3.3.6-45A_alpha.deb">xext_3.3.6-45A_alpha.deb</a></li>
+</body>
+</center>

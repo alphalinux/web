@@ -1,0 +1,93 @@
+From ???@??? 00:00:00 1997 +0000
+Received: from mail11.digital.com (mail11.digital.com [192.208.46.10])
+	by adam.cheshire.net (8.9.1/8.9.1) with ESMTP id JAA05623
+	for <rdp@cheshire.net>; Tue, 13 Oct 1998 09:57:23 -0400 (EDT)
+Received: from quarry.zk3.dec.com (quarry.zk3.dec.com [16.140.16.3])
+	by mail11.digital.com (8.8.8/8.8.8/WV1.0h) with SMTP id JAA07829;
+	Tue, 13 Oct 1998 09:56:21 -0400 (EDT)
+Received: from kitche.zk3.dec.com by quarry.zk3.dec.com; (5.65v4.0/1.1.8.2/16Jan95-0946AM)
+	id AA02552; Tue, 13 Oct 1998 09:56:20 -0400
+Received: from shaman.zk3.dec.com by kitche.zk3.dec.com (5.65v4.0/1.1.8.2/03Apr95-1137AM)
+	id AA29252; Tue, 13 Oct 1998 09:56:20 -0400
+Received: from localhost by shaman.zk3.dec.com (5.65v3.2/1.1.10.5/30Jun97-0938AM)
+	id AA03964; Tue, 13 Oct 1998 10:07:22 -0400
+Message-Id: <9810131407.AA03964@shaman.zk3.dec.com>
+X-Mailer: exmh version 1.6.7 5/3/96
+To: bod@li.org
+Cc: torvalds@transmeta.com,
+ hall@zk3.dec.com,
+ bod-only@li.org,
+ officers@li.org,
+ Rich Payne <rdp@cheshire.net>,
+ hall.tb@li.org
+Subject: Re: Usage of Linux name (reposted) 
+In-Reply-To: Your message of "Mon, 12 Oct 98 18:47:41 MDT."
+             <3.0.5.32.19981012184741.00a6e1a0@pop.webcom.com> 
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Date: Tue, 13 Oct 98 10:07:22 -0400
+From: "Jon 'maddog' Hall, USG Senior Leader" <hall@zk3.dec.com>
+X-Mts: smtp
+X-UIDL: e51479f48ab079b0f9557eafe640dc83
+X-Status: N
+Status: R 
+Return-Receipt-To: 
+
+Maurice, Rich et. al.,
+
+While on my travels I was lucky enough to spend a few days with the head
+penguin, and we talked about the trademark issues.
+
+Linus has always wanted two things:
+
+	o to make the trademark as easy to use and have as wide a usage as
+	  possible
+
+	o to protect it from misuse
+
+Gerry Davis, our lawyer, has advised us that protecting the trademark can be
+as easy as allowing usage for all computer and publishing rights (including
+organization and web names), but requiring licensing for things like lines of
+clothing (note that this does not include people putting "Linux" on their
+T-shirts, but having a trademarked line of clothes like "Linuxware").
+
+In one case people wanted to trademark the term "Linux Certified".  Gerry,
+Linus and I balked at that, due to the limiting factor it would have on
+other certification programs.  But we did wish them to go ahead with their
+plans for certification, so I suggested that they put a qualifier (such as
+the organization name) in front of the word Linux, to create "XXXXX Linux
+Certified".
+
+Finally, in order to save Linus some time, I suggested that (for the time
+being) all trademark issues be directed toward me.  I will look at them
+and (for the most part) approve them.  Any that I do not approve (for any
+reason) or those I have doubts about I will pass past Linus.  And of course
+anyone can appeal my logic to Linus without any hard feelings from me.
+
+This is a long, drawn-out explanation to explain why Rich's use of
+"alphalinux.org" seems to meet all criteria, so go for it.
+
+Warmest regards,
+
+md
+-- 
+=============================================================================
+Jon "maddog" Hall                     Internet: maddog@zk3.dec.com
+Senior Leader, UNIX Software Group    Executive Director, Linux(R) Intern'l
+
+Compaq Computer Corporation           Linux International
+Mailstop ZK03-2/U15                   80 Amherst St.
+110 Spit Brook Rd.                    Amherst, N.H. 03031-3032 U.S.A.
+Nashua, N.H. 03062-2698 U.S.A.
+
+WWW: http://www.compaq.com            WWW: http://www.li.org
+Voice: +1.603.884.1341                Voice: +1.603.672.4557
+FAX: +1.603.884.6424                  Board Member: Uniforum Association
+Office: ZK03-2/V15		      Board Member: USENIX Association
+
+(R)Linux is a trademark of Linus Torvalds in the United States and other 
+countries.
+
+
+
+

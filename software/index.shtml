@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Software</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_software.gif" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Software">
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+	<P>
+
+	      
+<UL><FONT SIZE="+1"><B>  
+Personal Productivity
+</B></FONT><BR>  
+ <LI><A HREF="http://www.abisource.com">AbiSource</A> AbiWord Open Source word processor</A>
+ <LI><A HREF="http://www.gnome.org/projects/gnumeric">Gnumeric</A> GPL Spreadsheet (part of the Gnome project)</LI>
+ <LI><A HREF="http://koffice.kde.org/">KOffice</A> GPL Office Suite (part of the KDE project)</LI>
+</UL>
+
+</UL>
+
+<UL><FONT SIZE="+1"><B>
+Web Browsers
+</B></FONT><BR>
+  <LI><A HREF="http://www.compaq.com/partners/netscape/downloads/register_nav4_Linux.html">Tru64 Netscape Communicator</A> rpms with the required Tru64
+libraries.</LI>
+  <li><a href="http://www.mozilla.org">Mozilla</a></li>
+  <li><a href="http://galeon.sourceforge.net">Galeon</a> (Requires Mozilla)</li>
+</UL>
+
+
+<UL><FONT SIZE="+1"><B>  
+Development Tools and Information
+</B></FONT><BR> 
+ <LI><A HREF="http://www.support.compaq.com/alpha-tools/index.html">Compaq Power Tools</A> for AlphaLinux</LI>
+ <LI><A HREF="../docs/high_perf.shtml">High Performance</A> software and information for AlphaLinux</LI>
+ <LI><A HREF="http://www.tru64unix.compaq.com/linux/software.htm">Compaq Linux</A> Software Homepage, including Compaq compilers and libraries for AlphaLinux</LI>
+ <LI><A HREF="http://www.etnus.com">TotalView Debugger</A> for AlphaLinux</LI>
+ <LI><A HREF="dsp-ee/">Digital Signal Processor</A> and Electrical Engineering information on Alpha-Linux</LI>
+ <LI><A HREF="icon/">Using the Icon</A> programming language under AlphaLinux</LI>
+ <LI><A HREF="http://www.blackdown.org/java-linux.html">www.blackdown.org</A> Java for Linux Home Page, including JDK for Alpha Linux</LI>
+ <LI><A HREF="http://www.complang.tuwien.ac.at/java/cacao/">Cacao</A> a Java JIT compiler for Alpha Linux</LI>
+ <LI><A HREF="http://gcc.gnu.org">GCC</A> C compiler project.</LI>
+ <LI><A HREF="http://www.nag.co.uk/nagware/NCNJNKNM.html">www.nag.co.uk</A> The Numerical Algorithms Groups -Fortran Compilers</LI>
+ <LI><A HREF="http://www.microway.com">www.microway.com</A> NDP Fortran Compilers</LI>
+ <LI><A HREF="http://www.transvirtual.com"> Kaffe </A>Java Virtual Machine</LI>
+ <LI><A HREF="http://www.newplanetsoftware.com/jcc/">Code Crusader</A> Free IDE Development Environment</LI>
+ <LI><A HREF="http://www.alphalinux.org/iprobe/">IProbe</A> Performance Tool for Alpha processors.
+ <LI><A HREF="http://www.users.voicenet.com/~gatgul/JDK/1.2/">Uncle George's JDK</A> port for AlphaLinux</li>
+ <LI><A HREF="http://www.lesstif.org">Lesstif</A> drop in replacement for Motif</LI>
+ <LI><A HREF="http://www.icarus.com/eda/verilog/index.html">Icarus Verilog</A> Verilog HDL compiler/simulator</LI>
+
+</UL> 
+
+<UL><FONT SIZE="+1"><B>
+X-servers
+</B></FONT><BR>
+  <LI><A HREF="http://www.xfree86.org">XFree86.org</A> The XFree86 project, free X-Server for Linux and other operating systems.</LI>
+</UL>
+
+<UL><FONT SIZE="+1"><B>
+Software Archives
+</B></FONT><BR>
+ <LI><A HREF="http://rpmfind.net/linux/RPM/">RPM</A> archive at w3.org</LI>
+ <LI><A HREF="ftp://gatekeeper.dec.com/pub/Digital/Linux-Alpha">gatekeeper.dec.com</A>  Digital FTP Download Site</LI>
+</UL>
+
+<UL><FONT SIZE="+1"><B>
+Sound, Video and Graphics
+</B></FONT><BR>
+ <LI><A HREF="http://www.mpegtv.com/player.html">www.mpegtv.com</A> MPEG-1 Player for Alpha</LI> 
+ <LI><A HREF="http://www.blender3d.com">Blender</A> 3D software for Linux </LI>
+ <LI><A HREF="http://www.alsa-project.org">ALSA</A> Advanced Linux Sound Architecture</LI>
+ <LI><A HREF="http://www.4front-tech.com/">4Front Technologies</A> Sound System drivers for Linux</LI>
+ <LI><A HREF="http://www.gimp.org">The Gimp</A> The GNU Image Manipulation Program</LI>
+ <LI><A HREF="http://proforma.real.com/real/player/unix/unix.html?src=000626realhome_2,000626rp_choice_h1&dc=71630629">RealPlayer7</A> for AlphaLinux</LI>
+</UL>
+
+<UL><FONT SIZE="+1"><B>
+Games
+</B></FONT><BR>
+   <LI><A HREF="http://www.op.net/~rbowles/heretic/">Heretic</A></LI>
+   <LI><A HREF="http://www.lokisoft.com">Civilization</A> Call to Power</LI>
+   <LI><A HREF="ftp://gatekeeper.dec.com/pub/Digital/Linux-Alpha/X11/">Quake</A> for AlphaLinux</LI>
+   <LI><A HREF="http://home.the-wire.com/~eagle/alphalinux-quake.html">Directions for Quake</A> under RedHat 6.0 and later</LI>
+   <LI><A HREF="http://www.freeciv.org">FreeCiv</A> a free clone of the Civilization game(s)</LI>
+</UL>
+
+<UL><FONT SIZE="+1"><B>
+Other Stuff
+</B></FONT><BR>
+ <LI><A HREF="ftp://ftp.digital.com/pub/DEC/Alpha/firmware/">ftp.digital.com </A> Alpha Firmware Updates
+ <LI><A HREF="http://www.nllgg.nl">www.nllgg.nl</A> Some Boot info from the Netherlands</LI>
+ <LI><A HREF="http://www.redhat.com/products/ecommerce/ccvs">HKS Inc</A> Credit Card Verification System for Unix</LI>
+ <LI><A HREF="ftp://ftp.arkeia.com/pub/linux2.0/alpha/">Arkeia</A> backup client</LI>
+ <LI><A HREF="http://www.stalker.com">CommuniGate Pro</A> Mail Server from Stalker Software</LI>
+</UL>
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

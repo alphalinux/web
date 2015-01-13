@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Other pages</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR>   
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_otherpages.gif" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Other pages">
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B></B></FONT>
+
+	      <!-- Actual document -->
+	      <UL><FONT SIZE="+1"><B>  
+	      Alpha Linux:
+	      </B></FONT><BR>
+	        <LI><A HREF="http://csa.compaq.com/">Compaq Solutions Alliance</A> Porting and Testing Centre</LI>
+		<LI><A HREF="http://www.unix.digital.com/linux">Compaq</A> Linux Homepage</LI>
+	        <LI><A HREF="http://www.unix-ag.org/Linux-Alpha">www.unix-ag.org/Linux-Alpha</A> Nils Faerber's Linux-Alpha Page</LI>
+	        <LI><A HREF="http://cmp.ameslab.gov/cmp/clusters/apc.html">Ames Laboratory</A> Alpha Linux Cluster</LI>
+	        <LI><A HREF="http://www.geocities.com/SiliconValley/Haven/6087/">The Corporate Linux</A> Advocate Homepage</LI>
+		<LI><A HREF="http://www.iol.unh.edu/linux/alpha/">University of New Hampshire</A> Alpha Linux Install Program</LI>
+	       </UL>
+	       <P>
+
+	       <UL><FONT SIZE="+1"><B>
+	       Distributions
+	       </B></FONT><BR> 
+	        <LI><A HREF="http://www.redhat.com">www.redhat.com</A>  RedHat Software</LI>
+	        <LI><A HREF="http://www.debian.org/ports/alpha">www.debian.org</A>  Debian/GNU Linux</LI>
+		<LI><A HREF="http://www.suse.com">www.suse.com</A> SuSE Linux</LI>
+		<LI><A HREF="http://www.harddata.com">www.harddata.com</A> Northern Linux </LI>
+		<LI><A HREF="http://www.conectiva.com">www.conectiva.com</A> Conectiva Linux, Localized to the Latin American Market</LI>
+	        <LI><A HREF="http://www.lsl.com">www.lsl.com</A> Reseller of Linux CD-ROMs</LI>
+		<LI><A HREF="http://www.cheapbytes.com">CheapBytes</A> CD-ROM seller of Linux distributions</LI>
+	       </UL>
+	       
+	       <UL><FONT SIZE="+1"><B>
+	       Non-Linux Operating systems
+	       </B></FONT><BR>
+	        <LI><A HREF="http://www.unix.digital.com">www.unix.digital.com</A> Tru64Unix (Digital Unix) Information</LI>
+		<LI><A HREF="http://www.tru64.org">www.tru64.org</A> Tru64 Information (not run by Compaq)</LI>
+	        <LI><A HREF="http://www.freebsd.org/alpha/alpha.html">www.freebsd.org</A> FreeBSD Project for the Alpha</LI>
+		<LI><A HREF="http://www.netbsd.org/Ports/alpha/index.html">www.netbsd.org</A> NetBSD</LI>
+	       </UL>
+	       <P>
+
+
+	       <UL><FONT SIZE="+1"><B>
+	       News Groups
+	       </B></FONT><BR> 
+	        <LI><A HREF="news:comp.os.linux.alpha">comp.os.linux.alpha</A>  Linux Alpha News Group</LI>
+	        <LI><A HREF="http://groups.google.com">groups.google.com</A> Search Past Newsgroup Postings</LI>
+
+	       </UL>
+	       <P>
+
+	       <UL><FONT SIZE="+1"><B>
+	       Mailing Lists
+	       </B></FONT><BR>
+	        <LI><A HREF="mailto:axp-list-request@redhat.com">Alpha AXP</A> list from RedHat, put 'subscribe' into subject line</LI>
+	        <LI><A HREF="mailto:debian-alpha-request@lists.debian.org">Debian Alpha</A> Mailing List, pub 'subscribe' into the body</LI>
+	        <LI><A HREF="../archives/">Archive</A> of the axp-list (and others)</LI>
+		<LI><A HREF="http://www.lib.uaa.alaska.edu/axp-list">A searchable archive</A> of axp-list from Mike Tibor</LI>
+	       </UL>
+	       <P>
+
+
+	       <UL><FONT SIZE="+1"><B>
+	       Linux Search Engines
+	       </B></FONT><BR>
+	        <LI><A HREF="http://www.linuxstart.com">Linux Start</A> Search Engine built on and for Linux</LI>
+		<LI><A HREF="http://www.linuxhardware.net/">LinuxHardware.Net</A> Search for hardware related information</LI>
+	       </UL>
+
+	       <UL><FONT SIZE="+1"><B>
+	       General News Sites
+	       </B></FONT><BR>
+	        <LI><A HREF="http://www.lwn.net">www.lwn.net</A> Linux Weekly News</LI>
+	        <LI><A HREF="http://www.slashdot.org">www.slashdot.org</A> Slashdot - News for Nerds</LI>
+	        <LI><A HREF="http://www.linuxresources.com">www.linuxresources.com</A> Linux Resource site setup by Linux Journal</LI>
+	        <LI><A HREF="http://www.linuxtoday.com">www.linuxtoday.com</A> Daily Linux News Site</LI>
+		<LI><A HREF="http://www.linuxworld.com">Linux World</A> Putting Linux to Work</LI>
+	        <LI><A HREF="http://www.acersoft.com">Shannon Knows Compaq</A> An independent source of information and analysis on Compaq</LI>
+	       </UL>
+
+	       <UL><FONT SIZE="+1"><B>
+	       Other Ports - because not everybody has an Alpha
+	       </B></FONT><BR>
+	        <LI><A HREF="http://www.linuxppc.org">PowerPC</A> port for PowerMacs, some IBM RS/6000, and PPC clones</LI>
+	        <LI><A HREF="http://www.linux.sgi.com">SGI</A> port for Silicon Graphics Workstations, and MIPS</LI>
+	        <LI><A HREF="http://www.ultralinux.org">Sparc</A> for Sun's Sparc based workstations</LI>
+		<LI><A HREF="http://www.arm.linux.org.uk/">ARM</A> port</LI>
+		<LI><A HREF="http://www.linux-m68k.org/">M68K</A> Linux for the Motorola 68000 series</LI>
+		<LI><A HREF="http://lena.fnet.fr">MIPS</A> The Linux MIPS FAQ</LI>
+		<LI><A HREF="http://www.linux.org">x86</A> This is just one of the many with info on x86 Linux</LI>
+	       </UL>
+
+<P>
+New submissions are always welcome. If you have something to add then send an email to <A HREF="mailto:webmaster@alphalinux.org">webmaster@alphalinux.org</A>.
+
+
+	    
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,15 @@
+I would like to correct this point that the license agreement for
+distribution from Netscape requires us to track downloads. 
+
+We request that you remove the kit from the public ftp site ASAP.
+
+In a more practical perspective.  The more people we can show who download
+the software kit, the greater the credibility that Alpha Linux will receive
+in the market.  The more credibility, the greater the investment in
+resources by Netscape (and Compaq) in providing more and better tools on the
+platform.  We need to show that Alpha is a credible Linux platform vs. x86.
+
+
+While this is a business and marketing argument, we need to make the case to
+be sure that future kits will be available.
+

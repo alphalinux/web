@@ -1,0 +1,130 @@
+<!-- V0.1 Written Sept 5th 2000 -rdp -->
+
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Query Results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+
+<?php
+	include ("../database.php");
+	
+	// Do you want the ugly green debug message or not?
+	$debug=0;
+
+	$platform=mysql_db_query("ALOHcl","SELECT indx FROM Platforms where name='$Platform' ORDER BY name", $alodb)
+		or die ("<P>Can't query db");
+	$platform_obj=mysql_fetch_object($platform);
+	$platform_id=$platform_obj->indx;
+	
+	$results=mysql_db_query("ALOHcl","SELECT * from Configs where platform=$platform_id ORDER BY insdate",$alodb)
+		or die ("<P>Can't query db");
+	$num_results=mysql_num_rows($results);
+
+	if ($debug)
+		echo "<FONT COLOR=#00FF00>Results:".$num_results;
+	
+
+	function print_results($rec, $connection) {
+	
+		$card=mysql_db_query("ALOHcl","SELECT name,bus_type FROM Cards WHERE indx=$rec->card_tested",$connection);
+		$card_obj=mysql_fetch_object($card); 
+
+		$srm=mysql_db_query("ALOHcl","SELECT revision FROM SRMRevs WHERE indx=$rec->srm_rev",$connection);
+		$srm_obj=mysql_fetch_object($srm);
+
+		echo "<TR><TD>$card_obj->name</TD>";
+		echo "<TD>$card_obj->bus_type</TD>";
+		echo "<TD>$srm_obj->revision</TD>";
+		echo "<TD>$rec->worky_linux</TD>";
+		echo "<TD>$rec->worky_srm</TD>";
+		echo "<TD>$rec->user_name</TD>";
+		echo "<TD>$rec->email</TD>";
+		echo "<TD>$rec->notes</TD></TR>";
+	}
+
+?>
+
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>   <TD WIDTH=16>&nbsp;</TD>
+  
+   </TR>     
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" ALT="Documentation" BORDER="0" VSPACE="0" HSPACE="8"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="90%" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            </B></FONT><P><FONT SIZE="+2"><B>Query ALO Hardware Database</B></FONT>
+		
+		<P><CENTER>Search Results for:<B> <?php echo $Platform ?></B>
+			<TABLE BORDER=1 CELLSPACING=5>
+			<P>
+			<TR><TH>Card Name</TH><TH>Bus Type</TH><TH>SRM Revision</TH><TH>Works in Linux</TH><TH>Works in SRM</TH><TH>Reported By</TH><TH>Email</TH><TH>Notes</TH></TR>
+			<TR>
+				<?php
+					for ($i=0;$i<$num_results;$i++)
+						print_results(mysql_fetch_object($results),$alodb);
+				?>
+				
+			</TD></TR>
+		</TABLE></CENTER>
+		<?php
+			if ($num_results == 0)
+				echo "<P><CENTER><FONT SIZE=\"+2\">Sorry, No information yet on the $Platform product";
+		?>
+		
+	      <!-- Actual document -->
+	     
+	
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+	<?php include("footer.php") ?>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+

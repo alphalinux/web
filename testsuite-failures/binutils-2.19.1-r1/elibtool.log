@@ -1,0 +1,3 @@
+patching file /var/tmp/portage/sys-devel/binutils-2.19.1-r1/work/binutils-2.19.1/ltmain.sh
+Hunk #1 succeeded at 3272 (offset -1449 lines).
+Hunk #2 succeeded at 3622 (offset -1458 lines).

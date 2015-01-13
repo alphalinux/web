@@ -1,0 +1,351 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Oldnews February 1999</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->
+</CENTER></TD>
+   </TR>  
+    <TR>
+            <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+      
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            Old News....
+            </B></FONT><P>
+	     <B>Warning</B> links in here may no longer be valid and they will not be updated.
+	     <P>	
+	    
+<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 26th 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">   
+	People looking to compile 2.2.2 on Alpha can patch the stock 2.2.2 kernel with  Alan Cox's ac4 patch.  
+	The patch is available from <A HREF="ftp://ftp.linux.org.uk/pub/linux/alan/2.2/patch-2.2.2-ac4.bz2">
+	ftp.linux.org.uk</A> or locally from <A HREF="ftp://ftp.alphalinux.org/pub/AXP/kernel/patch-2.2.2-ac4.bz2">ftp.alphalinux.org</A>.
+	<P>
+	Just received this from our friends at API. If you're going to LinuxWorld Expo make sure to
+	stop by their booth and register to win an Alpha system.
+	<P>  
+	<I><A HREF="http://www.alpha-processor.com">Alpha Processor, Inc</A>. will participate in the upcoming LinuxWorld Expo in
+	San Jose, CA scheduled for March 2 through March 4, 1999.  If you plan to
+	attend this conference, please come by our booth #1915 and learn more about
+	Alpha on Linux.  We are excited to have in our booth representatives from
+	DCG; a leading supplier of Alpha workstations and an organization committed
+	to supporting the Linux community.
+	<P>
+	Even more exciting for those visiting our exhibit are we are giving away an
+	Alpha workstation.  By completing a game card at our booth, you will
+	automatically be entered in our drawing.
+	<P>
+	or more detailed information on LinuxWorld Expo you visit their website at
+	<A HREF="http://www.linuxworldexpo.com">www.linuxworldexpo.com</A>.</I>  
+	
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 23rd 1999
+
+            </B></FONT></TD>
+          </TR>
+        <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">     
+	There are some unofficial patches for for 2.2.2 that will let you compile and boot the kernel courtesy
+	of <A HREF="mailto:dfrasnel@csee.wvu.edu">Dan Frasnelli</A>. The non-x86 patch takes care of the semaphores
+	problem and the filter patch fixes the broken filter code. They both can be found here at <A
+        HREF="ftp://ftp.alphalinux.org/pub/AXP/patches">ftp.alphalinux.org</A>. -Peter
+	<P>
+	The good news is that kernel 2.2.2 has been released. The bad news is that it does not compile on Alpha. 	
+	
+ </TR>
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 19th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	<A HREF="http://www.redhat.com">RedHat</A> has released <A HREF="ftp://ftp.alphalinux.org/pub/AXP/redhat/updates/redhat-5.2/lsof-4.40-1.alpha.rpm">
+	an updated RPM of lsof</A> in response to a security problem. The security hole in the current package <I>"can not be used to get root access on Red Hat
+	Linux"</I>, though users are still recommended to upgrade. 
+	
+
+
+	
+	
+ </TR>
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 17th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	<A HREF="http://www.theregister.co.uk">The register</A> has <A HREF="http://www.theregister.co.uk/990217-000002.html">a short article</A> 
+	on a rumored deal between Compaq and IBM. Seems that IBM will be producing Alphas for Compaq in its fab plants.
+
+	
+	
+ </TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 15th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	alphalinux.org is proud to announce the opening of <A HREF="ftp://ftp.alphalinux.org/pub/AXP">ftp.alphalinux.org</A>. We currently
+	have updates for RedHat 5.1 and 5.2, as well as KDE-1.1, JDK1.2 and a host of other software with more on the way.
+	<P>
+	We'd also like to welcome our newest member here at alphalinux.org. <A HREF="mailto:ppetrakis@alphalinux.org">Peter Petrakis</A> joined
+	us last week in our quest to increase the use of both Linux and the Alpha processor.
+	<P>
+		<P>
+		There is a new rc5des client for AlphaLinux available at <a href="http://www.distributed.net/clients.html">www.distributed.net</a>.  
+		<P>
+		It contains new and faster cores. The rc5-core is from Bernie Meyer and the DES-core is from Mr. Dworzak. 
+		Both are almost 50% faster than the last (very old) official AlphaLinux-releases.
+		<P>
+		Benchmarks from a 533 MHz 21164:
+		<pre>
+		Benchmarking DES with 1*2^22 tests (4194304 keys):    
+		Completed in 0.00:00:00.62 [6,672,378.76 keys/sec]
+		Benchmarking RC5
+		Completed in 0.00:41:45.53 - [851,111.75 keys/sec]
+		</pre>
+	<P>
+ </TR>
+
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 10th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	RedHat has released <A HREF="ftp://updates.redhat.com/5.2/alpha/wu-ftpd-2.4.2b18-2.1.alpha.rpm">
+	updated RPMs</A> for the security vulnerability found in all RedHat versions of wu-ftpd. Anybody
+	using wu-ftpd is recommended  to upgrade. More information on the vulnerability can be found at
+	<A HREF="http://www.netect.com/advisory_0209.html">www.netect.com</A>.
+
+
+	
+	<P>
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 9th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	Computer Reseller News has an <A HREF=" http://www.crn.com/dailies/weekending021299/feb09dig10.asp">
+	interview with Jon Rose</A>, senior vice president and group general manager of Compaq's Enterprise Computing Group.
+	<P>
+	<A HREF="http://www.compaq.com">Compaq</A> has added some <A HREF="http://www.unix.digital.com/linux/">Compaq Linux pages</A> 
+	 to its website.  Included 	is information on which <A HREF="http://www.digital.com/alphaserver/linux/index.html">Alpha servers</A> are
+	being sold with Linux support.
+
+	
+	<P>
+ </TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 8th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	<A HREF="http://www.alpha-processor.com">www.alpha-processor.com</A> has posted 
+	information on the  <A HREF="http://www.alpha-processor.com/product/alpha21264.asp">
+	21264 chip</A> and the <A HREF="http://www.alpha-processor.com/product/alphapc264dp.asp">
+	264DP</A> motherboard.
+
+	
+	<P>
+ </TR>
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 7th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	People using MILO should read  <A HREF="http://linuxtoday.com/stories/2899.html">this report</A>
+	from BUGTRAQ about a security problem with MILO. <I> "Any local user can cause an Alpha Linux machine to
+                      reboot, lock up or become unstable."</I>
+
+	
+	<P>
+ </TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 4th 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	<FONT COLOR="FF0000">***Hot News***</FONT>  A source inside Compaq has revealed to alphalinux.org that Oracle is porting it's Oracle 8 database
+	to AlphaLinux., with an expected release data in Q1,1999. So we now have the commitment or a major database
+	vendor to AlphaLinux. This source has also told us that several other 1st tier ISV now consider AlphaLinux to
+	be a strategic platform.
+	<P>
+	RedHat has released updated RPMs for Minicom for all platforms. This fixes a bug in the original version that anybody could
+	use Minicom and gain access to the modem. With this update only people specified in the Minicom config file can use the modem.
+	The Alpha update is available from <A HREF="ftp://updates.redhat.com/5.2/alpha/minicom-1.82-3.alpha.rpm">ftp://updates.redhat.com</A>.
+
+	
+	<P>
+ </TR>
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 3rd 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	<a href="http:// www.theregister.co.uk">The Register</a> has posted a short yet interesting <a
+	href=http://www.theregister.co.uk/990203-000014.html>article</a> today about how Compaq may possibly be attempting a 128-bit
+	Alpha processor.  
+	
+	<P>
+
+	Here's <A HREF="http://www.newsalert.com/bin/story?StoryId=CnRAgucSbote3otG3mJKW">Compaq's press release (in the U.K.)</A> for the new AlphaServer DS20,
+	it also includes price cuts of up to 45% on the existing AlphaServer line.  The article also goes on to say <I>"A key initiative is driving Alpha volume, by leveraging Compaq's 
+	economies of scale and by incorporating the Alpha 21264 processor into a full range of Compaq computing platforms."</I>
+	
+	<P>
+ </TR>
+
+
+
+<TR>
+            <TD WIDTH="32"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32" ALT="*"></TD>
+            <TD WIDTH="552"><FONT FACE="Helvetica, sans-serif" SIZE="+2"><B>
+            February 1st 1999
+
+            </B></FONT></TD>
+          </TR>
+          <TR>
+            <TD>&nbsp;</TD>
+            <TD><FONT FACE="Helvetica, sans-serif">
+	Here's <A HREF="http://www.news.com/News/Item/0,4,31720,00.html?dd.ne.tx.fs2.0201">CNET's report</A> on the new Alpha 
+	workstations and servers.
+	<P>
+	<A HREF="http://www.alpha-processor.com/">www.alpha-processor.com</A> has redesigned their website and has posted
+	<A HREF="http://www.alpha-processor.com/news/pr020199.asp"> this press release</A> detailing the release of the 21264 chip into production.
+	<P>
+	Don't forget Compaq is also having announcements today. You can sign up for the live webcast at <A HREF="http://webevents.broadcast.com/compaq/home.html">
+	webevents.broadcast.com</A>.
+	<P>
+	<a href="http://www.news.com">www.news.com</a> has an <a
+	href="http://www.news.com/News/Item/0,4,31720,00.html?st.ne.fd.gif.f">article</a> about the Compaq's annoucements
+	today.
+	<p>It seems that Compaq will release two new systems using <a href="http://www.digital.com/alphaoem/papers/microrep/digital2.htm">21264</a> technology. The project once code-named Monet is
+	now officially called the <a href="http://www.digital.com/flash/f257/">XP1000</a>.  Along with Compaq, another
+	Houston-based parent company is also pushing their new low-end <a href="http://www.digital.com/alphaserver/announce/ds20.html">DS20</a> 
+	server (using the same architecture). 
+	<P>
+	Another interesting tidbit of information is that Digital Unix has been renamed to <a href="
+	http://www.unix.digital.com/announcements/">Tru64 Unix</a>.  Compaq obviously wants to absorb Digital's name as much as
+	possible.  I'm sure it will be a good product, but I will stick with my 64-bit Penguins.   -Barrett
+	<P>
+ </TR>
+
+
+	
+
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

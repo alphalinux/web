@@ -1,0 +1,12 @@
+<!-- IE7 version 0.6.1 (alpha) 2004/06/08 -->
+<public:component xmlns="http://www.w3.org/1999/xhtml" xmlns:public="urn:HTMLComponent">
+<public:attach event="ondocumentready" onevent="new ie7StyleSheet"/>
+<script type="text/javascript">
+if("i".replace(/i/,function(){return""})){var a=String.prototype.replace,b=function(r,w){var m,n="",s=this;
+while((m=r.exec(s))){n+=s.slice(0,m.index)+w(m[0],m[1],m[2],m[3],m[4]);s=s.slice(m.lastIndex)}return n+s};
+String.prototype.replace=function(r,w){this.replace=(typeof w=="function")?b:a;return this.replace(r,w)}}
+</script>
+<!--script src="/IE7/modules/ie7-debug.js" type="text/javascript"></script-->
+<script src="/IE7/modules/ie7-xml.js" type="text/javascript"></script>
+<!--script src="/IE7/modules/ie7-css-strict.js" type="text/javascript"></script-->
+</public:component>

@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Mandrake</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->
+     </CENTER></TD>
+   </TR> 
+
+
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPA
+CE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HS
+PACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0
+ HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            
+            <P></B></FONT>
+
+
+              <!-- Subtitle --> 
+<H1>The Unofficial Mandrake Alpha-port page</H1>
+<HR>
+<P>Since autum 1999 a number of people have participated in making Mandrake's cooker distribution buildable on the alpha. This effort has led to an unofficial (and unsupported) port to the alpha by Mandrakesoft, for their <A HREF="ftp://ftp.alphalinux.org/mirrors/mandrake/7.0/">7.0</A> and <A HREF="ftp://ftp.alphalinux.org/mirrors/mandrake/7.1/">7.1</A> releases.</P>
+
+<P>A number of the people involved have been builiding (in their spare time) and running the cooker distro on their alpha machines. Now, they want to share this distribution with the alpha-community. This effort is independant of Mandrakesoft. It is NOT (officially) supported by Mandrakesoft.</P>
+
+<P>The objective is to make the alpha version of Mandrake's cooker distribution available to the public. Only if a distribution is made available and development is continued will it have a chance to gain popularity and improve.</P>
+
+<P>Mandrake's <A HREF="http://www.linux-mandrake.com/en/cookerdevel.php3">cooker</A> distribution is a DEVELOPMENT distribution. At times, things WON'T work, things WILL be broken but it WILL be bleeding-edge. We strongly discourage to use this distribution on production machines.</P>
+
+Project organisation:
+<UL>
+<LI>Alpha binaries are currently being built on a number of machines:
+<UL><LI>d10179.upc-d.chello.nl, my private machine;</LI>
+<LI>mdk.alphadriven.org, provided by the folks from Alphalinux.org;</LI>
+<LI>Jeff Garzik's alpha;</LI>
+<LI>Mandrake's alpha in the Paris office.</LI></UL></LI>
+<LI><A HREF="http://d10179.upc-d.chello.nl/build/cooker/alpha/">Buildoutputs</A> of the builds will made available. This way people can see why something isn't compiling.</LI>
+<LI>The alpha cooker tree is <a href="ftp://ftp.free.fr/pub/Distributions_Linux/Mandrake-devel/cooker/alpha/">available</a>.</LI>
+<LI>The cooker sources are distributed through Mandrake (and it's mirrors).</LI>
+<LI>Updates & Patches may be uploaded to Mandrake's <A HREF="ftp://ftp.linux-mandrake.com/incoming/">upload-ftp site</A>.</LI>
+<LI>Mandrake's <A HREF="mailto:cooker-axp@linux-mandrake.com">cooker-axp mailinglist</A> will be used for discussing alpha related issues. An archive is available <A HREF="http://www.alphalinux.org/archives/cooker-axp/2001/">here</A>.</LI>
+<LI>Mandrake's <A HREF="mailto:cooker@linux-mandrake.com">cooker mailinglist</A> will be used for discussing issues that affect non-alpha platforms / submitting updates and patches.</LI>
+</UL>
+
+<P>The distribution will be built from (official) Mandrake cooker src.rpm packages (available on the Mandrake mirrors, in the /SRPMS directory. If a  package needs to be modified, then modify it according to the <A HREF="http://www.linux-mandrake.com/en/howtos/mdk-rpm/">mdk-rpm-howto</A> and submit the updated package to Mandrake (<A HREF="http://www.linux-mandrake.com/en/cookerdevel.php3">"How to contribute some packages to Cooker?"</A>). Changes may not impact other platforms (we don't like it when an ix86 change impacts packages on the alpha either). We will try to prevent forking packages as much as possible.</P>
+
+<P>DISCLAIMER: This distribution is based on Mandrake's cooker distribution, but is <B>NOT</B> supported by Mandrake.</P>
+<P>
+Mandrake's home page can be found at <A HREF="http://www.linux-mandrake.com">www.linux-mandrake.com</A>.</P>
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

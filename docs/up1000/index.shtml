@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation  Nautilus, Irongate UP1000 </TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+   <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../../"><IMG SRC="../../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../../intro/"><IMG SRC="../../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../../software/"><IMG SRC="../../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../../hardware/"><IMG SRC="../../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../../otherpages/"><IMG SRC="../../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../../about/"><IMG SRC="../../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+           UP1000 (Nautilus) and UP1100 (Galaxy Train)
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+	   <FONT SIZE="+1"><B>UP1000</B></FONT>
+	   <P>The UP1000 is the second motherboard to come from <A HREF="http://www.alpha-processor.com">Alpha Processor Inc. (API)</A>.
+	   Is used API's slot-B processor cartridge in combination with the AMD751 (Irongate) core logic chipset. The Slot-Bs
+	   are available as either 600MHz with 2MB cache or 700MHz with 4MB cache. This is the first Alpha motherboard
+	   to support AGP. Also on the board are 4 PCI slots, 2 ISA slots, USB and the ALI dual channel IDE controller. The UP1000
+	   supports up to 768MB of PC100 unbuffered ECC memory with 3 memory banks.
+
+	   <P>
+	   Kernels starting with kernel version 2.2.14 have support for the UP1000. Kernels should be compiled
+	   as either Generic or Nautilus.
+	   <P>
+	   <A HREF="http://www.alpha-processor.com/products/up1000-board.shtml">UP1000 Homepage</A>
+
+	   <P>
+	   <FONT SIZE="+1"><B>Things to watch out for:</B></FONT>
+	   
+	   <UL><LI>X Windows and hwclock: There needs to be a symbolic link in /etc from alpha_systype to Tsunami
+	   for these programs to work. The file Tsunami does not need to exist in /etc, just the link needs to
+	   be present. To make this link, from the / directory type:
+	   <BR><I>ln -s Tsunami /etc/alpha_systype</I></LI></UL>
+   
+           <FONT SIZE="+1"><B>UP1100</B></FONT>
+           <P>The UP1100 is the third motherboard to come from <A HREF="http://www.alpha-processor.com">Alpha Processor Inc. (API)</A>.
+	   The UP1100 is very similar to the UP1000 except that the CPU is now soldered to the board, there's on board ethernet (Tulip)
+	   and sound, and the ALI IDE controller support UDMA-66 instead of just UDMA-33 on the UP1000. The UP1100 has one AGP, three
+	   PCI and no ISA slots. Currently the UP1100 is only available in a 600MHz 2MB cache version.
+
+	   <P>
+	   Kernels starting with kernel version 2.2.14 have support for the UP1100. Kernels should be compiled
+	   as either Generic or Nautilus. 
+	   <P>
+	    <A HREF="http://www.alpha-processor.com/products/up1100-board.shtml">UP1100 Homepage</A>
+	   <P>
+	   <FONT SIZE="+1"><B>Things to watch out for:</B></FONT> 
+	   <P>See above for the UP1000.
+
+	      <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,91 @@
+[Mod: forwarded from BUGTRAQ -- alex]
+
+Once again I've come up with another trivial Denial of Service flaw,
+(wow,
+I seem to be good at this Conseal Firewall, +++ath0, ppp byte-stuffing)
+
+It's been a few months since my last DoS, so here you go:
+
+Many of you RedHat 6.0 users who installed RedHat 6.0 rather than
+upgrading may have noticed the new way RedHat displays remote TTY's.
+Instead of the old fashioned /dev/ttyp<number>, it now uses
+/dev/pts/<number>.  There is a flaw in this new implementation that
+local
+users can exploit to cause minor disruption to anyone using X-windows on
+the local machine.
+This DoS is more of a nuisance than a "real problem" but it could
+possibly
+be used to cause some minor havok.
+
+The way it works is simple.  When whoever is using X opens up an "xterm"
+(eterm, rxvt, nxterm...) a connection is made to the X server.
+If you do a "who" you will see:
+
+(RedHat 6.0, without upgrading from previous RedHat release)
+wage     pts/0    Jun  6 01:39 (:0.0)
+
+Or on older versions:
+wage     ttyp0    Jun  6 01:39 (:0.0)
+
+Now this is normal, but the problem lies within the permissions of that
+device.
+
+On older RedHat's if you did:
+ls -l /dev/ttyp3 you would see:
+crw-------   1 wage     tty        3,   0 Jun  6 12:41 /dev/ttyp0
+Which is normal and what it should look like.
+For those of you who may be new to unix those letters at the beginning
+of
+the line indicate the permissions on the device.
+For our output above, the line indicates it is a device (c), and that
+the
+OWNER has read and write permissions (rw)
+Group has no permissions (---), and everyone has no permissions (---)
+They basically go <type indicator><owner><group><everyone>
+An example line of a device will ALL permissions set follows:
+               crwxrwxrwx
+                /   |   \
+           Owner  Group  Everyone
+This means that everyone has read/write/execute permissions to that
+device.
+So as you can see our ttyp0 can only be read or written to by it's owner
+(and root).
+
+In the case of RedHat 6.0 with regular remote connections (like telnet)
+the standard permissions are as follows:
+
+crw--w----   1 ov3r     tty     136,   0 Jun  6 12:32 /dev/pts/0
+
+Here it's almost the same except that group "tty" also has write access.
+
+
+The problem lies in the way that the permissions are set for local
+connections with the X server using xterm.
+if you do an ls -l /dev/pts/<the xterm's tty> (we will use pts/0)
+You get:
+crw--w--w-   1 ov3r     ov3r     136,   0 Jun  6 12:32 /dev/pts/0
+
+Notice how now "everyone" has write access to this terminal?
+This leads to the hole that any local user can disrupt any xterminal
+connected to the local machine.  Simply typing "cat /dev/urandom >
+/dev/pts/<number>" will flood the xterm with garbage data making it
+impossible to use.  Or we can also bring back the old "flash" attack and
+flash the user's xterm by dumping ASCII escape characters to his
+terminal.
+
+This isn't a particularily "deadly" DoS attack, but can be used as a
+nuisance OR perhaps even to trick the user into doing something he may
+not want to do.  (For example dumping "Login:"  then "Password:" to the
+terminal may trick the user into adding his login/password to a file or
+to
+his .bash_history).
+
+
+--
+----------------------------------------------------------------------
+Please refer to the information about this list as well as general
+information about Linux security at http://www.aoy.com/Linux/Security.
+----------------------------------------------------------------------
+
+To unsubscribe:
+  mail -s unsubscribe linux-security-request@redhat.com < /dev/null

@@ -1,0 +1,326 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Kernel FAQ</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+ <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <a href="http://www.alphalinux.org/cgi-bin/banmat1.cgi?URL=2"><br>
+<img src="http://www.alphalinux.org/banners/lodgepole.gif" border=0 height=60 width=480 vspace=10></a>
+     </CENTER></TD>
+   </TR> 
+
+
+
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28"
+VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28"
+VSPACE=0 HSPA
+CE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0
+HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28"
+VSPACE=0 HS
+PACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28"
+VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28
+VSPACE=0
+ HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+The AlphaLinux Kernel HOWTO<br>
+Barrett G. Lyon (blyon@doxx.net)<br>
+<p>
+
+<B>Why Build a Custom Kernel?</B><br>
+The kernel is the heart of Linux and most operating systems.  The kernel is the program that takes on the task of managing
+memory, scheduling processes, managing I/O, and all the other miscellaneous low-level tasks that make the system work.  The
+Kernel is not a "process," and it does not have a PID, it is not like a process that a user can start.  It pre-exists all
+processes and is responsible for starting init (the first process).
+<p>
+Because it is so important, the kernel has some key privileges.  On Linux, as well as all other UNIX flavors that I am aware 
+of, the kernel stays resident in system memory. Other programs can be swapped or paged to disk, but not the kernel.
+Therefore, the kernel should be as small and compact as possible, and at one time, it was (back in version 1.x).  But like
+most software, the Linux kernel grew with the time: new features and compatibility modes were added, bug-fixes were larger
+than the code they replaced, and so on.  If you have been using Linux for a long time, you know the story.  As a result, the
+Linux kernel and its tables can require a significant portion of the system's total memory, particularly on small systems.
+The goal is to create a custom kernel that is as small as possible: to trim away the fat (unneeded features), and to configure
+it to perfectly fit your system and the system's functions. 
+<p>
+The trick of making a good kernel is to figure out what the system must do, and configure the kernel accordingly.  You may
+need to cut out support for some features, while making other features have larger table space, and so on.  
+<p>
+There is a balance between adding and removing features and table space and it is difficult and time consuming to make it
+perfect.  You may want to support more users, allow programs to have more files open at one time, etc.  You may also want to
+add new I/O devices or optional features, which require kernel modifications.  As always, performance management involves
+making tradeoffs between different aspects of performance; do you want flexibility, speed, or stability?  Is it more important
+to support a lot of processes or to have more memory available for just a few processes?
+<p><p>
+
+
+<b>Words of Wisdom</b><br>
+As with any serious operation, you should take the proper precautions before you start.  You would not repaint your car unless
+you taped up the windows and double-checked everything, unless you like stained-glass.  Therefore, we'll talk about some
+precautions before proceeding any farther.  Nothing experienced nothing gained, so please learn form others not-so-wonderful
+experiences.
+<p>
+Before even thinking about rebuilding your kernel, make a spare copy of the current kernel.  Never leave yourself without a
+copy of the kernel that works correctly.  You don't care whether or not this kernel is efficient-all you need to know is that
+it works.  If your custom kernel has a custom bug, you will have something to fall back on.  When you are dealing with
+something this important, paranoia is never inappropriate.  A common convention for managing kernels is to give each kernel a
+name of the form of vmlinu*.nn, where nn is 01 for the original kernel and is incremented by 1 for each kernel you build.
+Then link vmlinu* to whichever kernel you want to run.  The numbering sequence should match the build number that uname -a
+displays.  Only restart the numbering sequence if you go to a new kernel version i.e. v2.2.x to v2.2.y.  Note:  be sure your
+bootloader can read a kernel from a link (I think some versions of MILO can't).
+<p>
+One more caution: On production machines ALWAYS do complete backups before installing a new kernel version.  Why?  Let's just
+say that if things go wrong, they can go very wrong.  It is certainly possible for a slightly miss-configured kernel to turn
+your nice ext2 file system into a nice random patter of 0's and 1's.  The bottom line is: no matter what you do, make sure you
+can get the system back in working order quickly.
+<p><p>
+
+<b>Obtaining the current source</b><br>
+In the following section we will discuss how to obtain the most current 'stable' version of the Linux source tree.  This is
+because Linux development is so active there are always significant new features, together with some new bug fixes.  You
+should welcome and install these new releases, even though they require additional work.  However, don't assume that a new
+kernel release will run efficiently just because an older one does, particularly if you have the minimum memory configuration
+for your system.  For example, during the development process of version 2.2.x, the 2.1.131 release of the development kernel
+had serious virtual memory problems that were not present in the previous development release.
+<p>
+Documenting the configuration process is critical to maintaining a healthy system.  You'll have to go through configuration
+again whenever a new 'stable' kernel is released.  When you repeat the process for the new kernel, you will want to know what
+you did last time.  After running the new kernel for six months, you may suddenly find out that the assumptions you made when
+building it were invalid, or that the system's usage patterns aren't what you thought they were.  You may even have a
+long-suffering user/process that has patiently lived with some problem that you introduced.  In these cases, you need to know
+what changes you made and what you were thinking about when you made them.  Unlike BSD, you can not add comments to the
+configuration files directly, so you will have to keep your own notes.  The main gripe I have about 'make config' or any Linux
+configuration utility is that they don't record why you made your changes.
+<p>
+There are a few different versions of the Linux kernel source.  However the older kernels do not support the granular
+configuration options that are included in the 2.2.x kernel sources.  This means that in this section I will only cover
+information on the 2.2.x kernels.  
+<p>
+The first requirement to build a fresh kernel is that you actually have the kernel source itself.  There are a lot of
+different places the kernel source can be obtained from a Kernel Archive Mirror System.
+<p>
+The Linux Kernel Archive Mirror System is set up so that for each two-letter country code from the list below, you can simply
+use the host names www.country-abrivation(us,jp etc.).kernel.org or ftp.country-abrivation.kernel.org to reach a mirror
+supporting that specific country. Each mirror will have a full archive of /pub/Linux/ and /pub/software/, although they may
+not carry both the gzip and bzip2 compression formats.   For a list of these sites please visit
+<a href="http://www.kernel.org/mirrors/">www.kernel.org/mirrors/</a>.
+<br><br>
+<table>
+
+<tr><td>(<a href="ftp://ftp.us.kernel.org"> US ftp</a></td><td>/</td><td><a href="http://www.us.kernel.org"> US http</a> )</td><td>United States</td></tr>
+<tr><td>(<a href="ftp://ftp.jp.kernel.org"> JP ftp</a></td><td>/</td><td><a href="http://www.jp.kernel.org"> JP http</a> )</td><td>Japan</td></tr>
+<tr><td>(<a href="ftp://ftp.uk.kernel.org"> UK ftp</a></td><td>/</td><td><a href="http://www.uk.kernel.org"> UK http</a> )</td><td>The United Kingdom</td></tr>
+<tr><td>(<a href="ftp://ftp.ca.kernel.org"> CA ftp</a></td><td>/</td><td><a href="http://www.ca.kernel.org"> CA http</a> )</td><td>Canada</td></tr>
+
+</table>
+<p><p>
+
+<b>Unpacking the source</b><br>
+If you installed kernel source when you first installed Linux or installed the kernel source packages, there will already be a
+directory or a symlink called `linux' is /usr/src/.  If it is a directory it contains the entire source tree to the Linux
+kernel that was previously installed.  If 'linux' is a symlink it points to where the source tree is stored.  If you have the
+disk space it is wise to preserve the current source directory.   A good idea is to figure out what version your system runs
+now and rename the directory accordingly.  The `uname -r' prints the current kernel version.  If `uname -r' said `2.2.0', you
+would rename `linux' to `linux-2.2.0' (I usually call my AlphaLinux kernels axp-x.x.x).
+<p>
+After you have ensured that the current source tree is saved/backed up in a accessible and safe place, you can then wipe out
+the 'linux' symlink or old directory (if it is still there).
+<p>
+<b><i>*Be sure that there is no `linux' directory in /usr/src/ before unpacking the full source code.</b></i>
+<p>
+Now, in /usr/src/, unpack the source with `tar zxpvf linux-x.y.z.tar.gz' (if you've just got a .tar file with no .gz at the
+end, `tar xpvf linux-x.y.z.tar' works.).  When finished, there will be a new `linux' directory in /usr/src/.  
+<p>
+A good practice after unpacking any new kernel is to look over the README file located in the new linux direcotry. There will
+be a section with the label `INSTALLING the kernel'. Carry out the instructions when appropriate -- symbolic links that should
+be in place, removal of stale .o files, etc.
+<p><p>
+
+
+<b>Configuring the kernel.</b><br>
+In principle, configuring a new kernel is relatively simple.  A kernel configuration file describes the system you want to
+build.  Configuration files are located in the root of where your kernel source is located, this is usually
+/usr/src/linux/.config.  
+<p>
+We will assume that you are starting from a vanilla kernel and that you want to build a new kernel.  
+<p>
+Because the .config file is an integral part of the entire kernel configuration process removing it would result in needing to
+completely re-run the process it takes to build the file, it also holds the history of how your kernel was configured between
+different builds.  
+<p>
+It would make sense to backup the original .config file and name it config.orig.
+<p>
+A good practice to keep track of the configurations of the kernel, copy the current .config to something like config.X,
+replace X with the kernel build number.  Because the source trees between different kernels never overlap you will always have
+the configuration files you used to create the kernel images for each build number.
+<p>
+The command 'make config' while in /usr/src/linux/ starts a configure script which will run you through the kernel
+configuration.  The questions that 'make config' asks are our focus of the first step to optimization of the kernel. 
+<p>
+There are some alternatives to `make config' and you may very well find them easier and more comfortable to use, consort the
+README file included in the Linux source.  Below is a list of items I feel are important when trying to build a more efficient
+kernel.
+<p>
+
+<b>The Goal of the System</b><br>
+The system you are building must have some purpose.  This purpose is the focus of your entire kernel configuration, and system
+optimization.<br>
+Use common sense!  Don't add support to unneeded devices such as Audio devices, or video4Linux to a production server.
+<p>
+Examples:<br>
+Web Servers<br>
+Keep in mind that the TCP protocol was originally designed with the assumption that connections are few and long-lived. HTTP,
+on the other hand, was designed to be a fast (short-lived), lightweight mean to deliver distributed hypermedia information
+requests.  It places little or no load on the CPU or memory resources of a server when compared with other protocols.  On the
+other hand, a complete TCP connection is set up and destroyed as part of each HTTP transfer.  For this reason, HTTP has been
+labeled as an abuser of TCP.  So while building the kernel add support that will allow you to fine-tune Linux's TCP/IP stack,
+advanced router support, remove items that will protect from abuse like SYN Cookies, and add sysctl support so that you can go
+and make adjustments to the TCP/IP stack later on.
+<p>
+Mail Servers<br>
+Much like HTTP, this is also deemed as an abuser of TCP, so many of the same items you would configure (and not configure) for
+a web server would also apply to a Mail Server.
+<p>
+Router<br>
+A router needs to have as much priority dedicated to the kernel as possible.  When the system's load is high it might be
+possible that Linux can't handle all the requests as fast and reduce performance.  Anything that might limit the kernel from
+being the main process of the system will be recommended against.  During the configuration process Advanced router support,
+and Sysctl will be important in order to make fine tune adjustments to the operation of how Linux will handle routing.
+<p>
+Shell Servers<br>
+A shell server needs stability, so performance is usually second to stability.  A shell box is the MOST abused of these
+examples.  Pending on the size of the system the table sizes must be adjusted to support the user load (done later with sysctl
+or manual kernel hacking).  In my opinion this is the most fun type of system to configure, mainly because of the huge abuse
+the machine will be hit with.  If you build a kernel right, and configure table sizes correct the machine should take a hit
+from anything.
+<p>
+Know Your Hardware<br>
+You need to be sure about every device in your system, deeming devices as needed or as unneeded.  If you are building a web
+server, do you really need that DVD drive, or a soundcard?  Be sure that you have researched out all your devices.  Also be
+sure that the kernel you are building has the most current stable patches applied for these devices.  For example Adaptec SCSI
+adapters are a bit unstable unless they have current patch applied, or if your kernel source has the most current driver.
+<p>
+While configuring the kernel, don't add support to devices you don't have unless you will be adding these devices to the
+system soon.  For example: If your entire system uses SCSI disks, then there is NO need to add support for any IDE/RLL type
+devices.  If you are unsure, or if you will be adding devices later it might make sense to build them as a module.
+<p>
+Stability<br>
+Occasionally kernel developers will add support to some new-fangled device.  Don't trust new devices unless you have had first
+hand knowledge that they do work and are stable.  It is very common to add support for a feature in the kernel just to find
+out that it effects something elsewhere.
+<p>
+The Brag Effect<br>
+It is my philosophy that configuring a kernel is all about removing support, not adding support.  Don't add support to a
+feature in the kernel unless you absolutely need it, don't add something just to tell your friends that "My box has quiji-bo
+support".
+<p><p>
+
+<b>Configuration Options</b><br>
+Because device and driver options change so frequently I decided it would be counter productive to write a step by step
+instruction manual on what devices to add support for and how each device would effect your system.  There is an extremely
+detailed list of all the options available during the 'make config' process.  The list covers items that are also not added to
+the mainstream kernel.  If you keep in mind everything I listed above and read the list of all the options available, I feel
+that you will make a very educated selection.
+<p>
+You can find the list of options is located at:<br>
+<a href="http://math-www.uni-paderborn.de/~axel/config_help.html">http://math-www.uni-paderborn.de/~axel/config_help.html</a><br>
+<a href="ftp://sunsite.unc.edu/pub/Linux/kernel/config/krnl_cnfg_hlp.x.yz.tgz">ftp://sunsite.unc.edu/pub/Linux/kernel/config/krnl_cnfg_hlp.x.yz.tgz</a><br>
+(Replace the x.yz is the version number.)
+<p>
+You can also locate a lot of information in the linux/documentation directory.
+<p><p>
+<b>Post 'make config' cleanup</b><br>
+After the configure processes has been completed, it is important to take a look at the Makefile located in /usr/src/linux/.
+The Makefile contains all the information that will be used to compile the kernel.  It defines what compiler you will be
+using, and CFLAGS that will be passed to the compiler during compile time.
+<p>
+The GCC compiler is the most commonly used GNU C compiler, and is the default compiler the Linux kernel is configured to
+compile with.  GCC version 1 was deemed stable about six years ago, and shortly after underwent reexamination.  There were
+inherent limitations in its design of GCC 1 that would be difficult to resolve, a major effort was put forth to correct these
+limitations that resulted in GCC version 2.  About in 1996 the EGCS project began.  The EGCS project has much the same focus
+that the GCC 2 project had, with such goals as reexamination of basic architectural decisions of GCC 2, and the focus of
+adding new architectural optimizations. The ongoing efforts of the EGCS project are resulting in a more useful compiler, a
+more stable compiler, a central compiler that works for more people, a compiler that generates better code.
+<p>
+It would make complete sense to use the best compiler to compile the kernel.  As stated before, you want the kernel to be as
+small and compact as possible.  Thus making the decision to move off the GCC 2 compiler and to use the EGCS compiler might be
+a wise one.  To do this all we need to do is change the definition for the compiler in the Makefile.  Change the compiler from
+gcc to egcs, you may also want to find out what CFLAGS you can use to let EGCS know what type of hardware architecture you are
+using so it can make the appropriate optimizations.
+<p><p>
+<b>Compiling the kernel image</b><br>
+After you have completely configured your kernel to fit your system, you now have a choice for different types kernel builds.
+Linux is used on many different types of architectures and most architectures have different MINILOADERS.  The Alpha mainly
+uses the MILO miniloader, and the x86 (Intel based system) uses LILO.  
+<p>
+Each miniloader loads the kernel differently, uncompressed and with different compression formats.  LILO loads a zImage kernel
+image, where MILO loads a gziped kernel (vmlinux.gz).  Because we are buidling an Alpha kernel we will want to build the
+gzipped version of the kernel image.  This will be done by using the 'make boot' command. 
+<p>
+For people who are generally familiar with compiling Linux kernels, here is a quick rundown of commands for the alpha. 
+<p><p>
+    make mrproper<br>
+    make oldconfig<br>
+    make config<br>
+            <p><p>
+During the make config, you will make changes that are appropriate to your particular Alpha system. 
+<p><p>
+
+    make dep<br>
+    make clean<br>
+    make<br>
+    make boot<br>
+            <p><p>
+<b>Setting Up MILO or aboot</b><br>
+The setup of getting the new kernel set up for Alpha MILO or aboot are best covered in our other FAQ documents:<br>
+<a href="http://www.alphalinux.org/faq/srm.html">The SRM HOWTO</a><br>
+<a href="http://www.alphalinux.org/faq/milo.html">The MILO HOWTO</a><br>
+
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+          <FONT COLOR="#DC9D33" FACE="helvetica,sans-serif" SIZE="-1">
+
+	<CENTER>Powered  by Alpha / Linux® is a registered trademark of Linus Torvalds</CENTER>
+
+           </FONT>
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>
+

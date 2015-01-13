@@ -1,0 +1,531 @@
+<HTML>
+<HEAD>
+<TITLE>The AlphaLinux Homepage News for September 1999</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta name="description" content="Information on the Alpha port of Linux">
+<meta name="keywords" content="alpha linux axp multia as200 jensen ruffian alphastation alphaserver 21064 21164 21264 064 64-bit 164 264 sx lx">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+
+
+<TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->  
+  
+	</CENTER>
+	</TD>
+
+</TR>  
+<TR>
+
+	<TD WIDTH=16>&nbsp;</TD>
+	<TD WIDTH=700 BGCOLOR="#B70000" ALIGN="CENTER">
+	<A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A>
+	<A HREF="../docs/"><IMG SRC="../img/butt_docs.gif" WIDTH="48" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Docs" BORDER="0"></A>
+	<A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A>
+	<A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A>
+	<A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A>
+	<A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A>
+	</TD>
+	<TD WIDTH=16>&nbsp;</TD>
+
+</TR>
+<TR>
+
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+</TR>
+<TR VALIGN="top">
+	<TD><IMG SRC="../img/penguinedge.gif" WIDTH="16" HEIGHT="77" HSPACE=0 VSPACE=0 ALT=""></TD>
+	<TD BGCOLOR="#DC9D33">
+	<P>
+	<IMG SRC="../img/penguincircle.gif" WIDTH="92" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="">
+	<IMG SRC="../img/logo.gif" WIDTH="498" HEIGHT="112" HSPACE=0 VSPACE=0 ALT="AlphaLinux">
+	</P>
+<TABLE BORDER=0 HSPACE=8>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+	<TD WIDTH=500 VALIGN=TOP>
+	<!-- Newsitem starts here. Duplicate news item as neccessary. -->
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	    <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+	     <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B>Alpha Key to Compaq Growth
+	<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+	    </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+
+September 30th 1999
+	</B></td>
+	    </tr>
+	   <TR>
+	    <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.compaq.com">Compaq</A> has written a letter to its customers and shareholders stating that "Alpha is absolutely key to our profitable growth and market leadership in the Business
+Critical Server segment." The original release is available on the <A HREF="http://www2.compaq.com/CCMUpload/ioAttachment/10000-20000/14050/1/BHeil-9-28-99.html">Compaq website</A>.
+
+	    <P>
+	    </TD>
+	   </TR>
+
+	</TABLE>
+	<P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	    <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+	     <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B>CivCTP for Alpha 
+	<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+	    </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+
+September 30th 1999
+	</B></td>
+	    </tr>
+	   <TR>
+	    <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.lokigames.com">Loki Entertainment Software</A> has released a beta version of Civilization Call to Power for AlphaLinux. The beta
+requires glibc2.1 and has been tested on kernel version 2.2.11 and 2.3.18 (evidently 2.2.12 has a TCP/IP bug that can cause problems with
+the game). The patch can be downloaded from the Loki <A HREF="http://www.lokigames.com/products/civctp/updates.php3">updates</A> page.
+	    <P>
+	    </TD>
+	   </TR>
+
+	</TABLE>
+	<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	    <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+	     <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B>Compaq Offers Access to AlphaLinux Systems 
+	<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+	    </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+
+September 22nd 1999
+	</B></td>
+	    </tr>
+	   <TR>
+	    <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.comapq.com">Compaq</A> is offering developers access to AlphaLinux systems featuring the beta builds of the
+Compaq C and Fortran compilers. They have released <A HREF="http://www.newsalert.com/bin/story?StoryId=Cn:HuqbKbyteYmZm&FQ=Linux&Nav=na-search-&StoryTitle=Linux">
+this press release</A> announcing the availability and developers can sign up at <A HREF="http://www.testdrive.compaq.com/">www.testdrive.compaq.com</A>. Also
+available are systems running Tru64Unix version 5.0.
+
+	    <P>
+	    </TD>
+	   </TR>
+
+	</TABLE>
+	<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	    <P>
+	    <TR>
+	     <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+	     <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+	     <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B>KDE 1.1.2 RPMS 
+	<FONT></TD>
+	     <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+	    </TR>
+	  <TR>
+	   <TD></TD>
+	   <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+	  </TR>
+	     <TR>
+		<TD></td>
+		<TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+
+September 21st 1999
+	</B></td>
+	    </tr>
+	   <TR>
+	    <TD>&nbsp;</TD>
+	     <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+KDE 1.1.2 RPMS & SRPMS for RedHat 6.0 AlphaLinux are now available for download at <A HREF="ftp://ftp.alphalinux.org/kde/kde-1.1.2">ftp.alphalinux.org</A>. 
+Please read the <A HREF="ftp://ftp.alphalinux.org/kde/kde-1.1.2/README">README</A> file before downloading.
+
+	    <P>
+	    </TD>
+	   </TR>
+
+	</TABLE>
+	<P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B>
+ftp.alphalinux.org back online!
+        <FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+September 19th 1999
+        </B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+Due to some problems with our last daemon we have taken the archive down until the problems could be resolved.  We are happy to say that the archive is back online at <a href="ftp://ftp.alphalinux.org">ftp.alphalinux.org</a>.  We are very sorry for the downtime of the archive. 
+            <P>
+            </TD>
+           </TR>
+</TABLE>
+
+<P>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B> 
+SuSE Security Updates
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+September 18th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+	    <A HREF="http://www.suse.com">SuSE</A> has released two security warning for it's SuSE Linux. The first
+	    involves lynx-2.8.2 and older, an update is available from <A HREF="ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/lynx-2.8.3dev9-76.alpha.rpm">
+	    ftp.suse.com</A>. The second involves proftpd, at the time of the announcement an update was not ready, and SuSE is recommending that
+	    due to the problems with proftpd a different ftp server be used until these issues are resolved. 
+
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B> 
+Compaq to end Tru64 on Merced Port?
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+September 18th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+	    <A HREF="http://www.cnet..com">CNet</A> is running 
+	    <A HREF="http://technews.netscape.com/computing/technews/newsitem/0%2C290%2C121139%2C00.html?pt.netscape.fd.hl.ne"> 
+	    an article</A> speculating that Compaq will drop it's port of Tru64Unix for Merced, and instead sell Monterey on
+	    the IA-64 chips while keeping Tru64 only on Alpha.
+
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B> 
+HPTi wins AlphaLinux Cluster for NOAA
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+September 17th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+	     The Forecast Systems Laboratory, a division of the National Oceanic and Atmospheric Administration has
+	     signed a deal with <A HREF="http://www.hpti.com">HPTi</A> (HIGH PERFORMANCE TECHNOLOGIES, INC) for an AlphaLinux
+	     cluster. More information is available from <A HREF="http://www.hpti.com/FSLPressRelease.html">this press release</A>
+	     from HPTi.
+
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B> 
+SuSE Releases Updated Pine
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+September 16th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.suse.com">SuSE</A> has released an updated version on Pine for suse-axp. The update fixes IMAP support
+that was broken by a previous update. The new rpm is available from <A HREF="ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/pine.rpm">
+ftp://ftp.suse.com/pub/suse/axp/update/6.1/n1/pine.rpm</A>.
+
+
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B> 
+More RedHat 6.0 Updates
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+September 14th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.redhat.com">RedHat</A> has released several new updates to RH 6.0 over the past few weeks. Including XFree86-3.3.5,
+vixie-cron, am-utils, wu-ftpd, mars-nwe and inn. As ftp.alphalinux.org is still unavailable the files can be retrieved from 
+<A HREF="http://www.alphalinux.org/ftpsite/redhat/updates/redhat-6.0/">http://www.alphalinux.org/ftpsite</A>.
+
+
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B> 
+Problems with AlphaLinux.org
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+September 7th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+As some of you may have noticed, we've been having some problems lately with alphalinux.org, specifically ftp.alphalinux.org. While we
+don't have an ETA for a fix (we are working on it), for the moment we do have a temporary workaround. If you want to access the files
+in ftp.alphalinux.org they are all available from <A HREF="http://www.alphalinux.org/ftpsite">http://www.alphalinux.org/ftpsite</A>.
+
+
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B> 
+Compaq C Compilers Enter Beta
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><../img src="img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+September 7th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.compaq.com">Compaq</A> has released a beta version of it's C compiler for AlphaLinux. The beta
+is available from <A HREF="http://www.unix.digital.com/linux/software.htm"> the Compaq Linux</A> Software homepage.  
+Also available is an updated beta of the Fortran beta compiler with CXML (Extended Math Library). 
+            <P>
+            </TD>
+           </TR>
+
+        </TABLE>
+        <P>
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <P>
+            <TR>
+             <TD WIDTH="40"><IMG SRC="../img/icon_beak.gif" WIDTH="32" HEIGHT="32"
+ALT="*"></TD>
+             <TD bgcolor="#B70000" valign=top align=left><img src="../img/sl.gif"></TD>
+             <TD bgcolor="B70000"> <FONT COLOR="#000000"SIZE="+1" FACE="Arial, Helvetica, sans-serif"><B> 
+21364 and Tru64/RT speculations
+	<FONT></TD>
+             <TD bgcolor="#B70000" valign=top align=right><img src="../img/sr.gif"></TD>
+            </TR>
+          <TR>
+           <TD></TD>
+           <TD COLSPAN=3><img src="../img/sp.gif" VALIGN=TOP WIDTH=100% HEIGHT=2></TD>
+          </TR>
+             <TR>
+                <TD></td>
+                <TD COLSPAN=3 bgcolor="#DC9D33"><FONT SIZE="-1" FACE="Arial, Helvetica, sans-serif"><B>
+September 6th 1999
+	</B></td>
+            </tr>
+           <TR>
+            <TD>&nbsp;</TD>
+             <TD COLSPAN=3><FONT FACE="Arial, Helvetica, sans-serif">
+<A HREF="http://www.theregister.co.uk/">The Register</A> has an interesting
+<A HREF="http://www.theregister.co.uk/990906-000008.html">article</A> on 21364/EV7 features.  Mentioned are lockstepping in MP systems, 128-bit Rambus channels, and possible use of a realtime/embedded (RT) version of Tru64 in 
+arcade game consoles.  Maybe true, maybe not, but certainly something to 
+daydream about.
+            <P> 
+            </TD>
+           </TR>
+        </TABLE>
+        <P>
+
+
+  
+        </TABLE>
+        
+
+      <TR>
+	<TD></TD>
+	<TD><CENTER>
+
+          <FONT COLOR="#DC9D33" FACE="helvetica,sans-serif" SIZE="-1">
+
+	<CENTER>Powered  by Alpha / Linux® is a registered trademark of Linus Torvalds<br>Hosted by <a href="http://www.theshell.com">TheShell.com</a></CENTER>
+
+           </FONT>
+
+        </CENTER></TD>
+	<TD></TD>	
+      </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>
+ 

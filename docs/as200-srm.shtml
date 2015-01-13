@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<TITLE>AlphaLinux - Documentation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#DD0000" ALINK="#CC0000" VLINK="#CC0000">
+<CENTER>
+  <TABLE BORDER=0 WIDTH="0" CELLPADDING="0" CELLSPACING="0">
+    <TR>
+   <TD WIDTH=16>&nbsp;</TD>
+   <TD><CENTER>  <!--#exec cgi="/cgi-bin/banmat1.cgi"-->     </CENTER></TD>
+   </TR> 
+    <TR>
+      <TD WIDTH=16>&nbsp;</TD>
+      <TD WIDTH=600 BGCOLOR="#B70000" ALIGN="CENTER"><A HREF="../"><IMG SRC="../img/butt_home.gif" WIDTH="55" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Home" BORDER="0"></A><A HREF="../intro/"><IMG SRC="../img/butt_intro.gif" WIDTH="45" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Intro" BORDER="0"></A><A HREF="../software/"><IMG SRC="../img/butt_software.gif" WIDTH="87" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Software" BORDER="0"></A><A HREF="../hardware/"><IMG SRC="../img/butt_hardware.gif" WIDTH="94" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Hardware" BORDER="0"></A><A HREF="../otherpages/"><IMG SRC="../img/butt_otherpages.gif" WIDTH="119" HEIGHT="28" VSPACE=0 HSPACE=8 ALT="Other pages" BORDER="0"></A><A HREF="../about/"><IMG SRC="../img/butt_about.gif" WIDTH=57 HEIGHT=28 VSPACE=0 HSPACE=8 ALT="About" BORDER=0></A></TD>
+      <TD WIDTH=16>&nbsp;</TD>
+
+    </TR>
+    <TR>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+      <TD HEIGHT="4"><IMG SRC="../img/dot.gif" WIDTH="1" HEIGHT="1" HSPACE=0 VSPACE=0 ALT=""></TD>
+ 
+    </TR>
+    <TR VALIGN="top">
+      <TD></TD>
+      <TD BGCOLOR="#DC9D33">
+        &nbsp;<BR><IMG SRC="../img/head_docs.gif" WIDTH="347" HEIGHT="37" HSPACE=0 VSPACE=0 ALT="Documentation"></BR>
+        <TABLE BORDER="0" WIDTH="584" HSPACE="8" VSPACE="0">
+
+        <TR> <TD WIDTH=10></TD>
+            <TD WIDTH="552">
+
+            <FONT FACE="Helvetica, sans-serif"><FONT SIZE="+2"><B>
+             
+            <!-- Document title goes here. If this is the top-level -->
+            <!-- document in the hierarchy, i.e. /docs/index.html,  -->
+            <!-- the document title is omitted. -->
+            AS200-SRM
+            <P></B></FONT>
+
+	      <!-- Actual document -->
+
+	      <P>
+   IMPORTANT!  Installing Linux on the Alpha is not trivial; you do NOT
+   want to blindly follow these directions.  Please read the following
+   documents before proceeding:
+</P>
+<P>
+   Alpha-HOWTO  (see http://www.alphalinux.org/alpha-howto.html)<BR>
+   SRM-HOWTO  (see http://www.alphalinux.org/faq/srm.html)<BR>
+   AS200 Support Page (see http://www.toast.net/~strycher/AS200.html)<BR>
+   RedHat-5.1 Users Manual and Alpha Addendum<BR>
+   Alphastation Users Manual (console commands section in particular)
+</P>
+<P>
+   These instructions are not authoritative or garaunteed to work on
+   your system; they are simply my best recollection of the steps I
+   used to get my Alphastation running RedHat-5.1.  Do let me know
+   if this helps you/works for you, and also contact me if you find
+   any errors in these instructions.  I can be reached at
+   bryan@terran.org.
+</P>
+<P>
+Step 1
+
+   Make all necessary boot floppies.  For my RedHat-5.1 install on
+   Alphastation 200 (Avanti Mustang), this included avanti-s.img and
+   ramdisk.img.
+</P>
+<P>
+Step 2
+
+   Boot the boot disk from the SRM console.  The command line I used
+   was: >>> boot dva0 -fi vmlinux.gz -fl "prompt_ramdisk=1 load_ramdisk=1 \
+   root=/dev/fd0" (all on one line).  **Note: the "root=/dev/fd0" did
+   not appear in my RedHat-5.1 manual, though it is required**
+</P>
+<P>
+Step 3
+
+   Proceed with the RedHat install (switching floppies, etc) until you
+   reach the partitioning stage.  Define the PC-style partitions you
+   want, leaving space at the beginning of the drive (1MB should be
+   plenty); what I did was start my first partition on cylinder 2 instead
+   of cylinder 1.  Write down the start and end offsets of each partition.
+   Save the partition table.
+</P>
+<P>
+Step 4
+
+   Continue with the install through the finish.  When the install is
+   complete, put the boot disk back in the floppy and reboot your
+   Alpha.
+</P>
+<P>
+Step 5
+
+   At the SRM prompt, you want to boot the floppy with your fixed disk
+   as the root filesystem: >>> boot dva0 -fi vmlinux.gz -fl "root=/dev/sda2"
+   This assumes your root filesystem is mounted on /dev/sda2; the second
+   partition of the first SCSI fixed-disk.
+</P>
+<P>
+Step 6
+
+   Go into fdisk and create a BSD-style disklabel.  This requires the "b"
+   option in fdisk.  You must define partitions *exactly* as they were
+   originally defined with the PC-style partition table.  This means there
+   must be the same number of partitions and they must start and end on the
+   same cylinder boundaries.  Any difference will trash your filesystem and
+   you will need to reinstall.  Do not refer to the PC-style partition
+   table again; it will not be used any longer.  **Note: the PC-style
+   partition table is only used in the installation stage in order to
+   work around a bug in the RedHat 5.1/AXP install for SRM.**
+</P>
+<P>
+Step 7
+
+   Reboot again (using the floppy from Step 5) and install aboot.  The
+   command looks like this: # swriteboot /dev/sda bootlx
+   This assumes your first SCSI disk is where you will boot from.
+</P>
+<P>
+Step 8
+
+   You should now be able to reboot directly from the SRM console.
+   Boot Linux with the following command line:
+   >>> boot dka0 -fi 2/vmlinux.gz -fl "root=/dev/sda2"
+   This assumes that your root filesystem and kernel image are both on
+   the second partition of the first SCSI fixed-disk.  You may define
+   the boot device, boot file and boot flags as defaults in the SRM
+   console.  See your manual for details.
+</P>
+
+
+              <!-- End of actual document -->
+
+	      </FONT></TD>
+          </TR>
+
+        </TABLE>
+        <P>&nbsp;</P>
+      </TD>
+      <TD>&nbsp;</TD>
+
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY>
+</HTML>

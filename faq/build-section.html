@@ -1,0 +1,268 @@
+<HTML
+><HEAD
+><TITLE
+>How To Build MILO </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.57"><LINK
+REL="HOME"
+TITLE="Alpha Miniloader Howto"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Pre-Built Standard MILO Images."
+HREF="x60.html"><LINK
+REL="NEXT"
+TITLE="How To Load MILO"
+HREF="load-section.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Alpha Miniloader Howto</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x60.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="load-section.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="BUILD-SECTION"
+>4. How To Build MILO</A
+></H1
+><P
+> You build MILO 
+seperately from the Kernel.  As MILO requires parts of the kernel
+to function (for example interrupt handling) you must first 
+configure and build the
+kernel that matches with MILO that you want to build.  Mostly this
+means building the kernel with the same version number.  
+So, MILO-2.0.25.tar.gz will build against linux-2.0.25.tar.gz.  
+MILO <TT
+CLASS="LITERAL"
+>may</TT
+> build against a higher version of the kernel, but there 
+again it may not.
+Also, now that ELF shared libraries are fully supported, there are two
+versions of the MILO sources.
+To build under an ELF system you must first unpack the standard MILO sources
+and then patch those sources with the same version numbered ELF patch.
+In the remainder of this discussion,
+I assume that your kernel sources and object files are stored in the
+subtree at <TT
+CLASS="LITERAL"
+>/usr/src/linux</TT
+> and that the linux kernel has been fully
+built with the command <TT
+CLASS="LITERAL"
+>make boot</TT
+></P
+><P
+>To build MILO, 
+change your working directory to the MILO source directory and
+invoke <TT
+CLASS="LITERAL"
+>make</TT
+> with:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>$    make KSRC=/usr/src/linux config</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>Just like the Linux kernel, you will be asked a series of questions</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     Echo output to the serial port (MINI_SERIAL_ECHO) [y]</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+> It's a good idea to echo kernel printk to <TT
+CLASS="LITERAL"
+>/dev/ttyS0</TT
+> if you can.
+If you can (and want to), then type "y", otherwise "n".  
+All of the standard, pre-built, MILO images include serial port I/O using COM1.</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     Use Digital's BIOS emulation code (not free) (MINI_DIGITAL_BIOS_EMU) [y]</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+> This code is included as a library which is freely distributable
+so long as it is used on an Alpha based system.  The sources are
+not available.   If you answer <TT
+CLASS="LITERAL"
+>n</TT
+> then the freeware 
+alternative BIOS emulation will be built.  It's sources are included
+with MILO.
+Note that you cannot right now build choose Digital's BIOS emulation code in
+an ELF system (the library is not yet ready) and so you must answer no to this
+question.</P
+><P
+>&#13;<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>     Build PALcode from sources (Warning this is dangerous) (MINI_BUILD_PALCODE_FROM_SOURCES) [n]     </PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>You should only do this if you have changed the PALcode sources, otherwise use the standard,
+pre-built PALcode included with MILO.</P
+><P
+>You are now all set to build the MILO image itself:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>$    make KSRC=/usr/src/linux</PRE
+></TD
+></TR
+></TABLE
+>&#13;</P
+><P
+>When the build has successfully completed, the MILO image is in the file called <TT
+CLASS="LITERAL"
+>milo</TT
+>.
+There are a lot of images called <TT
+CLASS="LITERAL"
+>milo.*</TT
+>, these should be ignored.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x60.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="load-section.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Pre-Built Standard MILO Images.</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How To Load MILO</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
